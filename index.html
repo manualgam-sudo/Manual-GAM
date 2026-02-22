@@ -706,6 +706,8 @@
         .main-content {
             flex: 1;
             padding: 40px 60px;
+            position: relative;
+            z-index: 1; /* Por debajo del sidebar */
         }
 
         .content-section {
@@ -1206,6 +1208,19 @@
             thead { display: table-header-group; }
             tr    { break-inside: avoid !important; page-break-inside: avoid !important; }
         }
+        /* ══════════════════════════════════════════════════════════════ */
+        /* FIX: Prevenir que el contenido se superponga al sidebar       */
+        /* ══════════════════════════════════════════════════════════════ */
+        
+        .content-section * {
+            position: relative;
+            z-index: auto !important;
+        }
+        
+        .sidebar {
+            z-index: 100 !important;
+        }
+        
     </style>
 </head>
 <body>
