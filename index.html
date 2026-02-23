@@ -4713,7 +4713,7 @@
             maxTokens: 1000,
             // Netlify Function proxy — CORS completo, API key en Netlify env vars
             // En producción apunta a la URL definitiva del manual en Netlify
-            gasUrl: 'https://script.google.com/macros/s/AKfycbxeKDQsZPrt_g_nigDB6vr4uw-uqOiOhip84AqMqRsu7PCkEWZEqiGUQDRkIQ940v3n-Q/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbyCwe-iCfdfWzYLxtQfyG5HcxZEDxM_8Bj17oyweStdBgIqdv7O13cy7qvyG-nCxPoaNQ/exec',
             // Contexto del manual — se irá enriqueciendo con cada actualización
             manualContext:   '',
             ticketsCerrados: ''
@@ -5003,7 +5003,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
             submitBtn.disabled = true;
 
             // Verificar que el endpoint está configurado
-            if (TICKET_CONFIG.gasUrl === 'TU_URL_GOOGLE_APPS_SCRIPT_AQUI') {
+            if (TICKET_CONFIG.gasUrl === 'https://script.google.com/macros/s/AKfycbyCwe-iCfdfWzYLxtQfyG5HcxZEDxM_8Bj17oyweStdBgIqdv7O13cy7qvyG-nCxPoaNQ/exec') {
                 console.warn('⚠️ Google Apps Script no configurado.');
                 // En demo: simular éxito igualmente
                 document.getElementById('ticketNumber').textContent = ticketNumber;
