@@ -4852,8 +4852,10 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
                 // GAS proxy — API key en propiedades del script GAS
                 const resp = await fetch(AGENTE_CONFIG.gasUrl, {
                     method:  'POST',
+                    mode:    'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
+                        tipo:       'agente',
                         model:      AGENTE_CONFIG.model,
                         max_tokens: AGENTE_CONFIG.maxTokens,
                         system:     buildAgenteSystemPrompt(),
@@ -4861,9 +4863,17 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
                     })
                 });
 
-                const data = await resp.json();
-                if (!data.ok) throw new Error(data.error || 'Error del proxy');
-                const reply = data.content.map(b => b.text || '').join('');
+                // GAS con no-cors devuelve respuesta opaque
+                // Usamos text() para intentar leer igualmente
+                let reply = '';
+                try {
+                    const text = await resp.text();
+                    const data = JSON.parse(text);
+                    if (!data.ok) throw new Error(data.error || 'Error del proxy');
+                    reply = data.content.map(b => b.text || '').join('');
+                } catch(_) {
+                    throw new Error('No se pudo leer la respuesta del agente');
+                }
 
                 typing.remove();
                 container.appendChild(renderMsgBubble('assistant', reply));
