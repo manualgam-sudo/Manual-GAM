@@ -1289,7 +1289,7 @@
                 </svg>
             </div>
             <h3>¿Cómo podemos ayudarte?</h3>
-            <p>Obtén respuesta inmediata con nuestro Agente IA, entrenado con el contenido del manual y los casos resueltos anteriormente, o contacta directamente con el equipo técnico de Original Soft.</p>
+            <p>Obtén respuesta inmediata con nuestra Agente <strong>GAMIA</strong>, si ella no puede darte respuesta te pondrá en contacto con el equipo de soporte de Original Soft.</p>
             <div class="soporte-opciones">
                 <!-- Opción Agente IA -->
                 <button class="soporte-opcion-btn primary" onclick="mostrarVistaSoporte('agente')">
@@ -1301,7 +1301,7 @@
                             <circle cx="15" cy="16" r="1" fill="currentColor"/>
                         </svg>
                     </div>
-                    <p class="soporte-opcion-titulo">Hablar con el Agente IA</p>
+                    <p class="soporte-opcion-titulo">Hablar con GAMIA</p>
                     <p class="soporte-opcion-desc">Respuesta inmediata · Disponible 24/7 · Conoce el manual</p>
                 </button>
                 <!-- Opción Tiquet -->
@@ -1330,7 +1330,7 @@
                 </button>
                 <h3>
                     <span class="agente-status-dot"></span>
-                    Agente IA · GAM ERP
+                    GAMIA · Agente IA GAM ERP
                 </h3>
             </div>
             <div class="agente-chat-wrap">
@@ -1360,7 +1360,7 @@
                     </button>
                 </div>
                 <div class="agente-footer">
-                    El agente puede cometer errores. Si el problema persiste,
+                    GAMIA puede cometer errores. Si el problema persiste,
                     <button class="agente-footer a" onclick="mostrarVistaSoporte('tiquet')" style="background:none;border:none;color:#D20707;cursor:pointer;font-size:11px;text-decoration:underline;padding:0;font-family:inherit;">abre un tiquet de soporte.</button>
                 </div>
             </div>
@@ -4739,9 +4739,9 @@
 
         // ── System prompt del agente ──────────────────────────────
         function buildAgenteSystemPrompt() {
-            return `Eres el Agente de Soporte IA de GAM ERP, el sistema de gestión de servicios de ambulancias desarrollado por Original Soft.
+            return `Eres GAMIA, la Agente de Soporte IA de GAM ERP, el sistema de gestión de servicios de ambulancias desarrollado por Original Soft.
 
-Tu misión es ayudar a los usuarios del manual GAM ERP a resolver dudas sobre el funcionamiento del software, orientarles en la navegación por módulos y ventanas, y reducir la necesidad de abrir tickets de soporte.
+Tu nombre es GAMIA y tu misión es ayudar a los usuarios del manual GAM ERP a resolver dudas sobre el funcionamiento del software, orientarles en la navegación por módulos y ventanas, y reducir la necesidad de abrir tickets de soporte.
 
 ## COMPORTAMIENTO
 - Responde siempre en español, de forma clara, concisa y profesional.
@@ -4824,7 +4824,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
             if (!container) return;
             // Solo si está vacío
             if (container.querySelector('.msg-row')) return;
-            const bienvenida = '¡Hola! Soy el Agente de Soporte de **GAM ERP**.\n\nPuedo ayudarte con dudas sobre módulos, ventanas y configuración del sistema. ¿En qué puedo ayudarte hoy?';
+            const bienvenida = '¡Hola! Soy **GAMIA**, tu agente de soporte de GAM ERP.\n\nPuedo ayudarte con dudas sobre módulos, ventanas y configuración del sistema. Si no puedo resolver tu consulta, te pondré en contacto con el equipo de Original Soft. ¿En qué puedo ayudarte?';
             container.appendChild(renderMsgBubble('assistant', bienvenida));
             agenteScrollBottom();
         }
@@ -4863,25 +4863,33 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
             agenteScrollBottom();
 
             try {
-                // GAS proxy — API key en propiedades del script GAS
-                // Sin mode:no-cors para poder leer la respuesta
-                // GAS con acceso "Cualquier persona" devuelve CORS correcto
-                const resp = await fetch(AGENTE_CONFIG.gasUrl, {
-                    method:  'POST',
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: JSON.stringify({
-                        tipo:       'agente',
-                        model:      AGENTE_CONFIG.model,
-                        max_tokens: AGENTE_CONFIG.maxTokens,
-                        system:     buildAgenteSystemPrompt(),
-                        messages:   agenteHistorial
-                    })
-                });
+                // GAS proxy — petición simple sin preflight (text/plain evita OPTIONS)
+                let reply = '';
+                let fetchOk = false;
 
-                if (!resp.ok) throw new Error('Error del proxy: ' + resp.status);
-                const data = await resp.json();
-                if (!data.ok) throw new Error(data.error || 'Error del agente');
-                const reply = data.content.map(b => b.text || '').join('');
+                try {
+                    const resp = await fetch(AGENTE_CONFIG.gasUrl, {
+                        method:  'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                        body: JSON.stringify({
+                            tipo:       'agente',
+                            model:      AGENTE_CONFIG.model,
+                            max_tokens: AGENTE_CONFIG.maxTokens,
+                            system:     buildAgenteSystemPrompt(),
+                            messages:   agenteHistorial
+                        })
+                    });
+                    const data = await resp.json();
+                    if (!data.ok) throw new Error(data.error || 'Error del agente');
+                    reply = data.content.map(b => b.text || '').join('');
+                    fetchOk = true;
+                } catch(fetchErr) {
+                    console.error('GAS proxy error:', fetchErr.message);
+                    // Mostrar error específico para diagnóstico
+                    throw new Error('Error de conexión con el agente: ' + fetchErr.message);
+                }
+
+                if (!fetchOk || !reply) throw new Error('Respuesta vacía del agente');
 
                 typing.remove();
                 container.appendChild(renderMsgBubble('assistant', reply));
@@ -4891,8 +4899,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
                 typing.remove();
                 console.error('Agente IA error:', err);
                 if (errorBar) {
-                    document.getElementById('agenteErrorMsg').textContent =
-                        'No se pudo conectar con el agente IA. Por favor, inténtalo de nuevo o abre un tiquet.';
+                    document.getElementById('agenteErrorMsg').textContent = err.message || 'No se pudo conectar con GAMIA. Por favor, inténtalo de nuevo o abre un tiquet.';
                     errorBar.style.display = 'flex';
                 }
                 // Quitar el último mensaje del usuario del historial para permitir reintento
@@ -4960,7 +4967,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
                 document.getElementById('supportModal').scrollTop = 0;
             } else if (vista === 'agente') {
                 agente.style.display = 'block';
-                title.textContent = '🤖 Agente IA · GAM ERP';
+                title.textContent = '🤖 GAMIA · Agente IA GAM ERP';
                 initAgenteChat();
                 setTimeout(() => document.getElementById('agenteInput')?.focus(), 100);
             } else if (vista === 'tiquet') {
