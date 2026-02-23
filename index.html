@@ -4725,12 +4725,12 @@
         const AGENTE_CONFIG = {
             model:     'claude-sonnet-4-20250514',
             maxTokens: 1000,
-            // Netlify Function proxy — CORS completo, API key en Netlify env vars
-            // En producción apunta a la URL definitiva del manual en Netlify
+            // GAS proxy — tickets, FAQ y agente IA en un solo endpoint
             gasUrl: 'https://script.google.com/macros/s/AKfycbyCwe-iCfdfWzYLxtQfyG5HcxZEDxM_8Bj17oyweStdBgIqdv7O13cy7qvyG-nCxPoaNQ/exec',
-            // Contexto del manual — se irá enriqueciendo con cada actualización
+            // Contexto cargado dinámicamente desde Sheets antes de cada sesión
             manualContext:   '',
-            ticketsCerrados: ''
+            faqContext:      '',   // FAQ de Sheets — cargado al abrir el chat
+            ticketsCerrados: ''    // TT cerrados de Sheets — cargado al abrir el chat
         };
 
         // ── Historial de conversación ─────────────────────────────
@@ -4757,8 +4757,11 @@ SISTEMA, MANTENIMIENTOS, PROGRAMADOS, COORDINACION, FACTURACION, STOCK, TALLER, 
 ## CONTEXTO DEL MANUAL
 ${AGENTE_CONFIG.manualContext || 'El manual documenta 208 ventanas distribuidas en los 13 módulos anteriores. La pestaña SISTEMA agrupa funciones de configuración general, gestión transversal y herramientas comunes. No está pensado para el trabajo diario sobre servicios, pacientes o vehículos, sino para definir el marco de funcionamiento del sistema.'}
 
-## TICKETS CERRADOS RELEVANTES
-${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán añadiendo progresivamente.'}
+## FAQ — PREGUNTAS Y RESPUESTAS VERIFICADAS
+${AGENTE_CONFIG.faqContext || 'FAQ no cargada aún.'}
+
+## TICKETS CERRADOS RESUELTOS
+${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
 
 ## FORMATO DE RESPUESTA
 - Párrafos cortos y directos.
@@ -4818,6 +4821,28 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
             if (el) el.scrollTop = el.scrollHeight;
         }
 
+        // ── Cargar FAQ y tickets desde Sheets ────────────────────
+        async function cargarContextoSheets() {
+            try {
+                const resp = await fetch(AGENTE_CONFIG.gasUrl, {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: JSON.stringify({ tipo: 'contexto' })
+                });
+                const data = await resp.json();
+                if (data.ok) {
+                    if (data.faq)     AGENTE_CONFIG.faqContext      = data.faq;
+                    if (data.tickets) AGENTE_CONFIG.ticketsCerrados = data.tickets;
+                    console.log('✅ Contexto GAMIA cargado:', 
+                        (data.faq     ? 'FAQ OK' : 'FAQ vacía'), '|',
+                        (data.tickets ? 'Tickets OK' : 'Tickets vacíos'));
+                }
+            } catch(e) {
+                console.warn('Contexto Sheets no disponible:', e.message);
+                // No es crítico — GAMIA funciona sin contexto extra
+            }
+        }
+
         // ── Inicializar chat (mensaje de bienvenida) ──────────────
         function initAgenteChat() {
             const container = document.getElementById('agenteMensajes');
@@ -4827,6 +4852,8 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
             const bienvenida = '¡Hola! Soy **GAMIA**, tu agente de soporte de GAM ERP.\n\nPuedo ayudarte con dudas sobre módulos, ventanas y configuración del sistema. Si no puedo resolver tu consulta, te pondré en contacto con el equipo de Original Soft. ¿En qué puedo ayudarte?';
             container.appendChild(renderMsgBubble('assistant', bienvenida));
             agenteScrollBottom();
+            // Cargar contexto de Sheets en segundo plano
+            cargarContextoSheets();
         }
 
         // ── Enviar mensaje ────────────────────────────────────────
