@@ -334,11 +334,25 @@
         }
         .soporte-opcion-btn.primary .soporte-opcion-icono { background: rgba(255,255,255,0.2); }
         .soporte-opcion-btn.secondary .soporte-opcion-icono { background: #fdf2f2; color: #D20707; }
+        .soporte-opcion-btn.primary .soporte-opcion-titulo,
+        .soporte-opcion-btn.primary .soporte-opcion-desc { color: #ffffff; }
+        .soporte-opcion-btn.secondary .soporte-opcion-titulo { color: #1a1a1a; }
+        .soporte-opcion-btn.secondary .soporte-opcion-desc { color: #555555; }
         .soporte-opcion-titulo {
             font-size: 16px; font-weight: 700; margin: 0;
         }
         .soporte-opcion-desc {
-            font-size: 12px; margin: 0; opacity: 0.8; line-height: 1.5;
+            font-size: 12px; margin: 0; opacity: 1; line-height: 1.5;
+        }
+        .soporte-opcion-btn.primary .soporte-opcion-titulo,
+        .soporte-opcion-btn.primary .soporte-opcion-desc {
+            color: #ffffff;
+        }
+        .soporte-opcion-btn.secondary .soporte-opcion-titulo {
+            color: #1a1a1a;
+        }
+        .soporte-opcion-btn.secondary .soporte-opcion-desc {
+            color: #444444;
         }
         .soporte-footer-note {
             margin-top: 36px;
@@ -441,7 +455,7 @@
             background: #fafafa; border-top: 1px solid #f0f0f0;
         }
         .sugerencia-chip {
-            background: #fff0f0; border: 1px solid #f5c6c6; color: #b00505;
+            background: #fff0f0; border: 1px solid #f5c6c6; color: #8a0000;
             border-radius: 20px; padding: 5px 13px; font-size: 12px;
             cursor: pointer; font-family: inherit; transition: background 0.15s;
         }
@@ -4850,10 +4864,11 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
 
             try {
                 // GAS proxy — API key en propiedades del script GAS
+                // Sin mode:no-cors para poder leer la respuesta
+                // GAS con acceso "Cualquier persona" devuelve CORS correcto
                 const resp = await fetch(AGENTE_CONFIG.gasUrl, {
                     method:  'POST',
-                    mode:    'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify({
                         tipo:       'agente',
                         model:      AGENTE_CONFIG.model,
@@ -4863,17 +4878,10 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
                     })
                 });
 
-                // GAS con no-cors devuelve respuesta opaque
-                // Usamos text() para intentar leer igualmente
-                let reply = '';
-                try {
-                    const text = await resp.text();
-                    const data = JSON.parse(text);
-                    if (!data.ok) throw new Error(data.error || 'Error del proxy');
-                    reply = data.content.map(b => b.text || '').join('');
-                } catch(_) {
-                    throw new Error('No se pudo leer la respuesta del agente');
-                }
+                if (!resp.ok) throw new Error('Error del proxy: ' + resp.status);
+                const data = await resp.json();
+                if (!data.ok) throw new Error(data.error || 'Error del agente');
+                const reply = data.content.map(b => b.text || '').join('');
 
                 typing.remove();
                 container.appendChild(renderMsgBubble('assistant', reply));
@@ -4972,7 +4980,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
         // ═══════════════════════════════════════════════════════════
 
         const TICKET_CONFIG = {
-            gasUrl: 'https://script.google.com/macros/s/AKfycbxeKDQsZPrt_g_nigDB6vr4uw-uqOiOhip84AqMqRsu7PCkEWZEqiGUQDRkIQ940v3n-Q/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbyCwe-iCfdfWzYLxtQfyG5HcxZEDxM_8Bj17oyweStdBgIqdv7O13cy7qvyG-nCxPoaNQ/exec',
             emailSoporte: 'manualgam@gmail.com'
         };
 
@@ -5003,7 +5011,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún. Se irán a�
             submitBtn.disabled = true;
 
             // Verificar que el endpoint está configurado
-            if (TICKET_CONFIG.gasUrl === 'https://script.google.com/macros/s/AKfycbyCwe-iCfdfWzYLxtQfyG5HcxZEDxM_8Bj17oyweStdBgIqdv7O13cy7qvyG-nCxPoaNQ/exec') {
+            if (TICKET_CONFIG.gasUrl === 'TU_URL_GOOGLE_APPS_SCRIPT_AQUI') {
                 console.warn('⚠️ Google Apps Script no configurado.');
                 // En demo: simular éxito igualmente
                 document.getElementById('ticketNumber').textContent = ticketNumber;
