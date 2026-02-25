@@ -95,7 +95,7 @@
 
         /* Icono Mejoras en header */
         .header-mejoras-btn {
-            height: 60px;
+            height: 46px;
             width: auto;
             cursor: pointer;
             border-radius: 6px;
@@ -192,6 +192,7 @@
             letter-spacing: 0.3px;
             text-transform: uppercase;
             flex-shrink: 0;
+            font-family: inherit;
         }
         .tab:hover {
             background: black;
@@ -1555,7 +1556,7 @@
 
 
 /* ============================================
-   Estilos adicionales
+   Estilos contenido (web + PDF)
    ============================================ */
 
 *,*::before,*::after{box-sizing:border-box}
