@@ -1620,4 +1620,7 @@ th{background:#2a2a2a;color:white;padding:9px 11px;text-align:left;font-size:11p
 td{padding:8px 11px;border-bottom:1px solid #e0e0e0;font-size:10.5px}
 tr:nth-child(even) td{background:#f8f8f8}
 tr{break-inside:avoid;page-break-inside:avoid}
-.construction{display:none}
+
+@media print {
+    .construction{display:none}
+}
