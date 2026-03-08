@@ -32,7 +32,7 @@
         <a onclick="openSupportModal()" class="btn-soporte">SOPORTE</a>
         <img src="assets/img/icon-mejoras.png"
              class="header-mejoras-btn"
-             onclick="showTab('mejoras')"
+             onclick="showNovedades()"
              alt="Mejoras"
              title="Novedades y Mejoras">
     </nav>
@@ -3177,6 +3177,17 @@
     <!-- GAM:FIN:mejoras-proximas-actualizaciones -->
 </section>
 
+<section class="content-section" id="content-novedades">
+    <!-- GAM:INICIO:novedades -->
+    <h1>🚀 Novedades GAM</h1>
+    <div class="construction">
+        <h3>🔄 Sección en construcción</h3>
+        <p>El documento de novedades se publicará aquí próximamente.</p>
+        <p>Esta sección se actualiza automáticamente desde Google Docs mediante el sistema de marcadores GAM.</p>
+    </div>
+    <!-- GAM:FIN:novedades -->
+</section>
+
         </main>
     </div>
 
@@ -3324,6 +3335,15 @@
         }
 
         // Cambiar contenido
+        function showNovedades() {
+            // Muestra directamente el documento de novedades desde el icono del header
+            document.querySelectorAll(".content-section").forEach(s => s.classList.remove("active"));
+            document.querySelectorAll(".sidebar").forEach(s => s.style.display = "none");
+            document.querySelectorAll(".sidebar-item").forEach(i => i.classList.remove("active"));
+            const novedades = document.getElementById("content-novedades");
+            if (novedades) novedades.classList.add("active");
+        }
+
         function showContent(contentId) {
             document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
             const content = document.getElementById('content-' + contentId);
