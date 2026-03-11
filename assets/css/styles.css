@@ -69,13 +69,13 @@
 
         .header-nav a.btn-soporte {
             background-color: #D20707;
-            color: #ffffff;
             padding: 5px 12px;
             border-radius: 4px;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .header-nav a.btn-soporte:hover {
+            color: #ffffff;
             background-color: #a80505;
             color: #ffffff;
         }
@@ -1610,6 +1610,7 @@ html,body{margin:0;padding:0;font-family:'Roboto','Segoe UI',sans-serif;font-wei
 .idx-pts{flex:1;border-bottom:1px dotted #ccc;margin:0 8px 3px;min-width:10px}
 .idx-pg{flex-shrink:0;font-weight:600;color:#D20707;font-size:11px;min-width:18px;text-align:right}
 /* ── Tipografía ── */
+h0{font-size:24px;font-weight:700;color:#000;border-bottom:3px solid #D20707;padding-bottom:12px;margin-bottom:26px}
 h1{font-size:26px;font-weight:700;color:#000;border-bottom:3px solid #D20707;padding-bottom:12px;margin-bottom:26px}
 h1::before{content:'■■■ ';color:#D20707;font-weight:900}
 h2{font-size:17px;font-weight:600;color:#2a2a2a;border-bottom:1px solid #D20707;padding-bottom:7px;margin-top:30px;margin-bottom:14px;break-after:avoid;page-break-after:avoid}
