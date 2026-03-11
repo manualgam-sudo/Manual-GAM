@@ -1171,7 +1171,7 @@
         .icon-inline {
             display: inline-block;
             vertical-align: middle;
-            height: 22px;
+            height: 28px;
             width: auto;
             margin: 0 4px;
             position: relative;
@@ -1629,7 +1629,7 @@ img{max-width:100%;height:auto;display:block;margin:0 auto;border:1px solid #e0e
 .screenshot-caption{text-align:center;font-style:italic;color:#666;font-size:11px;margin-top:6px;margin-bottom:0;break-before:avoid;page-break-before:avoid}
 figure{margin:1.5rem 0;text-align:center;break-inside:avoid;page-break-inside:avoid}
 figure img.screenshot{max-width:100%;border:1px solid #e0e0e0;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.08);display:block;margin:0 auto}
-img.icon-inline{display:inline-block;vertical-align:middle;height:20px;width:auto;margin:0 3px}
+img.icon-inline{display:inline-block;vertical-align:middle;height:28px;width:auto;margin:0 3px}
 figcaption{display:block;margin:6px auto 0;font-size:11px;color:#666;font-style:italic;text-align:center;padding:3px 12px;width:fit-content;break-before:avoid;page-break-before:avoid}
 p.figcaption-orphan{font-size:11px;color:#999;font-style:italic;text-align:center;margin-top:4px}
 /* ── Cajas ── */
