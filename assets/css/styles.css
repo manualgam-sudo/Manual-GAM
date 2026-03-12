@@ -69,13 +69,13 @@
 
         .header-nav a.btn-soporte {
             background-color: #D20707;
+            color: #ffffff;
             padding: 5px 12px;
             border-radius: 4px;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .header-nav a.btn-soporte:hover {
-            color: #ffffff;
             background-color: #a80505;
             color: #ffffff;
         }
@@ -1171,7 +1171,7 @@
         .icon-inline {
             display: inline-block;
             vertical-align: middle;
-            height: 28px;
+            height: 22px;
             width: auto;
             margin: 0 4px;
             position: relative;
@@ -1367,14 +1367,15 @@
                 height: 28px;
                 width: auto;
                 cursor: pointer;
-                margin-left: 8px;
+                margin-left: 14px;
                 vertical-align: middle;
             }
             
-            /* Icono Mejoras en móvil */
+            /* Separación entre logo móvil e icono Mejoras */
             .header-mejoras-btn {
                 height: 44px;
                 width: auto;
+                margin-left: 10px;
             }
             
             /* Ocultar sidebar en móvil por defecto */
@@ -1527,6 +1528,17 @@
                 font-size: 18px;
             }
             
+            /* Título Centro de Soporte adaptado a móvil */
+            .soporte-landing h3 {
+                font-size: 18px;
+                padding: 0 15px;
+            }
+            
+            .soporte-landing p {
+                font-size: 13px;
+                padding: 0 15px;
+            }
+            
             /* Chat IA ajustado */
             .chat-container {
                 height: 50vh;
@@ -1622,7 +1634,7 @@ h5{background:#E3F2FD;border-left:4px solid #2196F3;padding:12px 16px;margin:16p
 h5::before{content:'ℹ️ NOTA: ';color:#2196F3;font-weight:700}
 h6{background:#FFF9E6;border-left:4px solid #FFC107;padding:12px 16px;margin:16px 0;font-size:10.5pt;font-weight:400;line-height:1.6;break-inside:avoid;page-break-inside:avoid}
 h6::before{content:'⚡ ADVERTENCIA: ';color:#FFC107;font-weight:700}
-h7{font-size:24px;font-weight:700;margin-bottom:14px;color:#000000}
+h7{font-size:24px;font-weight:700;color:#000;padding-bottom:12px;margin-bottom:26px}
 p{line-height:1.8;margin-bottom:14px;text-align:justify;color:#2a2a2a;orphans:3;widows:3}
 /* ── Imágenes ── */
 .img-wrap{break-inside:avoid;page-break-inside:avoid;margin:20px 0}
@@ -1630,7 +1642,7 @@ img{max-width:100%;height:auto;display:block;margin:0 auto;border:1px solid #e0e
 .screenshot-caption{text-align:center;font-style:italic;color:#666;font-size:11px;margin-top:6px;margin-bottom:0;break-before:avoid;page-break-before:avoid}
 figure{margin:1.5rem 0;text-align:center;break-inside:avoid;page-break-inside:avoid}
 figure img.screenshot{max-width:100%;border:1px solid #e0e0e0;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.08);display:block;margin:0 auto}
-img.icon-inline{display:inline-block;vertical-align:middle;height:28px;width:auto;margin:0 3px}
+img.icon-inline{display:inline-block;vertical-align:middle;height:20px;width:auto;margin:0 3px}
 figcaption{display:block;margin:6px auto 0;font-size:11px;color:#666;font-style:italic;text-align:center;padding:3px 12px;width:fit-content;break-before:avoid;page-break-before:avoid}
 p.figcaption-orphan{font-size:11px;color:#999;font-style:italic;text-align:center;margin-top:4px}
 /* ── Cajas ── */
