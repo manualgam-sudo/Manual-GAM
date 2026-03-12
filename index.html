@@ -252,6 +252,27 @@
                         <label>Dudas o Observaciones</label>
                         <textarea name="observaciones" placeholder="Describa su consulta o problema en detalle..."></textarea>
                     </div>
+                    <!-- Campo captura de pantalla -->
+<div class="form-group">
+  <label for="ticketCaptura">Captura de pantalla (opcional)</label>
+  <div class="upload-area" id="uploadArea">
+    <input 
+      type="file" 
+      id="ticketCaptura" 
+      accept="image/*" 
+      style="display:none"
+    >
+    <div class="upload-placeholder" id="uploadPlaceholder" onclick="document.getElementById('ticketCaptura').click()">
+      <span class="upload-icon">📎</span>
+      <span>Haz clic o arrastra una imagen aquí</span>
+      <small>PNG, JPG, GIF · Máx. 5 MB</small>
+    </div>
+    <div class="upload-preview" id="uploadPreview" style="display:none">
+      <img id="previewImg" src="" alt="Preview">
+      <button type="button" class="btn-remove-img" onclick="eliminarCaptura()">✕ Eliminar</button>
+    </div>
+  </div>
+</div>
                     <button type="submit" class="btn-submit">📤 ENVIAR SOLICITUD</button>
                 </form>
             </div>
