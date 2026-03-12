@@ -8,6 +8,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* ── Upload de imagen en formulario de soporte ── */
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 6px;
+            transition: border-color .2s, background .2s;
+        }
+        .upload-area.drag-over {
+            border-color: #D20707;
+            background: rgba(210,7,7,.05);
+        }
+        .upload-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 20px;
+            color: #888;
+            font-size: .9rem;
+            cursor: pointer;
+        }
+        .upload-placeholder .upload-icon { font-size: 1.8rem; }
+        .upload-placeholder small        { font-size: .75rem; color: #aaa; }
+        .upload-preview {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+        }
+        .upload-preview img {
+            max-height: 80px;
+            max-width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            object-fit: contain;
+        }
+        .btn-remove-img {
+            background: #D20707;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 10px;
+            font-size: .8rem;
+            cursor: pointer;
+        }
+        .btn-remove-img:hover { background: #a00505; }
+    </style>
 </head>
 <body>
     <!-- Botón menú móvil -->
@@ -305,7 +352,7 @@
 
         <div class="sidebar" id="sidebar-sistema" style="display:none;">
             <div class="sidebar-title">SISTEMA</div>
-            <div class="sidebar-item intro" onclick="showContent('sistema-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('sis-100-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('sis-101-empresas')">Empresas</div>
             <div class="sidebar-item" onclick="showContent('sis-101-empresas-anexo-avanzado')">Empresas Anexo Avanzado</div>
             <div class="sidebar-item" onclick="showContent('sis-102-envio-avisos-a-usuarios')">Envío avisos a usuarios</div>
@@ -321,7 +368,7 @@
         <!-- Sidebar MANTENIMIENTOS (48 ventanas EXACTAS) -->
         <div class="sidebar" id="sidebar-mantenimientos" style="display:none;">
             <div class="sidebar-title">MANTENIMIENTOS</div>
-            <div class="sidebar-item intro" onclick="showContent('mantenimientos-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('mant-200-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('mant-201-extra1')">Extra1</div>
             <div class="sidebar-item" onclick="showContent('mant-202-extra2')">Extra2</div>
             <div class="sidebar-item" onclick="showContent('mant-204-vehiculos')">Vehículos</div>
@@ -358,7 +405,7 @@
         <!-- Sidebar PROGRAMADOS (7 ventanas) -->
         <div class="sidebar" id="sidebar-programados" style="display:none;">
             <div class="sidebar-title">PROGRAMADOS</div>
-            <div class="sidebar-item intro" onclick="showContent('programados-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('prog-300-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('prog-301-pacientes')">Pacientes</div>
             <div class="sidebar-item" onclick="showContent('prog-302-ficha-programados')">Ficha programados</div>
             <div class="sidebar-item" onclick="showContent('prog-303-rutas')">Rutas</div>
@@ -374,7 +421,7 @@
         <!-- Sidebar COORDINACION (21 ventanas) -->
         <div class="sidebar" id="sidebar-coordinacion" style="display:none;">
             <div class="sidebar-title">COORDINACION</div>
-            <div class="sidebar-item intro" onclick="showContent('coordinacion-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('coord-400-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('coord-401-normales')">Normales</div>
             <div class="sidebar-item" onclick="showContent('coord-402-siniestros')">Siniestros</div>
             <div class="sidebar-item" onclick="showContent('coord-403-urgencias')">Urgencias</div>
@@ -404,7 +451,7 @@
         <!-- Sidebar FACTURACION (14 ventanas) -->
         <div class="sidebar" id="sidebar-facturacion" style="display:none;">
             <div class="sidebar-title">FACTURACION</div>
-            <div class="sidebar-item intro" onclick="showContent('facturacion-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('fact-500-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('fact-501-lotes-mutuas')">Lotes/Mutuas</div>
             <div class="sidebar-item" onclick="showContent('fact-502-introduccion-servicios-manuales')">Introducción servicios manuales</div>
             <div class="sidebar-item" onclick="showContent('fact-503-historico-gastos-vehiculo')">Histórico gastos vehículo</div>
@@ -426,7 +473,7 @@
         <!-- Sidebar STOCK (15 ventanas) -->
         <div class="sidebar" id="sidebar-stock" style="display:none;">
             <div class="sidebar-title">STOCK</div>
-            <div class="sidebar-item intro" onclick="showContent('stock-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('stock-600-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('stock-602-tipos-material')">Tipos material</div>
             <div class="sidebar-item" onclick="showContent('stock-603-familias')">Familias</div>
             <div class="sidebar-item" onclick="showContent('stock-604-gamas')">Gamas</div>
@@ -448,7 +495,7 @@
         <!-- Sidebar TALLER (20 ventanas) -->
         <div class="sidebar" id="sidebar-taller" style="display:none;">
             <div class="sidebar-title">TALLER</div>
-            <div class="sidebar-item intro" onclick="showContent('taller-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('tall-700-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('tall-701-ficha-vehiculo')">Ficha vehículo</div>
             <div class="sidebar-item" onclick="showContent('tall-702-tipos-avisos')">Tipos avisos</div>
             <div class="sidebar-item" onclick="showContent('tall-703-calendario-avisos')">Calendario avisos</div>
@@ -476,7 +523,7 @@
         <!-- Sidebar INFORMACION (7 ventanas) -->
         <div class="sidebar" id="sidebar-informacion" style="display:none;">
             <div class="sidebar-title">INFORMACION</div>
-            <div class="sidebar-item intro" onclick="showContent('informacion-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('info-800-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('info-801-servicios')">Servicios</div>
             <div class="sidebar-item" onclick="showContent('info-802-programados-colectivos')">Programados/Colectivos</div>
             <div class="sidebar-item" onclick="showContent('info-803-pacientes')">Pacientes</div>
@@ -490,7 +537,7 @@
         <!-- Sidebar UTILIDADES (7 ventanas) -->
         <div class="sidebar" id="sidebar-utilidades" style="display:none;">
             <div class="sidebar-title">UTILIDADES</div>
-            <div class="sidebar-item intro" onclick="showContent('utilidades-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('util-900-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('util-901-contadores-de-la-aplicacion')">Contadores de la aplicación</div>
             <div class="sidebar-item" onclick="showContent('util-902-permiso-de-usuarios')">Permiso de usuarios</div>
             <div class="sidebar-item" onclick="showContent('util-904-procesos-datos')">Procesos datos</div>
@@ -503,7 +550,7 @@
         <!-- Sidebar TELECOMUNICACIONES (5 ventanas) -->
         <div class="sidebar" id="sidebar-telecomunicaciones" style="display:none;">
             <div class="sidebar-title">TELECOMUNICACIONES</div>
-            <div class="sidebar-item intro" onclick="showContent('telecomunicaciones-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('telco-1000-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('telco-1001-listado-cartografia')">Listado cartografía</div>
             <div class="sidebar-item" onclick="showContent('telco-1002-configuracion-vehiculos')">Configuración Vehículos</div>
             <div class="sidebar-item" onclick="showContent('telco-1003-configuracion-terminales')">Configuración Terminales</div>
@@ -514,7 +561,7 @@
         <!-- Sidebar RRHH (31 ventanas) -->
         <div class="sidebar" id="sidebar-rrhh" style="display:none;">
             <div class="sidebar-title">RRHH</div>
-            <div class="sidebar-item intro" onclick="showContent('rrhh-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('rrhh-1100-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('rrhh-1101-personal')">Personal</div>
             <div class="sidebar-item" onclick="showContent('rrhh-1102-incidencias-al-personal')">Incidencias al personal</div>
             <div class="sidebar-item" onclick="showContent('rrhh-1103-avisos-trabajadores')">Avisos trabajadores</div>
@@ -548,7 +595,7 @@
         <!-- Sidebar WEB (16 ventanas) -->
         <div class="sidebar" id="sidebar-web" style="display:none;">
             <div class="sidebar-title">WEB</div>
-            <div class="sidebar-item intro" onclick="showContent('web-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('web-1200-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('web-1201-informacion-web')">Información Web</div>
             <div class="sidebar-item" onclick="showContent('web-1202-envio-masivo-mensajes-trabajadores')">Envío masivo mensajes trabajadores</div>
             <div class="sidebar-item" onclick="showContent('web-1203-mensajes-trabajadores')">Mensajes trabajadores</div>
@@ -577,7 +624,7 @@
 
         <div class="sidebar" id="sidebar-powerbi" style="display:none;">
             <div class="sidebar-title">PowerBi</div>
-            <div class="sidebar-item intro" onclick="showContent('powerbi-intro')">Introducción</div>
+            <div class="sidebar-item intro" onclick="showContent('pbi-1300-intro')">Introducción</div>
             <div class="sidebar-item" onclick="showContent('pbi-1301-cuadro-de-mando-coordinacion')">Cuadro de mando COORDINACION</div>
             <div class="sidebar-item" onclick="showContent('pbi-1302-cuadro-de-mando-rrhh')">Cuadro de mando RRHH</div>
             <div class="sidebar-item" onclick="showContent('pbi-1303-cuadro-de-mando-stock')">Cuadro de mando STOCK</div>
@@ -624,156 +671,156 @@
     <h1>⚙️ Módulo Sistema</h1>
     <p>El módulo <strong>Sistema</strong> engloba las funciones de configuración y administración general del ERP GAM: gestión de empresas, usuarios, agenda de direcciones y personal, avisos, calendario e impresoras.</p>
     <p>Selecciona una ventana del menú lateral para ver su documentación detallada.</p>
-    <!-- GAM:FIN:sistema-intro -->
+    <!-- GAM:FIN:sis-100-intro -->
 </section>
 
-<section class="content-section" id="content-mantenimientos-intro">
-    <!-- GAM:INICIO:mantenimientos-intro -->
+<section class="content-section" id="content-mant-200-intro">
+    <!-- GAM:INICIO:mant-200-intro -->
     <h1>🔧 Módulo Mantenimientos</h1>
     <p>El módulo <strong>Mantenimientos</strong> contiene todas las tablas maestras del sistema: vehículos, tipos de traslado, poblaciones, destinos, recursos, personal sanitario, calendarios y demás configuraciones base del ERP.</p>
     <p>Selecciona una ventana del menú lateral para ver su documentación detallada.</p>
-    <!-- GAM:FIN:mantenimientos-intro -->
+    <!-- GAM:FIN:mant-200-intro -->
 </section>
 
-<section class="content-section" id="content-programados-intro">
-            <!-- GAM:INICIO:programados-intro -->
+<section class="content-section" id="content-prog-300-intro">
+            <!-- GAM:INICIO:prog-300-intro -->
                 <h1>PROGRAMADOS</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo PROGRAMADOS</h3>
                     <p>Esta sección contendrá la introducción general del módulo Programados.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:programados-intro -->
+                        <!-- GAM:FIN:prog-300-intro -->
             </section>
             
             <!-- COORDINACION - Introducción -->
             
-<section class="content-section" id="content-coordinacion-intro">
-            <!-- GAM:INICIO:coordinacion-intro -->
+<section class="content-section" id="content-coord-400-intro">
+            <!-- GAM:INICIO:coord-400-intro -->
                 <h1>COORDINACION</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo COORDINACION</h3>
                     <p>Esta sección contendrá la introducción general del módulo Coordinación.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:coordinacion-intro -->
+                        <!-- GAM:FIN:coord-400-intro -->
             </section>
             
             <!-- FACTURACION - Introducción -->
             
-<section class="content-section" id="content-facturacion-intro">
-            <!-- GAM:INICIO:facturacion-intro -->
+<section class="content-section" id="content-fact-500-intro">
+            <!-- GAM:INICIO:fact-500-intro -->
                 <h1>FACTURACION</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo FACTURACION</h3>
                     <p>Esta sección contendrá la introducción general del módulo Facturación.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:facturacion-intro -->
+                        <!-- GAM:FIN:fact-500-intro -->
             </section>
             
             <!-- STOCK - Introducción -->
             
-<section class="content-section" id="content-stock-intro">
-            <!-- GAM:INICIO:stock-intro -->
+<section class="content-section" id="content-stock-600-intro">
+            <!-- GAM:INICIO:stock-600-intro -->
                 <h1>STOCK</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo STOCK</h3>
                     <p>Esta sección contendrá la introducción general del módulo Stock.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:stock-intro -->
+                        <!-- GAM:FIN:stock-600-intro -->
             </section>
             
             <!-- TALLER - Introducción -->
             
-<section class="content-section" id="content-taller-intro">
-            <!-- GAM:INICIO:taller-intro -->
+<section class="content-section" id="content-tall-700-intro">
+            <!-- GAM:INICIO:tall-700-intro -->
                 <h1>TALLER</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo TALLER</h3>
                     <p>Esta sección contendrá la introducción general del módulo Taller.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:taller-intro -->
+                        <!-- GAM:FIN:tall-700-intro -->
             </section>
             
             <!-- INFORMACION - Introducción -->
             
-<section class="content-section" id="content-informacion-intro">
-            <!-- GAM:INICIO:informacion-intro -->
+<section class="content-section" id="content-info-800-intro">
+            <!-- GAM:INICIO:info-800-intro -->
                 <h1>INFORMACION</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo INFORMACION</h3>
                     <p>Esta sección contendrá la introducción general del módulo Información.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:informacion-intro -->
+                        <!-- GAM:FIN:info-800-intro -->
             </section>
             
             <!-- UTILIDADES - Introducción -->
             
-<section class="content-section" id="content-utilidades-intro">
-            <!-- GAM:INICIO:utilidades-intro -->
+<section class="content-section" id="content-util-900-intro">
+            <!-- GAM:INICIO:util-900-intro -->
                 <h1>UTILIDADES</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo UTILIDADES</h3>
                     <p>Esta sección contendrá la introducción general del módulo Utilidades.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:utilidades-intro -->
+                        <!-- GAM:FIN:util-900-intro -->
             </section>
             
             <!-- TELECOMUNICACIONES - Introducción -->
             
-<section class="content-section" id="content-telecomunicaciones-intro">
-            <!-- GAM:INICIO:telecomunicaciones-intro -->
+<section class="content-section" id="content-telco-1000-intro">
+            <!-- GAM:INICIO:telco-1000-intro -->
                 <h1>TELECOMUNICACIONES</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo TELECOMUNICACIONES</h3>
                     <p>Esta sección contendrá la introducción general del módulo Telecomunicaciones.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:telecomunicaciones-intro -->
+                        <!-- GAM:FIN:telco-1000-intro -->
             </section>
             
             <!-- RRHH - Introducción -->
             
-<section class="content-section" id="content-rrhh-intro">
-            <!-- GAM:INICIO:rrhh-intro -->
+<section class="content-section" id="content-rrhh-1100-intro">
+            <!-- GAM:INICIO:rrhh-1100-intro -->
                 <h1>RRHH</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo RRHH</h3>
                     <p>Esta sección contendrá la introducción general del módulo Recursos Humanos.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:rrhh-intro -->
+                        <!-- GAM:FIN:rrhh-1100-intro -->
             </section>
             
             <!-- WEB - Introducción -->
             
-<section class="content-section" id="content-web-intro">
-            <!-- GAM:INICIO:web-intro -->
+<section class="content-section" id="content-web-1200-intro">
+            <!-- GAM:INICIO:web-1200-intro -->
                 <h1>WEB</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo WEB</h3>
                     <p>Esta sección contendrá la introducción general del módulo Web.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:web-intro -->
+                        <!-- GAM:FIN:web-1200-intro -->
             </section>
             
             <!-- PowerBi - Introducción -->
             
-<section class="content-section" id="content-powerbi-intro">
-            <!-- GAM:INICIO:powerbi-intro -->
+<section class="content-section" id="content-pbi-1300-intro">
+            <!-- GAM:INICIO:pbi-1300-intro -->
                 <h1>PowerBi</h1>
                 <div class="construction">
                     <h3>📖 Introducción al Módulo PowerBi</h3>
                     <p>Esta sección contendrá la introducción general del módulo PowerBi.</p>
                     <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
                 </div>
-                        <!-- GAM:FIN:powerbi-intro -->
+                        <!-- GAM:FIN:pbi-1300-intro -->
             </section>
 <section class="content-section" id="content-sis-101-empresas">
             <!-- GAM:INICIO:sis-101-empresas -->
@@ -3896,11 +3943,10 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
             // Remover active de todas las pestañas
             document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
             
-            // Actualizar tab activo (solo si event existe)
+            // Activar tab correspondiente
             if (typeof event !== 'undefined' && event.target && event.target.classList.contains('tab')) {
                 event.target.classList.add('active');
             } else {
-                // Si se llamó desde el selector, activar el tab correspondiente
                 document.querySelectorAll('.tab').forEach(tab => {
                     if (tab.onclick && tab.onclick.toString().includes(`'${tabName}'`)) {
                         tab.classList.add('active');
@@ -3910,11 +3956,9 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
             
             // Actualizar selector móvil
             const mobileSelector = document.querySelector('.mobile-tab-selector');
-            if (mobileSelector) {
-                mobileSelector.value = tabName;
-            }
+            if (mobileSelector) mobileSelector.value = tabName;
             
-            // Ocultar todos los sidebars
+            // Gestionar sidebars
             document.querySelectorAll('.sidebar').forEach(sidebar => sidebar.style.display = 'none');
             const sidebar = document.getElementById('sidebar-' + tabName);
             if (sidebar) {
@@ -3924,18 +3968,29 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
                 if (introItem) introItem.classList.add('active');
             }
             
-            // Mostrar contenido según la pestaña
+            // Mostrar sección intro del módulo usando el mapa INTRO_IDS
             document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
             if (tabName === 'inicio') {
-                // INICIO → siempre muestra la portada
                 document.getElementById('content-default').classList.add('active');
             } else {
-                const introContent = document.getElementById('content-' + tabName + '-intro');
+                const introId = (typeof INTRO_IDS !== 'undefined' && INTRO_IDS[tabName])
+                              ? INTRO_IDS[tabName]
+                              : (tabName + '-intro');
+                const introContent = document.getElementById('content-' + introId);
                 if (introContent) {
                     introContent.classList.add('active');
                 } else {
                     document.getElementById('content-default').classList.add('active');
                 }
+            }
+            
+            // Cerrar menú móvil si está abierto
+            if (window.innerWidth <= 768) {
+                const overlay = document.querySelector('.sidebar-overlay');
+                const menuBtn = document.querySelector('.mobile-menu-toggle');
+                document.querySelectorAll('.sidebar.active').forEach(s => s.classList.remove('active'));
+                if (overlay) overlay.classList.remove('active');
+                if (menuBtn) menuBtn.innerHTML = '☰';
             }
         }
 
@@ -4196,12 +4251,10 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
         // ═══════════════════════════════════════════════════════════
         
         function updateVentanas() {
-            console.log('🔧 updateVentanas llamada');
             const pestanaSelect = document.getElementById('pestanaSelect');
             const ventanaSelect = document.getElementById('ventanaSelect');
             const pestanaSeleccionada = pestanaSelect.value;
             
-            console.log('📋 Pestaña seleccionada:', pestanaSeleccionada);
             
             // Limpiar opciones actuales
             ventanaSelect.innerHTML = '';
@@ -4230,7 +4283,6 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
             });
             
             // Mostrar feedback en consola
-            console.log(`✅ Cargadas ${ventanas.length} ventanas para ${pestanaSeleccionada}`);
         }
         
         // ═══════════════════════════════════════════════════════════
@@ -4752,10 +4804,70 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         // ═══════════════════════════════════════════════════════════
 
         const TICKET_CONFIG = {
-            gasUrl: 'https://script.google.com/macros/s/AKfycbys-LgT_ohqTOK25_3UZeS_KoPmCIjXIIFmAfl1hQStWtZS85gyKmLXTuAJfMucukPycw/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbxv24fgkkS1QWfAyJYUq9zLE5W0vawZYucRjeUkCc1gBWpYPBnDZzSiVTMD0RD4Rtb5pw/exec',
             emailSoporte: 'manualgam@gmail.com'
         };
 
+        // ── Captura de imagen ──────────────────────────────────────
+        let _capturaBase64 = '';   // almacena la imagen seleccionada como base64
+
+        // Inicializar listeners de imagen al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputCaptura = document.getElementById('ticketCaptura');
+            const uploadArea   = document.getElementById('uploadArea');
+
+            if (inputCaptura) {
+                // Cambio de archivo via input
+                inputCaptura.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) procesarImagen(file);
+                });
+            }
+
+            if (uploadArea) {
+                // Drag & drop
+                uploadArea.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    uploadArea.classList.add('drag-over');
+                });
+                uploadArea.addEventListener('dragleave', function() {
+                    uploadArea.classList.remove('drag-over');
+                });
+                uploadArea.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    uploadArea.classList.remove('drag-over');
+                    const file = e.dataTransfer.files[0];
+                    if (file && file.type.startsWith('image/')) procesarImagen(file);
+                });
+            }
+        });
+
+        function procesarImagen(file) {
+            // Validar tamaño máximo 5 MB
+            if (file.size > 5 * 1024 * 1024) {
+                alert('La imagen supera el límite de 5 MB. Por favor elige una imagen más pequeña.');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                _capturaBase64 = e.target.result;   // "data:image/png;base64,XXXX"
+                // Mostrar preview
+                document.getElementById('previewImg').src = _capturaBase64;
+                document.getElementById('uploadPlaceholder').style.display = 'none';
+                document.getElementById('uploadPreview').style.display    = 'flex';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function eliminarCaptura() {
+            _capturaBase64 = '';
+            document.getElementById('ticketCaptura').value = '';
+            document.getElementById('previewImg').src = '';
+            document.getElementById('uploadPreview').style.display    = 'none';
+            document.getElementById('uploadPlaceholder').style.display = 'flex';
+        }
+
+        // ── Envío del formulario ───────────────────────────────────
         async function submitSupport(event) {
             event.preventDefault();
 
@@ -4768,13 +4880,14 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                     year: 'numeric', month: '2-digit', day: '2-digit',
                     hour: '2-digit', minute: '2-digit'
                 }),
-                nombre:        formData.get('nombre'),
-                empresa:       formData.get('empresa'),
-                contacto:      formData.get('contacto'),
-                pestana:       formData.get('pestana')      || 'No especificada',
-                ventana:       formData.get('ventana')      || 'No especificada',
-                error:         formData.get('error')        || 'Sin error reportado',
-                observaciones: formData.get('observaciones')|| 'Sin observaciones'
+                nombre:          formData.get('nombre'),
+                empresa:         formData.get('empresa'),
+                contacto:        formData.get('contacto'),
+                pestana:         formData.get('pestana')       || 'No especificada',
+                ventana:         formData.get('ventana')       || 'No especificada',
+                error:           formData.get('error')         || 'Sin error reportado',
+                observaciones:   formData.get('observaciones') || 'Sin observaciones',
+                captura_base64:  _capturaBase64                // '' si no hay imagen
             };
 
             const submitBtn = event.target.querySelector('button[type="submit"]');
@@ -4821,57 +4934,6 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         
         // ═══════════════════════════════════════════════════════════
         // 📄 FUNCIÓN PARA DESCARGAR MANUAL EN PDF
-        // ═══════════════════════════════════════════════════════════
-        
-        function descargarPDF() {
-            // Mostrar mensaje de carga
-            const originalText = document.querySelector('.header-nav a').innerHTML;
-            document.querySelector('.header-nav a').innerHTML = '⏳ Generando PDF...';
-            
-            // Ocultar elementos que no queremos en el PDF
-            const header = document.querySelector('.header');
-            const tabs = document.querySelector('.tabs-wrapper');
-            const sidebar = document.querySelector('.sidebar');
-            const scrollBtn = document.getElementById('scrollToTop');
-            
-            header.style.display = 'none';
-            tabs.style.display = 'none';
-            if (sidebar) sidebar.style.display = 'none';
-            if (scrollBtn) scrollBtn.style.display = 'none';
-            
-            // Configurar opciones del PDF
-            const opt = {
-                margin: [15, 10, 15, 10],
-                filename: 'Manual_GAM_ERP_Original_Soft.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, logging: false },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-            };
-            
-            // Generar PDF solo del contenido activo
-            const contenido = document.querySelector('.main-content');
-            
-            // Usar html2pdf
-            if (typeof html2pdf !== 'undefined') {
-                html2pdf().from(contenido).set(opt).save().then(() => {
-                    // Restaurar elementos
-                    header.style.display = 'flex';
-                    tabs.style.display = 'block';
-                    if (sidebar) sidebar.style.display = 'block';
-                    document.querySelector('.header-nav a').innerHTML = originalText;
-                });
-            } else {
-                // Si no está cargada la librería, mostrar alerta
-                alert('⚠️ Función de PDF no disponible.\n\nPara habilitar la descarga en PDF, añade esta línea antes de <\\/body>:\n\n<'+'script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"><\\/script>');
-                
-                // Restaurar elementos
-                header.style.display = 'flex';
-                tabs.style.display = 'block';
-                if (sidebar) sidebar.style.display = 'block';
-                document.querySelector('.header-nav a').innerHTML = originalText;
-            }
-        }
     </script>
     
     <!-- Modal Administrador -->
@@ -4897,28 +4959,47 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         // ORDEN OFICIAL DE SECCIONES (espejo del sidebar)
         // Se actualiza automáticamente desde el HTML
         // ═══════════════════════════════════════════════════════
+        // Mapa tabName → intro ID (usado por showTab y buildModuloIndex)
+        const INTRO_IDS = {
+            'inicio':              'portada',
+            'sistema':             'sis-100-intro',
+            'mantenimientos':      'mant-200-intro',
+            'programados':         'prog-300-intro',
+            'coordinacion':        'coord-400-intro',
+            'facturacion':         'fact-500-intro',
+            'stock':               'stock-600-intro',
+            'taller':              'tall-700-intro',
+            'informacion':         'info-800-intro',
+            'utilidades':          'util-900-intro',
+            'telecomunicaciones':  'telco-1000-intro',
+            'rrhh':                'rrhh-1100-intro',
+            'web':                 'web-1200-intro',
+            'powerbi':             'pbi-1300-intro',
+            'mejoras':             'mejoras-intro'
+        };
+
         const MODULOS = [
-            { tab: 'INICIO',              intro: 'portada',                 ids: [] },
-            { tab: 'SISTEMA',             intro: 'sistema-intro',           ids: [] },
-            { tab: 'MANTENIMIENTOS',      intro: 'mantenimientos-intro',    ids: [] },
-            { tab: 'PROGRAMADOS',         intro: 'programados-intro',       ids: [] },
-            { tab: 'COORDINACIÓN',        intro: 'coordinacion-intro',      ids: [] },
-            { tab: 'FACTURACIÓN',         intro: 'facturacion-intro',       ids: [] },
-            { tab: 'STOCK',               intro: 'stock-intro',             ids: [] },
-            { tab: 'TALLER',              intro: 'taller-intro',            ids: [] },
-            { tab: 'INFORMACIÓN',         intro: 'informacion-intro',       ids: [] },
-            { tab: 'UTILIDADES',          intro: 'utilidades-intro',        ids: [] },
-            { tab: 'TELECOMUNICACIONES',  intro: 'telecomunicaciones-intro',ids: [] },
-            { tab: 'RRHH',                intro: 'rrhh-intro',              ids: [] },
-            { tab: 'WEB',                 intro: 'web-intro',               ids: [] },
-            { tab: 'PowerBi',             intro: 'powerbi-intro',           ids: [] },
+            { tab: 'INICIO',              tabId: 'inicio',             intro: 'portada',          ids: [] },
+            { tab: 'SISTEMA',             tabId: 'sistema',            intro: 'sis-100-intro',    ids: [] },
+            { tab: 'MANTENIMIENTOS',      tabId: 'mantenimientos',     intro: 'mant-200-intro',   ids: [] },
+            { tab: 'PROGRAMADOS',         tabId: 'programados',        intro: 'prog-300-intro',   ids: [] },
+            { tab: 'COORDINACIÓN',        tabId: 'coordinacion',       intro: 'coord-400-intro',  ids: [] },
+            { tab: 'FACTURACIÓN',         tabId: 'facturacion',        intro: 'fact-500-intro',   ids: [] },
+            { tab: 'STOCK',               tabId: 'stock',              intro: 'stock-600-intro',  ids: [] },
+            { tab: 'TALLER',              tabId: 'taller',             intro: 'tall-700-intro',   ids: [] },
+            { tab: 'INFORMACIÓN',         tabId: 'informacion',        intro: 'info-800-intro',   ids: [] },
+            { tab: 'UTILIDADES',          tabId: 'utilidades',         intro: 'util-900-intro',   ids: [] },
+            { tab: 'TELECOMUNICACIONES',  tabId: 'telecomunicaciones', intro: 'telco-1000-intro', ids: [] },
+            { tab: 'RRHH',                tabId: 'rrhh',               intro: 'rrhh-1100-intro',  ids: [] },
+            { tab: 'WEB',                 tabId: 'web',                intro: 'web-1200-intro',   ids: [] },
+            { tab: 'PowerBi',             tabId: 'powerbi',            intro: 'pbi-1300-intro',   ids: [] },
         ];
 
         // Leer el orden real del sidebar y asignarlo a cada módulo
         function buildModuloIndex() {
             MODULOS.forEach(mod => {
-                const tabId = mod.intro.replace('-intro','');
-                const sidebar = document.getElementById('sidebar-' + tabId)
+                mod.ids = []; // reset en cada llamada
+                const sidebar = document.getElementById('sidebar-' + mod.tabId)
                              || document.getElementById('sidebar-inicio');
                 if (!sidebar) return;
                 sidebar.querySelectorAll('.sidebar-item').forEach(item => {
@@ -5092,22 +5173,6 @@ window.onload = () => window.print();
             return document.querySelector('.sidebar[style*="display: block"], .sidebar[style*="display:block"]')
                 || document.querySelector('.sidebar');
         }
-        
-        // Cerrar menú al cambiar de sección en móvil
-        const originalShowTab = showTab;
-        showTab = function(tabName) {
-            originalShowTab(tabName);
-            
-            // Si está en móvil, cerrar el menú
-            if (window.innerWidth <= 768) {
-                const overlay = document.querySelector('.sidebar-overlay');
-                const menuBtn = document.querySelector('.mobile-menu-toggle');
-                // Cerrar todos los sidebars con clase active
-                document.querySelectorAll('.sidebar.active').forEach(s => s.classList.remove('active'));
-                if (overlay) overlay.classList.remove('active');
-                if (menuBtn) menuBtn.innerHTML = '☰';
-            }
-        };
         
         // Cerrar menú al hacer clic en un item del sidebar en móvil
         document.addEventListener('DOMContentLoaded', function() {
