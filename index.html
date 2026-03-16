@@ -1648,13 +1648,191 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
 
 <section class="content-section" id="content-mant-201-extra1">
             <!-- GAM:INICIO:mant-201-extra1 -->
-                <h1>Extra1</h1>
-                <div class="construction">
-                    <h3>✏️ Extra1 <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Extra 1</h1>
+
+                <h2>Objetivo</h2>
+
+                <p>Los mantenimientos Extra1 y Extra2 permiten crear valores auxiliares para clasificar servicios (programados o esporádicos).Estos campos no tienen una definición fija: cada empresa decide para qué los utiliza (por ejemplo, tipo de siniestro, subcategorías internas de traslados, etc.).</p>
+
+                <h2>Descripción de la ventana</h2>
+
+                <p>Extra1 y Extra2 son dos mantenimientos con el mismo funcionamiento. La diferencia es únicamente el campo en el que se seleccionarán posteriormente (Extra1 o Extra2) en las pantallas de servicio.</p>
+
+                <p>Diferencia importante: NO es lo mismo que “0513 — Extras de servicios”</p>
+
+                <p>Extra1/Extra2 no son “Extras de servicios”.</p>
+
+                <ul>
+                    <li>Extra1 / Extra2: clasificación (valores auxiliares).</li>
+                </ul>
+
+                <ul>
+                    <li>0513 — Extras de servicios: «extras económicos» aplicados a un servicio (por ejemplo, peajes).</li>
+                </ul>
+
+                <h2>Dónde se utiliza</h2>
+
+                <p>Los valores de Extra1 y Extra2 se utilizan en:</p>
+
+                <ul>
+                    <li>401 / 402 / 403 — Altas de servicio</li>
+                </ul>
+
+                <ul>
+                    <li>0302 — Ficha de programados (pestaña Datos)</li>
+                </ul>
+
+                <ul>
+                    <li>0411 — Mantenimiento de servicios (pestaña Datos 1)</li>
+                </ul>
+
+                <h2>Qué ves en pantalla</h2>
+
+                <p>La ventana de Extra1 y Extra2 presenta la misma estructura:</p>
+
+                <p>Listado (izquierda)</p>
+
+                <p>Columnas: Código y Descripción.</p>
+
+                <p>Selección / Filtro (derecha)</p>
+
+                <p>Permite buscar por código y/o descripción (según pantalla).</p>
+
+                <p>Detalle (parte inferior)</p>
+
+                <p>Campo Descripción del registro seleccionado.</p>
+
+                <p>Barra de iconos (superior)</p>
+
+                <p>Acciones de mantenimiento (alta, guardar, eliminar, imprimir, cerrar).</p>
+
+                <h2>Iconos y controles</h2>
+
+                <ul>
+                    <li>Nuevo — F2: inicia el alta de un registro nuevo.</li>
+                </ul>
+
+                <ul>
+                    <li>Guardar — F5: guarda el registro o los cambios realizados.</li>
+                </ul>
+
+                <ul>
+                    <li>Eliminar — F4: elimina el registro seleccionado (pregunta confirmación).</li>
+                </ul>
+
+                <ul>
+                    <li>Imprimir/Exportar — F11: imprime o exporta (según configuración).</li>
+                </ul>
+
+                <ul>
+                    <li>Cerrar — F12: cierra la ventana.</li>
+                </ul>
+
+                <h3>Campos</h3>
+
+                <ul>
+                    <li>Código: en este mantenimiento lo introduce el usuario (habitualmente numérico como 001/002, pero puede ser alfanumérico).</li>
+                </ul>
+
+                <ul>
+                    <li>Descripción: texto visible que se mostrará al seleccionar el valor en pantallas de servicio.</li>
+                </ul>
+
+                <h2>Procedimientos habituales</h2>
+
+                <h3>Comprobar si un valor ya existe (evitar duplicados)</h3>
+
+                <ul>
+                    <li>Usar la zona Selección/Filtro para buscar por un término similar.</li>
+                </ul>
+
+                <ul>
+                    <li>Revisar el listado antes de crear un registro nuevo.</li>
+                </ul>
+
+                <h3>Crear un valor nuevo (Extra1 o Extra2)</h3>
+
+                <ul>
+                    <li>Comprobar primero si existe (ver 6.1).</li>
+                </ul>
+
+                <ul>
+                    <li>Pulsar Nuevo F2.</li>
+                </ul>
+
+                <ul>
+                    <li>Informar Código y Descripción.</li>
+                </ul>
+
+                <ul>
+                    <li>Pulsar Guardar F5.</li>
+                </ul>
+
+                <h3>Modificar un valor existente (recomendación importante)</h3>
+
+                <ul>
+                    <li>Seleccionar el registro.</li>
+                </ul>
+
+                <ul>
+                    <li>Modificar la Descripción.</li>
+                </ul>
+
+                <ul>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>si se modifica la descripción para “reaprovechar” un registro, el cambio se aplica también a servicios ya existentes (histórico). En listados, se mostrará la descripción nueva y no la antigua.</p>
                 </div>
-                        <!-- GAM:FIN:mant-201-extra1 -->
+
+                <h3>Eliminar un valor (y efecto en servicios)</h3>
+
+                <ul>
+                    <li>Seleccionar el registro.</li>
+                </ul>
+
+                <ul>
+                    <li>Pulsar Eliminar F4.</li>
+                </ul>
+
+                <ul>
+                    <li>Confirmar el mensaje de seguridad (por ejemplo: “¿Seguro que quieres eliminarlo?”).</li>
+                </ul>
+
+                <p>Comportamiento observado en Extra1/Extra2:</p>
+
+                <ul>
+                    <li>El sistema permite eliminar el registro.</li>
+                </ul>
+
+                <ul>
+                    <li>En servicios donde se utilizó ese valor, puede quedar el código guardado pero la descripción quedará en blanco.</li>
+                </ul>
+
+                <h2>Qué NO se hace en este mantenimiento</h2>
+
+                <ul>
+                    <li>No se configuran extras económicos del servicio: para eso existe 0513 — Extras de servicios.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>No se recomienda “reaprovechar” códigos cambiando descripciones si se necesita mantener trazabilidad histórica en listados.</p>
+                </div>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves esta opción, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+
+                <h2>Capturas</h2>
+
+                <p>Figura 1 — 0201 Extra1</p>
+
+                <p>Figura 2 — 0202 Extra2 Figura 3— Ejemplo de uso de Extra1/Extra2 en una pantalla de servicio.</p>
+            <!-- GAM:FIN:mant-201-extra1 -->
             </section>
 
 <section class="content-section" id="content-mant-202-extra2">
