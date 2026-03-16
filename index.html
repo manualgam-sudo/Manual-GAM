@@ -331,7 +331,7 @@
     <div id="confirmationModal" class="confirmation-modal">
         <div class="confirmation-content">
             <div class="icon-success">✓</div>
-            <h7>¡Ticket Enviado!</h7>
+            <h3>¡Ticket Enviado!</h3>
             <p>Tu ticket ha sido entregado al departamento de soporte técnico.</p>
             <p>El número de seguimiento es:</p>
             <div class="ticket-number" id="ticketNumber">TT-0000</div>
@@ -668,10 +668,24 @@
             
 <section class="content-section" id="content-sis-100-intro">
     <!-- GAM:INICIO:sis-100-intro -->
-    <h1>⚙️ Módulo Sistema</h1>
-    <p>El módulo <strong>Sistema</strong> engloba las funciones de configuración y administración general del ERP GAM: gestión de empresas, usuarios, agenda de direcciones y personal, avisos, calendario e impresoras.</p>
-    <p>Selecciona una ventana del menú lateral para ver su documentación detallada.</p>
-    <!-- GAM:FIN:sis-100-intro -->
+<p> Introducción – SISTEMA</p>
+
+                <p>La pestaña SISTEMA agrupa las funciones de configuración general, gestión transversal y herramientas comunes de Gam .</p>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>A diferencia de otros módulos más operativos, SISTEMA no está pensado para el trabajo diario sobre servicios, pacientes o vehículos, sino para definir el marco de funcionamiento en el que el resto del sistema opera.</p>
+                </div>
+
+                <p>Desde esta pestaña se gestionan aspectos como la comunicación interna entre usuarios, las agendas compartidas, la consulta de avisos, la configuración básica del entorno de trabajo y otras utilidades generales.</p>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Se ha de tener en cuenta que no todos los apartados de la pestaña SISTEMA están destinados a todos los usuarios. Algunos de ellos contienen opciones sensibles que afectan al comportamiento global de Gam  y, por tanto, solo deben ser utilizados por el administrador del sistema o por personas expresamente autorizadas.</p>
+                </div>
+
+                <p>En esta parte del manual se describen los apartados de la pestaña SISTEMA desde un punto de vista funcional y práctico, explicando para qué sirve cada opción, cómo se utiliza y qué implicaciones tiene su uso, con el objetivo de facilitar la consulta puntual y reducir incidencias por un uso incorrecto.</p>
+            <!-- GAM:FIN:sis-100-intro -->
 </section>
 
 <section class="content-section" id="content-mant-200-intro">
@@ -4804,7 +4818,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         // ═══════════════════════════════════════════════════════════
 
         const TICKET_CONFIG = {
-            gasUrl: 'https://script.google.com/macros/s/AKfycbwkFctiq_gTUFNOxzT0V7qPN2uvFFgTPdQRDNna6Il0QtsX5Rl5RXBGjYHq3yK1Dc3-/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbxv24fgkkS1QWfAyJYUq9zLE5W0vawZYucRjeUkCc1gBWpYPBnDZzSiVTMD0RD4Rtb5pw/exec',
             emailSoporte: 'manualgam@gmail.com'
         };
 
