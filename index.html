@@ -3907,6 +3907,21 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
         window.addEventListener('load', checkTabsScroll);
         window.addEventListener('resize', checkTabsScroll);
 
+        // ── Enlace directo a GAMIA desde ERP (?gamia=1) ──────────
+        // Uso: https://manualgam-sudo.github.io/Manual-GAM/?gamia=1
+        window.addEventListener('load', function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('gamia') === '1') {
+                // Abrir el modal de soporte directamente en la vista del agente
+                document.getElementById('supportModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                mostrarVistaSoporte('agente');
+                // Ocultar botón "Volver al manual" — no tiene sentido en ventana flotante
+                const btnVolver = document.querySelector('.btn-volver');
+                if (btnVolver) btnVolver.style.display = 'none';
+            }
+        });
+
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
