@@ -4306,6 +4306,12 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
         let agenteHistorial = [];
         let agenteEsperando = false;
 
+        // ── Estado modo ticket desde chat ─────────────────────────
+        let ticketChatMode  = false;   // true cuando GAMIA activa recogida de datos
+        let ticketChatStep  = 0;       // 0=nombre, 1=empresa, 2=contacto, 3=confirmar
+        let ticketChatData  = {};      // datos recogidos
+        let ticketChatProblema = '';   // descripción del problema original
+
         // ── System prompt del agente ──────────────────────────────
         function buildAgenteSystemPrompt() {
             return `Eres GAMIA, la Agente de Soporte IA de GAM ERP, el sistema de gestión de servicios de ambulancias desarrollado por Original Soft.
@@ -4557,7 +4563,9 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
 - Párrafos cortos y directos.
 - Para rutas de navegación: MÓDULO > Sección > Ventana (ej: TALLER > Ficha Vehículos > Pestaña Extras)
 - Para pasos: numera del 1 en adelante.
-- Termina siempre ofreciendo más ayuda o sugiriendo abrir tiquet si el problema persiste.`;
+- Termina siempre ofreciendo más ayuda o sugiriendo abrir tiquet si el problema persiste.
+- Cuando no puedas resolver una consulta, añade exactamente la etiqueta [ABRIR_TICKET] al final de tu respuesta. GAMIA procesará esto automáticamente para abrir un ticket sin que el usuario tenga que hacer nada más.`
+;
         }
 
         // ── Renderizar un mensaje ─────────────────────────────────
@@ -4634,6 +4642,90 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         }
 
         // ── Inicializar chat (mensaje de bienvenida) ──────────────
+        // ── Flujo de ticket desde chat ────────────────────────────
+        const TICKET_PASOS = [
+            { campo: 'nombre',   pregunta: '¿Cuál es tu **nombre**?' },
+            { campo: 'empresa',  pregunta: '¿A qué **empresa** perteneces?' },
+            { campo: 'contacto', pregunta: '¿Cuál es tu **email o teléfono** de contacto?' }
+        ];
+
+        function iniciarRecogidaTicket(container) {
+            ticketChatMode = true;
+            ticketChatStep = 0;
+            ticketChatData = {};
+            setTimeout(() => {
+                container.appendChild(renderMsgBubble('assistant',
+                    'Para abrir el ticket voy a necesitar algunos datos. Solo serán 3 preguntas rápidas.\n\n' +
+                    TICKET_PASOS[0].pregunta
+                ));
+                agenteScrollBottom();
+            }, 400);
+        }
+
+        async function procesarPasoTicket(texto, container) {
+            const paso = TICKET_PASOS[ticketChatStep];
+            ticketChatData[paso.campo] = texto;
+            ticketChatStep++;
+
+            if (ticketChatStep < TICKET_PASOS.length) {
+                // Siguiente pregunta
+                container.appendChild(renderMsgBubble('assistant', TICKET_PASOS[ticketChatStep].pregunta));
+                agenteScrollBottom();
+            } else {
+                // Todos los datos recogidos → crear ticket
+                container.appendChild(renderMsgBubble('assistant', 'Perfecto, creando tu ticket...'));
+                agenteScrollBottom();
+                await enviarTicketDesdeChat(container);
+            }
+        }
+
+        async function enviarTicketDesdeChat(container) {
+            const ticketNumber = generateTicketNumber();
+            const ticketData = {
+                ticket_number: ticketNumber,
+                fecha: new Date().toLocaleString('es-ES', {
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit'
+                }),
+                nombre:        ticketChatData.nombre   || '',
+                empresa:       ticketChatData.empresa  || '',
+                contacto:      ticketChatData.contacto || '',
+                pestana:       'No especificada',
+                ventana:       'No especificada',
+                error:         ticketChatProblema || 'Consulta sin resolver desde GAMIA',
+                observaciones: 'Ticket abierto automáticamente desde el chat de GAMIA',
+                capturaBase64: ''
+            };
+
+            try {
+                await fetch(TICKET_CONFIG.gasUrl, {
+                    method: 'POST',
+                    mode:   'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:   JSON.stringify(ticketData)
+                });
+
+                container.appendChild(renderMsgBubble('assistant',
+                    '✅ **Ticket creado correctamente**\n\n' +
+                    '🎫 Número de ticket: **' + ticketNumber + '**\n\n' +
+                    'El equipo de Original Soft recibirá tu consulta y se pondrá en contacto contigo a la brevedad. ' +
+                    '¿Hay algo más en lo que pueda ayudarte?'
+                ));
+            } catch(err) {
+                container.appendChild(renderMsgBubble('assistant',
+                    '⚠️ No se pudo crear el ticket automáticamente. ' +
+                    'Por favor, usa el formulario de soporte o contacta en **manualgam@gmail.com**.'
+                ));
+            }
+
+            // Resetear modo ticket
+            ticketChatMode  = false;
+            ticketChatStep  = 0;
+            ticketChatData  = {};
+            ticketChatProblema = '';
+            agenteScrollBottom();
+        }
+
         function initAgenteChat() {
             const container = document.getElementById('agenteMensajes');
             if (!container) return;
@@ -4663,6 +4755,17 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
 
             // Mostrar mensaje del usuario
             container.appendChild(renderMsgBubble('user', text));
+
+            // ── Modo recogida de datos para ticket ────────────────
+            if (ticketChatMode) {
+                input.value = '';
+                input.style.height = 'auto';
+                agenteInputChange();
+                agenteScrollBottom();
+                await procesarPasoTicket(text, container);
+                return;
+            }
+
             agenteHistorial.push({ role: 'user', content: text });
             input.value = '';
             input.style.height = 'auto';
@@ -4709,8 +4812,22 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                 if (!fetchOk || !reply) throw new Error('Respuesta vacía del agente');
 
                 typing.remove();
-                container.appendChild(renderMsgBubble('assistant', reply));
-                agenteHistorial.push({ role: 'assistant', content: reply });
+
+                // ¿GAMIA indica que no puede resolver la consulta?
+                if (reply.includes('[ABRIR_TICKET]')) {
+                    const replyLimpia = reply.replace('[ABRIR_TICKET]', '').trim();
+                    container.appendChild(renderMsgBubble('assistant', replyLimpia));
+                    agenteHistorial.push({ role: 'assistant', content: replyLimpia });
+                    // Guardar el problema y activar recogida de datos
+                    ticketChatProblema = agenteHistorial
+                        .filter(m => m.role === 'user')
+                        .map(m => m.content)
+                        .join(' | ');
+                    iniciarRecogidaTicket(container);
+                } else {
+                    container.appendChild(renderMsgBubble('assistant', reply));
+                    agenteHistorial.push({ role: 'assistant', content: reply });
+                }
 
             } catch(err) {
                 typing.remove();
