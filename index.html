@@ -261,6 +261,45 @@
                         <label>Contacto (Email o Teléfono) <span class="required">*</span></label>
                         <input type="text" name="contacto" required placeholder="ejemplo@empresa.com o +34 123 456 789">
                     </div>
+                    <div class="form-group">
+                        <label>Versión de GAM instalada</label>
+                        <select name="version_gam">
+                            <option value="">No sé / No recuerdo</option>
+                            <option value="1420">1420 — Enero/2026</option>
+                            <option value="1418">1418 — Enero/2026</option>
+                            <option value="1417">1417 — Enero/2026</option>
+                            <option value="1416">1416 — Enero/2026</option>
+                            <option value="1415">1415 — Enero/2026</option>
+                            <option value="1414">1414 — Enero/2026</option>
+                            <option value="1413">1413 — Enero/2026</option>
+                            <option value="1412">1412 — Diciembre/2025</option>
+                            <option value="1411">1411 — Diciembre/2025</option>
+                            <option value="1410">1410 — Diciembre/2025</option>
+                            <option value="1409">1409 — Diciembre/2025</option>
+                            <option value="1407">1407 — Noviembre/2025</option>
+                            <option value="1406">1406 — Noviembre/2025</option>
+                            <option value="1405">1405 — Noviembre/2025</option>
+                            <option value="1404">1404 — Noviembre/2025</option>
+                            <option value="1403">1403 — Octubre/2025</option>
+                            <option value="1402">1402 — Octubre/2025</option>
+                            <option value="1401">1401 — Octubre/2025</option>
+                            <option value="1400">1400 — Octubre/2025</option>
+                            <option value="1397">1397 — Septiembre/2025</option>
+                            <option value="1395">1395 — Septiembre/2025</option>
+                            <option value="1394">1394 — Septiembre/2025</option>
+                            <option value="1393">1393 — Agosto/2025</option>
+                            <option value="1387">1387 — Julio/2025</option>
+                            <option value="1385">1385 — Julio/2025</option>
+                            <option value="1368">1368 — Junio/2025</option>
+                            <option value="1349">1349 — Mayo/2025</option>
+                            <option value="1345">1345 — Abril/2025</option>
+                            <option value="1335">1335 — Marzo/2025</option>
+                            <option value="1324">1324 — Marzo/2025</option>
+                        </select>
+                        <small style="display:block; margin-top:5px; color:#666; font-size:12px;">
+                            💡 Puedes consultar la versión en GAM → Ayuda → Acerca de
+                        </small>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label>Nombre de Pestaña</label>
@@ -5720,6 +5759,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                 ventana:         formData.get('ventana')       || 'No especificada',
                 error:           formData.get('error')         || 'Sin error reportado',
                 observaciones:   formData.get('observaciones') || 'Sin observaciones',
+                version_gam:     formData.get('version_gam')  || 'No indicada',
                 capturaBase64:   _capturaBase64                // '' si no hay imagen
             };
 
