@@ -1530,13 +1530,327 @@ La selección de un trabajador se realiza con un solo clic sobre el registro, mo
 
 <section class="content-section" id="content-mant-204-vehiculos">
             <!-- GAM:INICIO:mant-204-vehiculos -->
-                <h1>Vehículos</h1>
-                <div class="construction">
-                    <h3>✏️ Vehículos <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Vehículos</h1>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Antes de trabajar con la ficha 0204 – Vehículos (Coordinación), es necesario que existan y estén configurados los siguientes datos en GAM. En caso contrario, algunos campos no se podrán informar, aparecerán vacíos o no ofrecerán opciones en sus desplegables.</p>
                 </div>
-                        <!-- GAM:FIN:mant-204-vehiculos -->
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Ficha de vehículos (Pestaña Taller) obligatorio;Los datos maestros de la ventana de vehículos en mantenimiento,  se alimenta de mantenimiento de vehículos en la pestaña de taller. Si el vehículo no existe en Ficha de Vehículos de taller, no existirá en Ficha de Vehículos mantenimientos.</p>
+                </div>
+
+                <h2>Datos para campos editables de ficha de vehiculos (dependencias)</h2>
+
+                <p>Los siguientes mantenimientos/fichas alimentan campos editables (o configurables) dentro de la ficha de vehículos en mantenimientos:</p>
+
+                <ul>
+                    <li>Personal (Pestaña RRHH)Necesario para campos relacionados con dotación, especialmente TES habitual y para que el sistema pueda reflejar TES actual cuando el personal se loguea/queda asociado operativamente.</li>
+                </ul>
+
+                <ul>
+                    <li>RecursosNecesario para el campo Recurso (y para evitar “reaprovechar” la Descripción del vehículo cuando lo que cambia es su asignación operativa).</li>
+                </ul>
+
+                <ul>
+                    <li>Tipos de trasladoNecesario para la tabla/bloque de configuraciones (combinaciones) donde se selecciona Tipo de traslado por fila.Nota: si un tipo de traslado está marcado como Inactivo en 0207, no aparece en el desplegable de 0204.</li>
+                </ul>
+
+                <h2>Datos que el sistema puede cumplimentar y que dependen de mantenimientos</h2>
+
+                <p>Algunos campos que se muestran en 0204 pueden depender de datos previos para funcionar correctamente:</p>
+
+                <ul>
+                    <li>ParadasNecesario para que el campo Parada pueda reflejar información coherente cuando el sistema lo cumpla/lo utilice (según operativa y configuración).</li>
+                </ul>
+
+                <h2>Objetivo</h2>
+
+                <p>La ventana — Vehículos es la ficha que utiliza Coordinación para consultar y mantener los datos operativos de los vehículos que le competen (dotaciones, estado operativo, capacidades/configuraciones y datos de apoyo a la coordinación).</p>
+
+                <h2>Relación con Taller y alcance real de esta ficha</h2>
+
+                <p>Esta ventana muestra la flota con los datos informados previamente en Pestaña de Ficha de vehículos / Taller. Por ello, parte de la información es solo de consulta y únicamente algunos campos están disponibles para edición. Además, la ficha dispone de un acceso al histórico de modificaciones del registro (“pececitos”).</p>
+
+                <p>Recalcar:</p>
+
+                <p>Hay campos que en “Vehículos” solo son informativos y no se pueden modificar</p>
+
+                <ul>
+                    <li>En “Vehículos” no se permite:</li>
+                </ul>
+
+                <ul>
+                    <li>Dar de alta un vehículo nuevo.</li>
+                </ul>
+
+                <ul>
+                    <li>Eliminar un vehículo existente.</li>
+                </ul>
+
+                <p>En definitiva, alta y baja de vehículos se realizan desde la ficha de vehículos / Taller. En vehículos/ Mantenimiento se trabaja la parte operativa para coordinación.</p>
+
+                <h2>Qué ves en pantalla (zonas)</h2>
+
+                <h3>Selección / Filtro (zona superior derecha)</h3>
+
+                <p>Permite filtrar por uno o varios campos (o ninguno):</p>
+
+                <ul>
+                    <li>Vehículo, Matrícula, Descripción, etc.</li>
+                </ul>
+
+                <ul>
+                    <li>Check Inactivos.</li>
+                </ul>
+
+                <p>Para cargar/actualizar la lista de resultados se utiliza Refrescar F7 (o su icono).</p>
+
+                <h3>Listado (zona izquierda)</h3>
+
+                <ul>
+                    <li>El listado muestra los resultados del filtro.</li>
+                </ul>
+
+                <ul>
+                    <li>Si el filtro está en blanco, se muestran todos los vehículos existentes.</li>
+                </ul>
+
+                <ul>
+                    <li>Al posicionarse sobre un registro, su información se muestra extendida en la ficha inferior.</li>
+                </ul>
+
+                <h3>Ficha (zona inferior)</h3>
+
+                <p>Muestra los datos del vehículo seleccionado:</p>
+
+                <ul>
+                    <li>Campos informativos (bloqueados por venir de Taller).</li>
+                </ul>
+
+                <ul>
+                    <li>Campos autocompletados por el sistema.</li>
+                </ul>
+
+                <ul>
+                    <li>Campos editables para coordinación.</li>
+                </ul>
+
+                <h2>Iconos (recordatorio en esta ventana)</h2>
+
+                <p>En esta ventana se trabaja principalmente con:</p>
+
+                <ul>
+                    <li>Guardar — F5: guarda cambios en los campos que sean editables.</li>
+                </ul>
+
+                <ul>
+                    <li>Refrescar — F7: actualiza el listado según filtros.</li>
+                </ul>
+
+                <ul>
+                    <li>Historial de cambios : muestra el histórico de cambios de la ficha.</li>
+                </ul>
+
+                <ul>
+                    <li>Cerrar — F12: cierra la ventana.</li>
+                </ul>
+
+                <p>Nota: aunque se vean iconos “típicos” de mantenimiento, en vehículos  no está permitido crear ni eliminar fichas.        (Estos iconos están desactivados)</p>
+
+                <h2>Campos: qué es informativo, qué se autocompleta y qué se edita</h2>
+
+                <h3>Campos informativos (NO editables en vehículos)</h3>
+
+                <p>Estos campos vienen de la ficha de Taller y en 0204 se muestran como consulta:</p>
+
+                <ul>
+                    <li>Código (Vehículo) (no puede cambiarse)</li>
+                </ul>
+
+                <ul>
+                    <li>Descripción</li>
+                </ul>
+
+                <ul>
+                    <li>INACTIVO</li>
+                </ul>
+
+                <ul>
+                    <li>Matrícula</li>
+                </ul>
+
+                <ul>
+                    <li>Modelo</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>(trazabilidad): El Código (Vehículo) es el identificador interno que conserva el historial. No puede cambiarse.La Descripción es cómo “conoce” el usuario el vehículo (rotulación, base, indicativo, etc.).No se debe cambiar la descripción para simular un cambio de vehículo (por ejemplo, sustituir un vehículo de una zona por otro), porque se pierde trazabilidad y los listados dejan de ser fiables. Para eso existen otros campos operativos (por ejemplo Recurso, u otros campos destinados a asignación).</p>
+                </div>
+
+                <h3>Campos que el sistema va cumplimentando</h3>
+
+                <p>El sistema puede completar automáticamente (y mostrarlos en esta ficha) campos como:</p>
+
+                <ul>
+                    <li>Comidas</li>
+                </ul>
+
+                <ul>
+                    <li>Parada</li>
+                </ul>
+
+                <ul>
+                    <li>Dirección final</li>
+                </ul>
+
+                <ul>
+                    <li>Población final</li>
+                </ul>
+
+                <ul>
+                    <li>TES actual</li>
+                </ul>
+
+                <ul>
+                    <li>Sirena</li>
+                </ul>
+
+                <ul>
+                    <li>Pánico activado (además, se puede activar o desactivar manualmente)</li>
+                </ul>
+
+                <p>Estos campos ayudan a coordinación a ver el estado y la situación operativa del vehículo.</p>
+
+                <h3>Campos editables (según necesidades)</h3>
+
+                <p>El resto de campos se consideran editables en vehículos según operativa y permisos (por ejemplo observaciones, dotaciones habituales, capacidades, características, etc.).</p>
+
+                <h2>Dotación: TES habitual vs TES actual</h2>
+
+                <p>Este punto es clave para coordinación:</p>
+
+                <ul>
+                    <li>TES habitual: dotación asignada habitualmente al vehículo.</li>
+                </ul>
+
+                <ul>
+                    <li>TES actual: dotación que está con el vehículo en ese momento.Puede diferir del habitual si, por programación, se ha ajustado la dotación para servicios posteriores o por necesidades operativas. El sistema muestra qué dotación se ha logueado en el vehículo y va realmente con él.</li>
+                </ul>
+
+                <h2>Plazas y combinaciones en vehículo colectivo</h2>
+
+                <h3>Tabla de combinaciones</h3>
+
+                <p>En el bloque de combinaciones aparecen columnas:</p>
+
+                <ul>
+                    <li>Asientos</li>
+                </ul>
+
+                <ul>
+                    <li>S. Ruedas</li>
+                </ul>
+
+                <ul>
+                    <li>Camilla</li>
+                </ul>
+
+                <ul>
+                    <li>Tipos traslado (desplegable por fila)</li>
+                </ul>
+
+                <p>Cada fila define una combinación posible de capacidad del vehículo (por ejemplo X asientos + Y sillas de ruedas + Z camillas) asociada al tipo de traslado seleccionado en esa fila.</p>
+
+                <h3>Cuándo es “efectivo” y cuándo es solo informativo</h3>
+
+                <ul>
+                    <li>Si se utiliza GamRuta, estas combinaciones son necesarias y efectivas (se usan de forma operativa).</li>
+                </ul>
+
+                <ul>
+                    <li>Si no se utiliza GamRuta, el bloque actúa como información/configuración de referencia.</li>
+                </ul>
+
+                <h3>Plazas y plazas convertibles</h3>
+
+                <ul>
+                    <li>Plazas: total de plazas del vehículo.</li>
+                </ul>
+
+                <ul>
+                    <li>Plazas convertibles a silla ruedas o camilla: plazas que pueden reconvertirse según necesidad.</li>
+                </ul>
+
+                <h2>Procedimientos habituales en Vehículos/mantenimientos</h2>
+
+                <h3>Buscar y consultar un vehículo</h3>
+
+                <ul>
+                    <li>Introducir 0, 1 o varios filtros (Vehículo/Matrícula/Descripción…).</li>
+                </ul>
+
+                <ul>
+                    <li>Pulsar Refrescar F7.</li>
+                </ul>
+
+                <ul>
+                    <li>Seleccionar el vehículo en el listado para ver su ficha completa.</li>
+                </ul>
+
+                <ul>
+                    <li>(Opcional) Consultar el Historial de cambios (“pececitos”) para auditoría.</li>
+                </ul>
+
+                <h3>Actualizar datos operativos del vehículo</h3>
+
+                <ul>
+                    <li>Seleccionar el vehículo.</li>
+                </ul>
+
+                <ul>
+                    <li>Modificar los campos editables que correspondan (no los que vienen de Taller).</li>
+                </ul>
+
+                <ul>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                <p>En vehículos no se realizan altas ni bajas de vehículos.</p>
+
+                <h3>Qué NO se hace en esta ventana</h3>
+
+                <ul>
+                    <li>No se pueden crear vehículos nuevos ni eliminarlos desde esta ficha  (se gestiona en Taller).</li>
+                </ul>
+
+                <ul>
+                    <li>No se pueden modificar en vehículos, los campos maestros: Código, Descripción, Inactivo, Matrícula y Modelo.</li>
+                </ul>
+
+                <ul>
+                    <li>No se debe alterar la Descripción para “reaprovechar” un vehículo y representar otro, porque se pierde trazabilidad.</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves este manenimiento, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+
+                <h2>Capturas</h2>
+
+                <ul>
+                    <li>Figura 1 — Vehículos: filtros, listado y ficha operativa (Coordinación) con acceso a historial de cambios.</li>
+                </ul>
+
+                <figure>
+                    <img src="assets/capturas/0204-Vehiculos.png" alt="0204-Vehiculos.png" class="screenshot">
+                    <figcaption>Figura 2 — Combinaciones de plazas en vehículo colectivo por tipo de traslado (Asientos/S. Ruedas/Camilla/Tipo traslado + plazas totales y convertibles).</figcaption>
+                </figure>
+            <!-- GAM:FIN:mant-204-vehiculos -->
             </section>
 
 <section class="content-section" id="content-mant-205-tipos-de-vehiculo">
