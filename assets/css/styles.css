@@ -1413,15 +1413,16 @@
                 height: 28px;
                 width: auto;
                 cursor: pointer;
-                margin-left: 14px;
+                margin-left: 20px;
                 vertical-align: middle;
             }
             
-            /* Separación entre logo móvil e icono Mejoras */
+            /* Separación entre icono Mejoras y logo Original Soft */
             .header-mejoras-btn {
                 height: 44px;
                 width: auto;
                 margin-left: 10px;
+                margin-right: 10px;
             }
             
             /* Ocultar sidebar en móvil por defecto */
