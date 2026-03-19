@@ -57,27 +57,16 @@
 
         /* ── Badge versión GAM ───────────────────────── */
         .print-version-wrap {
-            float: right;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 4px;
+            float: right; display: inline-flex; align-items: center;
+            gap: 6px; margin-top: 4px;
         }
         .badge-version-gam {
-            font-size: 10px;
-            font-weight: 700;
-            color: #888;
-            background: #f0f0f0;
-            border: 1px solid #e0e0e0;
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
-            font-family: inherit;
-            white-space: nowrap;
+            font-size: 10px; font-weight: 700; color: #888;
+            background: #f0f0f0; border: 1px solid #e0e0e0;
+            padding: 3px 8px; border-radius: 4px;
+            letter-spacing: 0.5px; font-family: inherit; white-space: nowrap;
         }
-        @media print {
-            .print-version-wrap { display: none !important; }
-        }
+        @media print { .print-version-wrap { display: none !important; } }
     </style>
 </head>
 <body>
@@ -223,8 +212,6 @@
                     GAMIA · Agente IA GAM ERP
                 </h7>
             </div>
-
-            <!-- Panel selector de versión -->
             <div id="gamia-version-panel" style="max-width:820px;margin:0 auto 16px;padding:0 20px;">
                 <div style="background:white;border-radius:10px;border:1px solid #e8e8e8;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
                     <div style="flex:1;min-width:200px;">
@@ -267,11 +254,8 @@
                         Iniciar chat →
                     </button>
                 </div>
-                <p style="margin:8px 0 0;font-size:11px;color:#aaa;padding:0 4px;">
-                    💡 Versión disponible en <strong>GAM → Ayuda → Acerca de</strong>
-                </p>
+                <p style="margin:8px 0 0;font-size:11px;color:#aaa;padding:0 4px;">💡 Versión disponible en <strong>GAM → Ayuda → Acerca de</strong></p>
             </div>
-
             <div class="agente-chat-wrap" style="display:none;">
                 <div class="agente-mensajes" id="agenteMensajes">
                     <!-- Los mensajes se inyectan por JS -->
@@ -369,8 +353,8 @@
                             <option value="1335">1335 — Marzo/2025</option>
                             <option value="1324">1324 — Marzo/2025</option>
                         </select>
-                        <small style="display:block;margin-top:5px;color:#666;font-size:12px;">
-                            💡 Puedes consultarla en GAM → Ayuda → Acerca de
+                        <small style="display:block; margin-top:5px; color:#666; font-size:12px;">
+                            💡 Puedes consultar la versión en GAM → Ayuda → Acerca de
                         </small>
                     </div>
                     <div class="form-row">
@@ -727,9 +711,9 @@
 
         <!-- Sidebar PowerBi (4 ventanas) -->
 
-                    <div class="sidebar-item intro" onclick="showContent('mejoras-intro')">Introducción</div>
-            <div class="sidebar-item" onclick="showContent('mejoras-ultimas-novedades')">Últimas Novedades</div>
-            <div class="sidebar-item" onclick="showContent('mejoras-proximas-actualizaciones')">Próximas Actualizaciones</div>
+                    <div class="sidebar-item intro" onclick="showContent('mej-9999-intro')">Introducción</div>
+            <div class="sidebar-item" onclick="showContent('mej-9999-ultimas-novedades')">Últimas Novedades</div>
+            <div class="sidebar-item" onclick="showContent('mej-9999-proximas-actualizaciones')">Próximas Actualizaciones</div>
         </div>
 
         <div class="sidebar" id="sidebar-powerbi" style="display:none;">
@@ -4610,6 +4594,36 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             <!-- FIN SECCIONES DE INTRODUCCIÓN             -->
             <!-- ========================================== -->
 
+<section class="content-section" id="content-mej-9999-intro">
+    <!-- GAM:INICIO:mej-9999-intro -->
+    <h1>🚀 Mejoras y Novedades GAM ERP</h1>
+    <p>En esta sección encontrarás las últimas actualizaciones, mejoras y nuevas funcionalidades incorporadas al sistema <strong>GAM ERP</strong> por el equipo de <strong>Original Soft</strong>.</p>
+    <p>El contenido se actualiza regularmente. Consulta esta pestaña para mantenerte al día con las novedades del sistema.</p>
+    <!-- GAM:FIN:mej-9999-intro -->
+</section>
+
+<section class="content-section" id="content-mej-9999-ultimas-novedades">
+    <!-- GAM:INICIO:mej-9999-ultimas-novedades -->
+    <h1>📋 Últimas Novedades</h1>
+    <div class="construction">
+        <h3>🔄 Sección en construcción</h3>
+        <p>Las últimas novedades y mejoras del sistema se publicarán aquí próximamente.</p>
+        <p>Esta sección se actualiza automáticamente desde Google Docs mediante el sistema de marcadores GAM.</p>
+    </div>
+    <!-- GAM:FIN:mej-9999-ultimas-novedades -->
+</section>
+
+<section class="content-section" id="content-mej-9999-proximas-actualizaciones">
+    <!-- GAM:INICIO:mej-9999-proximas-actualizaciones -->
+    <h1>🗓️ Próximas Actualizaciones</h1>
+    <div class="construction">
+        <h3>🔄 Sección en construcción</h3>
+        <p>El roadmap de próximas actualizaciones y funcionalidades planificadas se publicará aquí.</p>
+        <p>Esta sección se actualiza automáticamente desde Google Docs mediante el sistema de marcadores GAM.</p>
+    </div>
+    <!-- GAM:FIN:mej-9999-proximas-actualizaciones -->
+</section>
+
 <section class="content-section" id="content-mej-9999-novedades">
     <!-- GAM:INICIO:mej-9999-novedades -->
     <h1>🚀 Novedades GAM</h1>
@@ -5082,16 +5096,13 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
         }
         
         // ═══════════════════════════════════════════════════════════
-        // 📌 VERSIÓN ACTUAL DE GAM — actualizar con cada release
-        // ═══════════════════════════════════════════════════════════
-        const GAM_VERSION = '1420';   // ← cambiar aquí en cada actualización
-
-        // ═══════════════════════════════════════════════════════════
         // ═══════════════════════════════════════════════════════════
         // 🤖 AGENTE IA - SOPORTE GAM ERP
         // ═══════════════════════════════════════════════════════════
 
         // ── Configuración ─────────────────────────────────────────
+        const GAM_VERSION = '1420';   // ← actualizar con cada release
+
         const AGENTE_CONFIG = {
             model:     'claude-sonnet-4-20250514',
             maxTokens: 1000,
@@ -5102,7 +5113,6 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             versionGAM:      ''
         };
 
-        // ── Iniciar chat con versión ──────────────────────────────
         function iniciarGamiaConVersion() {
             const sel = document.getElementById('gamiaVersionSelect');
             AGENTE_CONFIG.versionGAM = sel ? sel.value : '';
@@ -5921,7 +5931,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
             'rrhh':                'rrhh-1100-intro',
             'web':                 'web-1200-intro',
             'powerbi':             'pbi-1300-intro',
-            'mejoras':             'mej-9999-novedades'
+            'mejoras':             'mej-9999-intro'
         };
 
         const MODULOS = [
