@@ -1413,16 +1413,15 @@
                 height: 28px;
                 width: auto;
                 cursor: pointer;
-                margin-left: 20px;
+                margin-left: 14px;
                 vertical-align: middle;
             }
             
-            /* Separación entre icono Mejoras y logo Original Soft */
+            /* Separación entre logo móvil e icono Mejoras */
             .header-mejoras-btn {
                 height: 44px;
                 width: auto;
                 margin-left: 10px;
-                margin-right: 10px;
             }
             
             /* Ocultar sidebar en móvil por defecto */
@@ -1607,6 +1606,34 @@
             /* Pantallas muy pequeñas */
             .header-title {
                 font-size: 16px;
+            }
+            
+            /* Logos más pequeños y márgenes mínimos para que quepan */
+            .header-mejoras-btn {
+                height: 32px;
+                margin-left: 4px;
+                margin-right: 4px;
+            }
+            
+            .mobile-logo {
+                height: 20px;
+                margin-left: 4px;
+                margin-right: 0;
+            }
+            
+            /* Reducir padding header para ganar espacio */
+            .header {
+                padding: 0 40px 0 40px;
+            }
+            
+            /* Links de nav más compactos */
+            .header-nav {
+                gap: 5px;
+            }
+            
+            .header-nav a {
+                font-size: 10px;
+                padding: 5px 7px;
             }
             
             .header-subtitle {
