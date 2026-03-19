@@ -112,7 +112,7 @@
             <option value="rrhh">👥 RRHH</option>
             <option value="web">🌐 WEB</option>
             <option value="powerbi">📈 PowerBi</option>
-            <option value="mejoras" style="display:none;">🚀 MEJORAS</option>
+            
         </select>
         
         <!-- Pestañas para desktop -->
@@ -131,7 +131,7 @@
             <button class="tab" onclick="showTab('rrhh')">RRHH</button>
             <button class="tab" onclick="showTab('web')">WEB</button>
             <button class="tab" onclick="showTab('powerbi')">PowerBi</button>
-            <button class="tab" onclick="showTab('mejoras')" style="display:none;">MEJORAS</button>
+            
         </div>
     </div>
 
@@ -260,45 +260,6 @@
                     <div class="form-group">
                         <label>Contacto (Email o Teléfono) <span class="required">*</span></label>
                         <input type="text" name="contacto" required placeholder="ejemplo@empresa.com o +34 123 456 789">
-                    </div>
-                    <div class="form-group">
-                        <label>Versión de GAM instalada</label>
-                        <select name="version_gam">
-                            <option value="">No sé / No recuerdo</option>
-                            <option value="1420">1420 — Enero/2026</option>
-                            <option value="1418">1418 — Enero/2026</option>
-                            <option value="1417">1417 — Enero/2026</option>
-                            <option value="1416">1416 — Enero/2026</option>
-                            <option value="1415">1415 — Enero/2026</option>
-                            <option value="1414">1414 — Enero/2026</option>
-                            <option value="1413">1413 — Enero/2026</option>
-                            <option value="1412">1412 — Diciembre/2025</option>
-                            <option value="1411">1411 — Diciembre/2025</option>
-                            <option value="1410">1410 — Diciembre/2025</option>
-                            <option value="1409">1409 — Diciembre/2025</option>
-                            <option value="1407">1407 — Noviembre/2025</option>
-                            <option value="1406">1406 — Noviembre/2025</option>
-                            <option value="1405">1405 — Noviembre/2025</option>
-                            <option value="1404">1404 — Noviembre/2025</option>
-                            <option value="1403">1403 — Octubre/2025</option>
-                            <option value="1402">1402 — Octubre/2025</option>
-                            <option value="1401">1401 — Octubre/2025</option>
-                            <option value="1400">1400 — Octubre/2025</option>
-                            <option value="1397">1397 — Septiembre/2025</option>
-                            <option value="1395">1395 — Septiembre/2025</option>
-                            <option value="1394">1394 — Septiembre/2025</option>
-                            <option value="1393">1393 — Agosto/2025</option>
-                            <option value="1387">1387 — Julio/2025</option>
-                            <option value="1385">1385 — Julio/2025</option>
-                            <option value="1368">1368 — Junio/2025</option>
-                            <option value="1349">1349 — Mayo/2025</option>
-                            <option value="1345">1345 — Abril/2025</option>
-                            <option value="1335">1335 — Marzo/2025</option>
-                            <option value="1324">1324 — Marzo/2025</option>
-                        </select>
-                        <small style="display:block; margin-top:5px; color:#666; font-size:12px;">
-                            💡 Puedes consultar la versión en GAM → Ayuda → Acerca de
-                        </small>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -653,12 +614,9 @@
         </div>
 
         <!-- Sidebar PowerBi (4 ventanas) -->
-
-        <div class="sidebar" id="sidebar-mejoras" style="display:none;">
-            <div class="sidebar-title">Mejoras</div>
-            <div class="sidebar-item intro" onclick="showContent('mej-9999-intro')">Introducción</div>
-            <div class="sidebar-item" onclick="showContent('mej-9999-ultimas-novedades')">Últimas Novedades</div>
-            <div class="sidebar-item" onclick="showContent('mej-9999-proximas-actualizaciones')">Próximas Actualizaciones</div>
+            <div class="sidebar-item intro" onclick="showContent('mej-9999-novedades')">Introducción</div>
+            <div class="sidebar-item" onclick="">Últimas Novedades</div>
+            <div class="sidebar-item" onclick="">Próximas Actualizaciones</div>
         </div>
 
         <div class="sidebar" id="sidebar-powerbi" style="display:none;">
@@ -4539,45 +4497,15 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             <!-- FIN SECCIONES DE INTRODUCCIÓN             -->
             <!-- ========================================== -->
 
-<section class="content-section" id="content-mej-9999-intro">
-    <!-- GAM:INICIO:mej-9999-intro -->
-    <h1>🚀 Mejoras y Novedades GAM ERP</h1>
-    <p>En esta sección encontrarás las últimas actualizaciones, mejoras y nuevas funcionalidades incorporadas al sistema <strong>GAM ERP</strong> por el equipo de <strong>Original Soft</strong>.</p>
-    <p>El contenido se actualiza regularmente. Consulta esta pestaña para mantenerte al día con las novedades del sistema.</p>
-    <!-- GAM:FIN:mej-9999-intro -->
-</section>
-
-<section class="content-section" id="content-mej-9999-ultimas-novedades">
-    <!-- GAM:INICIO:mej-9999-ultimas-novedades -->
-    <h1>📋 Últimas Novedades</h1>
-    <div class="construction">
-        <h3>🔄 Sección en construcción</h3>
-        <p>Las últimas novedades y mejoras del sistema se publicarán aquí próximamente.</p>
-        <p>Esta sección se actualiza automáticamente desde Google Docs mediante el sistema de marcadores GAM.</p>
-    </div>
-    <!-- GAM:FIN:mej-9999-ultimas-novedades -->
-</section>
-
-<section class="content-section" id="content-mej-9999-proximas-actualizaciones">
-    <!-- GAM:INICIO:mej-9999-proximas-actualizaciones -->
-    <h1>🗓️ Próximas Actualizaciones</h1>
-    <div class="construction">
-        <h3>🔄 Sección en construcción</h3>
-        <p>El roadmap de próximas actualizaciones y funcionalidades planificadas se publicará aquí.</p>
-        <p>Esta sección se actualiza automáticamente desde Google Docs mediante el sistema de marcadores GAM.</p>
-    </div>
-    <!-- GAM:FIN:mej-9999-proximas-actualizaciones -->
-</section>
-
-<section class="content-section" id="content-novedades">
-    <!-- GAM:INICIO:novedades -->
+<section class="content-section" id="content-mej-9999-novedades">
+    <!-- GAM:INICIO:mej-9999-novedades -->
     <h1>🚀 Novedades GAM</h1>
     <div class="construction">
         <h3>🔄 Sección en construcción</h3>
         <p>El documento de novedades se publicará aquí próximamente.</p>
         <p>Esta sección se actualiza automáticamente desde Google Docs mediante el sistema de marcadores GAM.</p>
     </div>
-    <!-- GAM:FIN:novedades -->
+    <!-- GAM:FIN:mej-9999-novedades -->
 </section>
 
         </main>
@@ -4755,7 +4683,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             document.querySelectorAll(".content-section").forEach(s => s.classList.remove("active"));
             document.querySelectorAll(".sidebar").forEach(s => s.style.display = "none");
             document.querySelectorAll(".sidebar-item").forEach(i => i.classList.remove("active"));
-            const novedades = document.getElementById("content-novedades");
+            const novedades = document.getElementById("content-mej-9999-novedades");
             if (novedades) novedades.classList.add("active");
         }
 
@@ -5050,7 +4978,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             model:     'claude-sonnet-4-20250514',
             maxTokens: 1000,
             // GAS proxy — tickets, FAQ y agente IA en un solo endpoint
-            gasUrl: 'https://script.google.com/macros/s/AKfycbyi3hiOkWq9b8ndFbPLwm4biXDCbCdXhujQ6UqwCOSm0SgdWpEzPTLQ3Mszqsy7zJ3J/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbzJAbhD-SNw2r8c_Gfi6e2qNlxbG31w_THQQIrvxObxK5CFUHEZ91n3E_uMrWmyfrwK/exec',
             // Contexto cargado dinámicamente desde Sheets antes de cada sesión
             manualContext:   '',
             faqContext:      '',   // FAQ de Sheets — cargado al abrir el chat
@@ -5676,7 +5604,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         // ═══════════════════════════════════════════════════════════
 
         const TICKET_CONFIG = {
-            gasUrl: 'https://script.google.com/macros/s/AKfycbyi3hiOkWq9b8ndFbPLwm4biXDCbCdXhujQ6UqwCOSm0SgdWpEzPTLQ3Mszqsy7zJ3J/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbzJAbhD-SNw2r8c_Gfi6e2qNlxbG31w_THQQIrvxObxK5CFUHEZ91n3E_uMrWmyfrwK/exec',
             emailSoporte: 'manualgam@gmail.com'
         };
 
@@ -5759,7 +5687,6 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                 ventana:         formData.get('ventana')       || 'No especificada',
                 error:           formData.get('error')         || 'Sin error reportado',
                 observaciones:   formData.get('observaciones') || 'Sin observaciones',
-                version_gam:     formData.get('version_gam')  || 'No indicada',
                 capturaBase64:   _capturaBase64                // '' si no hay imagen
             };
 
@@ -5848,7 +5775,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
             'rrhh':                'rrhh-1100-intro',
             'web':                 'web-1200-intro',
             'powerbi':             'pbi-1300-intro',
-            'mejoras':             'mej-9999-intro'
+            'mejoras':             'mej-9999-novedades'
         };
 
         const MODULOS = [
