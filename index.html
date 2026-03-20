@@ -562,14 +562,13 @@
             <div class="sidebar-item" onclick="showContent('fact-516-grupos-lotes-mutuas')">Grupos Lotes/Mutuas</div>
             <div class="sidebar-item" onclick="showContent('fact-517-conceptos-facturacion')">Conceptos facturación</div>
             <div class="sidebar-item" onclick="showContent('fact-519-partes-de-accidente')">Partes de Accidente</div>
-            <div class="sidebar-item" onclick="showContent('fact-517-motivos-de-devolucion')">Motivos de devolución</div>
-            <div class="sidebar-item" onclick="showContent('fact-601-material')">Material</div>
         </div>
 
         <!-- Sidebar STOCK (15 ventanas) -->
         <div class="sidebar" id="sidebar-stock" style="display:none;">
             <div class="sidebar-title">STOCK</div>
             <div class="sidebar-item intro" onclick="showContent('stock-600-intro')">Introducción</div>
+            <div class="sidebar-item" onclick="showContent('stock-601-material')">Material</div>
             <div class="sidebar-item" onclick="showContent('stock-602-tipos-material')">Tipos material</div>
             <div class="sidebar-item" onclick="showContent('stock-603-familias')">Familias</div>
             <div class="sidebar-item" onclick="showContent('stock-604-gamas')">Gamas</div>
@@ -2132,7 +2131,7 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <div class="warn-box">
                     <div class="box-title">Advertencia</div>
-                    <p>Antes de trabajar con la ficha – Vehículos, es necesario que existan y estén configurados los siguientes datos en GAM. En caso contrario, algunos campos no se podrán informar, aparecerán vacíos o no ofrecerán opciones en sus desplegables.</p>
+                    <p>Antes de trabajar con la ficha 0204 – Vehículos (Coordinación), es necesario que existan y estén configurados los siguientes datos en GAM. En caso contrario, algunos campos no se podrán informar, aparecerán vacíos o no ofrecerán opciones en sus desplegables.</p>
                 </div>
 
                 <div class="alert-box">
@@ -2145,9 +2144,19 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
                 <p>Los siguientes mantenimientos/fichas alimentan campos editables (o configurables) dentro de la ficha de vehículos en mantenimientos:</p>
 
                 <ul>
-                    <li>Personal (Pestaña RRHH)Necesario para campos relacionados con dotación, especialmente TES habitual y para que el sistema pueda reflejar TES actual cuando el personal se loguea/queda asociado operativamente. </li>
-                    <li>RecursosNecesario para el campo Recurso (y para evitar “reaprovechar” la Descripción del vehículo cuando lo que cambia es su asignación operativa).</li>
-                    <li>Tipos de trasladoNecesario para la tabla/bloque de configuraciones (combinaciones) donde se selecciona Tipo de traslado por fila.Nota: si un tipo de traslado está marcado como Inactivo en 0207, no aparece en el desplegable de 0204.</li>
+                    <li>Personal (Pestaña RRHH)
+Necesario para campos relacionados con dotación, especialmente TES habitual y para que el sistema pueda reflejar TES actual cuando el personal se loguea/queda asociado operativamente.</li>
+                </ul>
+
+                <ul>
+                    <li>Recursos
+Necesario para el campo Recurso (y para evitar “reaprovechar” la Descripción del vehículo cuando lo que cambia es su asignación operativa).</li>
+                </ul>
+
+                <ul>
+                    <li>Tipos de traslado
+Necesario para la tabla/bloque de configuraciones (combinaciones) donde se selecciona Tipo de traslado por fila.
+Nota: si un tipo de traslado está marcado como Inactivo en 0207, no aparece en el desplegable de 0204.</li>
                 </ul>
 
                 <h2>Datos que el sistema puede cumplimentar y que dependen de mantenimientos</h2>
@@ -2155,7 +2164,8 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
                 <p>Algunos campos que se muestran en 0204 pueden depender de datos previos para funcionar correctamente:</p>
 
                 <ul>
-                    <li> ParadasNecesario para que el campo Parada pueda reflejar información coherente cuando el sistema lo cumpla/lo utilice (según operativa y configuración).</li>
+                    <li>Paradas
+Necesario para que el campo Parada pueda reflejar información coherente cuando el sistema lo cumpla/lo utilice (según operativa y configuración).</li>
                 </ul>
 
                 <h2>Objetivo</h2>
@@ -2172,7 +2182,13 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>En “Vehículos” no se permite:</li>
+                </ul>
+
+                <ul>
                     <li>Dar de alta un vehículo nuevo.</li>
+                </ul>
+
+                <ul>
                     <li>Eliminar un vehículo existente.</li>
                 </ul>
 
@@ -2186,6 +2202,9 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Vehículo, Matrícula, Descripción, etc.</li>
+                </ul>
+
+                <ul>
                     <li>Check Inactivos.</li>
                 </ul>
 
@@ -2195,7 +2214,13 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>El listado muestra los resultados del filtro.</li>
+                </ul>
+
+                <ul>
                     <li>Si el filtro está en blanco, se muestran todos los vehículos existentes.</li>
+                </ul>
+
+                <ul>
                     <li>Al posicionarse sobre un registro, su información se muestra extendida en la ficha inferior.</li>
                 </ul>
 
@@ -2205,7 +2230,13 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Campos informativos (bloqueados por venir de Taller).</li>
+                </ul>
+
+                <ul>
                     <li>Campos autocompletados por el sistema.</li>
+                </ul>
+
+                <ul>
                     <li>Campos editables para coordinación.</li>
                 </ul>
 
@@ -2213,53 +2244,23 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <p>En esta ventana se trabaja principalmente con:</p>
 
-                <table class="table-manual">
-                    <thead>
-                        <tr>
-                            <th>Icono</th>
-                            <th>Función</th>
-                            <th>Atajo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tbody>
-                        <tr>
-                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
-                            <td>Guardar: guarda cambios en los campos que sean editables. </td>
-                            <td>F5</td>
-                        </tr>
-                        <tr>
-                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
-                            <td>Refrescar: Actualiza listado según filtros</td>
-                            <td>F7</td>
-                        </tr>
-                        <tr>
-                            <td><img src="assets/iconos/Icon_historial_de_cambios.png" alt="Icon_historial_de_cambios.png" class="icon-inline"></td>
-                            <td>Historial de Cambios: muestra el histórico de cambios realizados en la ficha</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
-                            <td>Cerrar: Cierra la ventana</td>
-                            <td>F12</td>
-                        </tr>
-                        <tr>
-                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
-                            <td>Nuevo: icono desactivado</td>
-                            <td>F2</td>
-                        </tr>
-                        <tr>
-                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
-                            <td>Eliminar: icono desactivado</td>
-                            <td>F4</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <ul>
+                    <li>Guardar — F5: guarda cambios en los campos que sean editables.</li>
+                </ul>
 
-                <div class="note-box">
-                    <div class="box-title">Nota</div>
-                    <p>Aunque se vean iconos “típicos” de mantenimiento, en vehículos  no está permitido crear ni eliminar fichas.</p>
-                </div>
+                <ul>
+                    <li>Refrescar — F7: actualiza el listado según filtros.</li>
+                </ul>
+
+                <ul>
+                    <li>Historial de cambios : muestra el histórico de cambios de la ficha.</li>
+                </ul>
+
+                <ul>
+                    <li>Cerrar — F12: cierra la ventana.</li>
+                </ul>
+
+                <p>Nota: aunque se vean iconos “típicos” de mantenimiento, en vehículos  no está permitido crear ni eliminar fichas.        (Estos iconos están desactivados)</p>
 
                 <h2>Campos: qué es informativo, qué se autocompleta y qué se edita</h2>
 
@@ -2269,9 +2270,21 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Código (Vehículo) (no puede cambiarse)</li>
+                </ul>
+
+                <ul>
                     <li>Descripción</li>
+                </ul>
+
+                <ul>
                     <li>INACTIVO</li>
+                </ul>
+
+                <ul>
                     <li>Matrícula</li>
+                </ul>
+
+                <ul>
                     <li>Modelo</li>
                 </ul>
 
@@ -2286,11 +2299,29 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Comidas</li>
+                </ul>
+
+                <ul>
                     <li>Parada</li>
+                </ul>
+
+                <ul>
                     <li>Dirección final</li>
+                </ul>
+
+                <ul>
                     <li>Población final</li>
+                </ul>
+
+                <ul>
                     <li>TES actual</li>
+                </ul>
+
+                <ul>
                     <li>Sirena</li>
+                </ul>
+
+                <ul>
                     <li>Pánico activado (además, se puede activar o desactivar manualmente)</li>
                 </ul>
 
@@ -2306,7 +2337,11 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>TES habitual: dotación asignada habitualmente al vehículo.</li>
-                    <li>TES actual: dotación que está con el vehículo en ese momento.Puede diferir del habitual si, por programación, se ha ajustado la dotación para servicios posteriores o por necesidades operativas. El sistema muestra qué dotación se ha logueado en el vehículo y va realmente con él.</li>
+                </ul>
+
+                <ul>
+                    <li>TES actual: dotación que está con el vehículo en ese momento.
+Puede diferir del habitual si, por programación, se ha ajustado la dotación para servicios posteriores o por necesidades operativas. El sistema muestra qué dotación se ha logueado en el vehículo y va realmente con él.</li>
                 </ul>
 
                 <h2>Plazas y combinaciones en vehículo colectivo</h2>
@@ -2317,8 +2352,17 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Asientos</li>
+                </ul>
+
+                <ul>
                     <li>S. Ruedas</li>
+                </ul>
+
+                <ul>
                     <li>Camilla</li>
+                </ul>
+
+                <ul>
                     <li>Tipos traslado (desplegable por fila)</li>
                 </ul>
 
@@ -2328,6 +2372,9 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Si se utiliza GamRuta, estas combinaciones son necesarias y efectivas (se usan de forma operativa).</li>
+                </ul>
+
+                <ul>
                     <li>Si no se utiliza GamRuta, el bloque actúa como información/configuración de referencia.</li>
                 </ul>
 
@@ -2335,6 +2382,9 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Plazas: total de plazas del vehículo.</li>
+                </ul>
+
+                <ul>
                     <li>Plazas convertibles a silla ruedas o camilla: plazas que pueden reconvertirse según necesidad.</li>
                 </ul>
 
@@ -2344,8 +2394,17 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Introducir 0, 1 o varios filtros (Vehículo/Matrícula/Descripción…).</li>
+                </ul>
+
+                <ul>
                     <li>Pulsar Refrescar F7.</li>
+                </ul>
+
+                <ul>
                     <li>Seleccionar el vehículo en el listado para ver su ficha completa.</li>
+                </ul>
+
+                <ul>
                     <li>(Opcional) Consultar el Historial de cambios (“pececitos”) para auditoría.</li>
                 </ul>
 
@@ -2353,7 +2412,13 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>Seleccionar el vehículo.</li>
+                </ul>
+
+                <ul>
                     <li>Modificar los campos editables que correspondan (no los que vienen de Taller).</li>
+                </ul>
+
+                <ul>
                     <li>Guardar con Guardar F5.</li>
                 </ul>
 
@@ -2363,7 +2428,13 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
                 <ul>
                     <li>No se pueden crear vehículos nuevos ni eliminarlos desde esta ficha  (se gestiona en Taller).</li>
+                </ul>
+
+                <ul>
                     <li>No se pueden modificar en vehículos, los campos maestros: Código, Descripción, Inactivo, Matrícula y Modelo.</li>
+                </ul>
+
+                <ul>
                     <li>No se debe alterar la Descripción para “reaprovechar” un vehículo y representar otro, porque se pierde trazabilidad.</li>
                 </ul>
 
@@ -3476,28 +3547,17 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
                         <!-- GAM:FIN:fact-519-partes-de-accidente -->
             </section>
 
-<section class="content-section" id="content-fact-517-motivos-de-devolucion">
-            <!-- GAM:INICIO:fact-517-motivos-de-devolucion -->
-                <h1>Motivos de devolución</h1>
-                <div class="construction">
-                    <h3>🔲 Motivos de devolución <span style="font-size:11px;font-weight:400;color:#999">· Pendiente</span></h3>
-                    <p>Módulo: <strong>FACTURACION</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
-                </div>
-                        <!-- GAM:FIN:fact-517-motivos-de-devolucion -->
-            </section>
 
-<section class="content-section" id="content-fact-601-material">
-            <!-- GAM:INICIO:fact-601-material -->
+<section class="content-section" id="content-stock-601-material">
+            <!-- GAM:INICIO:stock-601-material -->
                 <h1>Material</h1>
                 <div class="construction">
                     <h3>🔲 Material <span style="font-size:11px;font-weight:400;color:#999">· Pendiente</span></h3>
                     <p>Módulo: <strong>FACTURACION</strong></p>
                     <p>Esta sección se actualizará cuando el temario esté redactado.</p>
                 </div>
-                        <!-- GAM:FIN:fact-601-material -->
+                        <!-- GAM:FIN:stock-601-material -->
             </section>
-
 <section class="content-section" id="content-stock-602-tipos-material">
             <!-- GAM:INICIO:stock-602-tipos-material -->
                 <h1>Tipos material</h1>
