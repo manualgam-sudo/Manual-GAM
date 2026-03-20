@@ -2459,13 +2459,220 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-205-tipos-de-vehiculo">
             <!-- GAM:INICIO:mant-205-tipos-de-vehiculo -->
-                <h1>Tipos de vehículo</h1>
-                <div class="construction">
-                    <h3>✏️ Tipos de vehículo <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Tipos de vehículo</h1>
+
+                <h2>Objetivo</h2>
+
+                <p>El mantenimiento Tipos de vehículo permite crear y mantener la lista de tipos que se utilizarán para clasificar/seleccionar el vehículo requerido en distintas pantallas (altas de servicio, programados, ficha de vehículos, etc.)</p>
+
+                <p>Se recomienda definir estos tipos con una nomenclatura coherente para mejorar filtros, listados y trazabilidad.</p>
+
+                <h2>Descripción de la ventana</h2>
+
+                <p>En esta ventana se gestionan registros con:</p>
+
+                <ul>
+                    <li>Código (alfanumérico) del tipo.</li>
+                    <li>Descripción del tipo.</li>
+                    <li>Indicador Individual/Colectivo.</li>
+                    <li>Campo Externa (uso en vehículo externo).</li>
+                    <li>Check ¿Habilitado para GamWeb? (visibilidad en solicitudes web).</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Recomendación de nomenclatura: Tipos de vehículo es la tipología de la flota en concordancia con su uso (por ejemplo: Normal, Colectivo, Avanzada, Urgencias, Convencional, UVI…) por lo tanto, recomendamos utilizar códigos oficiales cuando aplique (por ejemplo A1, A2, B, C…) y añadir los tipos necesarios según la flota/operativa de la empresa (bariátrica, microbús, intervención, vehículo taller, etc.).</p>
                 </div>
-                        <!-- GAM:FIN:mant-205-tipos-de-vehiculo -->
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>para evitar confusiones: este mantenimiento no es el “modelo” del vehículo. El campo “Modelo” que aparece en otras fichas (por ejemplo vehículo) corresponde a otro mantenimiento/campo distinto.</p>
+                </div>
+
+                <h2>Dónde se utiliza</h2>
+
+                <p>Este campo es importante y aparece, como mínimo, en:</p>
+
+                <ul>
+                    <li>Ficha de programados</li>
+                    <li>Alta de servicios (Normal, UCI, Programados)</li>
+                    <li>Ficha de vehículos (Taller)</li>
+                </ul>
+
+                <p>También puede aparecer en otras ventanas/funciones según configuración.</p>
+
+                <h2>Qué ves en pantalla</h2>
+
+                <h3>Selección / Filtro</h3>
+
+                <p>Permite introduci en filtror: ningún dato, uno o varios  (por ejemplo “Tipo vehículo”, “Descripción”).Para actualizar el listado de resultados se utiliza Refrescar F7 (o su icono). <img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></p>
+
+                <h3>Listado de resultados</h3>
+
+                <p>Muestra los registros existentes (Código y Descripción).Al seleccionar un registro, se visualiza su detalle en la parte inferior.</p>
+
+                <h3>Detalle</h3>
+
+                <p>Muestra y permite editar (según permisos):</p>
+
+                <ul>
+                    <li>Tipo vehículo (código)</li>
+                    <li>Descripción</li>
+                    <li>Externa</li>
+                    <li>Individual/Colectivo</li>
+                    <li>¿Habilitado para GamWeb?</li>
+                </ul>
+
+                <h2>Iconos y controles</h2>
+
+                <ul>
+                    <li><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></li>
+                </ul>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear nuevo registro</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Guarda alta o cambios del registro</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar:  Elimina registro </td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-refrescar_f7.png" alt="icon-refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11.png" alt="icon_imprimir_f11.png" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Campos</h2>
+
+                <ul>
+                    <li>Código (Tipo vehículo): se informa manualmente y puede ser alfanumérico.</li>
+                    <li>Descripción: texto libre.</li>
+                    <li>Individual/Colectivo: define si el tipo corresponde a un transporte individual o colectivo.</li>
+                    <li>Externa: se utiliza cuando el servicio requiere vehículo externo. En este campo se indica la empresa (u otra referencia acordada) necesaria para identificar el externo.</li>
+                    <li>¿Habilitado para GamWeb?: si está marcado, el tipo podrá aparecer en la solicitud de servicios a través de GamWeb (si el módulo está activo).</li>
+                </ul>
+
+                <h2>Procedimientos habituales</h2>
+
+                <h3>Buscar para evitar duplicados</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Introducir 0, 1 o varios filtros (Tipo vehículo / Descripción).</li>
+                    <li>Pulsar Refrescar F7.</li>
+                    <li>Revisar el listado para comprobar si ya existe un registro igual o similar.</li>
+                </ul>
+
+                </div>
+
+                <h3>Crear un tipo de vehículo</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Realizar la búsqueda previa (ver 6.1).</li>
+                    <li>Pulsar Nuevo F2.</li>
+                    <li>Informar:</li>
+                    <li>Código (alfanumérico).</li>
+                    <li>Descripción.</li>
+                    <li>Individual/Colectivo.</li>
+                    <li>Externa solo si aplica a vehículo externo (indicar empresa).</li>
+                    <li>Marcar ¿Habilitado para GamWeb? si debe mostrarse en solicitudes web.</li>
+                    <li>Pulsar Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <h3>Modificar un tipo existente (advertencia de histórico)</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Seleccionar el registro en el listado.</li>
+                    <li>Modificar los campos necesarios (normalmente Descripción y/o atributos).</li>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>si se cambia la Descripción, el cambio se reflejará también en el histórico (registros antiguos). No se recomienda cambiarla salvo que haya cambiado el criterio general y se acepte su impacto en listados/histórico.</p>
+                </div>
+
+                <h3>Eliminar un tipo de vehículo (y efecto en registros previos)</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Seleccionar el registro.</li>
+                    <li>Pulsar Eliminar F4 y confirmar.</li>
+                </ul>
+
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>al eliminar un tipo, en los registros donde se utilizaba el campo quedará en blanco.Por este motivo, se recomienda eliminar únicamente si fue creado por error o se acepta perder esa referencia en consultas/listados históricos.</p>
+                </div>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No usar esta ventana para gestionar “modelos” de vehículo: es otro campo/mantenimiento.</li>
+                    <li>No cambiar descripciones “por reutilizar” un tipo si no se acepta el impacto en histórico.</li>
+                    <li>No eliminar tipos usados si se necesita mantener trazabilidad completa (al eliminar, el campo queda en blanco en registros donde se utilizó).</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves esta opción, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+
+                <h2>Capturas</h2>
+
+                <figure>
+                    <img src="assets/capturas/0205 - Tipos de Vehículo (7).png" alt="0205 - Tipos de Vehículo (7).png" class="screenshot">
+                    <figcaption>Figura 1 — 0205 Tipos de vehículo: filtro, listado y detalle (Individual/Colectivo, Externa y GamWeb).</figcaption>
+                </figure>
+
+                <h7>Enlaces recomendados</h7>
+
+                <ul>
+                    <li>Ver también: 0701 — Ficha de vehículos (Taller)</li>
+                </ul>
+            <!-- GAM:FIN:mant-205-tipos-de-vehiculo -->
             </section>
 
 <section class="content-section" id="content-mant-206-motivos-de-traslado">
