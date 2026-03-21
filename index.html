@@ -5460,6 +5460,17 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             }
             // Actualizar hash de URL para deep-link (ventana concreta)
             history.replaceState(null, '', '#' + contentId);
+
+            // ── Analytics GAMIA: registrar navegación por el manual ──
+            GAMIA_ANALYTICS.seccionActual   = contentId;
+            GAMIA_ANALYTICS.consultaManual  = true;
+            // Guardar historial de secciones visitadas (últimas 5)
+            if (!GAMIA_ANALYTICS.seccionesVisitadas.includes(contentId)) {
+                GAMIA_ANALYTICS.seccionesVisitadas.push(contentId);
+                if (GAMIA_ANALYTICS.seccionesVisitadas.length > 5) {
+                    GAMIA_ANALYTICS.seccionesVisitadas.shift();
+                }
+            }
         }
 
         // ── Deep-link: navegar al hash de la URL al cargar la página ──
@@ -5819,7 +5830,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
         const AGENTE_CONFIG = {
             model:     'claude-sonnet-4-20250514',
             maxTokens: 1000,
-            gasUrl: 'https://script.google.com/macros/s/AKfycbzJAbhD-SNw2r8c_Gfi6e2qNlxbG31w_THQQIrvxObxK5CFUHEZ91n3E_uMrWmyfrwK/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbzKSk4oLDd4eGlS5FIk5PtTG4ndGkRQCnRJUVf993AFRXWVQKUiAvrDOwJWHGTvNSxn/exec',
             manualContext:   '',
             faqContext:      '',
             ticketsCerrados: '',
@@ -5833,8 +5844,29 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             if (panel) panel.style.display = 'none';
             const chatWrap = document.querySelector('#soporte-agente .agente-chat-wrap');
             if (chatWrap) chatWrap.style.display = 'flex';
+
+            // ── Resetear analytics de sesión al abrir GAMIA ──────
+            // consultaManual: si el usuario visitó el manual ANTES de abrir GAMIA
+            // Si ya era true (navegó el manual), se conserva; si abre GAMIA directo, false
+            GAMIA_ANALYTICS.gamiaAbiertoEn    = GAMIA_ANALYTICS.seccionActual || 'acceso-directo';
+            GAMIA_ANALYTICS.seccionesAntes    = [...GAMIA_ANALYTICS.seccionesVisitadas];
+            GAMIA_ANALYTICS.consultaManualAntes = GAMIA_ANALYTICS.consultaManual;
+            // Limpiar contador de mensajes de esta sesión
+            GAMIA_ANALYTICS.mensajesEnSesion  = 0;
+
             initAgenteChat();
         }
+
+        // ── Objeto de analytics GAMIA (persiste en sesión de página) ──
+        const GAMIA_ANALYTICS = {
+            seccionActual:        null,    // última sección visitada del manual
+            consultaManual:       false,   // true si navegó el manual en esta sesión
+            seccionesVisitadas:   [],      // últimas 5 secciones visitadas
+            gamiaAbiertoEn:       null,    // sección activa al abrir GAMIA
+            seccionesAntes:       [],      // secciones visitadas antes de abrir GAMIA
+            consultaManualAntes:  false,   // si consultó el manual antes de GAMIA
+            mensajesEnSesion:     0,       // mensajes enviados en esta sesión de GAMIA
+        };
 
         // ── Historial de conversación ─────────────────────────────
         let agenteHistorial = [];
@@ -6328,6 +6360,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                 let fetchOk = false;
 
                 try {
+                    GAMIA_ANALYTICS.mensajesEnSesion++;
                     const resp = await fetch(AGENTE_CONFIG.gasUrl, {
                         method:  'POST',
                         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
@@ -6336,7 +6369,16 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                             model:      AGENTE_CONFIG.model,
                             max_tokens: AGENTE_CONFIG.maxTokens,
                             system:     buildAgenteSystemPrompt(),
-                            messages:   agenteHistorial
+                            messages:   agenteHistorial,
+                            // ── Datos de analytics para registro en Sheets ──
+                            analytics: {
+                                ventana_origen:     GAMIA_ANALYTICS.gamiaAbiertoEn,
+                                consulto_manual:    GAMIA_ANALYTICS.consultaManualAntes,
+                                secciones_previas:  GAMIA_ANALYTICS.seccionesAntes.join('|'),
+                                num_mensaje:        GAMIA_ANALYTICS.mensajesEnSesion,
+                                pregunta:           text,
+                                version_gam:        AGENTE_CONFIG.versionGAM || 'No indicada'
+                            }
                         })
                     });
                     const data = await resp.json();
@@ -6472,7 +6514,7 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         // ═══════════════════════════════════════════════════════════
 
         const TICKET_CONFIG = {
-            gasUrl: 'https://script.google.com/macros/s/AKfycbzJAbhD-SNw2r8c_Gfi6e2qNlxbG31w_THQQIrvxObxK5CFUHEZ91n3E_uMrWmyfrwK/exec',
+            gasUrl: 'https://script.google.com/macros/s/AKfycbzKSk4oLDd4eGlS5FIk5PtTG4ndGkRQCnRJUVf993AFRXWVQKUiAvrDOwJWHGTvNSxn/exec',
             emailSoporte: 'manualgam@gmail.com'
         };
 
