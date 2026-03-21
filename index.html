@@ -90,6 +90,9 @@
     <nav class="header-nav">
         <a onclick="generarManualPDF()" style="cursor:pointer;">📄MANUAL PDF</a>
         <a onclick="openSupportModal()" class="btn-soporte">SOPORTE</a>
+        <button class="header-search-btn" onclick="abrirBuscador()" title="Buscar en el manual" aria-label="Buscar">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
         <img src="assets/img/icon-mejoras.png"
              class="header-mejoras-btn"
              onclick="showNovedades()"
@@ -104,6 +107,29 @@
              class="mobile-logo"
              alt="Original Soft">
     </div>
+
+<!-- Modal Buscador -->
+<div id="buscador-modal" class="buscador-overlay" onclick="cerrarBuscadorOverlay(event)">
+    <div class="buscador-modal">
+        <div class="buscador-header">
+            <div class="buscador-input-wrap">
+                <svg class="buscador-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="buscador-input" class="buscador-input"
+                       placeholder="Buscar en el manual..."
+                       oninput="buscarEnManual(this.value)"
+                       onkeydown="buscadorKeyDown(event)"
+                       autocomplete="off" autocorrect="off" spellcheck="false">
+                <button class="buscador-clear" onclick="limpiarBuscador()" title="Limpiar">×</button>
+            </div>
+            <button class="buscador-close" onclick="cerrarBuscador()">Cerrar</button>
+        </div>
+        <div id="buscador-resultados" class="buscador-resultados">
+            <div class="buscador-placeholder">
+                <span>Escribe para buscar ventanas, funcionalidades o términos del manual</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 </header>
 
@@ -5548,6 +5574,249 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
                     window.open(url, '_blank');
                 });
             });
+        });
+
+        // ═══════════════════════════════════════════════════════════
+        // 🔍 BUSCADOR DEL MANUAL
+        // ═══════════════════════════════════════════════════════════
+
+        let _indiceSearchGAM = null;  // caché del índice
+
+        // Construye el índice de búsqueda una sola vez (lazy)
+        function construirIndice() {
+            if (_indiceSearchGAM) return _indiceSearchGAM;
+
+            const modMap = {
+                'sis':'SISTEMA','mant':'MANTENIMIENTOS','prog':'PROGRAMADOS',
+                'coord':'COORDINACIÓN','fact':'FACTURACIÓN','stock':'STOCK',
+                'tall':'TALLER','info':'INFORMACIÓN','util':'UTILIDADES',
+                'telco':'TELECOMUNICACIONES','rrhh':'RRHH','web':'WEB',
+                'pbi':'POWERBI','mej':'MEJORAS'
+            };
+
+            const indice = [];
+            document.querySelectorAll('.content-section').forEach(section => {
+                const id = section.id.replace('content-', '');
+                if (!id || id === 'default') return;
+
+                // Título de la ventana (H1 o primer encabezado)
+                const h1 = section.querySelector('h1,h2,h3');
+                const titulo = h1 ? h1.textContent.trim() : id;
+
+                // Texto completo de la sección (sin HTML)
+                const texto = section.textContent.replace(/\s+/g, ' ').trim();
+
+                // Módulo
+                const prefijo = id.split('-')[0];
+                const modulo  = modMap[prefijo] || prefijo.toUpperCase();
+
+                // Label del sidebar
+                const sidebarItem = document.querySelector(`[onclick*="'${id}'"]`);
+                const labelSidebar = sidebarItem ? sidebarItem.textContent.trim() : titulo;
+
+                // Solo indexar secciones con contenido real
+                if (texto.length < 50) return;
+
+                indice.push({ id, titulo: labelSidebar || titulo, modulo, texto, prefijo });
+            });
+
+            _indiceSearchGAM = indice;
+            return indice;
+        }
+
+        function abrirBuscador() {
+            const modal = document.getElementById('buscador-modal');
+            modal.classList.add('active');
+            setTimeout(() => {
+                const input = document.getElementById('buscador-input');
+                input.focus();
+                input.select();
+            }, 80);
+            // Construir índice en segundo plano si no existe
+            construirIndice();
+        }
+
+        function cerrarBuscador() {
+            document.getElementById('buscador-modal').classList.remove('active');
+        }
+
+        function cerrarBuscadorOverlay(e) {
+            if (e.target.id === 'buscador-modal') cerrarBuscador();
+        }
+
+        function limpiarBuscador() {
+            const input = document.getElementById('buscador-input');
+            input.value = '';
+            input.focus();
+            buscarEnManual('');
+        }
+
+        function buscarEnManual(query) {
+            const clear  = document.querySelector('.buscador-clear');
+            const results = document.getElementById('buscador-resultados');
+
+            // Mostrar/ocultar botón limpiar
+            if (clear) clear.classList.toggle('visible', query.length > 0);
+
+            query = query.trim();
+            if (query.length < 2) {
+                results.innerHTML = '<div class="buscador-placeholder"><span>Escribe al menos 2 caracteres para buscar</span></div>';
+                return;
+            }
+
+            const indice  = construirIndice();
+            const terms   = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+            const matches = [];
+
+            indice.forEach(item => {
+                const textoLower  = item.texto.toLowerCase();
+                const tituloLower = item.titulo.toLowerCase();
+
+                // Puntuación: más puntos si aparece en el título
+                let score = 0;
+                let allMatch = true;
+                terms.forEach(term => {
+                    const inTitulo = tituloLower.includes(term);
+                    const inTexto  = textoLower.includes(term);
+                    if (!inTitulo && !inTexto) { allMatch = false; return; }
+                    score += inTitulo ? 10 : 1;
+                    // Bonus por frecuencia en texto
+                    const freq = (textoLower.match(new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g')) || []).length;
+                    score += Math.min(freq, 5);
+                });
+
+                if (!allMatch) return;
+
+                // Extraer fragmento de contexto alrededor del primer término
+                const firstTerm = terms[0];
+                const idx = textoLower.indexOf(firstTerm);
+                let extracto = '';
+                if (idx >= 0) {
+                    const start = Math.max(0, idx - 60);
+                    const end   = Math.min(item.texto.length, idx + 120);
+                    extracto = (start > 0 ? '...' : '') + item.texto.slice(start, end) + (end < item.texto.length ? '...' : '');
+                }
+
+                matches.push({ ...item, score, extracto });
+            });
+
+            // Ordenar por puntuación
+            matches.sort((a, b) => b.score - a.score);
+
+            if (matches.length === 0) {
+                results.innerHTML = `<div class="buscador-sin-resultados">No se encontraron resultados para "<strong>${escapeHtml(query)}</strong>"</div>`;
+                return;
+            }
+
+            // Agrupar por módulo
+            const grupos = {};
+            matches.slice(0, 30).forEach(m => {
+                if (!grupos[m.modulo]) grupos[m.modulo] = [];
+                grupos[m.modulo].push(m);
+            });
+
+            // Renderizar
+            let html = '';
+            Object.entries(grupos).forEach(([modulo, items]) => {
+                html += `<div class="buscador-grupo">
+                    <div class="buscador-grupo-titulo">${modulo}</div>`;
+                items.forEach((item, idx) => {
+                    const tituloMarcado  = marcarTerminos(escapeHtml(item.titulo), terms);
+                    const extractoMarcado = marcarTerminos(escapeHtml(item.extracto), terms);
+                    html += `<div class="buscador-item" onclick="seleccionarResultado('${item.id}')" data-idx="${idx}">
+                        <div class="buscador-item-titulo">${tituloMarcado}</div>
+                        ${extractoMarcado ? `<div class="buscador-item-extracto">${extractoMarcado}</div>` : ''}
+                    </div>`;
+                });
+                html += '</div>';
+            });
+
+            html += `<div class="buscador-stats">${matches.length} resultado${matches.length !== 1 ? 's' : ''}</div>`;
+            results.innerHTML = html;
+        }
+
+        function seleccionarResultado(contentId) {
+            cerrarBuscador();
+            // Determinar tab del resultado
+            const prefixTabMap = {
+                'sis':'sistema','mant':'mantenimientos','prog':'programados',
+                'coord':'coordinacion','fact':'facturacion','stock':'stock',
+                'tall':'taller','info':'informacion','util':'utilidades',
+                'telco':'telecomunicaciones','rrhh':'rrhh','web':'web',
+                'pbi':'powerbi','mej':'mejoras'
+            };
+            const prefix = contentId.split('-')[0];
+            const tabName = prefixTabMap[prefix];
+
+            // Activar tab si es necesario
+            if (tabName) {
+                const sidebar = document.getElementById('sidebar-' + tabName);
+                if (sidebar && sidebar.style.display === 'none') {
+                    document.querySelectorAll('.sidebar').forEach(s => s.style.display = 'none');
+                    sidebar.style.display = 'block';
+                    document.querySelectorAll('.tab').forEach(t => {
+                        t.classList.toggle('active', t.onclick && t.onclick.toString().includes(`'${tabName}'`));
+                    });
+                }
+            }
+
+            // Mostrar sección
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+            const section = document.getElementById('content-' + contentId);
+            if (section) {
+                section.classList.add('active');
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            const sidebarItem = document.querySelector(`[onclick*="'${contentId}'"]`);
+            if (sidebarItem) sidebarItem.classList.add('active');
+
+            history.replaceState(null, '', '#' + contentId);
+        }
+
+        function marcarTerminos(texto, terms) {
+            terms.forEach(term => {
+                const re = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+                texto = texto.replace(re, '<mark>$1</mark>');
+            });
+            return texto;
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        // Navegación por teclado en el buscador
+        function buscadorKeyDown(e) {
+            if (e.key === 'Escape') { cerrarBuscador(); return; }
+            const items = document.querySelectorAll('.buscador-item');
+            if (!items.length) return;
+            const selected = document.querySelector('.buscador-item.selected');
+            let idx = selected ? Array.from(items).indexOf(selected) : -1;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (selected) selected.classList.remove('selected');
+                idx = Math.min(idx + 1, items.length - 1);
+                items[idx].classList.add('selected');
+                items[idx].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (selected) selected.classList.remove('selected');
+                idx = Math.max(idx - 1, 0);
+                items[idx].classList.add('selected');
+                items[idx].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'Enter' && selected) {
+                selected.click();
+            }
+        }
+
+        // Atajo de teclado global: Ctrl+K o Cmd+K
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                abrirBuscador();
+            }
         });
     </script>
     
