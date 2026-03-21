@@ -2384,3 +2384,38 @@ table.table-manual tr{break-inside:avoid;page-break-inside:avoid}
             .intro-atajos-grid { grid-template-columns: 1fr; }
             .intro-iconos-tabla .intro-icono-fila { grid-template-columns: 40px 70px 1fr; }
         }
+
+        /* Funciones de ayuda del manual */
+        .intro-ayudas {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .intro-ayuda-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-left: 4px solid #D20707;
+            border-radius: 0 6px 6px 0;
+            padding: 14px 16px;
+        }
+        .intro-ayuda-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .intro-ayuda-body strong {
+            font-size: 14px;
+            color: #2a2a2a;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .intro-ayuda-body p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
