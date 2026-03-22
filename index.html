@@ -1173,9 +1173,87 @@
 
 <section class="content-section" id="content-mant-200-intro">
     <!-- GAM:INICIO:mant-200-intro -->
-    <h1>🔧 Módulo Mantenimientos</h1>
-    <p>El módulo <strong>Mantenimientos</strong> contiene todas las tablas maestras del sistema: vehículos, tipos de traslado, poblaciones, destinos, recursos, personal sanitario, calendarios y demás configuraciones base del ERP.</p>
-    <p>Selecciona una ventana del menú lateral para ver su documentación detallada.</p>
+    <div class="intro-modulo-wrap">
+
+      <!-- Header módulo -->
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> MANTENIMIENTOS</h1>
+          <p class="intro-modulo-tagline">Datos maestros y tablas de configuración de GAM</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('mant-200-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">🔧</div>
+      </div>
+
+      <!-- Descripción -->
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña MANTENIMIENTOS permite configurar los datos maestros de GAM — registros y listas — que se utilizarán posteriormente en otras ventanas del sistema mediante desplegables, selectores y códigos.</p>
+          <p>GAM se apoya en ventanas de mantenimiento, también llamadas ventanas de configuración, que contienen listas desplegables, registros fijos y tablas de datos maestros. Cuando se entrega el ERP, estos mantenimientos suelen estar vacíos o sin completar, porque cada empresa debe introducir sus propios datos, zonas y códigos según su operativa. Por este motivo no es posible entregar un GAM con una configuración estándar válida para todas las empresas.</p>
+          <div class="note-box">
+            <div class="box-title">Recomendación</div>
+            <p>Es importante la planificación anticipada de los códigos y descripciones a utilizar. Una buena planificación evitará duplicidades, datos sin sentido y listados confusos, y facilitará la extracción de información útil para analizar el funcionamiento de la empresa.</p>
+          </div>
+        </div>
+
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">¿Cuándo se utiliza?</h2>
+          <p>La pestaña MANTENIMIENTOS se trabaja principalmente en dos momentos:</p>
+          <p><strong>Antes de que GAM sea operativo</strong>, como parte de la configuración inicial. Es necesario completar los datos maestros antes de empezar a trabajar con el resto de módulos.</p>
+          <p><strong>Durante el uso de GAM</strong>, cuando sea necesario ampliar o ajustar datos maestros: añadir nuevos códigos, zonas o valores que la operativa requiera.</p>
+        </div>
+
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Qué se configura aquí</h2>
+          <p>En MANTENIMIENTOS se crean los valores y registros que después afectan directamente a la operativa diaria: alimentan campos de selección, mejoran la calidad y consistencia de los datos, permiten listados más claros y facilitan filtros y búsquedas más precisas.</p>
+          <div class="alert-box">
+            <div class="box-title">Importante</div>
+            <p>No se deben crear registros de prueba sin criterio, ya que pueden generar listas confusas, selecciones incorrectas y dificultad para filtrar o interpretar información más adelante. Si no ves alguna opción de esta pestaña, puede depender de permisos o configuración — consulta con tu responsable.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas del módulo -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('mant-201-extra1')"><div><strong>Extra 1</strong><span>Mantenimiento configurable según instalación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-202-extra2')"><div><strong>Extra 2</strong><span>Mantenimiento configurable según instalación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-204-vehiculos')"><div><strong>Vehículos</strong><span>Datos operativos de los vehículos de la flota</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-205-tipos-de-vehiculo')"><div><strong>Tipos de vehículo</strong><span>Clasificación de los vehículos disponibles</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-206-motivos-de-traslado')"><div><strong>Motivos de traslado</strong><span>Códigos y descripciones de los motivos de traslado</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-207-tipos-de-traslado')"><div><strong>Tipos de traslado</strong><span>Clasificación de los tipos de traslado</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-208-incidencias')"><div><strong>Incidencias</strong><span>Catálogo de incidencias registrables en los servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-209-tipos-de-asistencias')"><div><strong>Tipos de asistencias</strong><span>Clasificación de los tipos de asistencia sanitaria</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-211-poblaciones')"><div><strong>Poblaciones</strong><span>Listado de poblaciones para selección en servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-212-destinos')"><div><strong>Destinos</strong><span>Destinos habituales: hospitales, centros y domicilios frecuentes</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-213-direcciones-standards')"><div><strong>Direcciones estándar</strong><span>Direcciones de uso frecuente predefinidas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-214-procedencias')"><div><strong>Procedencias</strong><span>Origen de los servicios: hospital, mutua, privado...</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-215-departamentos-procedencias')"><div><strong>Departamentos procedencias</strong><span>Departamentos asociados a las procedencias</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-216-centro-asistencial-cap')"><div><strong>Centro asistencial / CAP</strong><span>Centros de atención primaria y asistenciales</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-217-recursos')"><div><strong>Recursos</strong><span>Recursos materiales y humanos asignables a servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-218-unidades-productivas')"><div><strong>Unidades productivas</strong><span>Agrupación de vehículos por unidad operativa</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-219-administracion-autonomica')"><div><strong>Administración autonómica</strong><span>Configuración de parámetros de la administración</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-221-provincias')"><div><strong>Provincias</strong><span>Listado de provincias</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-222-sectores')"><div><strong>Sectores</strong><span>División geográfica en sectores de operación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-223-zonas')"><div><strong>Zonas</strong><span>Zonas de cobertura y operación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-224-bases')"><div><strong>Bases</strong><span>Bases y delegaciones de la empresa</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-225-motivos-anulacion-incidencias')"><div><strong>Motivos anulación / incidencias</strong><span>Códigos de motivo para anulaciones e incidencias</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-226-codigos-coordinacion-vehiculos')"><div><strong>Códigos coordinación / vehículos</strong><span>Códigos de estado utilizados en coordinación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-227-medicos')"><div><strong>Médicos</strong><span>Registro de médicos vinculados a servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-228-calendario-festivos')"><div><strong>Calendario festivos</strong><span>Festivos nacionales, autonómicos y locales</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-229-areas-de-trabajo')"><div><strong>Áreas de trabajo</strong><span>Áreas funcionales de la empresa</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-230-gastos')"><div><strong>Gastos</strong><span>Tipos de gasto registrables en servicios y vehículos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-231-paradas')"><div><strong>Paradas</strong><span>Tipos de parada registrables por la dotación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-232-hospitales-auxiliares')"><div><strong>Hospitales auxiliares</strong><span>Hospitales de referencia auxiliares</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-233-agrupaciones')"><div><strong>Agrupaciones</strong><span>Agrupación de servicios o pacientes</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('mant-234-fisioterapeutas')"><div><strong>Fisioterapeutas</strong><span>Registro de fisioterapeutas vinculados a servicios</span></div></div>
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
     <!-- GAM:FIN:mant-200-intro -->
 </section>
 
