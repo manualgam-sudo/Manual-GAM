@@ -1390,13 +1390,179 @@
             
 <section class="content-section" id="content-coord-400-intro">
             <!-- GAM:INICIO:coord-400-intro -->
-                <h1>COORDINACION</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo COORDINACION</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Coordinación.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:coord-400-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> COORDINACIÓN</h1>
+          <p class="intro-modulo-tagline">El corazón operativo del transporte sanitario en tiempo real</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('coord-400-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">📡</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña COORDINACIÓN es el corazón de las empresas de transporte sanitario. Es el punto de contacto con las personas para las que realmente trabajamos: los pacientes. Desde aquí los coordinadores llevan el control de la ejecución de la planificación y realizan cambios en tiempo real que se comunican directamente a los vehículos de la flota.</p>
+          <p>GAM recibe el servicio, gestiona las incidencias, registra la adjudicación y facilita el seguimiento, la finalización, la facturación y el cobro. El Centro Coordinador inicia cada servicio planificando las rutas y adjudicándolo a un vehículo, ya sea de forma manual o mediante el módulo GamRuta. A continuación, la información se envía al smartphone o tablet de la dotación, que va indicando los estados del servicio: recibido, activado, llegada a origen, salida de origen, llegada a destino, transfer, libre y final de servicio.</p>
+          <p>Desde esta pantalla también se anotan servicios esporádicos, urgentes o medicalizados para el día, y se gestiona cualquier incidencia o cambio de última hora que requiera ajustes sobre la planificación prevista.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>Los servicios finalizados quedan guardados en GAM con el precio calculado y los datos asignados para facturación posterior. Desde el departamento administrativo es posible añadir extras como peajes, dietas, oxígeno o limpieza antes de su facturación.</p>
+          </div>
+        </div>
+
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Herramientas de coordinación</h2>
+          <p>La pantalla de coordinación dispone de un amplio conjunto de herramientas que hacen el trabajo más ágil y efectivo:</p>
+          <p><strong>Control GPS en tiempo real</strong> — visualización de la posición de cada vehículo de la flota en todo momento, permitiendo tomar decisiones de adjudicación con información actualizada.</p>
+          <p><strong>Comunicación con pacientes y centros</strong> — mediante SMS, mensajería interna o GamDroid se puede contactar con los pacientes y centros sanitarios para gestionar cambios o incidencias sobre la marcha.</p>
+          <p><strong>Seguimiento de estados</strong> — cada vehículo informa sus estados desde el terminal móvil, quedando registrado el historial completo del servicio.</p>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('coord-401-normales')"><div><strong>Normales</strong><span>Pantalla principal de coordinación — adjudicación y seguimiento de servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-402-siniestros')"><div><strong>Siniestros</strong><span>Gestión de servicios de siniestro</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-403-urgencias')"><div><strong>Urgencias</strong><span>Gestión de servicios urgentes</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-405-adjudicacion-de-servicios')"><div><strong>Adjudicación de servicios</strong><span>Asignación manual de servicios a vehículos disponibles</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-406-incidencias-programados')"><div><strong>Incidencias programados</strong><span>Gestión de incidencias sobre servicios programados</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-408-cambios-masivos')"><div><strong>Cambios masivos</strong><span>Aplicación de cambios a múltiples servicios simultáneamente</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-409-valores-defecto-usuario')"><div><strong>Valores defecto usuario</strong><span>Configuración de valores predeterminados por usuario</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-410-acciones-sobre-vehiculos')"><div><strong>Acciones sobre vehículos</strong><span>Operaciones y acciones aplicables a los vehículos de la flota</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-411-mantenimiento-de-servicios')"><div><strong>Mantenimiento de servicios</strong><span>Edición y corrección de servicios registrados</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-412-visualiza-fechas-de-un-servicio')"><div><strong>Visualiza fechas de un servicio</strong><span>Consulta del historial de fechas y estados de un servicio</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-414-historico-errores-administracion')"><div><strong>Histórico errores administración</strong><span>Registro de errores detectados en la administración de servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-415-historico-datos-modificados-terminal')"><div><strong>Histórico datos modificados terminal</strong><span>Registro de cambios realizados desde los terminales móviles</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-416-historico-comidas-dotaciones')"><div><strong>Histórico comidas dotaciones</strong><span>Registro de paradas de comida de las dotaciones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-417-historico-paradas-dotacion')"><div><strong>Histórico paradas dotación</strong><span>Registro de paradas realizadas por las dotaciones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-418-historico-mensajes-terminal')"><div><strong>Histórico mensajes terminal</strong><span>Registro de mensajes intercambiados con los terminales</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-419-historico-entrada-salida-terminal')"><div><strong>Histórico entrada/Salida terminal</strong><span>Registro de inicios y finales de turno desde el terminal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-420-historico-sms')"><div><strong>Histórico SMS</strong><span>Registro de todos los SMS enviados desde GAM</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-422-registro-diario')"><div><strong>Registro diario</strong><span>Resumen y registro de la actividad del día</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-423-registro-de-caja')"><div><strong>Registro de caja</strong><span>Control de los movimientos de caja del día</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-424-inicio-final-de-turno-terminal')"><div><strong>Inicio/Final de turno TERMINAL</strong><span>Control de turnos registrados desde el terminal móvil</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-425-inicio-final-de-turno-base')"><div><strong>Inicio/Final de turno BASE</strong><span>Control de turnos registrados desde la base</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-426-repaso-situaciones-de-servicios')"><div><strong>Repaso situaciones de servicios</strong><span>Revisión del estado actual de todos los servicios del día</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-427-viajes-segun-inicio-origen-destino')"><div><strong>Viajes según inicio origen/Destino</strong><span>Análisis de viajes por origen, destino y hora de inicio</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('coord-428-cuadrante-dotacion')"><div><strong>Cuadrante dotación</strong><span>Cuadrante de disponibilidad y asignación de dotaciones</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamDroid</strong>
+              </div>
+              <p>Aplicación Android instalada en el smartphone o tablet de la dotación. Envía cada 20 segundos la posición GPS del vehículo a la central y permite intercambiar estados del servicio, mensajes, combustible, gastos, check-list del vehículo y petición de material.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamAdministración</strong>
+              </div>
+              <p>Integración online entre GAM y el departamento de sanidad de diferentes Administraciones autonómicas. Permite la recepción de servicios esporádicos y periódicos desde la Administración, con gestión de modificaciones, anulaciones y retornos de estado obligatorios.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamAsigna</strong>
+              </div>
+              <p>Adjudicación de vehículos a servicios directamente desde el hospital. En formato web, se carga en una tablet para que el coordinador en sala de espera pueda adjudicar servicios con el paciente delante. Las acciones se sincronizan en tiempo real con la central.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamAutomático</strong>
+              </div>
+              <p>GAM en modo desatendido para adjudicación automática. Cuando el centro de coordinación no tiene personal (noches, fines de semana, festivos), recibe servicios vía internet y los adjudica automáticamente a los vehículos disponibles, enviando un email o SMS a los conductores afectados.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamCía</strong>
+              </div>
+              <p>Alta automática de servicios desde aseguradoras y mutuas. Los servicios llegan a GAM con la autorización y aparecen directamente en la pantalla de coordinación para ser adjudicados, seguidos y finalizados.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamDGT3</strong>
+              </div>
+              <p>Envío de información a la DGT para servicios de urgencia. GAM envía los datos del servicio urgente y la DGT los hace llegar a los vehículos cercanos para que cedan el paso a la ambulancia.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamSala</strong>
+              </div>
+              <p>Visualización en pantalla grande en la sala de espera del hospital. Informa a los pacientes del tiempo de espera y del vehículo adjudicado para su recogida. El aviso desaparece automáticamente cuando el paciente sube a la ambulancia.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamSMS</strong>
+              </div>
+              <p>Envío de SMS desde GAM a pacientes y trabajadores. Útil para avisar de la llegada de la ambulancia, confirmar servicios o notificar cambios de horario de forma individual o masiva.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamWeb</strong>
+              </div>
+              <p>Petición de servicios por internet. Permite a usuarios autorizados de la Administración, hospitales o mutuas dar de alta servicios en GAM desde una página web, que se validan en el departamento de coordinación antes de procesarse.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamWhatsApp</strong>
+              </div>
+              <p>Atención automatizada al paciente mediante WhatsApp Business. Los pacientes pueden consultar datos de sus servicios y recibir información sin necesidad de intervención manual del equipo de coordinación.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamTotem</strong>
+              </div>
+              <p>Encuesta de satisfacción del paciente durante el trayecto. Accesible mediante tablet en la ambulancia, código QR o SMS al finalizar el servicio. Las respuestas quedan registradas en GAM con fecha, hora y ambulancia.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:coord-400-intro -->
             </section>
             
             <!-- FACTURACION - Introducción -->
