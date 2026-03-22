@@ -1259,13 +1259,131 @@
 
 <section class="content-section" id="content-prog-300-intro">
             <!-- GAM:INICIO:prog-300-intro -->
-                <h1>PROGRAMADOS</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo PROGRAMADOS</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Programados.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:prog-300-intro -->
+    <div class="intro-modulo-wrap">
+
+      <!-- Header módulo -->
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> PROGRAMADOS</h1>
+          <p class="intro-modulo-tagline">Planificación, enrutamiento y gestión de servicios recurrentes</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('prog-300-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">📅</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña PROGRAMADOS sirve para la planificación de servicios con antelación al día de su ejecución. Desde aquí se gestionan el registro de pacientes, la configuración de servicios recurrentes y el enrutamiento de la operativa, atendiendo las características especiales de cada servicio.</p>
+          <p>Es el módulo principal para servicios de carácter periódico: diálisis, rehabilitaciones, radioterapias y cualquier otro traslado que se repita con una frecuencia establecida. Para cada paciente se define la ficha de programación con sus horarios, origen, destino, tipo de traslado, vehículo asignado y todos los parámetros que condicionan el servicio.</p>
+          <p>Una correcta cumplimentación de los datos en este módulo, y el uso de las herramientas de planificación y enrutamiento que proporciona, son determinantes para que el servicio de coordinación pueda dirigir el día a día con el menor número de contratiempos y reducir al mínimo las demoras.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>Los servicios generados desde PROGRAMADOS quedan disponibles para el módulo COORDINACIÓN, que se encarga de su seguimiento y adjudicación en tiempo real.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('prog-301-pacientes')"><div><strong>Pacientes</strong><span>Ficha completa del paciente con datos de traslado y características especiales</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-302-ficha-programados')"><div><strong>Ficha programados</strong><span>Programación de servicios recurrentes por paciente: horarios, rutas y vehículo asignado</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-303-rutas')"><div><strong>Rutas</strong><span>Definición y gestión de rutas de recogida y entrega</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-304-asignacion-vehiculo-a-rutas')"><div><strong>Asignación vehículo a rutas</strong><span>Asignación de vehículos a las rutas definidas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-305-lista-de-espera')"><div><strong>Lista de espera</strong><span>Gestión de pacientes en espera de asignación de servicio</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-307-genera-servicios-programados-y-colectivos')"><div><strong>Genera servicios programados y colectivos</strong><span>Proceso de generación automática de servicios para el día siguiente</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-308-planificacion-de-servicios')"><div><strong>Planificación de servicios</strong><span>Revisión y ajuste de los servicios generados antes de su ejecución</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-310-servicios-preventivos')"><div><strong>Servicios preventivos</strong><span>Gestión de servicios de carácter preventivo y programado no recurrente</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-311-presupuesto-para-un-servicio')"><div><strong>Presupuesto para un servicio</strong><span>Cálculo y gestión de presupuestos para servicios específicos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('prog-312-lista-asistencias-a-pacientes')"><div><strong>Lista asistencias a pacientes</strong><span>Histórico y listado de asistencias realizadas a cada paciente</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamRuta</strong>
+              </div>
+              <p>Generación automática de rutas y seguimiento en tiempo real. Calcula la planificación óptima de servicios para el día siguiente y permite recalcular la asignación de vehículos según posición actual durante todo el día.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamCía</strong>
+              </div>
+              <p>Alta automática de servicios desde aseguradoras y mutuas. Los servicios se traspasan directamente a GAM desde el sistema informático de la compañía, llegando ya con la autorización y listos para ser adjudicados desde coordinación.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamWeb</strong>
+              </div>
+              <p>Petición de servicios por internet. Permite a usuarios autorizados de la Administración, hospitales o mutuas dar de alta servicios y programaciones directamente en GAM desde una página web personalizada.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamNUHSA / GamRCA</strong>
+              </div>
+              <p>Verificación de datos del paciente en la base de datos de la Administración. Al crear un servicio se indica el número de la seguridad social y la aplicación verifica y actualiza automáticamente los datos del paciente, eliminando duplicidades y errores en las fichas.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamPac</strong>
+              </div>
+              <p>Web integrada para consultas de pacientes. Permite al paciente consultar los datos de sus servicios y ver en un mapa la localización del vehículo adjudicado.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamSMS</strong>
+              </div>
+              <p>Envío de SMS desde GAM a pacientes y trabajadores. Permite avisar al paciente de la llegada de la ambulancia, confirmar servicios o notificar cambios de horario de forma individual o masiva.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamWhatsApp</strong>
+              </div>
+              <p>Automatización de la atención al paciente mediante WhatsApp Business. Los pacientes pueden consultar datos de sus servicios, programaciones y tiempos de vehículos de forma automática, sin intervención manual del equipo.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamEncuesta</strong>
+              </div>
+              <p>Página web con encuesta de satisfacción configurable orientada a los pacientes. Mediante un código QR, los pacientes acceden a una encuesta estandarizada cuyas respuestas quedan registradas en GAM junto a los datos del servicio.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:prog-300-intro -->
             </section>
             
             <!-- COORDINACION - Introducción -->
