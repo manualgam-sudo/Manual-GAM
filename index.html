@@ -760,7 +760,7 @@
   <div class="intro-header">
     <div class="intro-header-text">
       <div class="intro-badge">Versión <span id="intro-ver"></span></div>
-      <h1 class="intro-titulo"><span style="color:#fff;">G</span><span style="color:rgba(255,255,255,0.75);font-weight:300;">am</span>&nbsp;ERP</h1>
+      <h1 class="intro-titulo"><span class="gam-brand-titulo"><b>G</b><span style="font-weight:300;opacity:0.85;">am</span></span> ERP</h1>
       <p class="intro-tagline">Solución integral para la gestión del transporte sanitario</p>
     </div>
   </div>
@@ -1057,6 +1057,10 @@
   document.addEventListener('DOMContentLoaded', function() {
     var el = document.getElementById('intro-ver');
     if (el && typeof GAM_VERSION !== 'undefined') el.textContent = GAM_VERSION;
+    // Populate version in all module intro badges
+    document.querySelectorAll('.intro-modulo-ver-num').forEach(function(el) {
+      if (typeof GAM_VERSION !== 'undefined') el.textContent = GAM_VERSION;
+    });
   });
 </script>
 <!-- GAM:FIN:0000-portada -->
@@ -1089,6 +1093,7 @@
       <!-- Header módulo -->
       <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
         <div class="intro-modulo-header-content">
+          <div class="intro-modulo-ver-badge">Versión <span class="intro-modulo-ver-num"></span></div>
           <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> SISTEMA</h1>
           <p class="intro-modulo-tagline">Configuración general y herramientas comunes de GAM</p>
         </div>
@@ -7380,8 +7385,8 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
             document.querySelectorAll('.content-section').forEach(section => {
                 const sid = section.id.replace('content-', '');
                 if (sid === 'default') return;
-                // Skip intro sections — they handle version/print in their own header
-                if (sid.endsWith('-intro') || sid === 'portada') return;                const h1 = section.querySelector('h1');
+                const isIntro = sid.endsWith('-intro') || sid === 'portada';
+                const h1 = section.querySelector('h1');
                 if (!h1) return;
                 if (section.querySelector('.btn-print-section')) return; // ya tiene
                 const btn = document.createElement('button');
@@ -7393,15 +7398,21 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
                     <rect x="6" y="14" width="12" height="8"></rect>
                 </svg> Imprimir`;
                 btn.onclick = (e) => { e.stopPropagation(); printSection(sid); };
-                const badge = document.createElement('span');
-                badge.className = 'badge-version-gam';
-                badge.textContent = 'V.' + GAM_VERSION;
-                badge.title = 'Versión GAM ' + GAM_VERSION;
-                const wrap = document.createElement('span');
-                wrap.className = 'print-version-wrap';
-                wrap.appendChild(badge);
-                wrap.appendChild(btn);
-                h1.insertBefore(wrap, h1.firstChild);
+                if (isIntro) {
+                    // Intros: solo botón imprimir, sin badge de versión
+                    btn.classList.add('btn-print-intro');
+                    h1.appendChild(btn);
+                } else {
+                    const badge = document.createElement('span');
+                    badge.className = 'badge-version-gam';
+                    badge.textContent = 'V.' + GAM_VERSION;
+                    badge.title = 'Versión GAM ' + GAM_VERSION;
+                    const wrap = document.createElement('span');
+                    wrap.className = 'print-version-wrap';
+                    wrap.appendChild(badge);
+                    wrap.appendChild(btn);
+                    h1.insertBefore(wrap, h1.firstChild);
+                }
             });
         }
 
