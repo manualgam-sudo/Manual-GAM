@@ -2530,3 +2530,18 @@ table.table-manual tr{break-inside:avoid;page-break-inside:avoid}
             .intro-modulo-icon-bg { display: none; }
             .intro-modulo-ventanas { grid-template-columns: 1fr; }
         }
+
+        /* Módulo intro — título con subtítulo inline */
+        .intro-modulo-subtit {
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.75);
+            font-style: normal;
+            display: inline;
+            margin-right: 6px;
+        }
+        /* Ventana item sin número — ajuste padding */
+        .intro-modulo-ventana div {
+            display: flex;
+            flex-direction: column;
+        }
