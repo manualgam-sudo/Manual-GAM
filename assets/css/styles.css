@@ -2419,3 +2419,114 @@ table.table-manual tr{break-inside:avoid;page-break-inside:avoid}
             line-height: 1.6;
             margin: 0;
         }
+
+        /* ═══════════════════════════════════════════
+           INTRO MÓDULO (intro de cada pestaña)
+        ═══════════════════════════════════════════ */
+        .intro-modulo-wrap { max-width: 1060px; margin: 0 auto; padding: 0 0 48px; }
+
+        /* Header */
+        .intro-modulo-header {
+            border-radius: 8px; padding: 32px 36px;
+            margin-bottom: 32px; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .intro-modulo-header-content { position: relative; z-index: 1; }
+        .intro-modulo-badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            color: white; font-size: 11px; font-weight: 600;
+            letter-spacing: 1px; padding: 3px 12px; border-radius: 20px;
+            margin-bottom: 10px; text-transform: uppercase;
+        }
+        .intro-modulo-titulo {
+            font-size: 42px; font-weight: 700; color: white;
+            margin: 0 0 6px; letter-spacing: -1px;
+        }
+        .intro-modulo-tagline {
+            font-size: 15px; color: rgba(255,255,255,0.85);
+            margin: 0; font-weight: 300;
+        }
+        .intro-modulo-icon-bg {
+            font-size: 80px; opacity: 0.15;
+            position: absolute; right: 36px; top: 50%;
+            transform: translateY(-50%);
+            line-height: 1;
+        }
+
+        /* Body */
+        .intro-modulo-body { }
+        .intro-modulo-section { margin-bottom: 32px; }
+        .intro-modulo-section p {
+            font-size: 14px; line-height: 1.7; color: #444; margin: 0 0 12px;
+        }
+        .intro-modulo-h2 {
+            font-size: 18px; font-weight: 700; color: #2a2a2a;
+            margin: 0 0 14px; padding-bottom: 8px;
+            border-bottom: 2px solid #D20707;
+        }
+
+        /* Grid ventanas */
+        .intro-modulo-ventanas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 8px;
+        }
+        .intro-modulo-ventana {
+            display: flex; align-items: flex-start; gap: 12px;
+            background: #fafafa; border: 1px solid #eee;
+            border-radius: 6px; padding: 10px 14px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .intro-modulo-ventana:hover {
+            border-color: #D20707;
+            background: #fff3f3;
+            transform: translateX(3px);
+        }
+        .intro-modulo-ventana-num {
+            background: #D20707; color: white;
+            font-size: 10px; font-weight: 700;
+            min-width: 28px; height: 20px; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .intro-modulo-ventana strong {
+            font-size: 13px; color: #2a2a2a;
+            display: block; margin-bottom: 2px;
+        }
+        .intro-modulo-ventana span {
+            font-size: 12px; color: #888; line-height: 1.4; display: block;
+        }
+
+        /* Módulo opcional */
+        .intro-modulo-opcional {
+            background: #fafafa; border: 1px solid #e0e0e0;
+            border-left: 4px solid #D20707;
+            border-radius: 0 8px 8px 0; padding: 16px 20px;
+        }
+        .intro-modulo-opcional-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+        }
+        .intro-modulo-opcional-tag {
+            background: #D20707; color: white;
+            font-size: 10px; font-weight: 700;
+            padding: 2px 8px; border-radius: 3px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .intro-modulo-opcional-header strong {
+            font-size: 15px; color: #2a2a2a;
+        }
+        .intro-modulo-opcional p {
+            font-size: 13px; color: #555; line-height: 1.6; margin: 0 0 12px;
+        }
+        .intro-modulo-opcional-link {
+            font-size: 12px; color: #D20707; text-decoration: none; font-weight: 600;
+        }
+        .intro-modulo-opcional-link:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .intro-modulo-titulo { font-size: 32px; }
+            .intro-modulo-header { padding: 22px 18px; }
+            .intro-modulo-icon-bg { display: none; }
+            .intro-modulo-ventanas { grid-template-columns: 1fr; }
+        }
