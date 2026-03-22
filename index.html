@@ -1569,13 +1569,99 @@
             
 <section class="content-section" id="content-fact-500-intro">
             <!-- GAM:INICIO:fact-500-intro -->
-                <h1>FACTURACION</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo FACTURACION</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Facturación.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:fact-500-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> FACTURACIÓN</h1>
+          <p class="intro-modulo-tagline">Control y generación de facturas para administración y entidades privadas</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('fact-500-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">🧾</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña FACTURACIÓN permite controlar las facturas individuales o por bloque de los servicios realizados. Desde aquí se crean las tarifas y, gracias a la combinación del tipo de vehículo y otros parámetros, GAM calcula automáticamente el coste de cada servicio y permite facturarlo casi al momento.</p>
+          <p>El proceso de facturación se basa en los servicios introducidos en el módulo Coordinación. A cada servicio se le asigna la empresa responsable del pago, vinculada a una tarifa con variables como tipo de vehículo, tipo de facturación, nocturnidad, festivos, kilómetros, espera, etc. A partir de esta relación GAM calcula el precio automáticamente.</p>
+          <p>Una vez revisados y validados los servicios, se generan las facturas correspondientes de forma individual o mediante el proceso de generación automática por lotes. La impresión es posible en diferentes formatos según el destinatario.</p>
+          <p>Desde este módulo también se lleva el control de clientes, facturas emitidas e impagadas, abonos, cobros y contabilización. GAM genera los asientos de factura y cobro/pago con exportación directa a ContaPlus, A3 u otras aplicaciones contables.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>Desde el departamento administrativo es posible añadir extras a los servicios antes de facturar: peajes, dietas, oxígeno, limpieza, etc. Una vez marcados como correctos, quedan listos para su facturación a la Administración o a entidades privadas.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('fact-512-tarifas')"><div><strong>Tarifas</strong><span>Configuración de tarifas por tipo de vehículo y tipo de facturación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-515-tipos-facturacion')"><div><strong>Tipos facturación</strong><span>Clasificación de los tipos de facturación disponibles</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-517-conceptos-facturacion')"><div><strong>Conceptos facturación</strong><span>Conceptos aplicables en la facturación de servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-501-lotes-mutuas')"><div><strong>Lotes / Mutuas</strong><span>Gestión de lotes de facturación para mutuas y aseguradoras</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-516-grupos-lotes-mutuas')"><div><strong>Grupos Lotes / Mutuas</strong><span>Agrupación de lotes por mutua o aseguradora</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-514-formas-pago')"><div><strong>Formas de pago</strong><span>Configuración de las formas de pago disponibles</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-502-introduccion-servicios-manuales')"><div><strong>Introducción servicios manuales</strong><span>Alta manual de servicios directamente en facturación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-513-extras-en-servicios')"><div><strong>Extras en servicios</strong><span>Adición de conceptos extra a servicios: peajes, dietas, oxígeno...</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-504-preparar-servicios-facturacion-lista-grande')"><div><strong>Preparar servicios para facturación</strong><span>Revisión y selección de servicios listos para facturar</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-506-generacion-facturas-de-clientes')"><div><strong>Generación facturas de clientes</strong><span>Generación de facturas individuales para clientes privados</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-507-proceso-facturacion-de-clientes')"><div><strong>Proceso facturación de clientes</strong><span>Proceso automático de generación de facturas en lote</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-509-impresion-factura-administracion-autonomica')"><div><strong>Impresión factura Administración Autonómica</strong><span>Generación y envío de facturas electrónicas a la Administración</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-519-partes-de-accidente')"><div><strong>Partes de accidente</strong><span>Registro y gestión de partes de accidente vinculados a servicios</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('fact-503-historico-gastos-vehiculo')"><div><strong>Histórico gastos vehículo</strong><span>Registro histórico de gastos asociados a cada vehículo</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamAdministración</strong>
+              </div>
+              <p>Integración online entre GAM y el departamento de sanidad de diferentes Administraciones autonómicas. Permite la recepción y envío de servicios con sus estados, así como la facturación directa hacia la Administración con todos los retornos obligatorios cubiertos.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamCía</strong>
+              </div>
+              <p>Alta automática de servicios desde aseguradoras y mutuas mediante WebServices/API. Los servicios llegan a GAM con la autorización y los datos de facturación ya asignados, agilizando el proceso de cobro con las compañías de seguros.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamDelegación</strong>
+              </div>
+              <p>Para empresas con varias bases o delegaciones, permite consolidar la facturación en un GAM central que recopila la información de todas las delegaciones, facilitando la gestión unificada de facturas, cobros y contabilización.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong>GamPac</strong>
+              </div>
+              <p>Web integrada para consultas de pacientes. Permite al paciente consultar los datos y el estado de sus servicios, reduciendo las llamadas al departamento administrativo para seguimiento de facturas y servicios realizados.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:fact-500-intro -->
             </section>
             
             <!-- STOCK - Introducción -->
