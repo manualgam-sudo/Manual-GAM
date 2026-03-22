@@ -760,7 +760,7 @@
   <div class="intro-header">
     <div class="intro-header-text">
       <div class="intro-badge">Versión <span id="intro-ver"></span></div>
-      <h1 class="intro-titulo"><span style="color:#fff;">G</span><span style="color:rgba(255,255,255,0.75);font-weight:300;">am</span> ERP</h1>
+      <h1 class="intro-titulo"><span style="color:#fff;">G</span><span style="color:rgba(255,255,255,0.75);font-weight:300;">am</span>&nbsp;ERP</h1>
       <p class="intro-tagline">Solución integral para la gestión del transporte sanitario</p>
     </div>
   </div>
@@ -1089,8 +1089,7 @@
       <!-- Header módulo -->
       <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
         <div class="intro-modulo-header-content">
-          <div class="intro-modulo-badge">Módulo 01</div>
-          <h1 class="intro-modulo-titulo">SISTEMA</h1>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> SISTEMA</h1>
           <p class="intro-modulo-tagline">Configuración general y herramientas comunes de GAM</p>
         </div>
         <div class="intro-modulo-icon-bg">⚙️</div>
@@ -1103,7 +1102,7 @@
           <p>La pestaña SISTEMA agrupa las funciones de configuración general, gestión transversal y herramientas comunes de GAM.</p>
           <p>A diferencia de otros módulos más operativos, SISTEMA no está pensado para el trabajo diario sobre servicios, pacientes o vehículos, sino para definir el marco de funcionamiento en el que el resto del sistema opera.</p>
           <p>Desde esta pestaña se gestionan aspectos como la configuración de empresas, la comunicación interna entre usuarios, las agendas compartidas, la consulta de avisos, la configuración básica del entorno de trabajo y otras utilidades generales.</p>
-          <div class="warn-box">
+          <div class="alert-box">
             <div class="box-title">Importante</div>
             <p>No todos los apartados de la pestaña SISTEMA están destinados a todos los usuarios. Algunos contienen opciones sensibles que afectan al comportamiento global de GAM y, por tanto, solo deben ser utilizados por el administrador del sistema o por personas expresamente autorizadas.</p>
           </div>
@@ -1115,43 +1114,33 @@
           <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
           <div class="intro-modulo-ventanas">
             <div class="intro-modulo-ventana" onclick="showContent('sis-101-empresas')">
-              <span class="intro-modulo-ventana-num">101</span>
               <div><strong>Empresas</strong><span>Configuración de las empresas que operan en GAM</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-101-empresas-anexo-avanzado')">
-              <span class="intro-modulo-ventana-num">101</span>
               <div><strong>Empresas — Anexo avanzado</strong><span>Configuración extendida de parámetros de empresa</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-102-envio-avisos-a-usuarios')">
-              <span class="intro-modulo-ventana-num">102</span>
               <div><strong>Envío de avisos a usuarios</strong><span>Comunicación interna entre usuarios del sistema</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-104-agenda-de-direcciones')">
-              <span class="intro-modulo-ventana-num">104</span>
               <div><strong>Agenda de direcciones</strong><span>Directorio de direcciones de uso frecuente</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-105-agenda-del-personal')">
-              <span class="intro-modulo-ventana-num">105</span>
               <div><strong>Agenda del personal</strong><span>Directorio del personal de la empresa</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-106-consulta-avisos')">
-              <span class="intro-modulo-ventana-num">106</span>
               <div><strong>Consulta de avisos</strong><span>Bandeja de avisos recibidos del sistema</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-107-cambiar-password')">
-              <span class="intro-modulo-ventana-num">107</span>
               <div><strong>Cambiar password</strong><span>Modificación de la contraseña del usuario activo</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-108-calendario')">
-              <span class="intro-modulo-ventana-num">108</span>
               <div><strong>Calendario</strong><span>Calendario de la empresa con festivos y eventos</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-109-configurar-impresora')">
-              <span class="intro-modulo-ventana-num">109</span>
               <div><strong>Configurar impresora</strong><span>Selección y configuración de la impresora por usuario</span></div>
             </div>
             <div class="intro-modulo-ventana" onclick="showContent('sis-111-salir')">
-              <span class="intro-modulo-ventana-num">111</span>
               <div><strong>Salir</strong><span>Cierre de sesión y salida de GAM</span></div>
             </div>
           </div>
@@ -7390,8 +7379,9 @@ ${AGENTE_CONFIG.ticketsCerrados || 'Sin casos previos cargados aún.'}
         function addPrintButtons() {
             document.querySelectorAll('.content-section').forEach(section => {
                 const sid = section.id.replace('content-', '');
-                if (sid === 'default') return;  // portada: no necesita botón
-                const h1 = section.querySelector('h1');
+                if (sid === 'default') return;
+                // Skip intro sections — they handle version/print in their own header
+                if (sid.endsWith('-intro') || sid === 'portada') return;                const h1 = section.querySelector('h1');
                 if (!h1) return;
                 if (section.querySelector('.btn-print-section')) return; // ya tiene
                 const btn = document.createElement('button');
