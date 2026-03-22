@@ -1744,91 +1744,499 @@
             
 <section class="content-section" id="content-tall-700-intro">
             <!-- GAM:INICIO:tall-700-intro -->
-                <h1>TALLER</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo TALLER</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Taller.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:tall-700-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> TALLER</h1>
+          <p class="intro-modulo-tagline">Gestión de flota, órdenes de trabajo y control de costes de vehículos</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('tall-700-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">🚐</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña TALLER agrupa todas las funciones relacionadas con la gestión y el control de la flota de vehículos. Comprende una ficha completa de cada vehículo con todos los datos necesarios para el taller, el centro de coordinación, la facturación y el control de stock.</p>
+          <p>Desde aquí se generan las órdenes de trabajo para cada intervención en un vehículo — tanto en taller propio como externo —, se registran los materiales utilizados y se controlan los costes de mano de obra. Cada orden queda vinculada al vehículo afectado, actualizando automáticamente las fechas de próxima revisión e ITV en su ficha.</p>
+          <p>Además de las intervenciones de taller, el módulo gestiona el calendario de avisos periódicos por vehículo: ITV, revisiones programadas, caducidades de tarjeta sanitaria o de transporte, pago de seguros y cualquier otro evento que requiera seguimiento. También se almacenan los siniestros — con datos del vehículo contrario, historial de peritajes y documentos adjuntos — y las multas, con su situación y el historial de recursos presentados ante la DGT.</p>
+          <p>El módulo contempla igualmente el control de los aparatos instalados en el vehículo: desfibriladores, smartphones, tablets y electromédicos. El gasto de combustible puede registrarse manualmente desde administración o directamente desde el terminal móvil de la dotación.</p>
+        </div>
+
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Revisión diaria de vehículos (Check-List)</h2>
+          <p>El módulo TALLER incluye un sistema de revisión diaria configurable por tipo de vehículo. La dotación cumplimenta el check-list desde su terminal móvil al inicio del turno, verificando los puntos críticos definidos por la empresa: niveles de fluidos, estado de neumáticos, luces, material sanitario, documentación, equipos electromédicos, etc.</p>
+          <p>El responsable de flota recibe y revisa los check-list desde GAM, pudiendo generar una orden de trabajo directamente si detecta alguna incidencia. El histórico de revisiones queda almacenado por vehículo, facilitando el seguimiento del estado de la flota a lo largo del tiempo.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>La disponibilidad de los vehículos puede registrarse desde las órdenes de trabajo para que el módulo de Coordinación tenga en cuenta qué vehículos están operativos en la próxima planificación.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('tall-701-ficha-vehiculo')"><div><strong>Ficha vehículo</strong><span>Datos completos del vehículo: matrícula, tipo, aparatos, seguros y calendario de revisiones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-702-tipos-avisos')"><div><strong>Tipos de avisos</strong><span>Configuración de los tipos de aviso periódico aplicables a vehículos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-703-calendario-avisos')"><div><strong>Calendario de avisos</strong><span>Planificación y seguimiento de los avisos programados por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-716-taller')"><div><strong>Taller</strong><span>Definición de los talleres disponibles: propios y externos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-718-tipos-o-trabajo')"><div><strong>Tipos de orden de trabajo</strong><span>Clasificación de órdenes de trabajo para estadísticas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-719-tipos-intervenciones')"><div><strong>Tipos de intervenciones</strong><span>Catálogo de tipos de intervención aplicables en las órdenes</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-717-ordenes-trabajo')"><div><strong>Órdenes de trabajo</strong><span>Alta y gestión de órdenes de trabajo por vehículo, con materiales y costes</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-706-introduccion-combustible')"><div><strong>Introducción combustible</strong><span>Registro manual de repostajes por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-704-siniestros-de-vehiculos')"><div><strong>Siniestros de vehículos</strong><span>Registro de siniestros con datos del parte, peritajes y documentos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-705-multas')"><div><strong>Multas</strong><span>Registro y seguimiento de multas por vehículo y dotación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-724-control-de-dispositivos')"><div><strong>Control de dispositivos</strong><span>Registro de aparatos instalados en cada vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-723-tipos-de-check-list')"><div><strong>Tipos de Check-List</strong><span>Configuración de los modelos de revisión diaria por tipo de vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-721-revision-diaria-check-list')"><div><strong>Revisión diaria Check-List</strong><span>Consulta y revisión de los check-list enviados por las dotaciones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-722-historico-check-list')"><div><strong>Histórico Check-List</strong><span>Historial completo de revisiones diarias por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-725-hoja-diaria-de-trabajo')"><div><strong>Hoja diaria de trabajo</strong><span>Resumen de la actividad diaria del taller</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-711-historico-ot')"><div><strong>Histórico OT</strong><span>Historial de órdenes de trabajo por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-709-historico-combustible')"><div><strong>Histórico combustible</strong><span>Registro histórico de consumos de combustible</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-708-historico-entregas-material')"><div><strong>Histórico entregas material</strong><span>Registro de materiales entregados a cada vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-710-historico-comidas-vehiculo')"><div><strong>Histórico comidas vehículo</strong><span>Registro de paradas de comida por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-712-historico-siniestros')"><div><strong>Histórico siniestros</strong><span>Historial de siniestros por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-713-historico-multas')"><div><strong>Histórico multas</strong><span>Historial de multas y recursos por vehículo</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('tall-714-historico-km')"><div><strong>Histórico Km</strong><span>Registro histórico de kilómetros por vehículo</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional — recomendado</span>
+                <strong translate="no">GamDroid</strong>
+              </div>
+              <p>Aplicación Android instalada en el smartphone o tablet de la dotación. Permite a la dotación cumplimentar el check-list diario del vehículo y enviarlo a la central al inicio del turno, registrar el combustible repostado, anotar gastos e incidencias y solicitar material al almacén — todo desde el propio vehículo y en tiempo real. Sin <span translate="no">GamDroid</span>, todas estas operaciones deben introducirse manualmente desde la central.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamMercedes</strong>
+              </div>
+              <p>Integración con los datos telemáticos de los vehículos Mercedes-Benz. Permite mostrar en GAM los parámetros internos de cada vehículo en tiempo real: kilómetros reales, nivel de combustible, estado de batería, presión de neumáticos, consumo medio, próximo mantenimiento, temperatura de motor, emisiones CO2, estilo de conducción y más de veinte parámetros adicionales. También genera avisos automáticos ante anomalías detectadas en el vehículo.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:tall-700-intro -->
             </section>
             
             <!-- INFORMACION - Introducción -->
             
 <section class="content-section" id="content-info-800-intro">
             <!-- GAM:INICIO:info-800-intro -->
-                <h1>INFORMACION</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo INFORMACION</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Información.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:info-800-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> INFORMACIÓN</h1>
+          <p class="intro-modulo-tagline">Listados, informes y estadísticas de toda la actividad de la empresa</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('info-800-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">📊</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña INFORMACIÓN centraliza todos los listados, informes y estadísticas generados a partir de los datos registrados en los demás módulos de GAM. Es la herramienta de consulta y análisis de la actividad de la empresa: servicios realizados, facturación, stock, taller, personal y pacientes.</p>
+          <p>Cada sección de INFORMACIÓN corresponde a un área operativa del sistema y permite filtrar, consultar y exportar los datos de la manera más conveniente para el análisis. Los listados pueden imprimirse o exportarse a Excel para su tratamiento externo.</p>
+          <p>Este módulo no modifica datos — es de solo consulta. Su función es proporcionar al equipo directivo y a los responsables de cada área la visibilidad necesaria para tomar decisiones basadas en información real y actualizada.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>La calidad de los informes generados desde INFORMACIÓN depende directamente de la correcta cumplimentación de los datos en los módulos operativos. Una buena configuración de los mantenimientos, tarifas y parámetros de servicio se traduce en listados más claros y estadísticas más útiles.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('info-801-servicios')"><div><strong>Servicios</strong><span>Listados e informes de los servicios realizados, con múltiples filtros y agrupaciones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-802-programados-colectivos')"><div><strong>Programados / Colectivos</strong><span>Informes sobre servicios programados y recorridos colectivos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-803-pacientes')"><div><strong>Pacientes</strong><span>Listados de pacientes, asistencias y datos de traslado</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-804-facturacion')"><div><strong>Facturación</strong><span>Informes de facturación: facturas emitidas, cobros, impagados y estadísticas económicas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-805-stock')"><div><strong>Stock</strong><span>Listados de existencias, movimientos de material y valoración de inventario</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-806-taller')"><div><strong>Taller</strong><span>Informes de órdenes de trabajo, costes de flota, siniestros y revisiones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-807-personal')"><div><strong>Personal</strong><span>Listados de personal, cuadrantes, asistencias y horas trabajadas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('info-808-estadisticas')"><div><strong>Estadísticas</strong><span>Cuadros estadísticos globales de la actividad de la empresa</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamControlMando</strong>
+              </div>
+              <p>Informe diario automatizado con el resumen personalizado del día anterior. Envía cada día, a la hora configurada, un email con un fichero Excel que incluye los datos clave de la actividad: servicios por tipo de traslado, demoras, personal y vehículos que trabajaron, incidencias, reclamaciones, combustible consumido, servicios por cliente, anulaciones y cualquier otro indicador que la empresa necesite. Los datos son personalizables para cada instalación.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamEncuesta</strong>
+              </div>
+              <p>Página web con encuesta de satisfacción configurable orientada a los pacientes. Mediante un código QR, los pacientes acceden a una encuesta estandarizada cuyas respuestas quedan registradas en GAM junto a los datos del servicio: fecha, hora, ambulancia y dotación. Los resultados son consultables desde los informes del sistema.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamTotem</strong>
+              </div>
+              <p>Encuesta de satisfacción del paciente durante el trayecto. Accesible mediante tablet anclada en la ambulancia, código QR plastificado o SMS al finalizar el servicio. El paciente selecciona una de tres opciones de satisfacción y la respuesta queda registrada en GAM con fecha, hora y ambulancia, enriqueciendo los datos disponibles para el análisis de calidad del servicio.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:info-800-intro -->
             </section>
             
             <!-- UTILIDADES - Introducción -->
             
 <section class="content-section" id="content-util-900-intro">
             <!-- GAM:INICIO:util-900-intro -->
-                <h1>UTILIDADES</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo UTILIDADES</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Utilidades.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:util-900-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> UTILIDADES</h1>
+          <p class="intro-modulo-tagline">Herramientas de administración, control de usuarios y consultas avanzadas</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('util-900-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">🛠️</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña UTILIDADES es corta en número de ventanas pero importante en sus funciones. Agrupa las herramientas de administración avanzada del sistema: extracción de información personalizada, control de accesos y permisos de usuarios, procesos de mantenimiento de datos y consultas directas a la base de datos.</p>
+          <p>Es una pestaña destinada principalmente al administrador del sistema y a perfiles técnicos autorizados. Algunas de sus opciones — como la ejecución de instrucciones SQL o los procesos de datos — tienen un impacto directo sobre la base de datos de GAM y deben utilizarse con precaución y siempre bajo supervisión técnica.</p>
+          <div class="alert-box">
+            <div class="box-title">Importante</div>
+            <p>Las opciones de esta pestaña están reservadas al administrador del sistema o a personas con autorización expresa. Un uso incorrecto de herramientas como la ejecución de SQL o los procesos de datos puede afectar al funcionamiento global de GAM. Consulta siempre con Original Soft antes de ejecutar operaciones que no sean de consulta.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('util-902-permiso-de-usuarios')"><div><strong>Permiso de usuarios</strong><span>Control de accesos y permisos por usuario — qué puede ver y hacer cada perfil en GAM</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('util-901-contadores-de-la-aplicacion')"><div><strong>Contadores de la aplicación</strong><span>Consulta de los contadores internos del sistema</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('util-904-procesos-datos')"><div><strong>Procesos datos</strong><span>Procesos de mantenimiento y tratamiento de datos del sistema</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('util-905-ejecuta-instruccion-sql')"><div><strong>Ejecuta instrucción SQL</strong><span>Consultas y extracciones de información personalizadas directamente sobre la base de datos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('util-906-consulta-datos-de-la-lpd')"><div><strong>Consulta datos de la LPD</strong><span>Consulta de datos según los requerimientos de la Ley de Protección de Datos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('util-907-web-de-original-soft')"><div><strong>Web de Original Soft</strong><span>Acceso directo a la web de Original Soft</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('util-908-manual-gam')"><div><strong>Manual GAM</strong><span>Acceso directo a este manual de usuario</span></div></div>
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:util-900-intro -->
             </section>
             
             <!-- TELECOMUNICACIONES - Introducción -->
             
 <section class="content-section" id="content-telco-1000-intro">
             <!-- GAM:INICIO:telco-1000-intro -->
-                <h1>TELECOMUNICACIONES</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo TELECOMUNICACIONES</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Telecomunicaciones.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:telco-1000-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> TELECOMUNICACIONES</h1>
+          <p class="intro-modulo-tagline">Gestión y sincronización de datos entre la central y los vehículos</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('telco-1000-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">📲</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña TELECOMUNICACIONES gestiona el intercambio de datos entre la central y los terminales móviles instalados en los vehículos. Es el módulo que configura y mantiene operativo el canal de comunicación bidireccional que permite a GAM enviar y recibir información de la flota en tiempo real.</p>
+          <p>Una de las características fundamentales del éxito de GAM es precisamente esta integración: la información generada por las dotaciones — estados del servicio, combustible, gastos, check-list, incidencias — llega automáticamente a la central sin necesidad de intervención manual, y los datos de servicios y avisos se transmiten al terminal del vehículo en el momento de la adjudicación.</p>
+          <p>El sistema de comunicaciones está basado en <span translate="no">GamDroid</span>, la aplicación Android desarrollada por Original Soft que se instala en tablets o smartphones de la dotación. Aprovecha el GPS del dispositivo para enviar cada 20 segundos la posición actual del vehículo a GAM en la central, comportándose como una extensión de la propia aplicación.</p>
+          <p>Original Soft dispone de un equipo especializado en comunicaciones, integraciones e intercambio de datos entre diferentes fuentes e interfaces, y puede integrarse con cualquier sistema, servidor o interfaz externo.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>La configuración de este módulo es técnica y habitualmente la realiza el equipo de Original Soft durante la implantación. Las modificaciones sobre terminales o tablas auxiliares deben coordinarse con el soporte técnico para evitar pérdidas de sincronización con los vehículos.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('telco-1002-configuracion-vehiculos')"><div><strong>Configuración vehículos</strong><span>Configuración de los parámetros de comunicación de cada vehículo con su terminal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('telco-1003-configuracion-terminales')"><div><strong>Configuración terminales</strong><span>Alta y configuración de los terminales móviles vinculados a la flota</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('telco-1004-actualiza-tablas-auxiliares-a-terminales')"><div><strong>Actualiza tablas auxiliares a terminales</strong><span>Sincronización de datos maestros y tablas auxiliares hacia los terminales móviles</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('telco-1006-recepcion-datos-de-terminales')"><div><strong>Recepción datos de terminales</strong><span>Recepción y procesamiento de los datos enviados por los vehículos a la central</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('telco-1001-listado-cartografia')"><div><strong>Listado cartografía</strong><span>Consulta del listado de cartografía disponible para la navegación en los terminales</span></div></div>
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:telco-1000-intro -->
             </section>
             
             <!-- RRHH - Introducción -->
             
 <section class="content-section" id="content-rrhh-1100-intro">
             <!-- GAM:INICIO:rrhh-1100-intro -->
-                <h1>RRHH</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo RRHH</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Recursos Humanos.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:rrhh-1100-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> RRHH</h1>
+          <p class="intro-modulo-tagline">Gestión de personal, cuadrantes, formación y control de presencia</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('rrhh-1100-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">👥</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña RRHH gestiona toda la información relacionada con el personal de la empresa. Dispone de la ficha completa de cada trabajador con los datos necesarios para generar el cuadrante diario, controlar la formación, gestionar los avisos de caducidad de carnés y mantener la información necesaria para IRPF y nóminas.</p>
+          <p>El módulo permite registrar y consultar las entradas y salidas de cada empleado, el material entregado, el combustible consumido, las multas, los siniestros y el historial de incidencias. Toda esta información centralizada facilita el trabajo del responsable del cuadrante y del departamento de administración.</p>
+          <p>La generación del cuadrante es una de las funciones principales del módulo. A partir de la información introducida en la ficha de cada trabajador, GAM es capaz de generar el cuadrante mensual o anual con los horarios de entrada y salida, el vehículo asignado y el tipo de turno. El cuadrante teórico puede contrastarse con el cuadrante real utilizando los datos recogidos por <span translate="no">GamDroid</span> desde los vehículos o por el terminal de huella digital instalado en las bases.</p>
+          <p>El módulo de formación permite controlar los cursos realizados por cada dotación, con avisos automáticos de caducidad de carnés y certificaciones. GAM ofrece también la posibilidad de generar las nóminas automáticamente o exportar los datos a una aplicación de nóminas externa.</p>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1101-personal')"><div><strong>Personal</strong><span>Ficha completa del trabajador: datos personales, carné, categoría y parámetros de nómina</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1118-tipos-de-jornada-laboral')"><div><strong>Tipos de jornada laboral</strong><span>Configuración de los tipos de jornada aplicables al personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1119-categorias-laborales')"><div><strong>Categorías laborales</strong><span>Clasificación del personal por categorías laborales</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1120-categorias-salariales')"><div><strong>Categorías salariales</strong><span>Configuración de los niveles salariales de la empresa</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1117-turnos-dotacion')"><div><strong>Turnos dotación</strong><span>Definición de los turnos de trabajo de las dotaciones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1110-crear-cuadrante-mensual')"><div><strong>Crear cuadrante mensual</strong><span>Generación del cuadrante mensual de personal por vehículo y turno</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1111-incidencias-sobre-cuadrante-mensual')"><div><strong>Incidencias sobre cuadrante mensual</strong><span>Registro de incidencias y cambios sobre el cuadrante generado</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1112-incorporacion-horarios-reales')"><div><strong>Incorporación horarios reales</strong><span>Incorporación de los horarios reales registrados para comparativa</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1113-cuadrante-teorico-real')"><div><strong>Cuadrante teórico / real</strong><span>Comparativa entre el cuadrante planificado y el realmente ejecutado</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1114-cuadrante-resumen-mensual')"><div><strong>Cuadrante resumen mensual</strong><span>Resumen mensual consolidado del cuadrante de personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1108-formacion-cursos')"><div><strong>Formación / Cursos</strong><span>Catálogo de cursos y certificaciones controlables por el sistema</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1107-asignar-formacion-a-trabajadores')"><div><strong>Asignar formación a trabajadores</strong><span>Registro de cursos realizados y control de caducidades por trabajador</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1102-incidencias-al-personal')"><div><strong>Incidencias al personal</strong><span>Registro de incidencias laborales de los trabajadores</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1103-avisos-trabajadores')"><div><strong>Avisos trabajadores</strong><span>Gestión de avisos y comunicaciones al personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1104-calendario-avisos')"><div><strong>Calendario avisos</strong><span>Calendario de avisos periódicos vinculados al personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1105-reclamaciones')"><div><strong>Reclamaciones</strong><span>Registro y seguimiento de reclamaciones del personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1115-anotaciones-al-personal')"><div><strong>Anotaciones al personal</strong><span>Notas y anotaciones internas sobre los trabajadores</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1122-historico-entrada-salida-base')"><div><strong>Histórico entrada/salida base</strong><span>Registro de fichajes en las bases de la empresa</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1123-historico-entrada-salida-terminal')"><div><strong>Histórico entrada/salida terminal</strong><span>Registro de inicios y finales de turno desde el terminal móvil</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1124-historico-entrega-material')"><div><strong>Histórico entrega material</strong><span>Material entregado a cada trabajador</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1125-historico-combustible')"><div><strong>Histórico combustible</strong><span>Combustible consumido por dotación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1126-historico-multas')"><div><strong>Histórico multas</strong><span>Multas asociadas a cada trabajador</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1127-historico-siniestros')"><div><strong>Histórico siniestros</strong><span>Siniestros en los que ha participado cada trabajador</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1128-historico-comidas')"><div><strong>Histórico comidas</strong><span>Registro de paradas de comida por dotación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1129-historico-paradas-dotacion')"><div><strong>Histórico paradas dotación</strong><span>Registro de paradas realizadas durante el turno</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1130-historico-gastos-dotacion')"><div><strong>Histórico gastos dotación</strong><span>Gastos registrados por cada dotación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1131-historico-mensajes-trabajadores')"><div><strong>Histórico mensajes trabajadores</strong><span>Mensajes intercambiados con el personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('rrhh-1132-historico-viajes-y-preventivos')"><div><strong>Histórico viajes y preventivos</strong><span>Historial de servicios y preventivos realizados por cada trabajador</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamIntra</strong>
+              </div>
+              <p>Portal del trabajador integrado a GAM. Permite a cada empleado acceder desde una web a su información personal: calendario laboral, viajes y preventivos realizados, impresión de nóminas, hojas de rendimiento para la declaración de la renta, estadísticas de servicios propios, días personales, tablón de anuncios, noticias de la empresa y solicitudes de cambio de guardia.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamCPRWeb</strong>
+              </div>
+              <p>Control de presencia integrado con GAM. Mediante una aplicación web o un lector de huella digital instalado en las bases, registra los horarios de entrada y salida del personal. Al estar conectado al cuadrante de GAM, genera automáticamente las comparativas entre los horarios teóricos y los reales. Puede instalarse en todas las bases de la empresa con una simple conexión a internet, y envía notificaciones a los trabajadores en el momento del fichaje.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:rrhh-1100-intro -->
             </section>
             
             <!-- WEB - Introducción -->
             
 <section class="content-section" id="content-web-1200-intro">
             <!-- GAM:INICIO:web-1200-intro -->
-                <h1>WEB</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo WEB</h3>
-                    <p>Esta sección contendrá la introducción general del módulo Web.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:web-1200-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> WEB</h1>
+          <p class="intro-modulo-tagline">Canal de comunicación y gestión entre la empresa y sus trabajadores</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('web-1200-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">🌐</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña WEB es el módulo de comunicación entre la empresa y sus trabajadores. Está estrechamente ligada al módulo RRHH y extiende su funcionalidad hacia un canal bidireccional que permite mantener el contacto con la plantilla, gestionar solicitudes del personal y distribuir información de manera organizada y trazable.</p>
+          <p>Desde aquí se gestionan los mensajes a los trabajadores — tanto individuales como masivos —, se validan las solicitudes de cambio de turno, permisos y vacaciones enviadas por el personal, y se organizan la asignación de viajes, preventivos y días a cubrir. También permite lanzar encuestas internas y consultar sus respuestas, facilitando la participación del equipo en la toma de decisiones o la recogida de información.</p>
+          <p>El módulo WEB actúa como back-office del portal del trabajador: todo lo que el empleado solicita o consulta desde su portal queda pendiente de validación en esta pestaña, donde el responsable de RRHH o el coordinador puede revisarlo, aprobarlo o rechazarlo con el correspondiente registro en el historial.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>Para que los trabajadores puedan acceder al portal y enviar solicitudes, es necesario tener activo el módulo opcional <span translate="no">GamIntra</span>. Las ventanas de validación de este módulo son el complemento de gestión interna de dicho portal.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('web-1201-informacion-web')"><div><strong>Información Web</strong><span>Publicación de noticias y comunicados para los trabajadores</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1202-envio-masivo-mensajes-trabajadores')"><div><strong>Envío masivo mensajes trabajadores</strong><span>Envío de mensajes a grupos de trabajadores simultáneamente</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1203-mensajes-trabajadores')"><div><strong>Mensajes trabajadores</strong><span>Mensajería individual con los trabajadores</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1205-validar-cambio-de-turno')"><div><strong>Validar cambio de turno</strong><span>Revisión y aprobación de solicitudes de cambio de turno del personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1206-validar-permisos')"><div><strong>Validar permisos</strong><span>Revisión y aprobación de solicitudes de permiso</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1207-validar-vacaciones')"><div><strong>Validar vacaciones</strong><span>Revisión y aprobación de solicitudes de vacaciones</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1209-asignacion-viajes-y-preventivos')"><div><strong>Asignación viajes y preventivos</strong><span>Asignación de viajes y servicios preventivos al personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1210-trabajadores-de-viajes-y-preventivos')"><div><strong>Trabajadores de viajes y preventivos</strong><span>Gestión del personal asignado a viajes y preventivos</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1212-asignacion-dias-a-cubrir')"><div><strong>Asignación días a cubrir</strong><span>Asignación de días con necesidad de cobertura de personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1213-dias-a-cubrir')"><div><strong>Días a cubrir</strong><span>Listado de días con cobertura pendiente de asignar</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1214-historico-de-dias-a-cubrir')"><div><strong>Histórico días a cubrir</strong><span>Registro histórico de las coberturas gestionadas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1215-encuestas')"><div><strong>Encuestas</strong><span>Creación y gestión de encuestas internas para el personal</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1216-respuestas-encuestas')"><div><strong>Respuestas encuestas</strong><span>Consulta de los resultados de las encuestas realizadas</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1219-master-e-mail')"><div><strong>Master e-mail</strong><span>Configuración de las plantillas y parámetros de correo electrónico</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('web-1220-historico-web')"><div><strong>Histórico web</strong><span>Registro de todas las acciones y comunicaciones del módulo</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulos opcionales -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulos opcionales relacionados</h2>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional — recomendado</span>
+                <strong translate="no">GamIntra</strong>
+              </div>
+              <p>Portal del trabajador integrado a GAM. Permite a cada empleado acceder desde una web a su calendario laboral, viajes y preventivos, nóminas, hojas de rendimiento para hacienda, estadísticas de servicios propios, tablón de anuncios y noticias. Desde aquí el trabajador también puede solicitar cambios de guardia, permisos y vacaciones, que quedan pendientes de validación en el módulo WEB de GAM.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+            <div class="intro-modulo-opcional">
+              <div class="intro-modulo-opcional-header">
+                <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+                <strong translate="no">GamWhatsApp</strong>
+              </div>
+              <p>Automatización de la comunicación mediante WhatsApp Business. Además de su uso orientado a pacientes, permite enviar notificaciones y mensajes a los trabajadores a través de WhatsApp, complementando los canales de comunicación disponibles en este módulo.</p>
+              <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:web-1200-intro -->
             </section>
             
             <!-- PowerBi - Introducción -->
             
 <section class="content-section" id="content-pbi-1300-intro">
             <!-- GAM:INICIO:pbi-1300-intro -->
-                <h1>PowerBi</h1>
-                <div class="construction">
-                    <h3>📖 Introducción al Módulo PowerBi</h3>
-                    <p>Esta sección contendrá la introducción general del módulo PowerBi.</p>
-                    <p>Aquí se explicará el propósito y alcance de las ventanas de este módulo.</p>
-                </div>
-                        <!-- GAM:FIN:pbi-1300-intro -->
+    <div class="intro-modulo-wrap">
+
+      <div class="intro-modulo-header" style="background: linear-gradient(135deg, #D20707 0%, #9a0505 100%);">
+        <div class="intro-modulo-header-content">
+          <div class="intro-badge" style="margin-bottom:10px;">Versión <span class="intro-modulo-ver-num"></span></div>
+          <h1 class="intro-modulo-titulo"><span class="intro-modulo-subtit">Módulo</span> POWERBI</h1>
+          <p class="intro-modulo-tagline">Cuadros de mando y análisis visual de datos integrados con GAM</p>
+        </div>
+        <button class="btn-print-section btn-print-intro" onclick="printSection('pbi-1300-intro')" title="Imprimir como PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> Imprimir</button>
+        <div class="intro-modulo-icon-bg">📈</div>
+      </div>
+
+      <div class="intro-modulo-body">
+
+        <div class="intro-modulo-section">
+          <p>La pestaña POWERBI integra cuadros de mando visuales directamente en GAM, alimentados con los datos reales de la operativa de la empresa. Cada cuadro de mando corresponde a un área de negocio y ofrece una visión gráfica e interactiva del rendimiento, facilitando el análisis y la toma de decisiones a nivel directivo y de área.</p>
+          <p>A diferencia del módulo INFORMACIÓN, que genera listados y exportaciones de datos, POWERBI presenta la información de forma visual — gráficos, indicadores, tendencias y comparativas — permitiendo identificar patrones y desviaciones de un vistazo, sin necesidad de procesar datos manualmente.</p>
+          <p>Los cuadros de mando están conectados a la base de datos de GAM y se actualizan con la información más reciente, proporcionando una fotografía real del estado de la empresa en cada momento.</p>
+          <div class="note-box">
+            <div class="box-title">Nota</div>
+            <p>Los cuadros de mando disponibles y su configuración dependen de la instalación. Original Soft puede adaptar o ampliar los paneles según las necesidades específicas de cada empresa.</p>
+          </div>
+        </div>
+
+        <!-- Ventanas -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Ventanas de este módulo</h2>
+          <div class="intro-modulo-ventanas">
+            <div class="intro-modulo-ventana" onclick="showContent('pbi-1301-cuadro-de-mando-coordinacion')"><div><strong>Cuadro de mando COORDINACIÓN</strong><span>Indicadores clave de la operativa diaria: servicios, adjudicaciones, demoras y estados</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('pbi-1302-cuadro-de-mando-rrhh')"><div><strong>Cuadro de mando RRHH</strong><span>Análisis del personal: cuadrantes, asistencia, formación y rendimiento por dotación</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('pbi-1303-cuadro-de-mando-stock')"><div><strong>Cuadro de mando STOCK</strong><span>Control visual de existencias, consumos y movimientos de material</span></div></div>
+            <div class="intro-modulo-ventana" onclick="showContent('pbi-1304-cuadro-de-mando-flota')"><div><strong>Cuadro de mando FLOTA</strong><span>Estado y rendimiento de la flota: disponibilidad, costes, kilómetros y revisiones</span></div></div>
+          </div>
+        </div>
+
+        <!-- Módulo opcional -->
+        <div class="intro-modulo-section">
+          <h2 class="intro-modulo-h2">Módulo opcional relacionado</h2>
+          <div class="intro-modulo-opcional">
+            <div class="intro-modulo-opcional-header">
+              <span class="intro-modulo-opcional-tag">Módulo opcional</span>
+              <strong translate="no">GamControlMando</strong>
+            </div>
+            <p>Informe diario automatizado con el resumen personalizado del día anterior. Complementa los cuadros de mando de POWERBI con un envío diario por email — a la hora configurada — de un fichero Excel con los indicadores clave de la jornada: servicios realizados, demoras, vehículos y personal que trabajaron, incidencias, combustible consumido, anulaciones y cualquier otro dato que la empresa necesite monitorizar. Los indicadores son completamente personalizables para cada instalación.</p>
+            <a href="https://www.original-soft.com" target="_blank" class="intro-modulo-opcional-link">Más información → original-soft.com</a>
+          </div>
+        </div>
+
+      </div><!-- fin body -->
+    </div><!-- fin intro-modulo-wrap -->
+            <!-- GAM:FIN:pbi-1300-intro -->
             </section>
 <section class="content-section" id="content-sis-101-empresas">
             <!-- GAM:INICIO:sis-101-empresas -->
