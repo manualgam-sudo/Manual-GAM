@@ -2447,7 +2447,7 @@ table.table-manual tr{break-inside:avoid;page-break-inside:avoid}
             margin: 0; font-weight: 300;
         }
         .intro-modulo-icon-bg {
-            font-size: 80px; opacity: 0.15;
+            font-size: 80px; opacity: 0.30;
             position: absolute; right: 36px; top: 50%;
             transform: translateY(-50%);
             line-height: 1;
@@ -2601,3 +2601,19 @@ table.table-manual tr{break-inside:avoid;page-break-inside:avoid}
         .intro-print-static .btn-print-section:hover {
             background: rgba(255,255,255,0.28);
         }
+
+        /* Print button positioned top-right inside intro headers */
+        .btn-print-intro {
+            position: absolute !important;
+            top: 14px !important;
+            right: 20px !important;
+            background: rgba(255,255,255,0.15) !important;
+            border: 1px solid rgba(255,255,255,0.4) !important;
+            color: white !important;
+            float: none !important;
+        }
+        .btn-print-intro:hover {
+            background: rgba(255,255,255,0.28) !important;
+        }
+        /* Ensure parent headers are relative */
+        .intro-header, .intro-modulo-header { position: relative; }
