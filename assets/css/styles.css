@@ -2587,3 +2587,17 @@ table.table-manual tr{break-inside:avoid;page-break-inside:avoid}
 
         /* Módulo intro header — relative for btn-print-intro */
         .intro-modulo-header { position: relative; }
+
+        /* Print button static in intro headers */
+        .intro-print-static {
+            float: right;
+            margin-top: 2px;
+        }
+        .intro-print-static .btn-print-section {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.4);
+            color: white;
+        }
+        .intro-print-static .btn-print-section:hover {
+            background: rgba(255,255,255,0.28);
+        }
