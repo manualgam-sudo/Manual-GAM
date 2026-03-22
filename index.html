@@ -3919,13 +3919,252 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
 <section class="content-section" id="content-mant-206-motivos-de-traslado">
             <!-- GAM:INICIO:mant-206-motivos-de-traslado -->
-                <h1>Motivos de traslado</h1>
-                <div class="construction">
-                    <h3>✏️ Motivos de traslado <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Motivo de traslado</h1>
+
+                <figure>
+                    <img src="assets/capturas/0206 - Motivos_de_traslados.png" alt="0206 - Motivos_de_traslados.png" class="screenshot">
+                    <figcaption>Ventana Motivo de traslados con datos de ejemplo</figcaption>
+                </figure>
+
+                <h2>Objetivo</h2>
+
+                <p>En la práctica, el motivo de traslado indica el “porqué” un paciente realiza una programación</p>
+
+                <p>(por ejemplo: consulta, ingreso hospitalario, diálisis, radioterapia...). Este dato se utiliza en</p>
+
+                <p>distintas partes de GAM para reglas de funcionamiento, generación de servicios programados y funcionalidades relacionadas con GamRuta.</p>
+
+                <h2>Descripción de la ventana</h2>
+
+                <p>En esta ventana se crean registros con código y descripción, y se configuran opciones que afectan al comportamiento del motivo (si genera vuelta, si es urgente, si se permite en festivo, color en coordinación, envío de SMS, etc.).</p>
+
+                <p>Como en otros mantenimientos, los cambios (edición o eliminación) pueden afectar a la trazabilidad si el motivo ya se ha utilizado en servicios.</p>
+
+                <h2>Dónde se utiliza</h2>
+
+                <p>El Motivo de traslado se utiliza principalmente para:</p>
+
+                <ul>
+                    <li>Aplicar reglas del sistema.</li>
+                    <li>Funcionalidades asociadas a GamRuta.</li>
+                    <li>Comportamiento y visualización en pantallas de:</li>
+                    <li>Planificación</li>
+                    <li>Coordinación: Información útil a Planificadores, Coordinadores y dotaciones</li>
+                </ul>
+
+                <h2>Qué ves en pantalla</h2>
+
+                <h3>Selección / Filtro</h3>
+
+                <p>Permite buscar por Motivo de traslado y/o Descripción.</p>
+
+                <p>Para actualizar el listado se utiliza Refrescar F7 (o su icono/botón de refresh).</p>
+
+                <h3>Listado de resultados</h3>
+
+                <p>Muestra los motivos existentes (Código y Descripción).Al seleccionar uno, su configuración aparece en la parte inferior.</p>
+
+                <h3>Detalle del motivo</h3>
+
+                <p>Incluye:</p>
+
+                <ul>
+                    <li>Código y Descripción.: lo introduce el usuario y puede ser alfanumérico.</li>
+                    <li>Tipo de trayecto (radios):</li>
+                    <li>Domicilio–Hospital / Hospital–Domicilio / Hospital–Hospital / Domicilio–Domicilio / Otros</li>
+                    <li>Checks de comportamiento:</li>
+                    <li>Día festivo</li>
+                    <li>¿Habilitado para GamWeb?</li>
+                    <li>¿Este motivo tiene vuelta?</li>
+                    <li>¿Es urgente?</li>
+                    <li>Enviar SMS al validar</li>
+                    <li>Campos adicionales:</li>
+                    <li>Externa</li>
+                    <li>Color coordinación</li>
+                    <li>Minutos (parámetros pensados principalmente para GamRuta)</li>
+                </ul>
+
+                <p>– Minutos añadir al servicio de vuelta– Minutos margen recoger antes (Origen)– Minutos margen recoger antes (Solo vuelta)– Minutos margen recoger después (Origen)</p>
+
+                <h2>Iconos y controles</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear nuevo registro</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Guarda alta o cambios del registro</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar:  Elimina registro </td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11" alt="icon_imprimir_f11" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12" alt="icon_cerrar_f12" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Reglas y advertencias de trazabilidad</h2>
+
+                <p>Se puede modificar un motivo (por ejemplo su descripción), pero el cambio se refleja también en el histórico.</p>
+
+                <ul>
+                    <li>Si se desea mantener trazabilidad en listados e histórico, no se recomienda cambiar un motivo que ya esté en uso, salvo que haya cambiado el criterio general y se acepte el impacto.</li>
+                </ul>
+
+                <h2>Significado de opciones y campos</h2>
+
+                <h3>Tipo de trayecto (radios)</h3>
+
+                <p>Se utiliza principalmente para reglas y para GamRuta (clasificación del tipo de desplazamiento).</p>
+
+                <h3>¿Habilitado para GamWeb?</h3>
+
+                <p>Afecta a la visualización en la sol·licitud de servicios vía web (GAMWEB):</p>
+
+                <ul>
+                    <li>Aparecerá en la selección de motivo de traslado) en los servicios solicitados por GAMWEB (si el módulo opcional està instalado)</li>
+                </ul>
+
+                <h3>Día festivo</h3>
+
+                <p>Afecta a la generación de servicios programados:</p>
+
+                <ul>
+                    <li>Cuando se generan servicios y el día está marcado como festivo, solo se generarán los servicios cuyo motivo tenga marcado el check Día festivo.</li>
+                    <li>Uso típico: Hemodiálisis y, raramente, algún otro tratamiento.</li>
+                </ul>
+
+                <h3>¿Este motivo tiene vuelta?</h3>
+
+                <p>Cuando se da de alta un servicio con un motivo que tiene vuelta:</p>
+
+                <ul>
+                    <li>El sistema puede generar el servicio de vuelta (automático).</li>
+                </ul>
+
+                <h3>¿Es urgente?</h3>
+
+                <p>Afecta a la visualización en listados:</p>
+
+                <ul>
+                    <li>En Planificación y Coordinación, el fondo del campo Nombre del paciente se mostrará en color rojo.</li>
+                </ul>
+
+                <h3>Enviar SMS al validar</h3>
+
+                <p>Al validar en pantallas de Planificación o Coordinación:</p>
+
+                <ul>
+                    <li>Se envía un SMS al paciente con la hora de recogida asignada. (si el módulo opcional està instalado)</li>
+                </ul>
+
+                <h3>Externa</h3>
+
+                <p>Campo para uso en escenarios externos (misma lógica general que otros mantenimientos).Confirmado: se utiliza con criterio “empresa” (u otra referencia equivalente definida por la organización).</p>
+
+                <h3>Color coordinación</h3>
+
+                <p>Afecta a la visualización en listados:</p>
+
+                <ul>
+                    <li>En Planificación y Coordinación, el fondo del campo Población de origen se mostrará con el color asignado.</li>
+                </ul>
+
+                <h3>Campos de minutos (GamRuta)</h3>
+
+                <p>Estos campos están pensados principalmente para GamRuta. (si el módulo opcional està instalado)En caso de programación manual, sirven como referencia informativa.</p>
+
+                <ul>
+                    <li>Minutos añadir al servicio de vuelta</li>
+                    <li>Minutos margen recoger antes (Origen)</li>
+                    <li>Minutos margen recoger antes (Solo vuelta)</li>
+                    <li>Minutos margen recoger después (Origen) </li>
+                </ul>
+
+                <h2>Procedimientos habituales</h2>
+
+                <h3>Buscar un motivo (evitar duplicados)</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Rellenar 0, 1 o varios filtros (Motivo traslado / Descripción).</li>
+                    <li>Pulsar Refrescar F7.</li>
+                    <li>Revisar el listado antes de crear uno nuevo.</li>
+                </ul>
+
                 </div>
-                        <!-- GAM:FIN:mant-206-motivos-de-traslado -->
+
+                <h3>Crear un motivo de traslado</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Buscar primero para evitar duplicados (ver 8.1).</li>
+                    <li>Pulsar Nuevo F2.</li>
+                    <li>Informar:</li>
+                    <li>Código (alfanumérico)</li>
+                    <li>Descripción</li>
+                    <li>Tipo de trayecto (radios)</li>
+                    <li>Checks necesarios (festivo, vuelta, urgente, SMS, GamWeb…)</li>
+                    <li>Color coordinación y parámetros (si aplica)</li>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <h3>Modificar un motivo existente (con criterio)</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Seleccionar el motivo.</li>
+                    <li>Realizar cambios solo si son necesarios y se acepta el impacto en histórico.</li>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No se recomienda modificar descripciones de motivos ya utilizados si se necesita mantener trazabilidad histórica.</li>
+                    <li>No se deben marcar opciones (festivo/vuelta/urgente/SMS) sin criterio, ya que impactan en generación de servicios y en pantallas operativas.</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves esta opción, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+            <!-- GAM:FIN:mant-206-motivos-de-traslado -->
             </section>
 
 <section class="content-section" id="content-mant-207-tipos-de-traslado">
