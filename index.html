@@ -4424,13 +4424,132 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
 <section class="content-section" id="content-mant-208-incidencias">
             <!-- GAM:INICIO:mant-208-incidencias -->
-                <h1>Incidencias</h1>
-                <div class="construction">
-                    <h3>❓ Incidencias <span style="font-size:11px;font-weight:400;color:#999">· Dudas</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Incidencias</h1>
+
+                <figure>
+                    <img src="assets/capturas/0208 - Incidencias.png" alt="0208 - Incidencias.png" class="screenshot">
+                    <figcaption>Ventana de Incidencias</figcaption>
+                </figure>
+
+                <h2>Objetivo</h2>
+
+                <p>Esta ventana permite dar de alta y mantener un catálogo de incidencias internas para clasificar lo que ocurre en la empresa dentro del Registro diario, servicio o Gamweb (solicitud de servicios)</p>
+
+                <h2>Dónde se utiliza esta información</h2>
+
+                <p>Registro diario, Servicio, Gamweb: el usuario selecciona una incidencia del catálogo para clasificar el registro, y al guardar puede dispararse el envío de email (si está configurado).</p>
+
+                <h2>Cómo buscar (filtros) y lista de resultados</h2>
+
+                <ul>
+                    <li>Puedes no rellenar nada (verás todos los registros), rellenar uno o varios filtros.</li>
+                    <li>Para refrescar resultados: F7 (o su icono).<img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></li>
+                    <li>Al seleccionar un registro en la lista, se cargan sus datos en la zona inferior.</li>
+                </ul>
+
+                <h2>Campos de la ficha</h2>
+
+                <h3>Código</h3>
+
+                <ul>
+                    <li>Alfanumérico de 3 caracteres, se introduce manual.</li>
+                    <li>No se puede editar una vez guardado.</li>
+                </ul>
+
+                <h3>Descripción</h3>
+
+                <ul>
+                    <li>Texto libre para identificar la incidencia (ej.: “CORTE DE LUZ”, “CAMBIO TÓNER IMPRESORA…”).</li>
+                    <li>Si cambias la descripción, el cambio se reflejará también cuando se consulte el histórico (mismo comportamiento general que ya estás aplicando en otras ventanas).</li>
+                </ul>
+
+                <h3>Tipo</h3>
+
+                <p>Cada incidencia puede asociarse a un tipo de incidencia  y a un correo electrónico, de forma que al registrar una incidencia en se pueda enviar automáticamente una copia al email configurado.</p>
+
+                <p>Indica a qué ámbito aplica la incidencia. En el desplegable aparecen:</p>
+
+                <ul>
+                    <li>Servicio</li>
+                    <li>Web</li>
+                    <li>Registro Diario</li>
+                </ul>
+
+                <h3>Email</h3>
+
+                <p>Email al que se enviará la copia de la incidencia (p. ej. WEB@Ambulancias.com).</p>
+
+                <p>Si se informa, al crear la incidencia y guardarla, se disparará el envío.</p>
+
+                <p>Para que el mail se envie, la salida de mails tiene que estar configurado en la ventana Sistema/ Empresa</p>
+
+                <h2>Acciones e iconos (teclas rápidas)</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear una nueva incidencia (código + descripción + tipo + email)</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Si el registro “ya existe”, GAM avisa, pero finalmente lo guarda. Esto nos sirve por si queremos generar una misma incidencia para varios usos. Tendremos que tener en cuenta vigilar en no duplicar una incidencia y que esté asignada a diferentes usos</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar: No hay “Inactivo” en esta ventana, la única manera de que no salga en listado es borrar.Pero el borrado sigue el comportamiento habitual: en el histórico queda el código, pero la descripción puede quedar en blanco. Si se quiere una trazabilidad de los datos se recomienda no borrar nada.</td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11.png" alt="icon_imprimir_f11.png" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Recomendación de trabajo (evitar duplicados)</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Antes de crear, buscar con filtros (F7) para comprobar si ya existe una incidencia igual o similar.</li>
+                    <li>Si no existe: F2 → completar campos → F5.</li>
+                </ul>
+
                 </div>
-                        <!-- GAM:FIN:mant-208-incidencias -->
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No se dan altas de incidencias/motivos de anulación de los servicios.</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Las opciones de esta ventana dependerán de los permisos de usuario. Si alguna acción no funciona o no aparece, consulta con el responsable del sistema de tu empresa para revisar los permisos.</p>
+                </div>
+            <!-- GAM:FIN:mant-208-incidencias -->
             </section>
 
 <section class="content-section" id="content-mant-209-tipos-de-asistencias">
