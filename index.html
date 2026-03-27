@@ -4565,13 +4565,91 @@ Estos campos no tienen una definición fija: cada empresa decide para qué los u
 
 <section class="content-section" id="content-mant-211-poblaciones">
             <!-- GAM:INICIO:mant-211-poblaciones -->
-                <h1>Poblaciones</h1>
-                <div class="construction">
-                    <h3>❓ Poblaciones <span style="font-size:11px;font-weight:400;color:#999">· Dudas</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<p>[Encabezado 1] Poblaciones</p>
+
+                <p>[Encabezado 2] Qué es esta ventana</p>
+
+                <p>Permite mantener el catálogo de poblaciones que utiliza GAM en distintos procesos: alta de servicios, planificación, coordinación, etc. Además, desde aquí se configuran datos que el sistema usa para la adjudicación automática, la asignación automática a rutas y la georreferenciación.</p>
+
+                <p>[Encabezado 2] Qué ves en pantalla</p>
+
+                <p>[Encabezado 3] Listado</p>
+
+                <p>Muestra las poblaciones existentes. Si el filtro está en blanco, se muestran todas.</p>
+
+                <p>[Encabezado 3] Filtros</p>
+
+                <p>Permite filtrar por Población y Provincia.</p>
+
+                <p>[Encabezado 3] Detalle</p>
+
+                <p>Información de la población seleccionada, con dos pestañas: General y Otras descripciones.</p>
+
+                <p>[Encabezado 2] Acciones habituales</p>
+
+                <p>[Encabezado 3] Buscar una población</p>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cómo buscar una población - Rellena uno o varios filtros (Población / Provincia) o déjalos en blanco para ver todas. - Refresca el listado con F7 o el icono de refrescar. - Selecciona un registro para ver su detalle. FIN_PASOS:</p>
                 </div>
-                        <!-- GAM:FIN:mant-211-poblaciones -->
+
+                <p>[Encabezado 3] Alta y modificación</p>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cómo crear o modificar una población - Para crear: pulsa el icono de nuevo registro, rellena los campos y guarda con F5. - Para modificar: selecciona la población en el listado, edita los campos necesarios y guarda. FIN_PASOS:</p>
+                </div>
+
+                <p>[Encabezado 3] Borrar una población</p>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cómo borrar una población - Selecciona la población en el listado. - Pulsa el icono de eliminar y confirma. FIN_PASOS:</p>
+                </div>
+
+                <p>[Encabezado 6] Si la población estaba vinculada a registros históricos, al borrarla la descripción quedará en blanco en esos registros.</p>
+
+                <p>[Encabezado 2] Campos y configuración</p>
+
+                <p>[Encabezado 3] Datos principales</p>
+
+                <ul>
+                    <li>Descripción: nombre de la población.</li>
+                    <li>Provincia: provincia asociada.</li>
+                    <li>CP: código postal.</li>
+                    <li>Código INE: código informativo.</li>
+                    <li>Pob. Externa: denominación externa, útil si hay integraciones o nomenclaturas distintas.</li>
+                    <li>Lote/Mutua: se utiliza en el alta de servicios cuando esa población está asociada a un cliente fijo, facilitando que el servicio arranque ya con ese lote/mutua.</li>
+                </ul>
+
+                <p>[Encabezado 3] Pestaña General</p>
+
+                <ul>
+                    <li>Zona / Sector / Base: clasificación territorial y operativa.</li>
+                    <li>Ruta: se usa para la asignación automática a ruta.</li>
+                    <li>Minutos de adjudicación: tiempo previo a la hora de recogida en el que GAM adjudicará el servicio automáticamente. Por ejemplo, si la recogida es a las 18:00 y se configuran 75 minutos, el servicio se adjudicará a las 16:45.</li>
+                    <li>Color coordinación: color de identificación visual que se muestra en Planificación y Coordinación.</li>
+                    <li>Días festivos: configuración según operativa.</li>
+                </ul>
+
+                <p>[Encabezado 3] Georreferenciación</p>
+
+                <p>Desde esta ventana se puede acceder a la georreferenciación de la población para revisar o corregir su posición. El campo Km. Revisados indica el estado de revisión con las siguientes opciones:</p>
+
+                <ul>
+                    <li>Km. Pendientes revisar</li>
+                    <li>Km. Revisados</li>
+                    <li>Error en la georreferenciación</li>
+                    <li>Fuerza a revisar</li>
+                    <li>Proceso interno</li>
+                    <li>Georreferenciación poco exacta</li>
+                </ul>
+
+                <p>[Encabezado 3] Pestaña Otras descripciones</p>
+
+                <p>Pendiente de confirmar uso definitivo.</p>
+            <!-- GAM:FIN:mant-211-poblaciones -->
             </section>
 
 <section class="content-section" id="content-mant-212-destinos">
