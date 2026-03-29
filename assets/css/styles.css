@@ -1563,7 +1563,7 @@
             .header, .tabs-wrapper, .sidebar, #scrollToTop,
             .btn-print-section, .btn-print-intro, .modal,
             .confirmation-modal, .print-version-wrap,
-            .badge-version-gam { display: none !important; }
+            .badge-version-gam, .mobile-menu-toggle { display: none !important; }
 
             /* ── Layout ── */
             body { background: white !important; margin: 0 !important; }
