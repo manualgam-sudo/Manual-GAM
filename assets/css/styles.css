@@ -1997,8 +1997,8 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html,body{margin:0;padding:0;font-family:'Roboto','Segoe UI',sans-serif;font-weight:300;font-size:11pt;color:#2a2a2a;background:white}
-/* margin:0 → el navegador no añade URL/título al imprimir */
-@page{size:A4 portrait;margin:0}
+/* margin con valores → el navegador muestra cabecera/pie con URL y número de página */
+@page{size:A4 portrait;margin:1.8cm 2cm 2cm 2cm}
 /* ── Secciones ── */
 .seccion-pdf{padding:1.6cm 2.2cm;page-break-after:always;counter-reset:h2-counter 0 h3-counter 0}
 .seccion-pdf:last-child{page-break-after:auto}
