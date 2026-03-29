@@ -1554,62 +1554,40 @@
 
         /* ── Print: impresión de sección individual ─────────────────── */
         @media print {
-            /* Márgenes estándar: el texto no queda pegado al borde.
-               Si el usuario no quiere cabecera/pie del navegador (URL, título)
-               puede desactivarlo en las opciones de impresión del navegador. */
             @page {
                 size: A4 portrait;
                 margin: 1.8cm 2cm 2cm 2cm;
             }
-            @page :first {
-                margin-top: 1.2cm;
-            }
 
-            /* Ocultar toda la interfaz */
+            /* ── Ocultar interfaz ── */
             .header, .tabs-wrapper, .sidebar, #scrollToTop,
             .btn-print-section, .btn-print-intro, .modal,
-            .confirmation-modal, .print-version-wrap { display: none !important; }
+            .confirmation-modal, .print-version-wrap,
+            .badge-version-gam { display: none !important; }
 
-            /* Romper el flex → main-content ocupa todo el ancho */
+            /* ── Layout ── */
             body { background: white !important; margin: 0 !important; }
-            .content-wrapper {
-                display: block !important;
-                margin: 0 !important;
-                max-width: 100% !important;
-            }
-            .main-content {
-                width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-
-            /* Solo la sección marcada */
+            .content-wrapper { display: block !important; margin: 0 !important; max-width: 100% !important; }
+            .main-content { width: 100% !important; margin: 0 !important; padding: 0 !important; }
             .content-section              { display: none !important; }
             .content-section.print-target { display: block !important; }
 
-            /* ── Cabeceras de intro de módulo: sin fondo rojo ── */
-            .intro-modulo-header {
+            /* ── Cabeceras rojas → versión impresión limpia ── */
+            .intro-modulo-header, .intro-header {
                 background: none !important;
                 border-bottom: 3px solid #D20707 !important;
-                padding: 12px 0 16px !important;
+                padding: 10px 0 14px !important;
                 border-radius: 0 !important;
-                margin-bottom: 20px !important;
+                margin-bottom: 18px !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
-            .intro-modulo-icon-bg { display: none !important; }
-            .intro-modulo-badge, .intro-badge { display: none !important; }
-            .intro-modulo-titulo { color: #2a2a2a !important; font-size: 26px !important; }
+            .intro-modulo-icon-bg, .intro-badge,
+            .intro-modulo-badge { display: none !important; }
+            .intro-modulo-titulo { color: #2a2a2a !important; font-size: 24px !important; }
             .intro-modulo-subtit { color: #D20707 !important; }
-            .intro-modulo-tagline { color: #555 !important; }
-            .intro-header {
-                background: none !important;
-                border-bottom: 3px solid #D20707 !important;
-                padding: 12px 0 16px !important;
-                border-radius: 0 !important;
-                margin-bottom: 20px !important;
-            }
-            .intro-titulo { color: #2a2a2a !important; font-size: 26px !important; }
-
-            /* ── Módulos opcionales: simplificar para impresión ── */
+            .intro-modulo-tagline, .intro-tagline { color: #555 !important; }
+            .intro-titulo { color: #2a2a2a !important; font-size: 24px !important; }
             .intro-modulo-opcional {
                 border-left: 3px solid #D20707 !important;
                 background: #fafafa !important;
@@ -1618,30 +1596,19 @@
             }
             .intro-modulo-opcional-tag {
                 background: #D20707 !important;
+                color: white !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
 
-            /* ── Títulos: nunca quedan solos al final de página ── */
+            /* ── Títulos: no quedan solos al final de página ── */
             h1 {
                 break-after: avoid !important;
                 page-break-after: avoid !important;
-                break-before: page !important;
-                page-break-before: always !important;
-            }
-            h1:first-child {
-                break-before: avoid !important;
-                page-break-before: avoid !important;
             }
             h2 {
-                break-before: page !important;
-                page-break-before: always !important;
                 break-after: avoid !important;
                 page-break-after: avoid !important;
-            }
-            /* h2 dentro de intro-modulo-section no rompe página */
-            .intro-modulo-section h2,
-            .intro-modulo-section:first-child h2 {
                 break-before: avoid !important;
                 page-break-before: avoid !important;
             }
@@ -1651,19 +1618,19 @@
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
-
-            /* ── Párrafo pegado a su título ── */
-            h2 + p, h3 + p, h2 + div, h3 + div {
+            /* h1/h2/h3 arrastran el siguiente elemento */
+            h1 + *, h2 + *, h3 + * {
                 break-before: avoid !important;
                 page-break-before: avoid !important;
             }
 
-            /* ── Imágenes: nunca se cortan ── */
+            /* ── Imágenes: tamaño real, no se parten, arrastran el pie ── */
             img {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
                 max-width: 100% !important;
-                max-height: 22cm !important;
+                width: auto !important;
+                height: auto !important;
                 display: block !important;
             }
             figure {
@@ -1671,56 +1638,51 @@
                 page-break-inside: avoid !important;
                 margin: 1rem 0 !important;
             }
-            .img-wrap {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
+            figure img { width: auto !important; max-width: 100% !important; }
             figcaption, .screenshot-caption {
                 break-before: avoid !important;
                 page-break-before: avoid !important;
             }
+            .img-wrap {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
 
-            /* ── Bloques de contenido: no se parten ── */
+            /* ── Bloques: no se parten ── */
             .note-box, .alert-box, .steps-box, .warn-box, h4, h5, h6 {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            /* Colores de fondo para impresión */
             .note-box  { background: #e3f2fd !important; }
             .alert-box { background: #ffebee !important; }
             .steps-box { background: #e8f5e9 !important; }
             .warn-box  { background: #fff9e6 !important; }
 
+            /* ── Párrafos ── */
+            p { orphans: 3; widows: 3; }
+            p + p { break-before: avoid !important; page-break-before: avoid !important; }
+
             /* ── Tablas ── */
             table  { break-inside: avoid !important; width: 100% !important; }
             thead  { display: table-header-group; }
             tr     { break-inside: avoid !important; page-break-inside: avoid !important; }
-            .table-manual thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-            /* ── Párrafos: evitar líneas huérfanas/viudas ── */
-            p { orphans: 3; widows: 3; }
+            .table-manual thead {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
 
             /* ── Listas ── */
             ol, ul { break-inside: avoid !important; page-break-inside: avoid !important; }
-            li { break-inside: avoid !important; page-break-inside: avoid !important; }
+            li     { break-inside: avoid !important; page-break-inside: avoid !important; }
 
-            /* ── Ventanas grid en intro: no partir tarjetas ── */
+            /* ── Intros de módulo: ventanas en columnas ── */
+            .intro-modulo-ventanas { display: block !important; columns: 2 !important; column-gap: 12px !important; }
             .intro-modulo-ventana, .intro-modulo-opcional {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
-            /* Grid de ventanas → columna única en impresión */
-            .intro-modulo-ventanas {
-                display: block !important;
-                columns: 2 !important;
-                column-gap: 12px !important;
-            }
-
-            /* ── Salto de página manual (añadir clase en HTML si necesario) ── */
-            .salto-pagina-print { break-before: page !important; page-break-before: always !important; }
-            .no-salto-print     { break-inside: avoid !important; page-break-inside: avoid !important; }
         }
         /* ══════════════════════════════════════════════════════════════ */
         /* FIX: Prevenir que el contenido se superponga al sidebar       */
