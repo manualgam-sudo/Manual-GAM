@@ -3783,13 +3783,216 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-205-tipos-de-vehiculo">
             <!-- GAM:INICIO:mant-205-tipos-de-vehiculo -->
-                <h1>Tipos de vehículo</h1>
-                <div class="construction">
-                    <h3>✏️ Tipos de vehículo <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Tipos de vehículo</h1>
+
+                <h2>Objetivo</h2>
+
+                <p>El mantenimiento Tipos de vehículo permite crear y mantener la lista de tipos que se utilizarán para clasificar/seleccionar el vehículo requerido en distintas pantallas (altas de servicio, programados, ficha de vehículos, etc.)</p>
+
+                <p>Se recomienda definir estos tipos con una nomenclatura coherente para mejorar filtros, listados y trazabilidad.</p>
+
+                <h2>Descripción de la ventana</h2>
+
+                <p>En esta ventana se gestionan registros con:</p>
+
+                <ul>
+                    <li>Código (alfanumérico) del tipo.</li>
+                    <li>Descripción del tipo.</li>
+                    <li>Indicador Individual/Colectivo.</li>
+                    <li>Campo Externa (uso en vehículo externo).</li>
+                    <li>Check ¿Habilitado para GamWeb? (visibilidad en solicitudes web).</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Recomendación de nomenclatura: Tipos de vehículo es la tipología de la flota en concordancia con su uso (por ejemplo: Normal, Colectivo, Avanzada, Urgencias, Convencional, UVI…) por lo tanto, recomendamos utilizar códigos oficiales cuando aplique (por ejemplo A1, A2, B, C…) y añadir los tipos necesarios según la flota/operativa de la empresa (bariátrica, microbús, intervención, vehículo taller, etc.).</p>
                 </div>
-                        <!-- GAM:FIN:mant-205-tipos-de-vehiculo -->
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Para evitar confusiones: este mantenimiento no es el “modelo” del vehículo. El campo “Modelo” que aparece en otras fichas (por ejemplo vehículo) corresponde a otro mantenimiento/campo distinto.</p>
+                </div>
+
+                <h2>Dónde se utiliza</h2>
+
+                <p>Este campo es importante y aparece, como mínimo, en:</p>
+
+                <ul>
+                    <li>Ficha de programados</li>
+                    <li>Alta de servicios (Normal, UCI, Programados)</li>
+                    <li>Ficha de vehículos (Taller)</li>
+                </ul>
+
+                <p>También puede aparecer en otras ventanas/funciones según configuración.</p>
+
+                <h2>Qué ves en pantalla</h2>
+
+                <h3>Selección / Filtro</h3>
+
+                <p>Permite introducir en filtro: ningún dato, uno o varios  (por ejemplo “Tipo vehículo”, “Descripción”).Para actualizar el listado de resultados se utiliza Refrescar F7 (o su icono). <img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></p>
+
+                <h3>Listado de resultados</h3>
+
+                <p>Muestra los registros existentes (Código y Descripción).Al seleccionar un registro, se visualiza su detalle en la parte inferior.</p>
+
+                <h3>Detalle</h3>
+
+                <p>Muestra y permite editar (según permisos):</p>
+
+                <ul>
+                    <li>Tipo vehículo (código)</li>
+                    <li>Descripción</li>
+                    <li>Externa</li>
+                    <li>Individual/Colectivo</li>
+                    <li>¿Habilitado para GamWeb?</li>
+                </ul>
+
+                <h2>Iconos y controles</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear nuevo registro</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Guarda alta o cambios del registro</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar:  Elimina registro </td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11.png" alt="icon_imprimir_f11.png" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Campos</h2>
+
+                <ul>
+                    <li>Código (Tipo vehículo): se informa manualmente y puede ser alfanumérico.</li>
+                    <li>Descripción: texto libre.</li>
+                    <li>Individual/Colectivo: define si el tipo corresponde a un transporte individual o colectivo.</li>
+                    <li>Externa: se utiliza cuando el servicio requiere vehículo externo. En este campo se indica la empresa (u otra referencia acordada) necesaria para identificar el externo.</li>
+                    <li>¿Habilitado para GamWeb?: si está marcado, el tipo podrá aparecer en la solicitud de servicios a través de GamWeb (si el módulo está activo).</li>
+                </ul>
+
+                <h2>Procedimientos habituales</h2>
+
+                <h3>Buscar para evitar duplicados</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Introducir 0, 1 o varios filtros (Tipo vehículo / Descripción).</li>
+                    <li>Pulsar Refrescar F7.</li>
+                    <li>Revisar el listado para comprobar si ya existe un registro igual o similar.</li>
+                </ul>
+
+                </div>
+
+                <h3>Crear un tipo de vehículo</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Realizar la búsqueda previa.</li>
+                    <li>Pulsar Nuevo F2.</li>
+                    <li>Informar:</li>
+                    <li>Código (alfanumérico).</li>
+                    <li>Descripción.</li>
+                    <li>Individual/Colectivo.</li>
+                    <li>Externa solo si aplica a vehículo externo (indicar empresa).</li>
+                    <li>Marcar ¿Habilitado para GamWeb? si debe mostrarse en solicitudes web.</li>
+                    <li>Pulsar Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <h3>Modificar un tipo existente (advertencia de histórico)</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Seleccionar el registro en el listado.</li>
+                    <li>Modificar los campos necesarios (normalmente Descripción y/o atributos).</li>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Si se cambia la Descripción, el cambio se reflejará también en el histórico (registros antiguos). No se recomienda cambiarla salvo que haya cambiado el criterio general y se acepte su impacto en listados/histórico.</p>
+                </div>
+
+                <h3>Eliminar un tipo de vehículo (y efecto en registros previos)</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Seleccionar el registro.</li>
+                    <li>Pulsar Eliminar F4 y confirmar.</li>
+                </ul>
+
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Al eliminar un tipo, en los registros donde se utilizaba el campo quedará en blanco.Por este motivo, se recomienda eliminar únicamente si fue creado por error o se acepta perder esa referencia en consultas/listados históricos.</p>
+                </div>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No usar esta ventana para gestionar “modelos” de vehículo: es otro campo/mantenimiento.</li>
+                    <li>No cambiar descripciones “por reutilizar” un tipo si no se acepta el impacto en histórico.</li>
+                    <li>No eliminar tipos usados si se necesita mantener trazabilidad completa (al eliminar, el campo queda en blanco en registros donde se utilizó).</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves esta opción, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+
+                <h2>Capturas</h2>
+
+                <figure>
+                    <img src="assets/capturas/0205-Tipos_de_vehiculos.png" alt="0205-Tipos_de_vehiculos.png" class="screenshot">
+                    <figcaption>Figura 1 — 0205 Tipos de vehículo: filtro, listado y detalle (Individual/Colectivo, Externa y GamWeb).</figcaption>
+                </figure>
+
+                <h7>Enlaces recomendados</h7>
+
+                <ul>
+                    <li>Ver también:  Ficha de vehículos (Taller)</li>
+                </ul>
+            <!-- GAM:FIN:mant-205-tipos-de-vehiculo -->
             </section>
 
 <section class="content-section" id="content-mant-206-motivos-de-traslado">
@@ -4130,11 +4333,49 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>La Ficha Programados gestiona tratamientos periódicos y traslados recurrentes. Es la herramienta fundamental para diálisis, rehabilitación, hospital de día y cualquier servicio con periodicidad.</p>
 
-                <h2>Esta ventana trabaja de forma conjunta con la Generación automática de servicios (0404). Las programaciones se crean aquí, y la generación automática las convierte en servicios individuales según su periodicidad.</h2>
+                <ul>
+                    <li>Crear programaciones periódicas con horarios fijos (Lunes/Miércoles/Viernes, semanas pares/impares...)</li>
+                    <li>Gestionar períodos de suspensión temporal (ingresos, vacaciones, bajas)</li>
+                    <li>Controlar servicios periódicos autorizados por mutuas y aseguradoras</li>
+                    <li>Asignar rutas y vehículos fijos a las programaciones para optimización logística</li>
+                    <li>Registrar incidencias puntuales en las programaciones (cambio de hora, recogida en otra dirección, anulaciones)</li>
+                    <li>Consultar el histórico de cambios y servicios generados</li>
+                    <li>Generar servicios para un día concreto sin esperar a la generación masiva (generar por Zonas de Servicios) o después de una generación masiva</li>
+                    <li>Vincular documentación (autorizaciones, informes médicos, partes de accidente)</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Esta ventana trabaja de forma conjunta con la Generación automática de servicios (0404). Las programaciones se crean aquí, y la generación automática las convierte en servicios individuales según su periodicidad.</p>
+                </div>
 
                 <h2>DESCRIPCIÓN DE LA PANTALLA</h2>
 
                 <p>La ventana está dividida en tres zonas principales:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>ZONA</th>
+                            <th>DESCRIPCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Listado (superior izquierdo)</td>
+                            <td>Muestra todas las programaciones que cumplen los criterios de filtro. Columnas: Apellidos, Nombre, Fecha inicio, Fecha final, Lote/Mutua.</td>
+                        </tr>
+                        <tr>
+                            <td>Filtros (superior derecho)</td>
+                            <td>Panel de búsqueda y filtrado con checks de tres estados. Incluye búsqueda por apellidos, nombre, población, lote, fechas...</td>
+                        </tr>
+                        <tr>
+                            <td>Pestañas (inferior)</td>
+                            <td>10 pestañas organizan toda la información: General, Datos, Horarios, Extras, Incidencias, Histórico, Documentos, Servicios, Observaciones, Notificaciones.</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h2>ZONA DE FILTROS</h2>
 
@@ -4144,11 +4385,118 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Los checks de la zona de filtros tienen TRES estados diferentes:</p>
 
-                <p>Ejemplo con "F. Duración válida": Estado gris → todas. Negrita sin check → solo SIN fecha final. Check marcado → solo CON fecha final.</p>
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Estado visual</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Texto en GRIS</td>
+                            <td>Muestra TODOS (ignora ese filtro)</td>
+                        </tr>
+                        <tr>
+                            <td>Texto en NEGRITA sin check</td>
+                            <td>Muestra LO CONTRARIO del literal</td>
+                        </tr>
+                        <tr>
+                            <td>Texto normal CON CHECK marcado</td>
+                            <td>Muestra LO QUE DICE el literal</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados.png" alt="0302-ficha-programados.png" class="screenshot">
+                    <figcaption>Ejemplo con "F. Duración válida": Estado gris → todas. Negrita sin check → solo SIN fecha final. Check marcado → solo CON fecha final.</figcaption>
+                </figure>
 
                 <h3>Campos de filtro disponibles</h3>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Tipo de búsqueda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Apellidos / Nombre</td>
+                            <td>Búsqueda parcial. Combina ambos para afinar. Utilizar % antes de apellido para buscar todos los apellidos que contengan texto (ej. %Garcia)</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección / Población</td>
+                            <td>Busca en origen del traslado. Desplegable con poblaciones.</td>
+                        </tr>
+                        <tr>
+                            <td>N.Programación</td>
+                            <td>Código numérico único de la programación.</td>
+                        </tr>
+                        <tr>
+                            <td>Referencia / Código externo</td>
+                            <td>Autorización, nº expediente, código sistema externo.</td>
+                        </tr>
+                        <tr>
+                            <td>UP / Lote</td>
+                            <td>Unidad Productiva y Lote o Mutua financiadora.</td>
+                        </tr>
+                        <tr>
+                            <td>Motivo traslado</td>
+                            <td>Tipo de traslado (diálisis, rehabilitación, hospital de día...).</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección final / Fisioterapeuta</td>
+                            <td>Destino del traslado, fisioterapeuta asignado.</td>
+                        </tr>
+                        <tr>
+                            <td>Zona servicio</td>
+                            <td>Zona geográfica del servicio.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h3>Checks de estado</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Check</th>
+                            <th>Qué filtra (cuando está marcado)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>F. Duración válida</td>
+                            <td>Programaciones con fecha de finalización definida.</td>
+                        </tr>
+                        <tr>
+                            <td>Baja</td>
+                            <td>Programaciones finalizadas (tratamiento terminado).</td>
+                        </tr>
+                        <tr>
+                            <td>Ignorar</td>
+                            <td>Programaciones suspendidas indefinidamente.</td>
+                        </tr>
+                        <tr>
+                            <td>Suspendido</td>
+                            <td>Programaciones con suspensión temporal activa.</td>
+                        </tr>
+                        <tr>
+                            <td>En espera</td>
+                            <td>Programaciones en lista de espera para ruta/vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Pendientes validar</td>
+                            <td>En servicios que entran por internet y requieren revisión o validación administrativa. </td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h2>PESTAÑA GENERAL</h2>
 
@@ -4156,19 +4504,253 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h3>Bloque izquierdo - Datos del paciente</h3>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>N.Programación</td>
+                            <td>Código único asignado por GAM. No editable.</td>
+                        </tr>
+                        <tr>
+                            <td>Apellidos / Nombre / Paciente</td>
+                            <td>Identificación. Se cargan de la ficha del paciente.</td>
+                        </tr>
+                        <tr>
+                            <td>DNI / CIP / NASS / CIP-SNS</td>
+                            <td>Documentación sanitaria.</td>
+                        </tr>
+                        <tr>
+                            <td>Móvil / Teléfonos</td>
+                            <td>Contacto para avisos y confirmaciones.</td>
+                        </tr>
+                        <tr>
+                            <td>Referencia / Póliza</td>
+                            <td>Nº autorización mutua, póliza de seguro.</td>
+                        </tr>
+                        <tr>
+                            <td>Código externo</td>
+                            <td>Código sistema externo para integraciones.</td>
+                        </tr>
+                        <tr>
+                            <td>Zona servicio ida/vuelta</td>
+                            <td>Zona geográfica de recogida y destino.</td>
+                        </tr>
+                        <tr>
+                            <td>Turno ida / vuelta</td>
+                            <td>Turno asignado (mañana, tarde, noche).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h3>Bloque derecho - Datos del servicio</h3>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Lote/Mutua</td>
+                            <td>Entidad financiadora. Campo crítico para facturación.</td>
+                        </tr>
+                        <tr>
+                            <td>Motivo traslado</td>
+                            <td>Diálisis, Rehabilitación, Hospital de día, Consultas...</td>
+                        </tr>
+                        <tr>
+                            <td>Tipo traslado / vehículo</td>
+                            <td>Sentado/Camilla/Silla. Colectivo/Individual/UVI.</td>
+                        </tr>
+                        <tr>
+                            <td>Facturación</td>
+                            <td>Código de tipo de facturación. Normalmente: NOR.</td>
+                        </tr>
+                        <tr>
+                            <td>Movilidad recogida/subir/vehículo</td>
+                            <td>Autónomo, Con ayuda, Camilla. Elevador, Rampa. Sentado, Silla.</td>
+                        </tr>
+                        <tr>
+                            <td>Tiene Covid / Sospechoso / Aislamiento</td>
+                            <td>Estado COVID y tipo de aislamiento (Contacto, Respiratorio, Estricto).</td>
+                        </tr>
+                        <tr>
+                            <td>Domicilio sin ascensor</td>
+                            <td>Requiere más tiempo y ayudantes.</td>
+                        </tr>
+                        <tr>
+                            <td>Ayudante / Acompañante / Oxígeno</td>
+                            <td>Número de ayudantes, si va acompañado, litros oxígeno.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h3>Bloque inferior - Datos administrativos</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Fecha recepción</td>
+                            <td>Fecha solicitud de tratamiento.</td>
+                        </tr>
+                        <tr>
+                            <td>Pendiente validar / Paciente avisado</td>
+                            <td>En servicios que entran por internet / Checks control aviso a paciente, si no hay que llamarlo diariamente dejar marcado en la ficha del tratamiento</td>
+                        </tr>
+                        <tr>
+                            <td>Lote/Mutua original</td>
+                            <td>Lote inicial si hubo cambio de facturación.</td>
+                        </tr>
+                        <tr>
+                            <td>Ruta / N.Parte</td>
+                            <td>Ruta asignada, número parte de accidente.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (2).png" alt="0302-ficha-programados (2).png" class="screenshot">
+                <h2></h2>
 
                 <h2>PESTAÑA DATOS</h2>
 
                 <p>Define la duración del tratamiento, períodos de suspensión y datos médicos/administrativos complementarios.</p>
 
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (3).png" alt="0302-ficha-programados (3).png" class="screenshot">
                 <h3>Duración del tratamiento</h3>
+
+                </figure>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Desde (fecha)</td>
+                            <td>Fecha inicio. Primer día en que se generarán servicios.</td>
+                        </tr>
+                        <tr>
+                            <td>Hasta (fecha)</td>
+                            <td>Fecha finalización. En blanco = duración indefinida.</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección origen / destino</td>
+                            <td>Recogida (domicilio) y destino (hospital, centro...).</td>
+                        </tr>
+                        <tr>
+                            <td>Población/CP / UP/Municipio</td>
+                            <td>Localización geográfica completa.</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h3>Suspensión temporal</h3>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Suspensión (fechas)</td>
+                            <td>Rango de fechas SIN generación de servicios (ingreso, vacaciones, baja).</td>
+                        </tr>
+                        <tr>
+                            <td>H.Médico / Proc.Llamada</td>
+                            <td>Historial médico, procedencia solicitud.</td>
+                        </tr>
+                        <tr>
+                            <td>UP Facturar / UP Especial</td>
+                            <td>Unidad Productiva de facturación.</td>
+                        </tr>
+                        <tr>
+                            <td>Extra 1 / Médico / DUE</td>
+                            <td>Campo auxiliar/ si requiere médico/enfermera.</td>
+                        </tr>
+                        <tr>
+                            <td>N.Colegiado / Patología</td>
+                            <td>Nº colegiado prescriptor/ patología principal.</td>
+                        </tr>
+                        <tr>
+                            <td>Fisioterapeuta / Prioridad</td>
+                            <td>Fisioterapeuta asignado/ nivel prioridad (0-9).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h3>Servicios autorizados y estado</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo/Check</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Servicios autorizados</td>
+                            <td>Número total autorizado por mutua. Ej: 10 sesiones RHB = 20 servicios (10 idas + 10 vueltas).</td>
+                        </tr>
+                        <tr>
+                            <td>Pendientes (botón)</td>
+                            <td>Calcula automáticamente los servicios restantes.</td>
+                        </tr>
+                        <tr>
+                            <td>Baja</td>
+                            <td>Finaliza programación. Deja de generar servicios. Check en el caso que finalice tratamiento antes de Fecha Fin o si recibimos una nueva programación y copiemos esta en otra ficha.</td>
+                        </tr>
+                        <tr>
+                            <td>Ignorar</td>
+                            <td>Suspende indefinidamente sin fecha reactivación.</td>
+                        </tr>
+                        <tr>
+                            <td>En espera</td>
+                            <td>Pendiente asignación ruta/vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Día festivo</td>
+                            <td>También genera en días festivos (diálisis especiales).</td>
+                        </tr>
+                        <tr>
+                            <td>Código externo / Anulación</td>
+                            <td>Código expediente mutua, código/fecha anulación.</td>
+                        </tr>
+                        <tr>
+                            <td>Operador alta</td>
+                            <td>Usuario GAM que creó la programación (automático).</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <div class="warn-box">
                     <div class="box-title">Advertencia</div>
@@ -4179,13 +4761,77 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Define los días de la semana del tratamiento, horas de recogida/llegada y asignación de rutas o vehículos.</p>
 
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (4).png" alt="0302-ficha-programados (4).png" class="screenshot">
                 <h3>Estructura de la cuadrícula</h3>
 
                 <p>Una línea por día de la semana (Lunes a Domingo). Cada línea con IDA y VUELTA.</p>
 
                 <p>Columnas de IDA</p>
 
+                </figure>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Check IDA</td>
+                            <td>Se marca automáticamente al poner horario. Indica que ese día hay servicio de ida.</td>
+                        </tr>
+                        <tr>
+                            <td>Horario recogida</td>
+                            <td>Hora TEÓRICA de recogida en domicilio. Hora comunicada al paciente.</td>
+                        </tr>
+                        <tr>
+                            <td>Hora cita</td>
+                            <td>Hora de tratamiento en el centro. Crítico para calcular rutas y demoras.</td>
+                        </tr>
+                        <tr>
+                            <td>Ruta / Vehículo</td>
+                            <td>Código ruta o vehículo asignado. Vacío = asignar manualmente cada día.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <p>Columnas de VUELTA</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Check VUELTA</td>
+                            <td>Se marca automáticamente al poner horario de vuelta.</td>
+                        </tr>
+                        <tr>
+                            <td>Hora sale cita</td>
+                            <td>Hora finalización del tratamiento, listo para recogida.</td>
+                        </tr>
+                        <tr>
+                            <td>Hora recogida</td>
+                            <td>Hora real recogida. Puede ser posterior si es colectivo y hay espera.</td>
+                        </tr>
+                        <tr>
+                            <td>Hora llegada</td>
+                            <td>Hora ESTIMADA llegada a domicilio. Para control tiempos.</td>
+                        </tr>
+                        <tr>
+                            <td>Ruta / Vehículo</td>
+                            <td>Código ruta o vehículo asignado para vuelta.</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <div class="note-box">
                     <div class="box-title">Nota</div>
@@ -4194,6 +4840,13 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h3>Función de arrastre de horarios</h3>
 
+                <ul>
+                    <li>Configura completamente la línea del LUNES o MARTES (todos los horarios ida/vuelta)</li>
+                    <li>Haz clic sobre el día y MANTÉN presionado el botón del ratón</li>
+                    <li>ARRASTRA hacia los días donde quieras copiar (Miércoles, Viernes...)</li>
+                    <li>Suelta → los horarios se copian automáticamente</li>
+                </ul>
+
                 <div class="alert-box">
                     <div class="box-title">Importante</div>
                     <p>LIMITACIÓN! El arrastre solo funciona desde LUNES o MARTES. No desde otros días.</p>
@@ -4201,11 +4854,23 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h3>Semanas Par/Impar</h3>
 
-                <p>En el calendario de GAM podemos ver si una semana es par o impar. Nos ayuda a saber por qué semana empezará su tratamiento.</p>
+                <ul>
+                    <li>Check "Semana Par": días que SOLO se realizan en semanas pares (2, 4, 6, 8...)</li>
+                    <li>Check "Semana Impar": días que SOLO se realizan en semanas impares (1, 3, 5, 7...)</li>
+                    <li>Sin checks → el servicio se realiza TODAS las semanas en ese día </li>
+                </ul>
+
+                <p class="figcaption-orphan">En el calendario de GAM podemos ver si una semana es par o impar. Nos ayuda a saber por qué semana empezará su tratamiento.</p>
 
                 <h3>Ruta vs Vehículo</h3>
 
                 <p>Dos formas de asignar transporte:</p>
+
+                <ul>
+                    <li>Dejar en BLANCO: máxima flexibilidad. Cada día se asigna el vehículo óptimo disponible.</li>
+                    <li>Asignar VEHÍCULO: garantiza continuidad. El mismo conductor conoce al paciente.</li>
+                    <li>Asignar RUTA (RECOMENDADO): más ágil. Se cambia vehículo de toda la ruta a la vez sin tocar programaciones.</li>
+                </ul>
 
                 <div class="note-box">
                     <div class="box-title">Nota</div>
@@ -4216,6 +4881,50 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Datos adicionales: kilómetros, extras económicos, justificación del transporte y tiempos estimados.</p>
 
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (5).png" alt="0302-ficha-programados (5).png" class="screenshot">
+                </figure>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Extra1 / Extra2</td>
+                            <td>Costes adicionales: peajes, párking, dietas, acompañante de pago...</td>
+                        </tr>
+                        <tr>
+                            <td>Programación relacionada</td>
+                            <td>Si es continuación de otra (renovación autorización con nº administrativo diferente).</td>
+                        </tr>
+                        <tr>
+                            <td>Km según destino / manuales / teóricos</td>
+                            <td>Automáticos por poblaciones, manuales, o desde navegador GPS/GAMRUTA.</td>
+                        </tr>
+                        <tr>
+                            <td>Bloque</td>
+                            <td>Orden dentro de Ruta. Ej: Ruta AAA con 20 pacientes, 4 son primeros → Bloque 1.</td>
+                        </tr>
+                        <tr>
+                            <td>Individual/Colectivo</td>
+                            <td>Paciente solo o comparte vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Justificación transporte</td>
+                            <td>Aislamiento, Impedimento motor, Impedimento cognitivo, Otros.</td>
+                        </tr>
+                        <tr>
+                            <td>Minutos en recoge / dejar</td>
+                            <td>Tiempo aproximado de recogida/entrega. Importante para GAMRUTA y cálculo de rutas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h2>PESTAÑA INCIDENCIAS</h2>
 
                 <p>Registra incidencias puntuales para servicios futuros (cambio de hora, recogida en otro lugar, anulaciones de un día concreto...).</p>
@@ -4224,18 +4933,48 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Se abre con el icono de la estrella en la barra de herramientas . Permite definir una incidencia para un día específico:</p>
 
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (6).png" alt="0302-ficha-programados (6).png" class="screenshot">
                 <h3>Opciones de incidencia</h3>
 
                 <p>Al abrir la ventana se selecciona una de las 5 opciones mediante radio buttons:</p>
 
+                <ul>
+                    <li>Anular servicio del día: Anula la ida, la vuelta, o ambas para ese día concreto. No afecta al resto de días.</li>
+                    <li>Cambio hora del servicio: Modifica cualquiera de las horas de ida y/o vuelta para ese día. Útil cuando la cita se adelanta o retrasa.</li>
+                    <li>Recoger en otro lugar: El paciente ese día no estará en su domicilio. Ejemplo: tiene hora en el CAP antes de la rehabilitación, se recoge allí.</li>
+                    <li>No cambia nada, pero...: No modifica el servicio pero añade una nota/aviso. Ejemplo: "Ese día irá acompañado", "Lleva documentación especial".</li>
+                    <li>Ruta diferente para ese día: Cambia la ruta asignada solo para ese día concreto. Útil para reorganizaciones puntuales.</li>
+                </ul>
+
                 <p>Tras seleccionar la opción, se indica:</p>
 
+                <ul>
+                    <li>Día incidencia: Fecha concreta en que aplica la incidencia</li>
+                    <li>Check Ida / Vuelta: A qué servicio afecta (solo ida, solo vuelta, o ambos)</li>
+                    <li>Observaciones: Campo libre para detallar la incidencia</li>
+                </ul>
+
                 <h3>Cómo funcionan las incidencias</h3>
+
+                <ul>
+                    <li>Las incidencias quedan registradas en la Pestaña Incidencias de la programación en estado "En espera"</li>
+                    <li>Cuando se ejecuta la Generación automática de servicios , GAM lee las incidencias pendientes</li>
+                    <li>Si hay una incidencia para un día que se está generando, GAM aplica automáticamente el cambio/anulación/aviso</li>
+                    <li>La incidencia pasa de "En espera" a "Aplicada"</li>
+                </ul>
 
                 <div class="alert-box">
                     <div class="box-title">Importante</div>
                     <p>Las incidencias solo pueden modificarse o borrarse ANTES de la generación de servicios. Una vez los servicios ya se han generado, las modificaciones deben hacerse directamente sobre el servicio del día en el Mantenimiento de servicios .</p>
                 </div>
+
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (7).png" alt="0302-ficha-programados (7).png" class="screenshot">
+                    <figcaption>Pestaña Incidencias mostrando el listado de incidencias registradas:</figcaption>
+                </figure>
 
                 <h2>PESTAÑA HISTÓRICO</h2>
 
@@ -4243,41 +4982,170 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Cuando un paciente o un centro solicita modificaciones de su programación a través de GAMweb (cambio de hora, anulación de un día, nueva dirección...), quedan registradas aquí con:</p>
 
+                <ul>
+                    <li>Fecha y hora de la petición</li>
+                    <li>Usuario o entidad que la realizó</li>
+                    <li>Tipo de petición (modificación, anulación, nueva solicitud...)</li>
+                    <li>Estado de la petición (pendiente, procesada, rechazada)</li>
+                </ul>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (8).png" alt="0302-ficha-programados (8).png" class="screenshot">
                 <h2>PESTAÑA DOCUMENTOS</h2>
 
                 <p>Permite adjuntar documentos relacionados con la programación: autorizaciones de mutuas, informes médicos, partes de accidente, prescripciones...</p>
 
                 <h3>Añadir un documento</h3>
 
+                <ul>
+                    <li>Clic en el icono de añadir documento (+ o icono de carpeta)</li>
+                    <li>Rellenar los datos del documento: Nombre, Tipo, Descripción</li>
+                    <li>En la columna "Documento", clic derecho → muestra la ruta de búsqueda para seleccionar el archivo</li>
+                    <li>Grabar</li>
+                </ul>
+
                 <h3>Abrir un documento</h3>
 
                 <p>Doble clic sobre el documento en el listado → se abre con la aplicación asociada al tipo de archivo.</p>
 
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (9).png" alt="0302-ficha-programados (9).png" class="screenshot">
                 <h2>PESTAÑA SERVICIOS</h2>
 
                 <p>Muestra todos los servicios que se han generado asociados a esta programación. Es el histórico completo de ejecución del tratamiento.</p>
 
                 <p>Columnas visibles:</p>
 
+                <ul>
+                    <li>Número de servicio (el sufijo V indica que es una vuelta)</li>
+                    <li>Fecha del servicio</li>
+                    <li>Origen y Destino</li>
+                    <li>Motivo traslado</li>
+                    <li>Estado (Pendiente, Adjudicado, Finalizado, Anulado)</li>
+                    <li>Validado (check de control administrativo)</li>
+                    <li>Procedencia (PAC, MED, AUT...)</li>
+                </ul>
+
                 <p>Desde aquí se puede:</p>
 
+                <ul>
+                    <li>Consultar el estado de cada servicio generado</li>
+                    <li>Verificar que la generación automática funciona correctamente</li>
+                    <li>Detectar servicios anulados o con incidencias</li>
+                    <li>Hacer doble clic sobre un servicio para abrirlo en el Mantenimiento de servicios (0411)</li>
+                </ul>
+
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (10).png" alt="0302-ficha-programados (10).png" class="screenshot">
                 <h2>PESTAÑA OBSERVACIONES</h2>
 
                 <p>Tres campos de texto libre para registrar información adicional de la programación.</p>
 
+                </figure>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Uso habitual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Observaciones internas</td>
+                            <td>Notas administrativas internas. NO llegan a la dotación del vehículo. Uso: gestiones con mutuas, notas de facturación, recordatorios internos.</td>
+                        </tr>
+                        <tr>
+                            <td>Funcionamiento habitual</td>
+                            <td>Descripción del funcionamiento normal del tratamiento. Ejemplo: "Problema con dotación de puenteviejo, La silla no cabe en la A345".</td>
+                        </tr>
+                        <tr>
+                            <td>Campo de observaciones (sin límite)</td>
+                            <td>Campo libre ilimitado para apuntar incidencias del tratamiento tanto administrativas como operativas. Se va rellenando durante todo el tratamiento como un diario.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (11).png" alt="0302-ficha-programados (11).png" class="screenshot">
                 <h2>PESTAÑA NOTIFICACIONES</h2>
 
                 <p>ACABAR DE ESPECIFICAR FUNCIONAMIENTO CON SOPORTE</p>
 
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (12).png" alt="0302-ficha-programados (12).png" class="screenshot">
                 <h2>ICONOGRAFÍA</h2>
 
                 <p>La barra de herramientas de la Ficha Programados contiene los iconos habituales de GAM más funciones específicas de programaciones.</p>
 
                 <h3>Iconos estándar</h3>
 
-                <h3>Iconos específicos de Programados</h3>
+                </figure>
 
-                <h2>PARTE DE ACCIDENTE</h2>
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Nombre</th>
+                            <th>Funcion</th>
+                            <th>Descripción </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Nuevo registro</td>
+                            <td>F2</td>
+                            <td>Crea una nueva programación en blanco.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Guardar</td>
+                            <td>F5</td>
+                            <td>Guardar cambios </td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Eliminar</td>
+                            <td>F4</td>
+                            <td>Borra la programación (solo si no tiene servicios generados).</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Histórico cambios</td>
+                            <td>-</td>
+                            <td>Abre ventana con histórico de modificaciones de la ficha.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Refrescar</td>
+                            <td>F7</td>
+                            <td>Refresca el listado de programaciones según filtros actuales.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Imprimir</td>
+                            <td>F11</td>
+                            <td>Imprime la ficha de programación completa.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Salir</td>
+                            <td>F12</td>
+                            <td>Cierra la ventana de programaciones.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Iconos específicos de ProgramadosPARTE DE ACCIDENTE</h3>
 
                 <p>Cuando un tratamiento ha sido propiciado por un accidente (laboral, tráfico, vía pública), se debe rellenar el formulario de Parte de accidente para recoger toda la información necesaria para facturación y gestión con mutuas/aseguradoras.</p>
 
@@ -4287,7 +5155,95 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>También podemos accedes desde la pestaña de Coordinación</p>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Nombre</th>
+                            <th>Teclado</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>Incidencias</td>
+                            <td>—</td>
+                            <td>Abre ventana para registrar incidencia puntual (cambio hora, anulación día, otra dirección...).</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Servicio Normal</td>
+                            <td>—</td>
+                            <td>Atajo para dar de alta un servicio Normal/Esporádico que afecta al paciente pero NO relacionado con esta programación.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Servicio relacionado</td>
+                            <td>—</td>
+                            <td>Da de alta un servicio que queda vinculado a la programación (aparece en pestaña Servicios).</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></td>
+                            <td>Duplicar programación</td>
+                            <td>—</td>
+                            <td>Crea copia exacta de la programación actual (mismo paciente, horarios, datos).</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Copiar con histórico</td>
+                            <td>Clic derecho</td>
+                            <td>Copia programación CON histórico en nueva (renovación autorización con seguimiento).</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Generar un día</td>
+                            <td>—</td>
+                            <td>Genera servicios para UN SOLO DÍA sin esperar generación masiva (explicado más adelante).</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Parte accidente</td>
+                            <td>—</td>
+                            <td>Abre formulario para recoger datos de accidente laboral/tráfico/vía pública.</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>SMS</td>
+                            <td>—</td>
+                            <td>Envío de SMS al paciente. Ver módulo envíos SMS/WhatsApp.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h3>Información recogida</h3>
+
+                <ul>
+                    <li>Tipo de accidente: Laboral, Tráfico, Vía pública (atropello peatón)</li>
+                    <li>Fecha y hora del accidente</li>
+                    <li>Lugar del accidente (dirección, población, provincia)</li>
+                    <li>Descripción de lo ocurrido</li>
+                    <li>Datos del vehículo implicado (si aplica): matrícula, modelo, aseguradora</li>
+                    <li>Datos de testigos</li>
+                    <li>Parte de lesiones</li>
+                    <li>Compañía de seguros responsable</li>
+                    <li>Número de expediente del seguro</li>
+                </ul>
+
+                <figure>
+                    <img src="assets/capturas/0302-ficha-programados (21).png" alt="0302-ficha-programados (21).png" class="screenshot">
+                </figure>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>NOTA:Esta información es crítica para la correcta facturación. Los tratamientos derivados de accidentes tienen un circuito de facturación diferente y requieren documentación adicional.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody></tbody>
+                </table>
 
                 <h2>GENERACIÓN DE SERVICIOS PARA UN SOLO DÍA</h2>
 
@@ -4295,25 +5251,121 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h3>Procedimiento</h3>
 
+                <ul>
+                    <li>Cerrar todas las ventanas de GAM (requisito técnico para que la generación funcione correctamente)</li>
+                    <li>Ir a la Ficha Programados de la programación que se quiere generar</li>
+                    <li>Clic en el icono Generar un día       en la barra de herramientas<img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></li>
+                    <li>Se abre ventana con los datos de la programación. Verificar que todo es correcto</li>
+                    <li>Clic en el icono Ejecutar  <img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></li>
+                    <li>GAM genera los servicios SOLO para esa programación según sus horarios configurados </li>
+                </ul>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>NOTA:Esta función genera servicios para UN RANGO DE FECHAS específico, puede ser un dia o varios días seguidos   (seguiría la rueda que hemos reflejado en su ficha) En la ventana de generación se indica desde qué fecha hasta qué fecha se quieren generar los servicios. Habitualmente se usa para generar la semana siguiente o el mes siguiente de una programación nueva.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody></tbody>
+                </table>
+
                 <h3>Cuándo usar esta función</h3>
+
+                <ul>
+                    <li>Programación nueva que empieza inmediatamente y no puede esperar a la siguiente generación masiva</li>
+                    <li>Programación que se reactivó tras una suspensión y faltan servicios por generar</li>
+                    <li>Corrección de una programación: se borraron servicios por error y hay que regenerarlos</li>
+                </ul>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>IMPORTANTE:Un error muy común es intentar generar un servicio para un día que el paciente no tiene reflejado en su ficha de programaciones. (ver ejemplo práctico final del tema)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody></tbody>
+                </table>
 
                 <h2>PROCESO PASO A PASO: ALTA DE PROGRAMACIÓN</h2>
 
                 <h3>PASO 1 - Acceder a la ficha del paciente</h3>
 
+                <ul>
+                    <li>Ir a Programados &gt; Pacientes</li>
+                    <li>Buscar el paciente con el filtro para que salga en el listado</li>
+                    <li>En el listado de resultados seleccionamos al paciente deseado.</li>
+                </ul>
+
                 <h3>PASO 2 - Crear nueva programación</h3>
+
+                <ul>
+                    <li>No aseguramos que en la ventana de abajo salen los datos del paciente y hacemos, clic en el botón   Programado  en la barra de herramientas<img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></li>
+                    <li>Se abre la ventana Ficha Programados vacía solo con los datos que tengamos guardados en la ficha del paciente</li>
+                </ul>
 
                 <h3>PASO 3 - Pestaña General</h3>
 
+                <ul>
+                    <li>Verificar que los datos del paciente se han cargado correctamente desde la ficha</li>
+                    <li>Seleccionar el Lote/Mutua financiador del tratamiento (campo CRÍTICO)</li>
+                    <li>Indicar Motivo de traslado (Diálisis, Rehabilitación, Hospital de día...)</li>
+                    <li>Configurar Tipo traslado (Sentado, Camilla, Silla) y Tipo vehículo (Colectivo, Individual)</li>
+                    <li>Verificar Movilidad y necesidades especiales (se cargan de la ficha del paciente)</li>
+                </ul>
+
                 <h3>PASO 4 - Pestaña Datos</h3>
+
+                <ul>
+                    <li>Fecha Desde: primer día del tratamiento</li>
+                    <li>Fecha Hasta: último día del tratamiento. Dejar en blanco si es indefinido</li>
+                    <li>Dirección origen: verificar que es correcta (normalmente el domicilio del paciente)</li>
+                    <li>Dirección destino: seleccionar el hospital/centro médico del desplegable o introducir manualmente</li>
+                    <li>Si hay Suspensión temporal conocida (vacaciones, ingreso...), indicar las fechas</li>
+                    <li>Si hay Servicios autorizados por la mutua, indicar el número (ej: 20 sesiones = 40 servicios), en este caso no hará falta poner fecha de finalización, el tratamiento finalizará cuando realice todas las sesiones.</li>
+                </ul>
 
                 <h3>PASO 5 - Pestaña Horarios</h3>
 
+                <ul>
+                    <li>Para cada día de la semana que hay tratamiento, rellenar los horarios de IDA</li>
+                    <li>Horario recogida: hora de recogida en domicilio</li>
+                    <li>Hora cita: hora de la cita médica en el centro</li>
+                    <li>Para cada día, rellenar los horarios de VUELTA</li>
+                    <li>Hora sale cita: hora de finalización del tratamiento</li>
+                    <li>Hora recogida: hora de recogida en el centro</li>
+                    <li>Hora llegada: hora estimada de llegada al domicilio</li>
+                    <li>Usar la función de arrastre para copiar horarios de Lunes a otros días si son iguales</li>
+                    <li>Si hay semanas alternas, marcar los checks Semana Par / Impar según corresponda</li>
+                    <li>Asignar Ruta o Vehículo si se conoce (RECOMENDADO: trabajar con Rutas)</li>
+                </ul>
+
                 <h3>PASO 6 - Pestaña Extras</h3>
+
+                <ul>
+                    <li>Rellenar Extra 1 / Extra 2 si hay costes adicionales (peajes, párking...)</li>
+                    <li>Indicar Individual/Colectivo según el tipo de servicio</li>
+                    <li>Seleccionar Justificación de transporte (Aislamiento, Impedimento motor, Cognitivo, Otros)</li>
+                    <li>Indicar Minutos en recoge / dejar (importante para GAMRUTA)</li>
+                </ul>
 
                 <h3>PASO 7 - Grabar</h3>
 
+                <ul>
+                    <li>Pulsar F5 o clic en icono Guardar</li>
+                    <li>GAM asigna automáticamente un Número de Programación</li>
+                    <li>La programación queda lista para la siguiente Generación automática de servicios </li>
+                </ul>
+
                 <h3>PASO 8 (Opcional) - Generar para un día</h3>
+
+                <ul>
+                    <li>Si la programación debe empezar inmediatamente y no puede esperar a la generación masiva:</li>
+                    <li>Cerrar todas las ventanas de GAM (desde la barra de herramientas se puede accedes a la pestaña de ventanas para ver las ventanas que tenemos abiertas en ese momento)</li>
+                    <li>Clic en icono Generar un día</li>
+                    <li>Verificar datos y clic en Ejecutar</li>
+                </ul>
 
                 <h2>CASOS DE USO COMUNES</h2>
 
@@ -4321,43 +5373,142 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Situación: Paciente con insuficiencia renal crónica. Diálisis lunes/miércoles/viernes a las 8:00h. Duración indefinida. Colectivo. Ruta D01.</p>
 
+                <ul>
+                    <li>Pestaña General: Lote/Mutua = Seguridad Social. Motivo = Diálisis. Tipo traslado = Sentado. Tipo vehículo = Colectivo.</li>
+                    <li>Pestaña Datos: Desde = fecha inicio. Hasta = EN BLANCO (indefinido). Dirección origen = domicilio. Destino = Centro Diálisis.</li>
+                    <li>Pestaña Horarios:</li>
+                    <li>Lunes: IDA → Horario recogida 7:15, Hora cita 8:00. VUELTA → Hora sale cita 12:00, Hora recogida 12:15, Hora llegada 13:00. Ruta D01.</li>
+                    <li>Arrastrar de Lunes a Miércoles y Viernes.</li>
+                    <li>Pestaña Extras: Individual/Colectivo = Colectivo. Justificación = Impedimento motor. Minutos recoge 5, Minutos dejar 5.</li>
+                    <li>Grabar. La programación generará servicios automáticamente, cuando se realice el proceso, cada lunes/miércoles/viernes indefinidamente.</li>
+                </ul>
+
                 <h3>CASO 2: Rehabilitación 20 sesiones con autorización</h3>
 
-                <p>Situación: Paciente con fractura. Rehabilitación lunes a viernes durante 4 semanas (20 sesiones). Mutua privada con autorización. Individual.</p>
+                <p>Situación: Paciente con fractura. Rehabilitación de lunes a viernes durante 4 semanas (20 sesiones). Mutua privada con autorización. Individual.</p>
+
+                <ul>
+                    <li>Pestaña General: Lote/Mutua = ASISA. Motivo = Rehabilitación. Tipo traslado = Sentado. Tipo vehículo = Individual.</li>
+                    <li>Pestaña de Datos: Desde 03/03/2026.  Sin fecha de fin Dirección destino = Centro RHB. Servicios autorizados = 40 (20 idas + 20 vueltas).</li>
+                    <li>Pestaña de Horarios: Lunes a Viernes con horarios. IDA 9:00 recogida, 9:30 cita. VUELTA 10:30 sale, 10:45 recogida, 11:15 llegada.</li>
+                    <li>Grabar. El sistema controlará que sólo se generen 40 servicios y alertará al llegar al límite. o suspenderá el servicio (depende de lo que tengamos seleccionado en la ventana empresa) </li>
+                </ul>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>NOTA:Cuando generamos servicios nos sale un listado de las autorizaciones que están apunto de expirar.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody></tbody>
+                </table>
 
                 <h3>CASO 3: Hospital de día con semanas alternas</h3>
 
                 <p>Situación: Tratamiento de quimioterapia. Hospital de día martes/jueves semanas pares. Lunes/miércoles semanas impares. 3 meses.</p>
 
-                <p>(Ejemplo  Llama paciente un miercoles para decir que va ir lunes miercoles y viernes a rehabilitación, pero que empezará mañana (es Jueves)</p>
+                <ul>
+                    <li>Pestaña de Datos: Desde = 01/02/2026. Hasta = 30/04/2026. Destino = Hospital Oncológico.</li>
+                    <li>Pestaña Horarios:</li>
+                    <li>Martes: horarios + check "Semana Par"</li>
+                    <li>Jueves: horarios + check "Semana Par"</li>
+                    <li>Lunes: horarios + check "Semana Impar"</li>
+                    <li>Miércoles: horarios + check "Semana Impar"</li>
+                    <li>Grabar. GAM generará servicios solo en los días correctos según el número de semana del calendario.</li>
+                </ul>
+
+                <p>(Ejemplo  Llama paciente un miércoles para decir que va ir lunes miércoles y viernes a rehabilitación, pero que empezará mañana (es Jueves)</p>
 
                 <h3>CASO 4: Incidencia puntual - cambio de hora un día</h3>
 
                 <p>Situación: Paciente con diálisis L/M/V a las 8:00h. El próximo miércoles 15/03 tiene la sesión a las 10:00h (cambio excepcional del centro).</p>
 
+                <ul>
+                    <li>Abrir la Ficha Programados del paciente</li>
+                    <li>Clic en icono Incidencias (estrella roja)</li>
+                    <li>Día incidencia: 15/03/2026</li>
+                    <li>Opción: "Cambio hora del servicio"</li>
+                    <li>Modificar: IDA → Horario recogida 9:15, Hora cita 10:00</li>
+                    <li>Observaciones: "Sesión a las 10h por mantenimiento sala"</li>
+                    <li>Grabar incidencia</li>
+                    <li>Cuando se ejecute la Generación automática, el servicio del 15/03 se creará con las horas modificadas. El resto del miércoles mantienen su hora habitual.</li>
+                </ul>
+
                 <h3>CASO 5: Generación de un servicio para el dia siguiente (o cambio de dia)</h3>
 
                 <p>Situación:  Llama paciente un miércoles para decir que va ir lunes, miércoles y viernes a rehabilitación, pero que empezará mañana (Jueves)  para recuperar la sesión que ha perdido hoy.</p>
+
+                <ul>
+                    <li>Generamos y grabamos la programación con los pasos anteriormente explicados.</li>
+                    <li>Si vamos a generación de servicios aunque le pongamos generar mañana (jueves) no lo generará, porque en su ficha pone que va L.X.V y no los Jueves como pretendemos generar.<img src="assets/iconos/icon-sin-nombre.png" alt="icon-sin-nombre.png" class="icon-inline"></li>
+                    <li>Por lo tanto iremos a la ficha de la programación correspondiente y clicaremos           </li>
+                </ul>
+
+                <p>el icono de generar servicio relacionado con esta programación</p>
+
+                <ul>
+                    <li>Se nos abrirá una ficha de alta de servicio con todos los datos copiados, tan solo tendremos que ajustar el día y grabar el servicio. Si miramos la ficha de la programación en la pestaña de Servicios, veremos este servicio reflejado. </li>
+                    <li>A partir de aquí ya podremos a generar los servicios con normalidad a no ser que haya un nuevo cambio.</li>
+                </ul>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>NOTA:Esta secuencia es parecida a la que tenemos que seguir para generar un cambio de dia. Generaremos un servicio con el icono de Servicio relacionado y abriremos una incidencia con el icono de la estrella para anular el día que el paciente no irá.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody></tbody>
+                </table>
 
                 <h2>PREGUNTAS FRECUENTES</h2>
 
                 <h3>¿Cuál es la diferencia entre Ficha Programados y Servicios Esporádicos?</h3>
 
+                <ul>
+                    <li>Ficha Programados: para tratamientos PERIÓDICOS (diálisis, rehabilitación, hospital de día...). Se crea UNA SOLA VEZ la programación y GAM genera automáticamente los servicios según su periodicidad.</li>
+                    <li>Servicios Esporádicos: para servicios PUNTUALES sin periodicidad (una consulta externa, un traslado de urgencia, un servicio aislado). Se da de alta servicio por servicio manualmente.</li>
+                </ul>
+
                 <h3>¿Puedo modificar una programación después de que se hayan generado servicios?</h3>
 
                 <p>Sí, pero con matices:</p>
+
+                <ul>
+                    <li>Servicios futuros NO generados: se pueden modificar todos los datos de la programación. Los cambios se aplicarán a los servicios que se generen a partir de ahora.</li>
+                    <li>Servicios ya generados: NO se modifican automáticamente. Si cambias horarios en la programación, los servicios que ya están generados mantienen sus horarios antiguos. Para cambiarlos hay que ir al Mantenimiento de servicios servicio por servicio.</li>
+                </ul>
 
                 <h3>¿Cómo anulo un solo día de una programación sin afectar al resto?</h3>
 
                 <p>Usar la pestaña Incidencias:</p>
 
+                <ul>
+                    <li>Clic en icono Incidencias (estrella)</li>
+                    <li>Seleccionar opción "Anular servicio del día"</li>
+                    <li>Indicar el día concreto y si es ida, vuelta o ambas</li>
+                    <li>Grabar la incidencia</li>
+                    <li>En la próxima Generación automática, ese día NO se generará. El resto de días sí.</li>
+                </ul>
+
                 <h3>¿Qué pasa cuando se agotan los servicios autorizados?</h3>
 
                 <p>Depende de la configuración de GAM en cada empresa:</p>
 
+                <ul>
+                    <li>Opción 1: El sistema BLOQUEA la generación automática, dias antes de que esto suceda, cuando se generan los servicios, al final se genera un PDF con las autorizaciones a punto de caducar.</li>
+                    <li>Opción 2: Si en la ventana “Empresa”, no tenemos el check marcado de Bloquear generación de servicios Fin sesione, el sistema GENERA servicios, nos tendremos que acordar de solicitar la renovación al centro prescriptor. Al igual que en la anterior opción, se nos irá generando el PDF de aviso de renovaciones.</li>
+                </ul>
+
                 <h3>¿Cómo suspendo temporalmente una programación?</h3>
 
                 <p>Dos opciones:</p>
+
+                <ul>
+                    <li>Suspensión con fechas : Pestaña Datos &gt; campo Suspensión &gt; indicar fecha inicio y fin. Durante ese período (Ambos días inclusive) NO se generan servicios. Al terminar la suspensión, se reactiva automáticamente.</li>
+                    <li>Check "Ignorar": Pestaña Datos &gt; marcar check "Ignorar". Suspende indefinidamente. Para reactivar hay que desmarcar manualmente.</li>
+                </ul>
 
                 <h3>¿Es mejor trabajar con Rutas o con Vehículos asignados?</h3>
 
@@ -4365,11 +5516,25 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Asignar vehículos directamente solo tiene sentido cuando:</p>
 
+                <ul>
+                    <li>El paciente DEBE ir siempre en la misma ambulancia por necesidades especiales</li>
+                    <li>El servicio es 100% individual y nunca comparte vehículo</li>
+                    <li>Hay una relación especial conductor-paciente que se quiere mantener</li>
+                </ul>
+
                 <h3>¿Dónde veo todos los servicios que se han generado de una programación?</h3>
 
                 <p>Pestaña Servicios de la Ficha Programados. Muestra el histórico completo con número de servicio, fecha, origen, destino, estado y validación.</p>
 
                 <h3>He creado una programación nueva que empieza mañana. ¿Cómo genero los servicios sin esperar a la generación masiva?</h3>
+
+                <ul>
+                    <li>Cerrar todas las ventanas de GAM</li>
+                    <li>Abrir la Ficha Programados de esa programación</li>
+                    <li>Clic en icono "Generar un día" (el saco)</li>
+                    <li>Verificar datos y clic en Ejecutar</li>
+                    <li>Se generan servicios solo para esa programación en el rango de fechas indicado</li>
+                </ul>
             <!-- GAM:FIN:prog-302-ficha-programados -->
             </section>
 
