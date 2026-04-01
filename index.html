@@ -4632,13 +4632,150 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-209-tipos-de-asistencias">
             <!-- GAM:INICIO:mant-209-tipos-de-asistencias -->
-                <h1>Tipos de Asistencias</h1>
-                <div class="construction">
-                    <h3>❓ Tipos de Asistencias <span style="font-size:11px;font-weight:400;color:#999">· Dudas</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Tipos de asistencias</h1>
+
+                <figure>
+                    <img src="assets/capturas/0209-Tipos_de_asistencia.png" alt="0209-Tipos_de_asistencia.png" class="screenshot">
+                    <figcaption>Ventana de Tipos de Asistencia</figcaption>
+                </figure>
+
+                <h2>Objetivo de esta ventana</h2>
+
+                <p>La ventana Tipos de asistencias permite mantener un catálogo de tipos de asistencia (Código + Descripción) y, para cada tipo, definir una lista de Preguntas asociadas (con orden) y un campo Documento para vincular un archivo relacionado, Estos son los cuestionarios  de assistencias que posteriormente se podrán cumplimentar en el servicio de “Salut Responde”.</p>
+
+                <h2>Estructura de la ventana</h2>
+
+                <h3>Listado de tipos (parte superior izquierda)</h3>
+
+                <p>Muestra los tipos de asistencia existentes con sus columnas:</p>
+
+                <ul>
+                    <li>Código</li>
+                    <li>Descripción</li>
+                </ul>
+
+                <h3>Zona de selección/filtro (parte superior derecha)</h3>
+
+                <h3>Permite filtrar/buscar por:</h3>
+
+                <ul>
+                    <li>Código</li>
+                    <li>Descripción</li>
+                </ul>
+
+                <h3>Detalle del tipo (zona central)</h3>
+
+                <p>Muestra el tipo seleccionado (Código y Descripción).</p>
+
+                <h3>Rejilla de Preguntas (parte inferior)</h3>
+
+                <p>Permite gestionar las preguntas del tipo seleccionado mediante columnas:</p>
+
+                <ul>
+                    <li>Orden</li>
+                    <li>Pregunta</li>
+                    <li>Documento (ruta del archivo asociado)</li>
+                </ul>
+
+                <h2>Buscar un tipo de asistencia (evitar duplicados)</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Informa 0, 1 o varios campos del filtro (Código y/o Descripción).</li>
+                    <li>Actualiza el listado (refresco habitual en GAM).</li>
+                    <li>Revisa si ya existe un tipo equivalente antes de crear uno nuevo.</li>
+                </ul>
+
                 </div>
-                        <!-- GAM:FIN:mant-209-tipos-de-asistencias -->
+
+                <h2>Crear un tipo de asistencia</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Verifica antes con el filtro que no exista ya.</li>
+                    <li>Crea un nuevo registro (acción habitual de Nuevo).</li>
+                    <li>Informa:</li>
+                    <li>Código (alfanumérico).</li>
+                    <li>Descripción (texto libre).</li>
+                    <li>Guarda el registro (acción habitual de Guardar).</li>
+                </ul>
+
+                </div>
+
+                <p>Importante: para poder crear Preguntas, primero es necesario guardar el tipo de asistencia.</p>
+
+                <h2>Modificar un tipo de asistencia</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Selecciona el registro en el listado.</li>
+                    <li>Modifica la Descripción si procede.</li>
+                    <li>Guarda los cambios.</li>
+                </ul>
+
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Si se “reaprovecha” un registro cambiando la descripción, puede afectar a la trazabilidad de datos históricos (aplica el mismo criterio que en otros mantenimientos).</p>
+                </div>
+
+                <h2>Eliminar un tipo de asistencia</h2>
+
+                <p>Al eliminar un tipo de asistencia:</p>
+
+                <ul>
+                    <li>El sistema permite el borrado.</li>
+                    <li>En los registros donde se haya utilizado, queda el código, pero la descripción aparecerá en blanco.</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Evitar borrar tipos usados si se necesita trazabilidad histórica. Si el objetivo es dejar de utilizarlo, es preferible mantenerlo y crear un tipo nuevo (según criterio interno de la empresa).</p>
+                </div>
+
+                <h2>Preguntas del tipo de asistencia</h2>
+
+                <h3>Crear preguntas</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Selecciona el tipo de asistencia.</li>
+                    <li>Asegúrate de que el tipo esté guardado.</li>
+                    <li>Añade las preguntas en la rejilla inferior informando:</li>
+                    <li>Orden (recomendación: 10, 20, 30… para facilitar inserciones futuras).</li>
+                    <li>Pregunta (texto corto y claro).</li>
+                    <li>Documento (si aplica): ruta del archivo asociado.</li>
+                </ul>
+
+                </div>
+
+                <h3>Campo “Documento”</h3>
+
+                <p>El campo Documento guarda una ruta a un fichero relacionado con esa pregunta.Recomendación práctica:</p>
+
+                <ul>
+                    <li>Si el documento debe estar disponible para varios puestos, usar una ubicación accesible a todos (ruta compartida) para evitar errores de “archivo no encontrado”.</li>
+                </ul>
+
+                <h3>Eliminar preguntas</h3>
+
+                <ul>
+                    <li>Al eliminar una pregunta, el sistema pide confirmación.</li>
+                    <li>Sí permite eliminar preguntas aunque ya hayan sido utilizadas.</li>
+                </ul>
+
+                <h3>Qué NO se hace en esta ventana</h3>
+
+                <ul>
+                    <li>No ejecuta asistencias ni procesos operativos: solo configura datos (tipos + preguntas + documento).</li>
+                    <li>No sustituye a otras configuraciones del sistema (vehículos, personal, etc.).</li>
+                </ul>
+            <!-- GAM:FIN:mant-209-tipos-de-asistencias -->
             </section>
 
 <section class="content-section" id="content-mant-211-poblaciones">
