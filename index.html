@@ -4785,13 +4785,181 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-211-poblaciones">
             <!-- GAM:INICIO:mant-211-poblaciones -->
-                <h1>Poblaciones</h1>
-                <div class="construction">
-                    <h3>❓ Poblaciones <span style="font-size:11px;font-weight:400;color:#999">· Dudas</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Poblaciones</h1>
+
+                <figure>
+                    <img src="assets/capturas/0211 - Poblaciones.png" alt="0211 - Poblaciones.png" class="screenshot">
+                    <figcaption>Ventana mantenimiento de poblaciones</figcaption>
+                </figure>
+
+                <h2>Qué es esta ventana</h2>
+
+                <p>Permite mantener el catálogo de poblaciones que utiliza GAM en distintos procesos: alta de servicios, planificación, coordinación, etc. Desde aquí también se configuran los datos que el sistema usa para la adjudicación automática, la asignación automática a rutas y la georreferenciación.</p>
+
+                <h2>Qué ves en pantalla</h2>
+
+                <h3>Listado</h3>
+
+                <p>Muestra las poblaciones existentes. Si el filtro está en blanco, se muestran todas.</p>
+
+                <h3>Filtros</h3>
+
+                <p>Permiten filtrar por Población y Provincia.</p>
+
+                <h3>Detalle</h3>
+
+                <p>Información de la población seleccionada. Incluye dos pestañas: General y Otras descripciones.</p>
+
+                <h2>Acciones habituales</h2>
+
+                <h3>Buscar una población</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cómo buscar una población</p>
                 </div>
-                        <!-- GAM:FIN:mant-211-poblaciones -->
+
+                <p>- Rellena uno o varios filtros (Población / Provincia), o déjalos en blanco para ver todas.</p>
+
+                <p>- Pulsa Refrescar (F7) o el icono correspondiente.</p>
+
+                <p>- Selecciona un registro del listado para ver su detalle.</p>
+
+                <h3>Alta y modificación</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cómo crear o modificar una población</p>
+                </div>
+
+                <p>- Para crear: pulsa el icono de nuevo registro, rellena los campos y guarda (F5).</p>
+
+                <p>- Para modificar: selecciona la población en el listado, edita los campos necesarios y guarda (F5).</p>
+
+                <h3>Borrar una población</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cómo borrar una población</p>
+                </div>
+
+                <p>- Selecciona la población en el listado.</p>
+
+                <p>- Pulsa el icono de eliminar y confirma la acción.</p>
+
+                <p>Si la población estaba vinculada a registros históricos, al borrarla la descripción quedará en blanco en esos registros.</p>
+
+                <h2>Campos y configuración</h2>
+
+                <h3>Datos principales</h3>
+
+                <ul>
+                    <li>Descripción: nombre de la población.</li>
+                    <li>Provincia: provincia asociada.</li>
+                    <li>CP: código postal.</li>
+                    <li>Código INE: código informativo.</li>
+                    <li>Pob. Externa: denominación externa, útil si hay integraciones o nomenclaturas distintas.</li>
+                    <li>Lote/Mutua: se utiliza en el alta de servicios cuando esa población está asociada a un cliente fijo, facilitando que el servicio arranque ya con ese lote/mutua.</li>
+                </ul>
+
+                <h3>Pestaña General</h3>
+
+                <ul>
+                    <li>Zona / Sector / Base: clasificación territorial y operativa.</li>
+                    <li>Ruta: se usa para la asignación automática a ruta.</li>
+                    <li>Minutos de adjudicación: tiempo previo a la hora de recogida en el que GAM adjudicará el servicio automáticamente. Por ejemplo, si la recogida es a las 18:00 y se configuran 75 minutos, el servicio se adjudicará a las 16:45.</li>
+                    <li>Color coordinación: color de identificación visual que se muestra en Planificación y Coordinación.</li>
+                    <li>Días festivos: configuración según operativa.</li>
+                </ul>
+
+                <h3>Georreferenciació</h3>
+
+                <p>Desde esta ventana se puede acceder a la georreferenciación de la población para revisar o corregir su posición. El campo Km. Revisados indica el estado de revisión:</p>
+
+                <ul>
+                    <li>Km. Pendientes revisar</li>
+                    <li>Km. Revisados</li>
+                    <li>Error en la georreferenciación</li>
+                    <li>Fuerza a revisar</li>
+                    <li>Proceso interno</li>
+                    <li>Georreferenciación poco exacta</li>
+                </ul>
+
+                <h2>Acciones e iconos (teclas rápidas)</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear una nueva incidencia (código + descripción + tipo + email)</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Si el registro “ya existe”, GAM avisa, pero finalmente lo guarda. Esto nos sirve por si queremos generar una misma incidencia para varios usos. Tendremos que tener en cuenta vigilar en no duplicar una incidencia y que esté asignada a diferentes usos</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar: No hay “Inactivo” en esta ventana, la única manera de que no salga en listado es borrar.Pero el borrado sigue el comportamiento habitual: en el histórico queda el código, pero la descripción puede quedar en blanco. Si se quiere una trazabilidad de los datos se recomienda no borrar nada.</td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11.png" alt="icon_imprimir_f11.png" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_pedanias.png" alt="icon_pedanias.png" class="icon-inline"></td>
+                            <td>Mantenimiento de pedanías</td>
+                            <td>–</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Mantenimiento de Pedanías<img src="assets/iconos/icon_pedanias.png" alt="icon_pedanias.png" class="icon-inline"></p>
+
+                <figure>
+                    <img src="assets/capturas/0211 - Poblaciones (2).png" alt="0211 - Poblaciones (2).png" class="screenshot">
+                    <figcaption>Mantenimiento de pedanías incluido en la ventana de mantenimiento de poblaciones</figcaption>
+                </figure>
+
+                <p>Una pedanía es una población pequeña que forma parte del término municipal de otro pueblo o ciudad, careciendo de personalidad jurídica propia en muchos casos.</p>
+
+                <p>Nos podemos encontrar que en un municipio exista el nombre de una calle que coincide en alguna de sus pedanías. para organizar y localizar mejor estos casos, se creó la ventana de pedanías a la cual se accede desde el mantenimiento de poblaciones.</p>
+
+                <p>Su funcionamiento e iconos es igual al de poblaciones.</p>
+
+                <p>Esta opción la podremos encontrar a la hora de coger los datos de un paciente o un servicio</p>
+
+                <figure>
+                    <img src="assets/capturas/0211 -Poblaciones (3).png" alt="0211 -Poblaciones (3).png" class="screenshot">
+                    <figcaption>Figura: Desplegable de pedanías en la ventana de Servicios</figcaption>
+                </figure>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Las opciones de esta ventana dependerán de los permisos de usuario. Si alguna acción no funciona o no aparece, consulta con el responsable del sistema de tu empresa para revisar los permisos.</p>
+                </div>
+            <!-- GAM:FIN:mant-211-poblaciones -->
             </section>
 
 <section class="content-section" id="content-mant-212-destinos">
