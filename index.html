@@ -4247,13 +4247,257 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-207-tipos-de-traslado">
             <!-- GAM:INICIO:mant-207-tipos-de-traslado -->
-                <h1>Tipos de traslado</h1>
-                <div class="construction">
-                    <h3>✏️ Tipos de traslado <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Tipos de traslado</h1>
+
+                <h2>Objetivo</h2>
+
+                <p>El mantenimiento Tipos de traslado permite definir cómo se traslada un paciente (por ejemplo: Normal, Camilla, Silla de ruedas…). Cuando se selecciona un tipo de traslado en un servicio, sus parámetros se copian como valores por defecto (movilidad, requisitos y tiempos), ayudando a estandarizar la operativa y facilitando reglas y planificación, especialmente con GamRuta.</p>
+
+                <h2>Descripción de la ventana</h2>
+
+                <p>En esta ventana se crean registros con:</p>
+
+                <ul>
+                    <li>Código y Descripción del tipo de traslado.</li>
+                    <li>Parámetros de tiempos (minutos en recoger/dejar).</li>
+                    <li>Parámetros de movilidad (recogida en domicilio, subida al vehículo, movilidad en el vehículo).</li>
+                    <li>Requisitos del servicio/paciente (ayudante, acompañante, oxígeno).</li>
+                    <li>Variables Covid y tipo de aislamiento.</li>
+                    <li>Campo de codificación externa (para integración/administración/compañías).</li>
+                    <li>Estado Inactivo.</li>
+                </ul>
+
+                <h2>Dónde se utiliza</h2>
+
+                <p>El campo Tipo de traslado se utiliza en la ficha del servicio y se selecciona/consulta en estas ventanas:</p>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Los tipos marcados como Inactivo no se ofrecen para selección en desplegables/altas.</p>
                 </div>
-                        <!-- GAM:FIN:mant-207-tipos-de-traslado -->
+
+                <ul>
+                    <li>Vehículos (Coordinación): en la tabla de combinaciones de vehículos colectivos existe el campo Tipo de traslado (desplegable por fila), que utiliza los registros definidos en esta ventana.</li>
+                    <li>Altas de servicio (según tipo): al seleccionar un tipo de traslado, se copian al servicio sus valores por defecto (movilidad, requisitos, tiempos, etc.).</li>
+                    <li>Ficha de programados (pestaña Datos): se informa el tipo de traslado para que, al generar servicios desde programados, el servicio herede los valores por defecto.</li>
+                    <li>Mantenimiento de servicios (pestaña Datos 1): consulta/ajuste del tipo de traslado en servicios ya existentes (según permisos).</li>
+                    <li>Planificación: el tipo de traslado forma parte de la información del servicio y se usa como referencia operativa (y para reglas si están configuradas).Disponible a partir de la versión 1324: existe filtro por Tipo de Traslado en Planificación. </li>
+                    <li>Pantalla de coordinación: el tipo de traslado forma parte de la información del servicio y se usa como referencia operativa en la gestión diaria.</li>
+                </ul>
+
+                <p>Además, su configuración se aprovecha especialmente en:</p>
+
+                <ul>
+                    <li>Reglas GamRuta (minutos, movilidad, requisitos), y en programación manual como referencia informativa.</li>
+                </ul>
+
+                <h2>Qué ves en pantalla</h2>
+
+                <h3>Selección / Filtro</h3>
+
+                <p>Permite buscar por Tipos traslado y/o Descripción.Para actualizar el listado se utiliza Refrescar F7 (o su icono/botón de refresh).</p>
+
+                <h3>Listado de resultados</h3>
+
+                <p>Muestra los registros existentes (Código y Descripción).Al seleccionar uno, su configuración aparece en la parte inferior.</p>
+
+                <h3>Detalle del tipo de traslado</h3>
+
+                <p>Incluye:</p>
+
+                <ul>
+                    <li>Tipo traslado (código) y Descripción: manual, puede ser alfanumérico, y no se autonumera.</li>
+                    <li>Externa (codificación externa) </li>
+                    <li>Check Inactivo </li>
+                    <li>Minutos en recoger / Minutos en dejar </li>
+                    <li>Bloque de Movilidad (3 desplegables) </li>
+                    <li>Requisitos: Ayudante, Acompañante, Oxígeno (con 2 valores) </li>
+                    <li>Covid: Tiene Covid / Sospechoso Covid </li>
+                    <li>Tipo aislamiento (desplegable)</li>
+                </ul>
+
+                <h3>Iconos y controles</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear nuevo registro</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Guarda alta o cambios del registro</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar:  Elimina registro </td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Reglas y trazabilidad (muy importante)</h2>
+
+                <ul>
+                    <li>Modificaciones: si se modifica un tipo (descripción o parámetros), el comportamiento es el “habitual” de mantenimientos: se refleja también en el histórico.No se recomienda modificar registros ya utilizados si se necesita mantener trazabilidad.</li>
+                    <li>Eliminación: mismo comportamiento que 0205/0206: si se elimina un tipo utilizado, en los registros donde se usaba el campo quedará en blanco. Se recomienda eliminar solo si fue creado por error o se acepta perder esa referencia histórica.</li>
+                </ul>
+
+                <h2>Significado de campos y configuración</h2>
+
+                <h3>Externa (codificación externa)</h3>
+
+                <p>Campo destinado a la codificación externa del tipo de traslado (por ejemplo: administración, compañía, u otros sistemas integrados).</p>
+
+                <h3>Minutos en recoger / Minutos en dejar</h3>
+
+                <ul>
+                    <li>Se utilizan y aplican principalmente en GamRuta.</li>
+                    <li>En programación manual, sirven como referencia para estimar tiempos del servicio.</li>
+                </ul>
+
+                <h3>Movilidad (3 desplegables)</h3>
+
+                <p>Estos desplegables están definidos de serie en el sistema y permiten clasificar la movilidad del servicio para:</p>
+
+                <ul>
+                    <li>Operativa del traslado (qué necesita el paciente).</li>
+                    <li>Ayudar a definir el tipo de vehículo más adecuado.</li>
+                    <li>Determinar si existe posibilidad de colectivizar el servicio (según criterios operativos).</li>
+                </ul>
+
+                <p>Campos:</p>
+
+                <ul>
+                    <li>Movilidad para la recogida o descarga domicilio  (ejemplos de valores: Autónomo, Silla transporte, Oruga manual, Oruga eléctrica, Sube escaleras eléctrico, Silla propia, Otros)</li>
+                    <li>Movilidad para subir vehículo (ejemplos: Rampa, Oruga eléctrica, Sube escaleras eléctrico, etc.)</li>
+                    <li>Movilidad en el vehículo(ejemplos: Silla propia, Camilla, Silla especial, Camilla cuchara-tabla, Otros)</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Los valores exactos dependen de los desplegables estándar del sistema (ver capturas de Movilidad).</p>
+                </div>
+
+                <h3>Requisitos del servicio/paciente</h3>
+
+                <ul>
+                    <li>Ayudante y Acompañante: indican necesidades/requisitos del servicio.</li>
+                    <li>Oxígeno: indica que el servicio requiere oxígeno y se informa con dos valores:</li>
+                    <li>Litros</li>
+                    <li>Concentración</li>
+                </ul>
+
+                <h3>Covid y aislamiento</h3>
+
+                <ul>
+                    <li>Tiene Covid / Sospechoso Covid: al seleccionar el tipo de traslado, este valor se copia al servicio como valor por defecto y sirve como referencia operativa (EPIs/medidas), según protocolos internos. </li>
+                    <li>Tipo aislamiento: desplegable definido de serie que indica el tipo de aislamiento a aplicar al paciente (por ejemplo: contacto, aéreo, por gotas, combinaciones, enfermedad infecciosa activa, etc.).</li>
+                </ul>
+
+                <h3>Inactivo</h3>
+
+                <ul>
+                    <li>Si un tipo está marcado como Inactivo, no aparecerá para seleccionarlo en las altas de servicio.</li>
+                    <li>En esta ventana, no se utiliza un filtro específico de “mostrar inactivos”; aún así, el registro aparece en los resultados de búsqueda/listado dentro del mantenimiento.</li>
+                </ul>
+
+                <h2>Procedimientos habituales</h2>
+
+                <h3>Buscar para evitar duplicados</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Introducir 0, 1 o varios filtros (Tipos traslado / Descripción).</li>
+                    <li>Pulsar Refrescar F7.</li>
+                    <li>Revisar el listado antes de crear uno nuevo.</li>
+                </ul>
+
+                </div>
+
+                <h3>Crear un tipo de traslado</h3>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Buscar primero (ver 9.1).</li>
+                    <li>Pulsar Nuevo F2.</li>
+                    <li>Informar:</li>
+                    <li>Código (alfanumérico) y Descripción</li>
+                    <li>Externa (si aplica)</li>
+                    <li>Minutos de recoger/dejar (si aplica)</li>
+                    <li>Movilidad (3 desplegables)</li>
+                    <li>Requisitos: Ayudante/Acompañante/Oxígeno (litros y concentración)</li>
+                    <li>Covid y Tipo aislamiento si corresponde</li>
+                    <li>Guardar con Guardar F5.</li>
+                </ul>
+
+                </div>
+
+                <h3>Modificar o desactivar un tipo existente</h3>
+
+                <ul>
+                    <li>Modificar solo si se acepta el impacto en histórico.</li>
+                    <li>Si se quiere dejar de usar un tipo sin perder trazabilidad, se recomienda marcarlo como Inactivo (en lugar de eliminarlo).</li>
+                </ul>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No se recomienda eliminar tipos en uso si se requiere mantener histórico completo (al eliminar, el campo puede quedar en blanco en servicios anteriores).</li>
+                    <li>No se recomienda modificar descripciones o parámetros de tipos ya utilizados si se necesita trazabilidad.</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves esta opción, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+
+                <h2>Capturas</h2>
+
+                <figure>
+                    <img src="assets/capturas/0207_Tipos_de_traslado.png" alt="0207_Tipos_de_traslado.png" class="screenshot">
+                    <figcaption>Figura: 1 — Tipos de traslado: listado, filtros y ficha completa con movilidad, requisitos, covid y aislamiento.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0207_Tipos_de_traslado (01).png" alt="0207_Tipos_de_traslado (01).png" class="screenshot">
+                    <figcaption>Figura: 2 — Tipos de traslado: listado, filtros y ficha completa con movilidad, requisitos, covid y aislamiento.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="assets/capturas/0207_Tipos_de_traslado (02).png" alt="0207_Tipos_de_traslado (02).png" class="screenshot">
+                    <figcaption>Figura: 3 — Tipos de traslado: listado, filtros y ficha completa con movilidad, requisitos, covid y aislamiento.</figcaption>
+                </figure>
+
+                <h2>Enlaces recomendados</h2>
+
+                <ul>
+                    <li>Ver también: Motivo de traslado</li>
+                    <li>Ver también: GamRuta (si está habilitado)</li>
+                </ul>
+            <!-- GAM:FIN:mant-207-tipos-de-traslado -->
             </section>
 
 <section class="content-section" id="content-mant-208-incidencias">
