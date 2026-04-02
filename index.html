@@ -4987,13 +4987,136 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-212-destinos">
             <!-- GAM:INICIO:mant-212-destinos -->
-                <h1>Destinos</h1>
-                <div class="construction">
-                    <h3>❓ Destinos <span style="font-size:11px;font-weight:400;color:#999">· Dudas</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>0212 - Destinos</h1>
+
+                <p>Figura: Ventana mantenimiento destinos</p>
+
+                <h2>Objetivo de esta ventana</h2>
+
+                <p>La ventana – Destinos permite dar de alta la relación Población origen → Población destino para asignar:</p>
+
+                <ul>
+                    <li>Kilómetros por tipo (Lotes/Mutuas/Colectivo/Reales)</li>
+                    <li>Minutos previstos y minutos reales</li>
+                    <li>Clasificación asociada (Zona/Sector/Base)</li>
+                    <li>Estado de revisión/georreferenciación del destino</li>
+                </ul>
+
+                <p>Este mantenimiento se usa como base cuando la empresa tiene configurado que los km se obtengan de Destinos (KmDestinos).</p>
+
+                <h2>Estructura de la ventana</h2>
+
+                <ul>
+                    <li>Listado (izquierda): muestra destinos existentes (habitualmente con una descripción tipo “ORIGEN-DESTINO”).</li>
+                    <li>Filtro “Destino” (derecha superior): permite localizar un destino por texto y refrescar resultados.</li>
+                    <li>Detalle del destino (parte inferior):</li>
+                    <li>Población-1 (origen) y Población-2 (destino)</li>
+                    <li>Km y minutos</li>
+                    <li>Zona / Sector / Base</li>
+                    <li>Estado Km.Revisados</li>
+                </ul>
+
+                <h2>Alta / modificación / borrado</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Buscar antes de crear</p>
+                <ul>
+                    <li>Escribe en el filtro Destino parte del nombre (ej. “BARCELONA”).</li>
+                    <li>Refresca resultados (F7 o icono).</li>
+                    <li>Comprueba si existe un destino igual o equivalente para evitar duplicados.</li>
+                </ul>
+
                 </div>
-                        <!-- GAM:FIN:mant-212-destinos -->
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Alta</p>
+                <ul>
+                    <li>Crear nuevo registro (F2 o icono).</li>
+                    <li>Seleccionar Población-1 y Población-2.</li>
+                    <li>Informar los campos de km/minutos que correspondan a la operativa.</li>
+                    <li>Guardar (F5 o icono).</li>
+                </ul>
+
+                </div>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Modificar</p>
+                <ul>
+                    <li>Se pueden ajustar km/minutos y guardar.</li>
+                </ul>
+
+                </div>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Borrado</p>
+                <ul>
+                    <li>Buscar en el filtro el campo deseado.</li>
+                    <li>Seleccionarlo en la lista izquierda de resultados.</li>
+                    <li>Clicar el icono de Borrar o F4. </li>
+                    <li>GAM pedirá confirmación, apretar “Aceptar”</li>
+                    <li>SE RECOMIENDA NO BORRAR NINGUNA FICHA QUE ESTÉ EN USO O HAYA SIDO UTILIZADA EN ALGÚN SERVICIO, ESTO PODRÍA CORROMPER LOS HISTÓRICO DE SERVICIOS Y FACTURACIÓN.</li>
+                </ul>
+
+                </div>
+
+                <h2>4. Campos principales y lógica de uso</h2>
+
+                <h3>Población-1 y Población-2</h3>
+
+                <p>Definen el destino como par origen/destino.</p>
+
+                <p>Ida/Vuelta</p>
+
+                <ul>
+                    <li>No es necesario dar de alta el destino inverso (DESTINO-ORIGEN) para que funcione.</li>
+                    <li>Si los km/minutos reales difieren en la operativa, esa diferencia se reflejará en el servicio (por telemetría/cartografía) y se aplicará según la opción de km marcada en Empresas.</li>
+                </ul>
+
+                <h3>Kilómetros del destino</h3>
+
+                <ul>
+                    <li>Km.Lotes: se usa cuando el cliente del servicio está marcado como Administración (cliente “lote”).</li>
+                    <li>Km.Mutuas: se usa por defecto para clientes no Administración (mutuas/privados) salvo excepción.</li>
+                    <li>Km.Colectivo: disponible para operativas con colectivos </li>
+                    <li>Km.Reales: se rellena por telemetría (GamDroid).</li>
+                </ul>
+
+                <p>Importante: si un cliente necesita km distintos para un destino concreto, se configuran en FACTURACIÓN– Lote/Clientes → pestaña Destinos.</p>
+
+                <h3>Minutos</h3>
+
+                <ul>
+                    <li>Minutos previstos: valor de referencia para planificación (origen/destino).</li>
+                </ul>
+
+                <h3>Zona / Sector / Base</h3>
+
+                <ul>
+                    <li>Campos de clasificación asociados al destino.</li>
+                </ul>
+
+                <h3>Km.Revisados (estado de revisión / georreferenciación)</h3>
+
+                <p>Desplegable para indicar el estado del destino en caso de revisión manual:</p>
+
+                <ul>
+                    <li>Km.Pendientes revisar</li>
+                    <li>Km.Revisados</li>
+                    <li>Error en la georreferenciación</li>
+                    <li>Fuerza a revisar</li>
+                    <li>Proceso interno </li>
+                    <li>Georreferenciación poco exacta</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Los campos de esta ventana se aplicarán siempre que este se configuré correctamente en «Empresa» si estos kilómetros no se aplican correctamente en la factura, consultar las configuraciones.</p>
+                </div>
+            <!-- GAM:FIN:mant-212-destinos -->
             </section>
 
 <section class="content-section" id="content-mant-213-direcciones-standards">
