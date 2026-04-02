@@ -5174,13 +5174,313 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-213-direcciones-standards">
             <!-- GAM:INICIO:mant-213-direcciones-standards -->
-                <h1>Direcciones standards</h1>
-                <div class="construction">
-                    <h3>❓ Direcciones standards <span style="font-size:11px;font-weight:400;color:#999">· Dudas</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>0213 - Direcciones estándar</h1>
+
+                <figure>
+                    <img src="assets/capturas/0213 - Direcciones estandar.png" alt="0213 - Direcciones estandar.png" class="screenshot">
+                    <figcaption>Mantenimiento de direcciones centros sanitarios</figcaption>
+                </figure>
+
+                <h2>Objetivo</h2>
+
+                <p>Esta ventana permite mantener un catálogo de “direcciones estándar” (p. ej., hospitales, centros, residencias, puntos habituales, etc.) para utilizarlas en altas de servicios y en pantallas operativas. Su objetivo es agilizar la introducción de datos, estandarizar criterios y mejorar filtros/listados.</p>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>GAM identifica cada registro por su código (alfanumérico). Si se crean duplicados con códigos distintos, GAM los tratará como direcciones diferentes aunque la descripción sea igual.</p>
                 </div>
-                        <!-- GAM:FIN:mant-213-direcciones-standards -->
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Las opciones de esta ventana dependerá de los permisos de usuarios que dispongamos, en caso de que alguna opción no funcione comprueba con el responsable del sistema de tu empresa si tienes los permisos para realizar la acción deseada.</p>
+                </div>
+
+                <h2>Dónde se utiliza esta información</h2>
+
+                <p>Las direcciones estándar pueden seleccionarse o consultarse en:</p>
+
+                <ul>
+                    <li>Ficha de programados</li>
+                    <li>Lista de espera</li>
+                    <li>Preventivos</li>
+                    <li>Alta de servicios (Normales / Siniestros / Urgencias)</li>
+                    <li>Adjudicación de servicios</li>
+                    <li>Mantenimiento de servicios</li>
+                </ul>
+
+                <p>(La finalidad es que el usuario no tenga que reescribir direcciones repetitivas y que Coordinación pueda operar con datos homogéneos.)</p>
+
+                <h2>Descripción general de la pantalla</h2>
+
+                <ul>
+                    <li>Lista de registros (zona izquierda): muestra las direcciones guardadas según los filtros aplicados.</li>
+                    <li>Panel de selección/filtros (zona superior derecha): permite buscar por código/dirección, descripción y población, e incluir inactivos.</li>
+                    <li>Ficha de detalle (zona inferior): campos de la dirección y parametrización operativa (prioridad, minutos, etc.).</li>
+                </ul>
+
+                <h2>Funcionamiento de búsqueda (filtros) y lista de resultados</h2>
+
+                <ul>
+                    <li>Puedes rellenar ningún filtro, uno o varios.</li>
+                    <li>Para actualizar resultados: F7 (o el icono de refrescar).</li>
+                    <li>Si los filtros están en blanco, se muestran todos los registros guardados.</li>
+                    <li>Al seleccionar un registro de la lista, su información se carga en la ficha inferior.</li>
+                </ul>
+
+                <h2>Campos de la ficha (detalle)</h2>
+
+                <h3>Identificación y datos base</h3>
+
+                <ul>
+                    <li>Código (Dirección / campo de código):</li>
+                </ul>
+
+                <p>Código alfanumérico de 3 dígitos, se introduce manualmente.</p>
+
+                <p>Es el identificador “real” del registro en GAM (no se pueden reutilizar códigos para otra   dirección).</p>
+
+                <ul>
+                    <li>Nombre:</li>
+                </ul>
+
+                <p>Nombre descriptivo del punto (p. ej., “Hospital X”, “Residencia Y”, “Centro Z”).</p>
+
+                <ul>
+                    <li>Dirección:</li>
+                </ul>
+
+                <p>Ubicación / dirección postal.</p>
+
+                <ul>
+                    <li>Población:</li>
+                </ul>
+
+                <p>Población asociada al registro.</p>
+
+                <p>Es importante indicar la población, ya que ésta con la población origen (donde se va a buscar al paciente) formarán el destino y a partir de aquí el Gam podrá informar los kms., para realizar el cálculo en los servicios según la tarifa aplicada.</p>
+
+                <ul>
+                    <li>C. Postal:</li>
+                </ul>
+
+                <p>Código postal.</p>
+
+                <p>Icono de cartografía (globo): ver apartado 6.2.</p>
+
+                <ul>
+                    <li>Teléfono:</li>
+                </ul>
+
+                <p>Teléfono del centro (si aplica).</p>
+
+                <ul>
+                    <li>Descripción reducida:</li>
+                </ul>
+
+                <p>Texto corto para visualizaciones donde no cabe el nombre completo. Se utiliza en diferentes listados</p>
+
+                <ul>
+                    <li>Empresa:</li>
+                </ul>
+
+                <p>Permite indicar si la dirección estándar es específica de una empresa concreta.</p>
+
+                <ul>
+                    <li>Inactivo:</li>
+                </ul>
+
+                <p>Marca el registro como inactivo. No aparece en la operativa del día a día pero el registro se mantiene guardado para un futuro uso o trazabilidad de histórico.</p>
+
+                <ul>
+                    <li>¿Se considera un DOMICILIO?</li>
+                </ul>
+
+                <p>Se marca cuando el usuario vive en una residencia, y esta se puede utilizar como origen destino en la petición de servicios.</p>
+
+                <h3>Relación con otras ventanas (catálogos)</h3>
+
+                <ul>
+                    <li>UPO:</li>
+                </ul>
+
+                <p>Relacionado con Unidades productivas.</p>
+
+                <ul>
+                    <li>Proc. Llamada:</li>
+                </ul>
+
+                <p>Relacionado con  Procedencias.</p>
+
+                <p>Son las diferentes procedencias de llamada que generan una programación o un servicio: 061, Fremap… Si lo indicamos en direcciones Standar, quedará definido como por defecto.</p>
+
+                <p>“Hospital, Urgencia, Particular... ”.</p>
+
+                <p>Es un a forma de identificar el tipo de Dirección Estándar. Si ponemos Gam web esta dirección estandard saldrá en los formularios de gam web para dar de alta servicios.</p>
+
+                <figure>
+                    <img src="assets/capturas/0213 - Direcciones estandar (2).png" alt="0213 - Direcciones estandar (2).png" class="screenshot">
+                    <figcaption>Desplegable de procedencia en Ficha de Direcciones</figcaption>
+                </figure>
+
+                <ul>
+                    <li>Zona:</li>
+                </ul>
+
+                <p>Relacionado con  Zonas.</p>
+
+                <p>Si la Población tiene Zona informada, se hereda automáticamente.</p>
+
+                <p>Si no, queda en blanco y se puede informar manualmente si se ha dado de alta previamente.</p>
+
+                <ul>
+                    <li>Dir. Externa:</li>
+                </ul>
+
+                <p>Código externo para integraciones (administración, compañía u otros).</p>
+
+                <ul>
+                    <li>Referencia:</li>
+                </ul>
+
+                <p>Campo libre de referencia interna.</p>
+
+                <h3>Parámetros operativos</h3>
+
+                <ul>
+                    <li>Prioridad:</li>
+                </ul>
+
+                <p>Se utiliza principalmente en Coordinación, en “Adjudicación de servicios — 0405”. y marca el grado de prioridad del servicio a este centro, en el caso que sea fijo. La prioridad es un campo numerico el significado del cual se lo da la empresa.</p>
+
+                <ul>
+                    <li>Día / Mes festivo:</li>
+                </ul>
+
+                <p>Tres casillas de festivos para indicar las Fiestas Locales. Según los días indicados sirven para generar o no las programaciones Si en Ficha de Programación.Datos SI está marcado y en D.Stándard Si está indicado los días festivos, al generar los servicios NO se marca el check "Día Festivo", SI salen los servicios. Si en Ficha de Programación.Datos NO está marcado y en D.Stándard SI está indicado los días festivos, al generar los servicios NO se marca el check "Día Festivo", NO salen los servicios</p>
+
+                <ul>
+                    <li>Minutos en recoger:</li>
+                </ul>
+
+                <p>Se copia al servicio como valor por defecto. Influye en GamRuta.</p>
+
+                <ul>
+                    <li>Minutos en dejar:</li>
+                </ul>
+
+                <p>Se copia al servicio como valor por defecto. Influye en GamRuta.</p>
+
+                <ul>
+                    <li>Minutos en recargar vehículo eléctrico:</li>
+                </ul>
+
+                <p>Orientado a GamRuta (y también sirve como referencia informativa).</p>
+
+                <ul>
+                    <li>Estado de georeferenciación</li>
+                </ul>
+
+                <p>(desplegable “Km. Pendientes revisar / Km. Revisados / …”):</p>
+
+                <p>Sirve para indicar el estado de georeferenciación o revisión.</p>
+
+                <p>Iconos y acciones</p>
+
+                <h3>Iconos presentes y alta de registros.</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear una nueva incidencia (código + descripción + tipo + email)</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Si el registro “ya existe”, GAM avisa, pero finalmente lo guarda. Esto nos sirve por si queremos generar una misma incidencia para varios usos. Tendremos que tener en cuenta vigilar en no duplicar una incidencia y que esté asignada a diferentes usos</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar: No hay “Inactivo” en esta ventana, la única manera de que no salga en listado es borrar.Pero el borrado sigue el comportamiento habitual: en el histórico queda el código, pero la descripción puede quedar en blanco. Si se quiere una trazabilidad de los datos se recomienda no borrar nada.</td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11.png" alt="icon_imprimir_f11.png" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_importat_excel.png" alt="icon_importat_excel.png" class="icon-inline"></td>
+                            <td>Importar registros desde excel</td>
+                            <td>–</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Alta de Registros</p>
+                <ul>
+                    <li>Comprobar con filtros/buscador si existe un registro igual o similar (para evitar duplicados).</li>
+                    <li>Si hay que crearlo: F2 → cumplimentar campos → F5 para guardar.</li>
+                </ul>
+
+                </div>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Cartografía / georeferenciación (icono globo)</p>
+                <ul>
+                    <li>Botón izquierdo: abre la dirección en Google Maps.</li>
+                    <li>Botón derecho: abre un mapa para georeferenciar manualmente.</li>
+                    <li>Botón central: actualiza la dirección en programaciones y servicios.</li>
+                </ul>
+
+                </div>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Importación de registros desde Excel</p>
+                <ul>
+                    <li>Click izquierdo: importa un Excel de direcciones estándar.</li>
+                    <li>Click derecho: muestra un ejemplo/plantilla de Excel a importar.</li>
+                </ul>
+
+                </div>
+
+                <p>Para cargar los registros mediante excel es importante que el excel cumpla los requisitos para que la carga sea correcta, mismo formato, que los campos utilizados estén dados de alta y estos indiquen los mismos códigos tanto en GAM como en la hoja de cálculo.</p>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No sustituye la introducción/gestión clínica o administrativa del servicio: aquí solo se define el “catálogo” de direcciones reutilizables.</li>
+                    <li>No sustituye los catálogos de Poblaciones, Zonas, Procedencias, etc.; estos deben existir para poder seleccionarlos aquí.</li>
+                </ul>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si no ves esta opción o alguna de sus funciones, puede depender de permisos o configuración. Consulta con tu responsable.</p>
+                </div>
+            <!-- GAM:FIN:mant-213-direcciones-standards -->
             </section>
 
 <section class="content-section" id="content-mant-214-procedencias">
