@@ -5485,13 +5485,158 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-mant-214-procedencias">
             <!-- GAM:INICIO:mant-214-procedencias -->
-                <h1>Procedencias</h1>
-                <div class="construction">
-                    <h3>✏️ Procedencias <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>MANTENIMIENTOS</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>0214 · Procedencias (Procedencia de llamada)</h1>
+
+                <p>Figura: Ventana de procedencias</p>
+
+                <h2>Objetivo</h2>
+
+                <p>Esta ventana permite dar de alta y mantener las “procedencias de llamada”, es decir, el origen desde el que se recibe la petición que genera una programación o un servicio (por ejemplo: 061, un hospital, una mutua, un teléfono de contacto, etc.).</p>
+
+                <p>Además, una procedencia puede tener “departamentos” asociados  para afinar el origen de llamada dentro de la misma procedencia (por ejemplo: un hospital con distintos departamentos).</p>
+
+                <h2>Dónde se utiliza esta información</h2>
+
+                <p>La procedencia de llamada se selecciona en distintas pantallas operativas (programados y servicios). Cuando una procedencia tiene departamentos, el campo “Departamento” solo aparece en esas pantallas si la procedencia seleccionada está marcada como “Tiene departamentos”.</p>
+
+                <p>Procedencia aparece en:</p>
+
+                <ul>
+                    <li>Alta de servicios</li>
+                    <li>Ficha de Programados</li>
+                    <li>Mantenimiento de servicios</li>
+                </ul>
+
+                <h2>Descripción general de la pantalla</h2>
+
+                <ul>
+                    <li>Lista de registros (izquierda): muestra las procedencias existentes según los filtros.</li>
+                    <li>Selección / filtros (derecha superior): permite filtrar por Procedencia y por Descripción.</li>
+                    <li>Ficha (parte inferior): datos de la procedencia y opciones asociadas (contacto, teléfono, e-mail y “Tiene departamentos”).</li>
+                </ul>
+
+                <h2>Funcionamiento de búsqueda y lista de resultados</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                <ul>
+                    <li>Puedes rellenar ningún filtro, uno o varios.</li>
+                    <li>Para actualizar resultados: F7 (o icono de refrescar).</li>
+                    <li>Si los filtros están en blanco, se muestran todos los registros.</li>
+                    <li>Al seleccionar una procedencia en la lista, sus datos se cargan en la ficha inferior.</li>
+                </ul>
+
                 </div>
-                        <!-- GAM:FIN:mant-214-procedencias -->
+
+                <h2>Campos de la ficha (detalle)</h2>
+
+                <h3>Proc. llamada (Código) y descripción</h3>
+
+                <ul>
+                    <li>Proc. llamada (código):</li>
+                </ul>
+
+                <p>Identificador de la procedencia (habitualmente alfanumérico y de entrada manual).</p>
+
+                <p>Recomendación: definir un criterio estable y no reutilizar códigos.</p>
+
+                <ul>
+                    <li>Descripción:</li>
+                </ul>
+
+                <p>Nombre visible de la procedencia (texto libre).</p>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>- Si se modifica la descripción “reaprovechando” un registro, el cambio se reflejará también en registros anteriores (histórico), por lo que en listados saldrá el valor nuevo.                                   - Si se elimina una procedencia que ya se ha utilizado, en los registros donde estaba usada quedará el código, pero la descripción puede quedar en blanco.</p>
+                </div>
+
+                <h3>Datos de contacto (opcionales)</h3>
+
+                <p>- Contacto: nombre o referencia de la persona/entidad.</p>
+
+                <p>- Teléfono: teléfono de contacto.</p>
+
+                <p>- E-mail: correo de contacto.</p>
+
+                <p>Estos campos son opcionales y se usan como información de apoyo.</p>
+
+                <h3>Tiene departamentos</h3>
+
+                <p>- Casilla “Tiene departamentos”:</p>
+
+                <p>- Si está marcada, la procedencia puede asociarse a “Departamentos” (0215).</p>
+
+                <p>- En las pantallas operativas, el campo “Departamento” solo aparece cuando la procedencia seleccionada tiene esta casilla marcada.</p>
+
+                <p>- Para que sea útil, deben configurarse los departamentos en 0215 — Departamentos procedencias.</p>
+
+                <h2>Acciones habituales (teclas / iconos)</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Nuevo: Crear una nueva incidencia (código + descripción + tipo + email)</td>
+                            <td>F2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Guardar: Si el registro “ya existe”, GAM avisa, pero finalmente lo guarda. Esto nos sirve por si queremos generar una misma incidencia para varios usos. Tendremos que tener en cuenta vigilar en no duplicar una incidencia y que esté asignada a diferentes usos</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/Icon_F4_Eliminar.png" alt="Icon_F4_Eliminar.png" class="icon-inline"></td>
+                            <td>Eliminar: No hay “Inactivo” en esta ventana, la única manera de que no salga en listado es borrar.Pero el borrado sigue el comportamiento habitual: en el histórico queda el código, pero la descripción puede quedar en blanco. Si se quiere una trazabilidad de los datos se recomienda no borrar nada.</td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_refrescar_f7.png" alt="icon_refrescar_f7.png" class="icon-inline"></td>
+                            <td>Refrescar: Actualiza listado según filtro</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_imprimir_f11.png" alt="icon_imprimir_f11.png" class="icon-inline"></td>
+                            <td>Imprimir/Exportar: Imprime en pdf o papel /exporta a excel o otros formatos</td>
+                            <td>F11</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar: Cierra la ventana actual</td>
+                            <td>F12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h7>Proceso recomendado para dar de alta:</h7>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                </div>
+
+                <p>1) Buscar primero con filtros para evitar duplicados.</p>
+
+                <p>2) Si no existe: Nuevo (F2) → informar campos → Guardar (F5).</p>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <p>- No se gestionan aquí los departamentos: se hace en “Departamentos de Procedencias” o apretando el botón derecho del ratón sobre el campo departamentos de esta ventana.</p>
+
+                <p>- No se gestiona aquí la configuración avanzada de integraciones; en el manual de usuario solo se documenta el uso operativo del catálogo.</p>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Algunas opciones pueden no estar disponibles según tus permisos de usuario.</p>
+                </div>
+            <!-- GAM:FIN:mant-214-procedencias -->
             </section>
 
 <section class="content-section" id="content-mant-215-departamentos-procedencias">
