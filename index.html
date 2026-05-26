@@ -7192,13 +7192,987 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-coord-405-adjudicacion-de-servicios">
             <!-- GAM:INICIO:coord-405-adjudicacion-de-servicios -->
-                <h1>Adjudicación de servicios</h1>
-                <div class="construction">
-                    <h3>🔲 Adjudicación de servicios <span style="font-size:11px;font-weight:400;color:#999">· Pendiente</span></h3>
-                    <p>Módulo: <strong>COORDINACION</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Adjudicación de servicios</h1>
+
+                <p>La ventana Adjudicación de servicios es la herramienta principal del coordinador de transporte sanitario. Permite visualizar en una sola pantalla todos los servicios pendientes y adjudicados, filtrarlos según múltiples criterios, asignar servicios a vehículos, comunicarse con las unidades móviles y monitorizar el estado de la flota en tiempo real.</p>
+
+                <p>Dada la gran cantidad de información que gestiona, la ventana requiere una configuración previa (una sola vez por usuario) para adaptar su apariencia y comportamiento al puesto de trabajo del coordinador. Una misma acción puede realizarse de diferentes maneras (menús contextuales, botones, arrastres, acciones masivas), permitiendo que cada coordinador adopte el flujo que le resulte más cómodo.</p>
+
+                <h2>Antes de empezar</h2>
+
+                <h3>Acceso a la ventana</h3>
+
+                <p>Puede acceder a Adjudicación de servicios de tres formas:</p>
+
+                <ul>
+                    <li>Desde el menú principal, navegando a COORDINACIÓN → Adjudicación de servicios.</li>
+                    <li>Mediante el icono de acceso directo (icono_pantalla de ordenador) ubicado en la barra de herramientas superior.</li>
+                    <li>Pulsando la tecla F1 desde cualquier pantalla e introduciendo el número de ventana 0405.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: El número de ventana 0405 corresponde a la versión actual del manual. Este número puede variar entre versiones de GAM ERP. Si el acceso por número no funciona, utilice los métodos 1 o 2.</p>
                 </div>
-                        <!-- GAM:FIN:coord-405-adjudicacion-de-servicios -->
+
+                <h3>Permisos necesarios</h3>
+
+                <p>Para utilizar todas las funciones de esta ventana (adjudicar, reasignar, enviar mensajes, finalizar, anular), su perfil de usuario debe tener habilitados los permisos de coordinación. Algunas acciones específicas (des-anular, des-finalizar, forzar recibido terminal) requieren permisos adicionales otorgados por el administrador del sistema.</p>
+
+                <h2>Preparación: Configurar la pantalla en Valores defecto usuario</h2>
+
+                <p>Antes de utilizar Adjudicación de servicios por primera vez, debe configurar su apariencia en la ventana Valores defecto usuario. Esta configuración es personal y se guarda por usuario, por lo que cada coordinador puede tener su propia distribución de pantalla.</p>
+
+                <p>Acceda a Valores defecto usuario desde el menú principal o mediante el icono correspondiente.</p>
+
+                <h3>Parámetros de configuración clave</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Parámetro</th>
+                            <th>Descripción funcional</th>
+                            <th>Impacto en el sistema</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Refresco coordinación (Milisegundos)</td>
+                            <td>Frecuencia con la que la pantalla se actualiza automáticamente.</td>
+                            <td>Valor alto (ej: 9999999): apenas se refresca sola, depende de F7. Valor bajo (ej: 5000): refresca cada 5 segundos, pero puede causar microcortes.</td>
+                        </tr>
+                        <tr>
+                            <td>Resolución pantalla</td>
+                            <td>Define la resolución y la tasa de refresco.</td>
+                            <td>Debe coincidir con la resolución nativa del monitor. Ejemplo: 60 / 1920X1080.</td>
+                        </tr>
+                        <tr>
+                            <td>Pantalla coordinación en NEGRITA</td>
+                            <td>Activa o desactiva el texto en negrita en toda la ventana.</td>
+                            <td>Facilita la lectura en monitores de baja resolución.</td>
+                        </tr>
+                        <tr>
+                            <td>Orden personalizado en coordinación (Pendientes)</td>
+                            <td>Campo por el que se ordenan los servicios pendientes.</td>
+                            <td>Ejemplo: DATA_NIC_SRV_COD_VHI ordena por fecha/hora y código de vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Orden personalizado en coordinación (Adjudicados)</td>
+                            <td>Campo por el que se ordenan los servicios adjudicados.</td>
+                            <td>Ejemplo: DATA_NIC_SRV ordena por fecha/hora.</td>
+                        </tr>
+                        <tr>
+                            <td>Adjudicados coordinación</td>
+                            <td>Posición y tamaño del panel de servicios adjudicados.</td>
+                            <td>Configuración en píxeles: posición vertical, horizontal, alto y ancho.</td>
+                        </tr>
+                        <tr>
+                            <td>Pendientes coordinación</td>
+                            <td>Posición y tamaño del panel de servicios pendientes.</td>
+                            <td>Configuración en píxeles.</td>
+                        </tr>
+                        <tr>
+                            <td>Vehículos disponibles en coordinación</td>
+                            <td>Tamaño y fuente del listado de vehículos.</td>
+                            <td>Tamaño vertical, horizontal y tipo de fuente.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Se recomienda que el refresco automático no sea bajo para evitar la interrupción de tareas. Un valor óptimo es de 3 minutos como mínimo (180 000 milisegundos). Si necesita refrescar la pantalla antes de ese tiempo, utilice la tecla F7. Valores inferiores pueden provocar microcortes y molestias durante su trabajo.</p>
+                </div>
+
+                <h3>Ejemplos de configuración de pantalla</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Disposición</th>
+                            <th>Adjudicados (posición, alto, ancho)</th>
+                            <th>Pendientes (posición, alto, ancho)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Horizontal (adjudicados arriba, pendientes abajo)</td>
+                            <td>V:15, H:4, Alto:415, Ancho:1895</td>
+                            <td>V:440, H:4, Alto:415, Ancho:1895</td>
+                        </tr>
+                        <tr>
+                            <td>Vertical (adjudicados izquierda, pendientes derecha)</td>
+                            <td>V:15, H:4, Alto:800, Ancho:900</td>
+                            <td>V:15, H:920, Alto:800, Ancho:900</td>
+                        </tr>
+                        <tr>
+                            <td>Pantalla completa (alternar con iconos ambulancia)</td>
+                            <td>V:15, H:4, Alto:850, Ancho:1895</td>
+                            <td>V:15, H:4, Alto:850, Ancho:1895</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Para alternar qué panel se visualiza en pantalla completa, utilice los iconos de ambulancia roja (adjudicados) y ambulancia azul (pendientes). No es necesario modificar las coordenadas.</p>
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Si desea conocer todos los detalles sobre la configuración de la ventana Valores defecto usuario (incluyendo otras pestañas y parámetros), consulte el temario dedicado a esta ventana en el manual.</p>
+                </div>
+
+                <h2>Configuración de la vista: Filtros</h2>
+
+                <p>Esta es la pantalla que aparece nada más acceder a Adjudicación de servicios, antes de cargar ningún dato. Aquí se define qué servicios y qué vehículos se mostrarán después al pulsar F7.</p>
+
+                <h3>Estructura de los filtros</h3>
+
+                <p>La zona de filtros se divide en dos paneles independientes:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Panel de filtros</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Selección servicios</td>
+                            <td>Filtros para acotar los servicios que aparecerán en los paneles de Pendientes y/o Adjudicados.</td>
+                        </tr>
+                        <tr>
+                            <td>Selección vehículos</td>
+                            <td>Filtros para acotar los vehículos que aparecerán disponibles para adjudicar.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Filtros disponibles en Selección servicios</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Filtro</th>
+                            <th>Descripción funcional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Tipo traslado</td>
+                            <td>Clasificación del servicio (ej: Sentado, Camilla, UVI).</td>
+                        </tr>
+                        <tr>
+                            <td>Motivo traslado</td>
+                            <td>Razón del traslado (ej: Consultas externas, Urgencia, Transferencia).</td>
+                        </tr>
+                        <tr>
+                            <td>Proc.Llamada</td>
+                            <td>Procedencia de la llamada (ej: Paciente, Centro médico, Particular).</td>
+                        </tr>
+                        <tr>
+                            <td>Lote/Mutua</td>
+                            <td>Agrupación de servicios por lote o mutua aseguradora.</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección estándar</td>
+                            <td>Direcciones predefinidas en el sistema (ej: hospitales, centros de salud).</td>
+                        </tr>
+                        <tr>
+                            <td>Zona servicio</td>
+                            <td>Zona geográfica del servicio.</td>
+                        </tr>
+                        <tr>
+                            <td>Grupo cliente</td>
+                            <td>Agrupación de clientes.</td>
+                        </tr>
+                        <tr>
+                            <td>Extra1</td>
+                            <td>Campo personalizable según configuración del sistema.</td>
+                        </tr>
+                        <tr>
+                            <td>Empresas</td>
+                            <td>Empresa propietaria del servicio (útil en entornos multiempresa).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Filtros disponibles en Selección vehículos</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Filtro</th>
+                            <th>Descripción funcional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Tipo vehículo</td>
+                            <td>Categoría del vehículo (ej: Colectiva, UVI, Vehículo de intervención rápida).</td>
+                        </tr>
+                        <tr>
+                            <td>Zona vehículo</td>
+                            <td>Zona geográfica asignada al vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Sector vehículo</td>
+                            <td>Sector operativo dentro de la zona.</td>
+                        </tr>
+                        <tr>
+                            <td>Base vehículo</td>
+                            <td>Base física de estacionamiento.</td>
+                        </tr>
+                        <tr>
+                            <td>Lote</td>
+                            <td>Agrupación de vehículos para planificación.</td>
+                        </tr>
+                        <tr>
+                            <td>Empresas</td>
+                            <td>Empresa propietaria del vehículo.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Zona de aplicación del filtro</h3>
+
+                <p>Junto a los filtros, encontrará una opción para elegir dónde aplicar los criterios seleccionados:</p>
+
+                <ul>
+                    <li>Solo a Servicios Adjudicados</li>
+                    <li>Solo a Servicios Pendientes</li>
+                    <li>A ambos paneles</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Esta funcionalidad permite, por ejemplo, filtrar los servicios pendientes por una zona concreta mientras mantiene visibles todos los servicios adjudicados.</p>
+                </div>
+
+                <h3>Guardar y cargar filtros estándar (Filtros 1 a 8)</h3>
+
+                <p>La pantalla dispone de 8 ranuras de filtros rápidos, etiquetadas como Filtro1 a Filtro8. Permiten guardar combinaciones de criterios para cargarlas posteriormente con un solo clic.</p>
+
+                <ul>
+                    <li>Guardar: Configure los filtros deseados, seleccione la zona de aplicación, pulse Ctrl + F7 y elija la ranura.</li>
+                    <li>Cargar: Haga clic directamente en el botón del filtro deseado.</li>
+                    <li>Modificar: Cargue el filtro, modifique los criterios y pulse Ctrl + F7 sobre la misma ranura.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Estos filtros se guardan a nivel de usuario. Cada coordinador puede tener sus propias combinaciones.</p>
+                </div>
+
+                <h3>Proceso para cargar una vista con filtros</h3>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>PASOS: Cargar una vista con filtros</p>
+                </div>
+
+                <ul>
+                    <li>En el panel Selección servicios, cumplimente uno o varios filtros.</li>
+                    <li>En el panel Selección vehículos, cumplimente los filtros deseados si desea acotar la flota.</li>
+                    <li>Seleccione la zona de aplicación (Adjudicados, Pendientes o ambos).</li>
+                    <li>Pulse la tecla F7 o el icono de Refrescar pantalla.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Si no aplica ningún filtro, al pulsar F7 el sistema mostrará todos los servicios y vehículos disponibles según sus permisos.</p>
+                </div>
+
+                <h2>Estructura de la ventana (una vez cargados los datos)</h2>
+
+                <p>Una vez aplicados los filtros y pulsado F7, la pantalla se organiza en las siguientes zonas:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Zona</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Servicios Pendientes</td>
+                            <td>Panel izquierdo o superior (configurable). Muestra servicios sin asignar. Borde de cuadrícula color marrón.</td>
+                        </tr>
+                        <tr>
+                            <td>Servicios Adjudicados</td>
+                            <td>Panel derecho o inferior (configurable). Muestra servicios ya asignados. Borde de cuadrícula color azul.</td>
+                        </tr>
+                        <tr>
+                            <td>Listado de vehículos</td>
+                            <td>Panel inferior. Muestra los vehículos que han iniciado turno. Colores y bordes indican su estado.</td>
+                        </tr>
+                        <tr>
+                            <td>Datos del servicio seleccionado</td>
+                            <td>Al hacer clic en un servicio, se muestran sus datos principales.</td>
+                        </tr>
+                        <tr>
+                            <td>Mensajería con vehículos</td>
+                            <td>Zona inferior izquierda (color verde claro). Muestra mensajes recibidos de las unidades.</td>
+                        </tr>
+                        <tr>
+                            <td>Zona de alertas y validaciones</td>
+                            <td>Zona con cuadros de colores (tonos marrones, verde, azul) para gestionar mensajes de administración, propuestas del terminal, validaciones pendientes.</td>
+                        </tr>
+                        <tr>
+                            <td>Mapas de calor (bola roja)</td>
+                            <td>Visualización geográfica de concentración de servicios por origen, destino o combinado.</td>
+                        </tr>
+                        <tr>
+                            <td>GamFleet (bola verde)</td>
+                            <td>Mapa en tiempo real con ubicación de vehículos (verde=libres, rojo=con servicios, gris=no operativos). Clic derecho para histórico de posiciones.</td>
+                        </tr>
+                        <tr>
+                            <td>Gestión de turnos (icono bicicleta)</td>
+                            <td>Fichaje manual desde coordinación (base o terminal).</td>
+                        </tr>
+                        <tr>
+                            <td>Control visual de ocupación (icono gráfico)</td>
+                            <td>Tabla que muestra por horas la ocupación de cada vehículo (intensidad de rojo según carga).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Leyenda de iconos y colores</h2>
+
+                <p>La pantalla utiliza un amplio conjunto de indicadores visuales para transmitir información rápida. Se dividen en cuatro categorías.</p>
+
+                <h3>1. Iconos de características del servicio (fijos)</h3>
+
+                <p>Estos iconos aparecen junto al servicio e indican necesidades del paciente o del traslado. Su significado es el mismo para todas las empresas.</p>
+
+                <p>Tipo de servicio:</p>
+
+                <ul>
+                    <li>[icono_ida_vuelta] El servicio tiene una vuelta asociada.</li>
+                    <li>[icono_solo_ida] El servicio no tiene vuelta.</li>
+                    <li>[icono_vuelta] Este servicio es la vuelta de un servicio de ida.</li>
+                </ul>
+
+                <p>Personal:</p>
+
+                <ul>
+                    <li>[icono_ayudante] El servicio requiere o tiene asignado un ayudante.</li>
+                    <li>[icono_acompañante] El servicio lleva un acompañante (familiar, cuidador, etc.).</li>
+                </ul>
+
+                <p>Contacto con el paciente:</p>
+
+                <ul>
+                    <li>[icono_paciente_avisado] Se ha contactado con el paciente.</li>
+                    <li>[icono_volver_llamar] Es necesario volver a contactar.</li>
+                    <li>[icono_no_llamar] No se debe contactar por indicación médica o familiar.</li>
+                </ul>
+
+                <p>Movilidades:</p>
+
+                <ul>
+                    <li>Movilidad en la recogida: Silla transporte, oruga manual, oruga eléctrica, tabla, silla especial, otros, camilla cuchara.</li>
+                    <li>Movilidad en el vehículo: Silla ruedas, silla ruedas eléctrica, silla ruedas especial, silla niño, otros, incubadora.</li>
+                    <li>Movilidad para subir al vehículo: Rampa, elevador, camilla, otros.</li>
+                    <li>[icono_ascensor] El paciente requiere ascensor en el edificio de origen o destino.</li>
+                </ul>
+
+                <h3>2. Colores personalizables por el administrador</h3>
+
+                <p>Estos colores aparecen en las columnas de los listados de servicios y su significado lo define el administrador en los mantenimientos correspondientes.</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Columna afectada</th>
+                            <th>Dónde se configura</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Color POBLACIÓN (Prv.Origen)</td>
+                            <td>Mantenimientos → Poblaciones (campo "Color coordinación").</td>
+                        </tr>
+                        <tr>
+                            <td>Color MOTIVO TRASLADO (Población origen)</td>
+                            <td>Mantenimientos → Motivos de traslado.</td>
+                        </tr>
+                        <tr>
+                            <td>Color ZONA (Dom.Destino)</td>
+                            <td>Mantenimientos → Destinos o Zonas.</td>
+                        </tr>
+                        <tr>
+                            <td>Color LOTE (Traslado)</td>
+                            <td>Mantenimientos → Lotes/Mutuas.</td>
+                        </tr>
+                        <tr>
+                            <td>Color PRIORIDAD (Tipo traslado)</td>
+                            <td>Mantenimientos → Tipos de traslado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Para conocer la equivalencia exacta de cada color en su sistema, consulte con el administrador o revise la configuración de las ventanas mencionadas.</p>
+                </div>
+
+                <h3>3. Indicadores de estado y alertas (semiautomáticos)</h3>
+
+                <p>Estos colores los asigna el sistema automáticamente según el tipo de servicio, demoras, origen, etc.</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Color / estilo</th>
+                            <th>Significado</th>
+                            <th>Columna o contexto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Rosa</td>
+                            <td>Servicio URGENTE</td>
+                            <td>H.INICIO</td>
+                        </tr>
+                        <tr>
+                            <td>Naranja</td>
+                            <td>Servicio SINIESTRO / UVI / VIR</td>
+                            <td>Paciente</td>
+                        </tr>
+                        <tr>
+                            <td>Amarillo</td>
+                            <td>Servicio entrado por GamWeb, Email o Internet</td>
+                            <td>Referencia</td>
+                        </tr>
+                        <tr>
+                            <td>Negro (texto o fondo)</td>
+                            <td>Pendiente de confirmación por terminal</td>
+                            <td>Botón del servicio</td>
+                        </tr>
+                        <tr>
+                            <td>Gris (botón)</td>
+                            <td>Servicio con observaciones</td>
+                            <td>Vehículo</td>
+                        </tr>
+                        <tr>
+                            <td>Rojo</td>
+                            <td>Demora de 5 minutos o más (respecto a Fecha Inicio)</td>
+                            <td>N.Servicio</td>
+                        </tr>
+                        <tr>
+                            <td>Turquesa</td>
+                            <td>Vuelta de servicio NORMAL</td>
+                            <td>Hora</td>
+                        </tr>
+                        <tr>
+                            <td>Verde vivo</td>
+                            <td>Vuelta de servicio PROGRAMADO</td>
+                            <td>Hora</td>
+                        </tr>
+                        <tr>
+                            <td>Lila</td>
+                            <td>Servicio PRIVADO (lote/mutua NO es Administración)</td>
+                            <td>H.Destino</td>
+                        </tr>
+                        <tr>
+                            <td>Verde oliva</td>
+                            <td>Menos de 24h entre F.Recepción y F.Inicio</td>
+                            <td>Observaciones</td>
+                        </tr>
+                        <tr>
+                            <td>Blanco subrayado</td>
+                            <td>Servicio PREVENTIVO (cobertura en evento)</td>
+                            <td>Paciente</td>
+                        </tr>
+                        <tr>
+                            <td>Texto rojo en horas</td>
+                            <td>Servicio activado (hora actual registrada)</td>
+                            <td>H.Inicio, H.Destino</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Indicadores de demora específicos:</p>
+
+                <ul>
+                    <li>Demora menor a lo marcado en valores defecto: Retraso inferior al umbral configurado en N.Servicio.</li>
+                    <li>Demora superior a dos horas: Retraso superior a 120 minutos.</li>
+                    <li>Demora según hora citada: Comparación con H.En centro ADJ.</li>
+                    <li>Demora vuelta según hora finalización: Comparación con H.Listo ADJ.</li>
+                </ul>
+
+                <h3>4. Colores y estados de los vehículos (panel inferior)</h3>
+
+                <p>Los vehículos aparecen en la parte inferior de la pantalla. Solo se muestran los que han iniciado turno (desde base o terminal).</p>
+
+                <p>Colores de borde del vehículo:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Borde</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Negro</td>
+                            <td>Parado más de 5 minutos.</td>
+                        </tr>
+                        <tr>
+                            <td>Amarillo</td>
+                            <td>Parado más de 60 minutos.</td>
+                        </tr>
+                        <tr>
+                            <td>Blanco</td>
+                            <td>Sirena activada.</td>
+                        </tr>
+                        <tr>
+                            <td>Rojo</td>
+                            <td>Sin posición GPS.</td>
+                        </tr>
+                        <tr>
+                            <td>(sin borde)</td>
+                            <td>En movimiento o parado menos de 5 minutos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Colores de fondo o texto del código del vehículo:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Indicador</th>
+                            <th>Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Verde</td>
+                            <td>Vehículo libre. Texto en negrita = solo conductor. Texto normal = conductor + ayudante.</td>
+                        </tr>
+                        <tr>
+                            <td>Rojo</td>
+                            <td>Vehículo con servicios adjudicados.</td>
+                        </tr>
+                        <tr>
+                            <td>Código en rojo (texto)</td>
+                            <td>Dotación excedida en tiempo de comida.</td>
+                        </tr>
+                        <tr>
+                            <td>Código en rosa</td>
+                            <td>Vehículo activado para COVID.</td>
+                        </tr>
+                        <tr>
+                            <td>Código subrayado</td>
+                            <td>Vehículo individual (no compartido).</td>
+                        </tr>
+                        <tr>
+                            <td>Código en negrita</td>
+                            <td>Sin ayudante, solo conductor.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Al posar el ratón sobre un vehículo, aparece un tooltip con información detallada: código, conductor, última posición, velocidad, dirección actual, combustible, plazas ocupadas y distribución de asientos/camillas.</p>
+                </div>
+
+                <h2>Teclas de función y accesos rápidos</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Tecla / combinación</th>
+                            <th>Función</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>F3</td>
+                            <td>Muestra servicios de hoy y mañana (filtro rápido por fechas).</td>
+                        </tr>
+                        <tr>
+                            <td>F4</td>
+                            <td>Ordena los listados según configuración personalizada.</td>
+                        </tr>
+                        <tr>
+                            <td>F6</td>
+                            <td>Ver vehículos en mapa (abre GamFleet).</td>
+                        </tr>
+                        <tr>
+                            <td>F7</td>
+                            <td>Refrescar pantalla (actualiza todos los datos).</td>
+                        </tr>
+                        <tr>
+                            <td>F9</td>
+                            <td>Asignación automática de vehículo al servicio seleccionado.</td>
+                        </tr>
+                        <tr>
+                            <td>Ctrl + flecha</td>
+                            <td>Mueve la pantalla (desplaza paneles).</td>
+                        </tr>
+                        <tr>
+                            <td>Ctrl + F7</td>
+                            <td>Guarda el filtro estándar en la ranura seleccionada.</td>
+                        </tr>
+                        <tr>
+                            <td>Doble clic sobre nombre del paciente</td>
+                            <td>Abre la ficha del paciente para consulta o modificación.</td>
+                        </tr>
+                        <tr>
+                            <td>Doble clic sobre dirección (origen o destino)</td>
+                            <td>Abre el mantenimiento del servicio para consulta o modificación.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Operaciones sobre servicios</h2>
+
+                <h3>Formas generales de ejecutar acciones</h3>
+
+                <p>Una misma acción puede realizarse de varias maneras:</p>
+
+                <ul>
+                    <li>Desde el botón gris del servicio (clic izquierdo o derecho según la acción).</li>
+                    <li>Desde el menú contextual (clic derecho sobre la línea del servicio).</li>
+                    <li>Desde el panel de acciones masivas (inferior), seleccionando uno o varios servicios y eligiendo la acción.</li>
+                    <li>Desde el resumen de servicios del vehículo (clic derecho sobre el vehículo → "Resumen servicios de un vehículo" → clic derecho sobre un servicio en esa tabla).</li>
+                </ul>
+
+                <h3>Adjudicar un servicio pendiente</h3>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>PASOS: Adjudicar un servicio pendiente (método manual)</p>
+                </div>
+
+                <ul>
+                    <li>En el panel de servicios pendientes, escriba el vehículo en el campo correspondiente.</li>
+                    <li>Pulse el botón gris (clic izquierdo). Se abrirá una ventana de confirmación con los detalles del servicio.</li>
+                    <li>Pulse el visto para enviar.</li>
+                </ul>
+
+                <p>Métodos alternativos:</p>
+
+                <ul>
+                    <li>Desde el vehículo: Seleccione un vehículo en el panel inferior, marque los servicios pendientes, clic derecho sobre el vehículo → "Adjudicar a este vehículo".</li>
+                    <li>Acciones masivas: Escriba el número de unidad, marque los servicios, en zona de acciones seleccione "Adjudicar" (opción 2) y pulse el botón gris.</li>
+                    <li>Desde resumen del vehículo: Abra el resumen de servicios del vehículo y desde allí adjudique.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota sobre confirmación en terminal: Una vez enviado el servicio, el botón del servicio cambiará de color según la recepción: gris fuerte = enviado pero terminal no lo ha recibido (fallo de cobertura o servidor); verde claro = terminal lo ha recibido; la dotación da OK y el servicio desaparece de pendientes y aparece en adjudicados.</p>
+                </div>
+
+                <h3>Finalizar un servicio adjudicado</h3>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>PASOS: Finalizar un servicio adjudicado</p>
+                </div>
+
+                <ul>
+                    <li>En el panel de adjudicados, pulse el botón gris del servicio (clic izquierdo).</li>
+                    <li>Se abrirá la ventana "Finalizar el servicio".</li>
+                    <li>Registre los horarios reales (Activación, Llegada origen, Evacuación, Llegada destino, Transfer, Libre, Final) y observaciones.</li>
+                    <li>Pulse el visto para finalizar.</li>
+                </ul>
+
+                <p>Métodos alternativos:</p>
+
+                <ul>
+                    <li>Menú contextual: Clic derecho sobre la línea del servicio → "Finalizar servicio".</li>
+                    <li>Acciones masivas: Seleccione uno o varios servicios adjudicados, en zona de acciones elija "Finalizar" (opción 5) y pulse el botón gris.</li>
+                    <li>Desde resumen del vehículo.</li>
+                </ul>
+
+                <h3>Desadjudicar un servicio</h3>
+
+                <ul>
+                    <li>Desde la ventana de finalización: Pulse el icono de prohibido.</li>
+                    <li>Desde menú contextual: Clic derecho sobre el servicio adjudicado → "Des-adjudicar servicio".</li>
+                    <li>Desde acciones masivas: Seleccione servicios adjudicados, elija "DesAdjudicar" (opción 4).</li>
+                </ul>
+
+                <h3>Anular un servicio (pendiente o adjudicado)</h3>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>PASOS: Anular un servicio</p>
+                </div>
+
+                <ul>
+                    <li>En pendientes o adjudicados, haga clic derecho sobre el botón gris del servicio.</li>
+                    <li>Se abrirá la ventana de anulación.</li>
+                    <li>Complete el motivo obligatorio (campo "Anulación" y observaciones).</li>
+                    <li>Confirme.</li>
+                </ul>
+
+                <p>Métodos alternativos:</p>
+
+                <ul>
+                    <li>Menú contextual: Clic derecho sobre la línea del servicio → "Anular el servicio".</li>
+                    <li>Acciones masivas: Seleccione servicios, elija "Anular" (opción 3).</li>
+                </ul>
+
+                <h3>Des-anular un servicio (recuperar un servicio anulado)</h3>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Requiere permisos especiales. Se realiza desde la ventana "Visualiza fechas de servicios" (icono portafolios) o desde el menú contextual si está disponible en su perfil.</p>
+                </div>
+
+                <h3>Generar vuelta de un servicio</h3>
+
+                <p>Si el servicio es de ida y tiene vuelta asociada, puede generar la vuelta desde el menú contextual (clic derecho sobre el servicio → "Generar vuelta"). También disponible en el resumen del vehículo y en la ventana de visualización de fechas.</p>
+
+                <h3>Activar un servicio pendiente (antes de enviar)</h3>
+
+                <p>Se usa principalmente cuando el paciente ha avisado que ya está listo (paciente sale de cita). El servicio pendiente se puede activar desde el menú contextual (clic derecho → "Activar servicio") o desde acciones masivas. Al activar, las horas se marcan en rojo.</p>
+
+                <h3>Forzar recibido terminal (solo pendientes)</h3>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Si el terminal no ha confirmado la recepción del servicio (botón gris fuerte) y usted verifica por teléfono que la dotación ha recibido la información, puede usar "Forzar recibido terminal" desde el menú contextual del servicio pendiente. Requiere permisos.</p>
+                </div>
+
+                <h2>Operaciones sobre vehículos (clic derecho sobre un vehículo en panel inferior)</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Opción</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Visualizar el vehículo</td>
+                            <td>Muestra ubicación en mapa.</td>
+                        </tr>
+                        <tr>
+                            <td>Adjudicar a este vehículo</td>
+                            <td>Envía los servicios seleccionados a este vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Ficha vehículo</td>
+                            <td>Abre mantenimiento de vehículos.</td>
+                        </tr>
+                        <tr>
+                            <td>Libre 8/8+1</td>
+                            <td>Muestra plazas libres / totales (sentado + camilla).</td>
+                        </tr>
+                        <tr>
+                            <td>Inicio comidas / limpieza / carga batería</td>
+                            <td>Registra el inicio de esas actividades.</td>
+                        </tr>
+                        <tr>
+                            <td>Inicio/final a detallar</td>
+                            <td>Abre ventana con desplegable para registrar paradas o eventos personalizados (atasco, cena, descanso, etc.).</td>
+                        </tr>
+                        <tr>
+                            <td>Histórico servicios</td>
+                            <td>Listado de servicios realizados por el vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Vuelve a base / Vuelve a zona</td>
+                            <td>Cambia el estado del vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Va ayudar (Manual)</td>
+                            <td>Cambia el color del vehículo a azul (modo apoyo), sin asociar a servicio concreto.</td>
+                        </tr>
+                        <tr>
+                            <td>Restaurar color vehículo</td>
+                            <td>Vuelve al color estándar.</td>
+                        </tr>
+                        <tr>
+                            <td>Resumen servicios de un vehículo</td>
+                            <td>Abre tabla con los servicios del vehículo. Desde allí, clic derecho sobre un servicio permite gestionarlo (activar, anular, finalizar, etc.) igual que en los paneles principales.</td>
+                        </tr>
+                        <tr>
+                            <td>Aviso a pacientes / Quitar aviso</td>
+                            <td>Envía o elimina aviso a los pacientes asignados a ese vehículo.</td>
+                        </tr>
+                        <tr>
+                            <td>Cambiar Individual/Colectivo</td>
+                            <td>Cambia el modo del vehículo (individual o colectivo). Afecta a cómo el sistema le asigna servicios y a las restricciones de GamRuta.</td>
+                        </tr>
+                        <tr>
+                            <td>Activar/Desactivar vehículo para COVID</td>
+                            <td>Cambia el color a rosa y aplica protocolo COVID.</td>
+                        </tr>
+                        <tr>
+                            <td>Exceso velocidad de hoy</td>
+                            <td>Abre el mapa con el histórico de posiciones marcando los puntos donde se excedió la velocidad. Si no hay datos, no se abre.</td>
+                        </tr>
+                        <tr>
+                            <td>Generar un aviso para el vehículo</td>
+                            <td>Mensaje diferido (similar a envío de mensajes con temporizador).</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Mensajería con vehículos</h2>
+
+                <h3>Área de mensajes recibidos (zona inferior verde claro)</h3>
+
+                <p>En la pantalla principal de coordinación, los mensajes entrantes de los vehículos aparecen en un recuadro de color verde claro. Si tiene el altavoz activado, sonará una campanita al recibir un nuevo mensaje.</p>
+
+                <h3>Ventana "Mensajes vehículos" (acceso desde icono o desde la zona de mensajes)</h3>
+
+                <p>Esta ventana centraliza el histórico de conversaciones con los vehículos.</p>
+
+                <ul>
+                    <li>Filtros: Zona vehículo, base, tipo vehículo, tipo traslado, empresa, lote.</li>
+                    <li>Listado izquierdo: Mensajes recibidos de los vehículos. Clic izquierdo sobre un mensaje → abre ventana emergente con el texto completo.</li>
+                    <li>Panel derecho: Conversación con el vehículo seleccionado. En la parte inferior puede escribir y enviar la respuesta.</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Los mensajes no se pueden borrar para mantener trazabilidad. No se pueden descargar ni guardar. Los mensajes automáticos del sistema (confirmaciones de recepción, cambios de estado) no aparecen aquí; se reflejan en los colores de los botones de servicio.</p>
+                </div>
+
+                <h3>Envío de mensaje a un vehículo (ventana emergente)</h3>
+
+                <ul>
+                    <li>Desde la barra de herramientas: icono de mensaje → campo vehículo en blanco para cumplimentar.</li>
+                    <li>Desde el menú contextual del vehículo: ya aparece el vehículo seleccionado.</li>
+                </ul>
+
+                <p>Campos:</p>
+
+                <ul>
+                    <li>Vehículo: destinatario.</li>
+                    <li>Clave: código predefinido en Mantenimientos → Códigos coordinación/vehículos (ej: "3.20" se expande a "a la espera").</li>
+                    <li>Ruta: permite enviar el mensaje al vehículo asignado a una ruta específica.</li>
+                    <li>Mensaje: texto libre con contador regresivo (máximo 239 caracteres).</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Solo se puede enviar a un vehículo. Al enviar, la ventana se cierra. Para envío masivo use Acciones sobre vehículos.</p>
+                </div>
+
+                <h2>Ventanas secundarias y alertas</h2>
+
+                <h3>Visualiza fechas de servicios (icono portafolios)</h3>
+
+                <p>Muestra una tabla con servicios y sus horarios. Permite:</p>
+
+                <ul>
+                    <li>Generar vuelta</li>
+                    <li>Copiar servicio</li>
+                    <li>Des-Anular Servicio (recuperar un servicio anulado)</li>
+                    <li>Des-Finalizar Servicio (recuperar un servicio finalizado por error)</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Las opciones de des-anular y des-finalizar requieren permisos especiales.</p>
+                </div>
+
+                <h3>Disponibilidad de vehículos según taller (icono izquierdo, coche)</h3>
+
+                <p>Muestra las órdenes de trabajo del taller. Si el taller ha indicado un vehículo de sustitución, aparece aquí.</p>
+
+                <p>Clic derecho: Parámetros CANBUS (para vehículos compatibles) – muestra km reales, velocidad, consumo, estado puertas, batería, etc.</p>
+
+                <h3>Mapas de calor (bola roja)</h3>
+
+                <ul>
+                    <li>Cualquier clic abre un mapa que muestra las zonas de calor (concentración de servicios pendientes).</li>
+                    <li>El mapa puede mostrar: solo origen, solo destino, u origen+destino.</li>
+                </ul>
+
+                <h3>GamFleet – Mapa de vehículos (bola verde)</h3>
+
+                <ul>
+                    <li>Clic izquierdo: Mapa en tiempo real. Colores: verde=libres, rojo=con servicios, gris=no operativos.</li>
+                    <li>Clic derecho: Mapa de histórico de posiciones de un vehículo, seleccionando rango de fechas y horas.</li>
+                </ul>
+
+                <h3>Fichaje manual (icono bicicleta)</h3>
+
+                <p>Permite registrar inicio/fin de turno manualmente desde coordinación. Útil si la dotación olvidó fichar o el terminal no funciona.</p>
+
+                <ul>
+                    <li>BASE: Registra en el sistema central. No afecta al terminal.</li>
+                    <li>TERMINAL: Registra "como si se hubiera hecho desde el terminal", pero no cierra la sesión en el dispositivo Gamdroid.</li>
+                </ul>
+
+                <h3>Alertas y validaciones con la administración</h3>
+
+                <p>Acceso desde los cuadros de colores en la zona inferior izquierda.</p>
+
+                <p>Cuadros marrones (mensajes de administración): Muestran incidencias, cambios, anulaciones. Permite filtrar por estado y tipo, y cambiar el estado de la incidencia (marcar como solucionado, reenviar, etc.).</p>
+
+                <p>Cuadro verde (servicios pendientes de validar): Abre tabla de servicios. Al seleccionar uno, se abre Mantenimiento de servicios → pestaña "Datos 1" → marcar "Validado?".</p>
+
+                <p>Cuadro azul (programaciones pendientes de validar): Abre tabla de programaciones. Al seleccionar una, se abre Ficha de programación → pestaña "General" → desmarcar "Pendiente de validar".</p>
+
+                <h3>Histórico modificaciones SRV (propuestas del terminal)</h3>
+
+                <p>Muestra los cambios que la dotación ha propuesto (fechas, acompañante, oxígeno, médico, dirección, etc.). Doble clic sobre un servicio → abre Mantenimiento de servicios para revisar, aceptar o rectificar.</p>
+
+                <h2>Notas finales</h2>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>La tecla F7 es fundamental para mantener la información actualizada. Acostúmbrese a pulsarla periódicamente.</p>
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Los servicios con alertas especiales (paciente con más de una hora en vehículo, posible duplicado, demora superior a dos horas, paciente sale de cita, etc.) se señalan visualmente. Revise estos casos prioritariamente.</p>
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: Los colores personalizables (por población, motivo, lote, etc.) los define el administrador. Consulte con él si necesita conocer el significado de los colores que ve en sus listados.</p>
+                </div>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Nota: La visualización de columnas se puede personalizar: arrastre los títulos para reordenar, redimensiónelas arrastrando los bordes. Al salir, la configuración se guarda automáticamente por usuario.</p>
+                </div>
+
+                <h2>Referencias cruzadas</h2>
+
+                <p>Para completar la gestión de servicios, consulte las siguientes ventanas del manual:</p>
+
+                <ul>
+                    <li>Valores defecto usuario: Para ajustar la apariencia de esta ventana.</li>
+                    <li>Mantenimiento de servicios: Para modificar datos de un servicio ya creado.</li>
+                    <li>Incidencias programados: Para gestionar incidencias recurrentes.</li>
+                    <li>Cambios masivos: Para operaciones en bloque.</li>
+                    <li>Acciones sobre vehículos: Para envío de mensajes masivos.</li>
+                    <li>Inicio/Final turno BASE / TERMINAL: Para gestión detallada de turnos.</li>
+                    <li>Ficha programado: Para gestionar servicios recurrentes.</li>
+                </ul>
+            <!-- GAM:FIN:coord-405-adjudicacion-de-servicios -->
             </section>
 
 <section class="content-section" id="content-coord-406-incidencias-programados">
