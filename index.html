@@ -7219,7 +7219,154 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Para utilizar todas las funciones de esta ventana (adjudicar, reasignar, enviar mensajes, finalizar, anular), su perfil de usuario debe tener habilitados los permisos de coordinación. Algunas acciones específicas (des-anular, des-finalizar, forzar recibido terminal) requieren permisos adicionales otorgados por el administrador del sistema.</p>
 
+                <h3>Requisitos previos: Ventanas que deben estar configuradas</h3>
+
+                <p>Antes de empezar a trabajar en Adjudicación de servicios, el sistema debe tener los siguientes datos maestros ya creados y configurados. Si falta alguno de ellos, la ventana no podrá mostrar información completa o algunas operaciones no estarán disponibles.</p>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Datos imprescindibles</p>
+                </div>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Ventana</th>
+                            <th>Módulo</th>
+                            <th>¿Qué se configura?</th>
+                            <th>Por qué es importante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Vehículos</td>
+                            <td>Mantenimientos</td>
+                            <td>Parque móvil: matrícula, tipo, capacidad, base, zona, sector.</td>
+                            <td>Sin vehículos dados de alta, no se puede adjudicar ningún servicio.</td>
+                        </tr>
+                        <tr>
+                            <td>Pacientes</td>
+                            <td>Mantenimientos</td>
+                            <td>Datos de los pacientes: nombre, dirección, teléfono, historial.</td>
+                            <td>Para que al introducir un servicio se autocomplete la información del paciente.</td>
+                        </tr>
+                        <tr>
+                            <td>Personal (dotaciones)</td>
+                            <td>RRHH</td>
+                            <td>Conductores y ayudantes: nombre, turnos, categoría.</td>
+                            <td>Para asignar dotación a los vehículos y registrar inicio/fin de turno.</td>
+                        </tr>
+                        <tr>
+                            <td>Direcciones estándar</td>
+                            <td>Mantenimientos</td>
+                            <td>Direcciones frecuentes (hospitales, centros de salud, residencias).</td>
+                            <td>Para agilizar la selección de origen y destino en los servicios.</td>
+                        </tr>
+                        <tr>
+                            <td>Tipos de traslado</td>
+                            <td>Mantenimientos</td>
+                            <td>Clasificación de servicios (Sentado, Camilla, UVI, Colectivo, etc.).</td>
+                            <td>Condiciona el comportamiento del servicio y su valoración económica.</td>
+                        </tr>
+                        <tr>
+                            <td>Motivos de traslado</td>
+                            <td>Mantenimientos</td>
+                            <td>Razón del traslado (Consulta externa, Urgencia, Transferencia, etc.).</td>
+                            <td>Clasifica el servicio y afecta a la facturación.</td>
+                        </tr>
+                        <tr>
+                            <td>Lotes / Mutuas (Clientes)</td>
+                            <td>Mantenimientos</td>
+                            <td>Entidades que contratan los servicios (mutuas, aseguradoras, empresas).</td>
+                            <td>Es el cliente que pagará el servicio. Sin ello no se puede facturar.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Datos recomendados (mejoran la operativa)</p>
+                </div>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Ventana</th>
+                            <th>Módulo</th>
+                            <th>¿Qué se configura?</th>
+                            <th>Por qué es importante</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Poblaciones</td>
+                            <td>Mantenimientos</td>
+                            <td>Poblaciones con coordenadas y colores de coordinación.</td>
+                            <td>Para geolocalizar servicios y aplicar colores personalizados en la pantalla.</td>
+                        </tr>
+                        <tr>
+                            <td>Zonas / Sectores / Bases</td>
+                            <td>Mantenimientos</td>
+                            <td>Estructura operativa del territorio.</td>
+                            <td>Para filtrar servicios y vehículos por zona.</td>
+                        </tr>
+                        <tr>
+                            <td>Tipos de vehículo</td>
+                            <td>Mantenimientos</td>
+                            <td>Categorías de vehículos (Colectiva, UVI, VIR, etc.).</td>
+                            <td>Para filtrar la flota por tipo en la pantalla de coordinación.</td>
+                        </tr>
+                        <tr>
+                            <td>Códigos de coordinación / vehículos</td>
+                            <td>Mantenimientos</td>
+                            <td>Códigos rápidos para mensajes (ej: "3.20" = "a la espera").</td>
+                            <td>Para agilizar la comunicación con las unidades.</td>
+                        </tr>
+                        <tr>
+                            <td>Valores defecto usuario</td>
+                            <td>Coordinación</td>
+                            <td>Configuración personal de la pantalla (resolución, posición paneles, etc.).</td>
+                            <td>Para adaptar la ventana al puesto de trabajo del coordinador.</td>
+                        </tr>
+                        <tr>
+                            <td>Programaciones (Ficha programado)</td>
+                            <td>Programados</td>
+                            <td>Servicios recurrentes (ej: transporte diario a centro de diálisis).</td>
+                            <td>Para que el sistema genere automáticamente estos servicios.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Listado de verificación (checklist para el administrador)</p>
+                </div>
+
+                <p>Antes de que un coordinador comience a usar Adjudicación de servicios, compruebe que:</p>
+
+                <ul>
+                    <li>Hay al menos un vehículo dado de alta y con dotación asignada.</li>
+                    <li>Hay al menos un paciente dado de alta (aunque se puedan crear sobre la marcha).</li>
+                    <li>Hay al menos un tipo de traslado y un motivo de traslado configurados.</li>
+                    <li>Hay al menos un lote/mutua (cliente) dado de alta.</li>
+                    <li>Las direcciones estándar más frecuentes están creadas.</li>
+                    <li>Los coordinadores tienen los permisos necesarios en su perfil de usuario.</li>
+                    <li>Cada coordinador ha configurado sus Valores defecto usuario (resolución, posición paneles, etc.).</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Si al abrir la ventana no se ven servicios o vehículos, o algunas opciones aparecen deshabilitadas, revise este listado. La causa más frecuente es la falta de configuración de alguno de estos datos maestros.</p>
+                </div>
+
                 <h2>Preparación: Configurar la pantalla en Valores defecto usuario</h2>
+
+                <figure>
+                    <img src="assets/capturas/0405 - Adjudicación de Servicios.png" alt="0405 - Adjudicación de Servicios.png" class="screenshot">
+                    <figcaption>Figura 1 - Valores defecto por usuario</figcaption>
+                </figure>
 
                 <p>Antes de utilizar Adjudicación de servicios por primera vez, debe configurar su apariencia en la ventana Valores defecto usuario. Esta configuración es personal y se guarda por usuario, por lo que cada coordinador puede tener su propia distribución de pantalla.</p>
 
@@ -7285,7 +7432,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
                     <p>Se recomienda que el refresco automático no sea bajo para evitar la interrupción de tareas. Un valor óptimo es de 3 minutos como mínimo (180 000 milisegundos). Si necesita refrescar la pantalla antes de ese tiempo, utilice la tecla F7. Valores inferiores pueden provocar microcortes y molestias durante su trabajo.</p>
                 </div>
 
-                <h3>Ejemplos de configuración de pantalla</h3>
+                <h3>Ejemplos de configuración de pantalla en pantalla 1980*1080</h3>
 
                 <table class="table-manual">
                     <thead>
@@ -7326,6 +7473,11 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
                 </div>
 
                 <h2>Configuración de la vista: Filtros</h2>
+
+                <figure>
+                    <img src="assets/capturas/0405 - Adjudicación de Servicios (2).png" alt="0405 - Adjudicación de Servicios (2).png" class="screenshot">
+                    <figcaption>Figura 2 -Filtro inicio-</figcaption>
+                </figure>
 
                 <p>Esta es la pantalla que aparece nada más acceder a Adjudicación de servicios, antes de cargar ningún dato. Aquí se define qué servicios y qué vehículos se mostrarán después al pulsar F7.</p>
 
@@ -7492,7 +7644,12 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h2>Estructura de la ventana (una vez cargados los datos)</h2>
 
-                <p>Una vez aplicados los filtros y pulsado F7, la pantalla se organiza en las siguientes zonas:</p>
+                <figure>
+                    <img src="assets/capturas/0405 - Adjudicacion_de_servicios (2).png" alt="0405 - Adjudicacion_de_servicios (2).png" class="screenshot">
+                    <figcaption>figura 3 - Pantalla de Coordinación</figcaption>
+                </figure>
+
+                <p>Una vez aplicados los filtros y pulsando F7, la pantalla se organiza en las siguientes zonas:</p>
 
                 <table class="table-manual">
                     <thead>
@@ -7528,7 +7685,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
                             <td>Zona con cuadros de colores (tonos marrones, verde, azul) para gestionar mensajes de administración, propuestas del terminal, validaciones pendientes.</td>
                         </tr>
                         <tr>
-                            <td>Mapas de calor (bola roja)</td>
+                            <td>Mapas de calor (bola roja) </td>
                             <td>Visualización geográfica de concentración de servicios por origen, destino o combinado.</td>
                         </tr>
                         <tr>
@@ -7776,7 +7933,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
                         </tr>
                         <tr>
                             <td>Código en rosa</td>
-                            <td>Vehículo activado para COVID.</td>
+                            <td>Vehículo activado para COVID.ç</td>
                         </tr>
                         <tr>
                             <td>Código subrayado</td>
