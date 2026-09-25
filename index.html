@@ -7167,6 +7167,13 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Da de alta un servicio esporádico: un traslado sin periodicidad, también conocido como consulta. Desde esta ventana se puede:</p>
 
+                <ul>
+                    <li>Registrar un servicio puntual con los datos del paciente, origen, destino y condiciones del traslado.</li>
+                    <li>Recuperar automáticamente los datos de un paciente ya dado de alta (ficha + valores por defecto del usuario).</li>
+                    <li>Generar la ida y la vuelta juntas o de forma independiente.</li>
+                    <li>Definir la facturación, la movilidad y los estados administrativos del servicio.</li>
+                </ul>
+
                 <div class="note-box">
                     <div class="box-title">Nota</div>
                     <p>El módulo -Coordinación- permite a coordinadores y jefes de tráfico controlar, supervisar y reorganizar el movimiento diario y real de los servicios en tiempo real. Desde él se dan de alta tres tipos de servicio: esporádicos/normales (N), siniestros (S) y urgencias (U). Esta ventana corresponde al tipo Normal (N).</p>
@@ -7174,11 +7181,72 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h2>¿Dónde se utiliza?</h2>
 
+                <ul>
+                    <li>La usan principalmente el departamento de programación y gestores de atención al usuario para registrar traslados puntuales que no vienen de una programación periódica.</li>
+                    <li>Es una de las vías de alta de servicios; existen otras (email, GamWeb, integraciones externas como EPES, ASISA, TRNUX, etc.).</li>
+                    <li>Una vez dado de alta, el servicio pasa a la operativa de -Adjudicación de servicios-, donde se asigna a un vehículo, se hace el seguimiento y se finaliza.</li>
+                </ul>
+
                 <h2>Relaciones con otras ventanas</h2>
 
                 <p>Datos que esta ventana aprovecha (deben existir antes):</p>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Ventana</th>
+                            <th>Motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>-Pacientes-</td>
+                            <td>Recupera los datos del paciente (dirección, movilidad, observaciones, lote/mutua) desde la ventana de pacientes también podemos dar de alta un servicio esporádico. Si lo damos de alta desde la ficha del paciente, automáticamente ya nos saldrá todos sus datos</td>
+                        </tr>
+                        <tr>
+                            <td>-Poblaciones-</td>
+                            <td>Completa origen/destino con código y coordenadas</td>
+                        </tr>
+                        <tr>
+                            <td>-Lotes/Mutuas-</td>
+                            <td>Define quién factura el servicio</td>
+                        </tr>
+                        <tr>
+                            <td>-Tipos de traslado- / -Tipos de vehículo-</td>
+                            <td>Rellenan las condiciones del traslado</td>
+                        </tr>
+                        <tr>
+                            <td>-Valores defecto usuario-</td>
+                            <td>Aporta los valores por defecto al crear el servicio</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <p>Ventanas que usan el servicio creado aquí:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Módulo</th>
+                            <th>Ventana</th>
+                            <th>Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Coordinación</td>
+                            <td>-Adjudicación de servicios-</td>
+                            <td>Adjudica, sigue y finaliza el servicio</td>
+                        </tr>
+                        <tr>
+                            <td>Facturación</td>
+                            <td>Generación de facturas</td>
+                            <td>Factura el servicio según su estado administrativo</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h2>Descripción de la pantalla</h2>
 
@@ -7188,6 +7256,54 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>(-imagen: búsqueda de paciente-)</p>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Apellidos / Nombre</td>
+                            <td>Identificación del paciente</td>
+                            <td>Búsqueda en base de datos al escribir</td>
+                        </tr>
+                        <tr>
+                            <td>CIP</td>
+                            <td>Código de Identificación Personal</td>
+                            <td>Necesario para facturar a la Administración Pública</td>
+                        </tr>
+                        <tr>
+                            <td>NASS</td>
+                            <td>Nº de Afiliación a la Seguridad Social</td>
+                            <td>Formato / /</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha recepción</td>
+                            <td>Fecha y hora de entrada de la petición</td>
+                            <td>Precargada con la actual</td>
+                        </tr>
+                        <tr>
+                            <td>Inicio servicio</td>
+                            <td>Fecha y hora de inicio del traslado</td>
+                            <td>Precargada con la actual</td>
+                        </tr>
+                        <tr>
+                            <td>Hora centro</td>
+                            <td>Hora de la cita del paciente en el centro de destino (hora a la que tiene la consulta)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Tiene vuelta</td>
+                            <td>Indica si el servicio tiene vuelta</td>
+                            <td>Se pone 1 y la hora (por defecto 23:59 por si no se sabe la hora de salida, la cual se cambiará en e momento que el paciente avise de la finalización de la consulta)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <div class="note-box">
                     <div class="box-title">Nota</div>
                     <p>Si el paciente está dado de alta, Gam recoge automáticamente los datos de su ficha y los de -Valores defecto usuario-. El resto se cumplimenta manualmente. Si no está dado de alta, se rellena todo a mano.</p>
@@ -7195,7 +7311,66 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h3>Origen y destino</h3>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Origen / Destino</td>
+                            <td>Población y dirección del punto de recogida y de entrega</td>
+                            <td>Desplegables de población y códigos</td>
+                        </tr>
+                        <tr>
+                            <td>Coordenadas</td>
+                            <td>Coordenadas GPS del origen y del destino</td>
+                            <td>Campos numéricos junto a cada bloque</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <h3>Condiciones del traslado</h3>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Motivo traslado</td>
+                            <td>Motivo del servicio</td>
+                        </tr>
+                        <tr>
+                            <td>Proc. Llamada</td>
+                            <td>Procedencia de la llamada (p. ej. FREMAP)</td>
+                        </tr>
+                        <tr>
+                            <td>Tipo traslado</td>
+                            <td>P. ej. CAMILLA</td>
+                        </tr>
+                        <tr>
+                            <td>Tipo vehículo</td>
+                            <td>P. ej. COLECTIVA</td>
+                        </tr>
+                        <tr>
+                            <td>Extra1 / Extra2</td>
+                            <td>Campos personalizables definidos por la empresa</td>
+                        </tr>
+                        <tr>
+                            <td>Lote/Mutua, UP facturar, N. Colegiado</td>
+                            <td>Datos de facturación y colegiación</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h3>Movilidad</h3>
 
@@ -7205,12 +7380,80 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h3>Facturación y asignación</h3>
 
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Referencia / Código externo</td>
+                            <td>Referencias internas o de sistema externo</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Teléfono</td>
+                            <td>Teléfono de contacto del servicio</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Facturación</td>
+                            <td>Tipo de facturación (p. ej. NORMAL)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Póliza</td>
+                            <td>Póliza del seguro privado</td>
+                            <td>En caso de servicio de mutua/compañia</td>
+                        </tr>
+                        <tr>
+                            <td>P10 Ida / P10 Vuelta</td>
+                            <td>Autorización de traslado (antiguamente "P10")</td>
+                            <td>Indica si debe recogerse la autorización de traslado y en qué momento (ida y/o vuelta)</td>
+                        </tr>
+                        <tr>
+                            <td>Ruta / Vehículo (ida y vuelta)</td>
+                            <td>Asignación de ruta y vehículo</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Dotación</td>
+                            <td>Dotación asignada</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Zona servicio, Empresa genera, Empresa factura, Lote/Mutua original</td>
+                            <td>Datos de zona y empresa</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Tipo servicio</td>
+                            <td>N = Normal (frente a S = Siniestro y U = Urgencia)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>OK / OKSRV / OKDOCU / OKFACT</td>
+                            <td>Estados administrativos del servicio que se comunican a Facturación (informan de cómo está el servicio administrativamente: servicio, documentación, facturación)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <div class="note-box">
                     <div class="box-title">Nota</div>
                     <p>Dos campos: Observaciones servicio (las ve también la dotación) y Observaciones internas (solo usuarios de oficina). Si el paciente ya las tiene en su ficha, se propagan automáticamente al servicio.</p>
                 </div>
 
                 <h2>Iconografía y acciones</h2>
+
+                <ul>
+                    <li>Grabar (F5): registra el servicio.</li>
+                    <li>(-imagen icono: guardar F5-)</li>
+                </ul>
 
                 <div class="note-box">
                     <div class="box-title">Nota</div>
@@ -7221,7 +7464,19 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h2>Proceso recomendado: dar de alta un servicio esporádico</h2>
 
-                <p>PASOS: Alta de un servicio esporádico</p>
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Alta de un servicio esporádico</p>
+                </div>
+
+                <ul>
+                    <li>Buscar el paciente por apellidos/nombre. Si existe, doble clic para cargar sus datos; si no, darlo de alta.</li>
+                    <li>Revisar/completar origen y destino.</li>
+                    <li>Cumplimentar las condiciones del traslado (motivo, tipo de traslado y de vehículo) y la movilidad.</li>
+                    <li>Indicar la facturación (lote/mutua, tipo, P10 si procede).</li>
+                    <li>Si el servicio tiene vuelta, poner 1 y la hora.</li>
+                    <li>Pulsar grabar (F5) para registrar el servicio. FIN_PASOS:</li>
+                </ul>
 
                 <div class="alert-box">
                     <div class="box-title">Importante</div>
