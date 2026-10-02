@@ -7161,7 +7161,10 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
             <!-- GAM:INICIO:coord-401-normales -->
 <h1>Servicios esporádicos</h1>
 
-                <p>(-imagen ventana: Servicios esporádicos / Alta servicios-)</p>
+                <figure>
+                    <img src="assets/capturas/0401- Alta_Normal.png" alt="0401- Alta_Normal.png" class="screenshot">
+                    <figcaption>Figura 1 - Ventana alta Servicio esporádico</figcaption>
+                </figure>
 
                 <h2>¿Qué permite esta ventana?</h2>
 
@@ -7169,7 +7172,7 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <ul>
                     <li>Registrar un servicio puntual con los datos del paciente, origen, destino y condiciones del traslado.</li>
-                    <li>Recuperar automáticamente los datos de un paciente ya dado de alta (ficha + valores por defecto del usuario).</li>
+                    <li>En el proceso, podemos recuperar automáticamente los datos de un paciente ya dado de alta (ficha + valores por defecto del usuario).</li>
                     <li>Generar la ida y la vuelta juntas o de forma independiente.</li>
                     <li>Definir la facturación, la movilidad y los estados administrativos del servicio.</li>
                 </ul>
@@ -7254,7 +7257,10 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Se indican los Apellidos y el Nombre del paciente. Si ya está dado de alta, Gam busca en la base de datos y muestra las coincidencias; se hace doble clic sobre el registro para traer sus datos. Si no existe, puede darse de alta desde aquí.</p>
 
-                <p>(-imagen: búsqueda de paciente-)</p>
+                <figure>
+                    <img src="assets/capturas/0401- Alta_Normal (3).png" alt="0401- Alta_Normal (3).png" class="screenshot">
+                    <figcaption>Figura 2 - Consulta datos paciente</figcaption>
+                </figure>
 
                 <table class="table-manual">
                     <thead>
@@ -7376,7 +7382,10 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <p>Desplegables de movilidad (recogida/descarga en domicilio, subida al vehículo, en el vehículo) y casillas de condición del paciente: Ayudante, Acompañante, Oxígeno, Necesita ayuda, Pediátrico, Obeso, Aeropuerto, Médico, DUE, y Tiene Covid / Sospechoso Covid.</p>
 
-                <p>(-imagen: zona movilidad-)</p>
+                <figure>
+                    <img src="assets/capturas/0401- Alta_Normal (17).png" alt="0401- Alta_Normal (17).png" class="screenshot">
+                    <figcaption>Figura 3 - Desplegable de movilidad</figcaption>
+                </figure>
 
                 <h3>Facturación y asignación</h3>
 
@@ -7503,10 +7512,42 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 </div>
 
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Es posible que el sistema nos devuelva un mensaje de que el paciente tiene más de dos servicios para hoy, puede ser que hayamos duplicado la visita o también que tenga programado más de dos traslados para ese día (el sistema avisa si hay más de dos ida/vuelta) . Se recomienda revisar los traslados de ese paciente para el mismo dia, por si hay algún tipo de error, ya que el sistema permite crear diversos servicios para el mismo día.</p>
+                </div>
+
+                <figure>
+                    <img src="assets/capturas/0401- Alta_Normal (13).png" alt="0401- Alta_Normal (13).png" class="screenshot">
+                    <figcaption>Figura 4 - Mensaje de diversos servicios el mismo dia</figcaption>
+                </figure>
+
                 <div class="alert-box">
                     <div class="box-title">Importante</div>
                     <p>Recomendamos cumplimentar todos los campos que sean posibles. Cuantos más datos tengamos, el control y los listados posteriores serán más detallados y se podrá llevar un mejor control del servicio y el proceso de facturación</p>
                 </div>
+
+                <h2>Copiar el servicio</h2>
+
+                <p>Si el paciente tiene varios servicios para la misma visita o tratamiento tenemos una opción para replicar este servicio para varios días. Copiará tal cual todos los datos para otro dia, si necesitamos cambiar algo, una vez guardado tendremos que hacerlo desde la ventana de mantenimiento de servicios.</p>
+
+                <p>¿Cómo lo hacemos?</p>
+
+                <p>Una vez hayamos recopilado todos los datos y guardado el servicio, la ventana no se cerrará, entonces podremos clicar el icono de copiar servicio <img src="assets/iconos/icon_copiar-visita.png" alt="icon_copiar-visita.png" class="icon-inline">.</p>
+
+                <p>Se nos abrirá una ventana donde podremos seleccionar todos los días en que se repita la visita. (clicar una sola vez sobre la fecha que queramos seleccionar y irá apareciendo en la lista de la derecha)</p>
+
+                <figure>
+                    <img src="assets/capturas/0401 - Normales (9).png" alt="0401 - Normales (9).png" class="screenshot">
+                    <figcaption>Figura 5 - Selector de días que se repite la visita</figcaption>
+                </figure>
+
+                <p>Una vez tengamos seleccionados todos los días, cerramos con el icono de cerrar ventana del desplegable del calendario <img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"> y el sistema nos indicará que ya se han generado los servicios con esta ventana</p>
+
+                <figure>
+                    <img src="assets/capturas/0401 - Normales (10).png" alt="0401 - Normales (10).png" class="screenshot">
+                    <figcaption>Figura 6 - Finalización del proceso de duplicar visita</figcaption>
+                </figure>
 
                 <h2>Qué NO se hace en esta ventana</h2>
 
