@@ -7612,13 +7612,245 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
 <section class="content-section" id="content-coord-403-urgencias">
             <!-- GAM:INICIO:coord-403-urgencias -->
-                <h1>Urgencias</h1>
-                <div class="construction">
-                    <h3>✏️ Urgencias <span style="font-size:11px;font-weight:400;color:#999">· Borrador</span></h3>
-                    <p>Módulo: <strong>COORDINACION</strong></p>
-                    <p>Esta sección se actualizará cuando el temario esté redactado.</p>
+<h1>Urgencias</h1>
+
+                <figure>
+                    <img src="assets/capturas/403 - Urgencias.png" alt="403 - Urgencias.png" class="screenshot">
+                    <figcaption>Figura 1 - Ventana alta servicios urgentes</figcaption>
+                </figure>
+
+                <h2>¿Qué permite esta ventana?</h2>
+
+                <p>Da de alta un servicio urgente: un traslado que hay que atender en el momento, sin cita previa y sin vuelta programada. Desde esta ventana se puede:</p>
+
+                <ul>
+                    <li>Registrar el servicio empezando por el punto de recogida, que es el dato más importante en una urgencia.</li>
+                    <li>Recuperar los datos de un paciente ya dado de alta, si se conoce, o registrar el servicio sin paciente identificado todavía.</li>
+                    <li>Definir las condiciones del traslado, la movilidad del paciente y los datos de facturación.</li>
+                </ul>
+
+                <p>El formulario es el mismo que el de -Servicios esporádicos- y -Siniestros-: los campos y las zonas son iguales. Lo que cambia es cómo se comporta al abrirlo y cómo se ve el servicio después en la pantalla de coordinación.</p>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>El módulo -Coordinación- da de alta tres tipos de servicio: esporádicos/normales (N), siniestros (S) y urgencias (U). Esta ventana corresponde al tipo Urgencia (U).</p>
                 </div>
-                        <!-- GAM:FIN:coord-403-urgencias -->
+
+                <h2>¿Dónde se utiliza?</h2>
+
+                <ul>
+                    <li>La usan los coordinadores y el personal de sala cuando entra una petición que hay que atender de inmediato.</li>
+                    <li>Una vez grabado, el servicio aparece en -Adjudicación de servicios- como pendiente, destacado con su color de urgencia (ver la leyenda de colores de esa ventana), y desde allí se adjudica a un vehículo, se sigue y se finaliza.</li>
+                </ul>
+
+                <h2>Relaciones con otras ventanas</h2>
+
+                <p>Datos que esta ventana aprovecha (deben existir antes):</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Ventana</th>
+                            <th>Motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>-Pacientes-</td>
+                            <td>Si el paciente ya existe, se recuperan sus datos (dirección, movilidad, observaciones, lote/mutua).</td>
+                        </tr>
+                        <tr>
+                            <td>-Poblaciones-</td>
+                            <td>Completa el origen y el destino con su código y coordenadas.</td>
+                        </tr>
+                        <tr>
+                            <td>-Motivos de traslado-</td>
+                            <td>El motivo es obligatorio para poder grabar el servicio.</td>
+                        </tr>
+                        <tr>
+                            <td>-Lotes/Mutuas-</td>
+                            <td>Define quién paga el servicio. Si el lote/mutua está inactivo, GAM no deja grabar.</td>
+                        </tr>
+                        <tr>
+                            <td>-Tipos de traslado- / -Tipos de vehículo-</td>
+                            <td>Rellenan las condiciones del traslado.</td>
+                        </tr>
+                        <tr>
+                            <td>-Unidades Productivas-</td>
+                            <td>Si hay una única unidad productiva marcada como de urgencia, GAM la propone automáticamente en UP facturar.</td>
+                        </tr>
+                        <tr>
+                            <td>-Valores defecto usuario-</td>
+                            <td>Aporta los valores por defecto al crear el servicio.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Ventanas que usan el servicio creado aquí:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Módulo</th>
+                            <th>Ventana</th>
+                            <th>Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Coordinación</td>
+                            <td>-Adjudicación de servicios-</td>
+                            <td>Adjudica, sigue y finaliza el servicio.</td>
+                        </tr>
+                        <tr>
+                            <td>Coordinación</td>
+                            <td>-Mantenimiento de servicios-</td>
+                            <td>Permite corregir o completar los datos una vez grabado.</td>
+                        </tr>
+                        <tr>
+                            <td>Facturación</td>
+                            <td>Generación de facturas</td>
+                            <td>Factura el servicio según su estado administrativo.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Descripción de la pantalla</h2>
+
+                <p>La pantalla tiene las mismas zonas que -Servicios esporádicos-: datos del paciente y cabecera, origen y destino, condiciones del traslado, movilidad, facturación y asignación, y observaciones. La descripción de cada campo está en esa ventana. Aquí se detallan solo las diferencias.</p>
+
+                <h3>Cabecera: sin hora de cita ni vuelta</h3>
+
+                <p>En la cabecera solo aparecen Fecha recepción e Inicio servicio, que se precargan con la fecha y hora actuales.</p>
+
+                <p>No aparecen los campos Hora centro ni Tiene vuelta: un servicio urgente no tiene hora de cita en el centro de destino y se graba siempre sin vuelta.</p>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Si después el paciente necesita volver, lo habitual es dar de alta un servicio esporádico como alta de un centro hospitalario. Si hace falta, desde -Mantenimiento de servicios- también se puede generar la vuelta del servicio urgente: conserva el mismo número de servicio con una V delante, de modo que ida y vuelta quedan relacionadas.</p>
+                </div>
+
+                <h3>El cursor empieza en el origen</h3>
+
+                <p>Al abrir la ventana, el cursor se sitúa directamente en la dirección de Origen, no en los apellidos del paciente. Así se puede anotar en primer lugar dónde hay que recoger al paciente y completar el resto de datos después.</p>
+
+                <h3>Paciente</h3>
+
+                <p>Se puede buscar el paciente por apellidos y nombre igual que en -Servicios esporádicos-: si existe, se hace doble clic sobre el registro para traer sus datos.</p>
+
+                <p>Si en el momento de la llamada no se conoce al paciente, se puede crear la urgencia e identificarlo después. Que esto se permita o no depende de la configuración de cada empresa.</p>
+
+                <h3>Unidad productiva a facturar</h3>
+
+                <p>Si en la empresa hay una sola unidad productiva marcada como de urgencia, GAM la rellena automáticamente en UP facturar al grabar, cuando el campo se ha dejado vacío. La marca se pone con un check en la ficha de la unidad productiva, en -Unidades Productivas-.</p>
+
+                <h3>Tipo servicio</h3>
+
+                <p>El campo Tipo servicio aparece con el valor U (Urgente).</p>
+
+                <h2>Iconografía y acciones</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Descripción/Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Registro nuevo</td>
+                            <td>F2. Abre un registro en blanco para coger un nuevo servicio.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Grabar</td>
+                            <td>F5. Guarda el servicio. A partir de ese momento los cambios se gestionan en -Mantenimiento de servicios-.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_copiar-visita.png" alt="icon_copiar-visita.png" class="icon-inline"></td>
+                            <td>Copiar visita</td>
+                            <td>Duplica el servicio grabado para otros días. Funciona también en urgencias, aunque no es un uso habitual. Ver -Servicios esporádicos-.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar / instrucciones</td>
+                            <td>F12. Con el botón izquierdo se cierra la ventana; con el derecho se abre la ayuda.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si sale de la ventana sin haber grabado, GAM pregunta "No ha guardado el servicio. ¿Quiere salir?" para evitar que se pierda la petición.</p>
+                </div>
+
+                <h2>Proceso recomendado: dar de alta un servicio urgente</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Dar de alta un servicio urgente</p>
+                </div>
+
+                <ul>
+                    <li>Anote la dirección de recogida en Origen (el cursor ya está ahí) y complete la población.</li>
+                    <li>Si se conoce el destino, complételo. Si todavía no se sabe, puede dejar la dirección de destino en blanco y completarla más tarde desde -Mantenimiento de servicios-.</li>
+                    <li>Identifique al paciente por apellidos y nombre. Si existe, doble clic para cargar sus datos. Si no se conoce todavía, según la configuración de su empresa podrá identificarlo más tarde.</li>
+                    <li>Indique el Motivo traslado, que es obligatorio, y el resto de condiciones del traslado (tipo de traslado y de vehículo) y la movilidad.</li>
+                    <li>Revise la facturación (lote/mutua, UP facturar).</li>
+                    <li>Pulse Grabar (F5).</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Sin Motivo traslado, sin Lot/mutua o sin Empresa genera, GAM muestra "Faltan datos por rellenar" y no graba el servicio.</p>
+                </div>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No se programa la vuelta: el servicio urgente se graba sin vuelta. Si se necesita, se da de alta un servicio esporádico o se genera desde -Mantenimiento de servicios-.</li>
+                    <li>No se adjudica el vehículo ni se sigue el servicio: eso se hace en -Adjudicación de servicios-.</li>
+                    <li>No se dan de alta servicios normales ni siniestros: cada uno tiene su propia ventana (-Servicios esporádicos- y -Siniestros-).</li>
+                </ul>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>Una vez grabado, el servicio se corrige o completa desde -Mantenimiento de servicios-.</p>
+                </div>
+
+                <div class="warn-box">
+                    <div class="box-title">Advertencia</div>
+                    <p>El CIP del paciente es necesario para poder facturar el servicio a la Administración Pública.</p>
+                </div>
+
+                <h2>Permisos necesarios</h2>
+
+                <p>Si los iconos aparecen desactivados, es posible que su usuario no tenga permiso para dar de alta servicios. Consulte con el administrador del sistema de su empresa (Utilidades → -Permiso de Usuarios-).</p>
+
+                <h2>Preguntas frecuentes</h2>
+
+                <p>¿Por qué no veo los campos Hora centro ni Tiene vuelta? Porque en los servicios urgentes no se usan: no hay hora de cita y el servicio se graba sin vuelta.</p>
+
+                <p>¿Puedo grabar la urgencia sin saber todavía el destino? Sí. Si deja la dirección de destino en blanco, GAM graba el servicio igualmente. Complete el destino después desde -Mantenimiento de servicios-.</p>
+
+                <p>¿Cómo se distingue una urgencia en la pantalla de coordinación? En -Adjudicación de servicios- los servicios urgentes aparecen destacados con un color propio. Consulte la leyenda de colores de esa ventana.</p>
+
+                <p>El paciente tiene que volver a casa después de la urgencia. ¿Qué hago? Lo habitual es dar de alta un servicio esporádico como alta del centro hospitalario. También puede generar la vuelta desde -Mantenimiento de servicios-: tendrá el mismo número de servicio con una V delante.</p>
+
+                <p>¿Puedo grabar la urgencia sin saber quién es el paciente? Depende de la configuración de su empresa. Si está permitido, identifique al paciente más tarde desde -Mantenimiento de servicios-.</p>
+
+                <p>Me sale "Lote/cliente inactivo" al grabar. El lote/mutua elegido está desactivado. Elija otro o consulte con el administrador.</p>
+
+                <h2>Enlaces recomendados</h2>
+
+                <p>-Servicios esporádicos- · -Siniestros- · -Adjudicación de servicios- · -Mantenimiento de servicios- · -Valores defecto usuario-</p>
+            <!-- GAM:FIN:coord-403-urgencias -->
             </section>
 
 <section class="content-section" id="content-coord-405-adjudicacion-de-servicios">
