@@ -7589,24 +7589,252 @@ Puede diferir del habitual si, por programación, se ha ajustado la dotación pa
 
                 <h2>¿Qué permite esta ventana?</h2>
 
-                <p>Da de alta un servicio de tipo siniestro. Esta ventana está pensada para la gestión de servicios UVI o VIR.</p>
-
-                <p>El formulario es el mismo que el de -Servicios esporádicos- (mismos campos y zonas: paciente, origen/destino, condiciones del traslado, movilidad, facturación, observaciones). La diferencia la encontraremos en como visualizamos este servicio en la pantalla de coordinación</p>
-
-                <p>Diferencias respecto a -Servicios esporádicos-</p>
+                <p>Da de alta un servicio de tipo siniestro: los traslados que se atienden con unidades UCI (en algunas empresas se llaman UVI) o VIR (vehículo de intervención rápida). Desde esta ventana se puede:</p>
 
                 <ul>
-                    <li>Tipo servicio: S (Siniestro), en lugar de N.</li>
-                    <li>Los campos Extra1 / Extra2 se usan aquí para clasificar el siniestro: en el entorno de pruebas aparecen como Tipo de siniestro (Extra1) y Síntoma (Extra2). Son campos personalizables por la empresa.</li>
+                    <li>Registrar el servicio con los datos del paciente, origen, destino y condiciones del traslado.</li>
+                    <li>Clasificar el siniestro con los campos personalizables de la empresa (por ejemplo, tipo de siniestro y síntoma).</li>
+                    <li>Recuperar los datos de un paciente ya dado de alta.</li>
+                    <li>Indicar, si hace falta, que el servicio tiene vuelta.</li>
+                    <li>Definir la movilidad del paciente y los datos de facturación.</li>
                 </ul>
 
-                <h2>Cómo se da de alta</h2>
+                <p>El formulario es el mismo que el de -Servicios esporádicos- y -Urgencias-: los campos y las zonas son iguales. Lo que cambia es el tipo de servicio que se graba y cómo se ve después en la pantalla de coordinación.</p>
 
-                <p>El procedimiento es idéntico al de -Servicios esporádicos-: se identifica el paciente, se completan origen/destino y condiciones del traslado, y se graba con F5. Ver -Servicios esporádicos- para el detalle de todos los campos. Consultar “Servicios esporádicos para mas detalles)</p>
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>El módulo -Coordinación- da de alta tres tipos de servicio: esporádicos/normales (N), siniestros (S) y urgencias (U). Esta ventana corresponde al tipo Siniestro (S).</p>
+                </div>
+
+                <h2>¿Dónde se utiliza?</h2>
+
+                <ul>
+                    <li>La usan los coordinadores y el personal de sala para registrar los servicios que se atienden con UCI/UVI o VIR, por ejemplo los traslados interhospitalarios en UCI.</li>
+                    <li>Una vez grabado, el servicio aparece en -Adjudicación de servicios- como pendiente, destacado con su color de siniestro (ver la leyenda de colores de esa ventana), y desde allí se adjudica a un vehículo, se sigue y se finaliza.</li>
+                </ul>
+
+                <h2>Relaciones con otras ventanas</h2>
+
+                <p>Datos que esta ventana aprovecha (deben existir antes):</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Ventana</th>
+                            <th>Motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>-Pacientes-</td>
+                            <td>Si el paciente ya existe, se recuperan sus datos (dirección, movilidad, observaciones, lote/mutua).</td>
+                        </tr>
+                        <tr>
+                            <td>-Poblaciones-</td>
+                            <td>Completa el origen y el destino con su código y coordenadas.</td>
+                        </tr>
+                        <tr>
+                            <td>-Motivos de traslado-</td>
+                            <td>El motivo es obligatorio para poder grabar el servicio.</td>
+                        </tr>
+                        <tr>
+                            <td>-Lotes/Mutuas-</td>
+                            <td>Define quién paga el servicio. Es obligatorio, y si el lote/mutua está inactivo GAM no deja grabar.</td>
+                        </tr>
+                        <tr>
+                            <td>-Tipos de traslado- / -Tipos de vehículo-</td>
+                            <td>Rellenan las condiciones del traslado. En siniestros, el tipo de vehículo indica si es una UCI/UVI o una VIR.</td>
+                        </tr>
+                        <tr>
+                            <td>-Extra1- / -Extra2-</td>
+                            <td>Contienen los valores con los que la empresa clasifica el siniestro (por ejemplo, tipo de siniestro y síntoma).</td>
+                        </tr>
+                        <tr>
+                            <td>-Valores defecto usuario-</td>
+                            <td>Aporta los valores por defecto al crear el servicio.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Ventanas que usan el servicio creado aquí:</p>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Módulo</th>
+                            <th>Ventana</th>
+                            <th>Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td>Coordinación</td>
+                            <td>-Adjudicación de servicios-</td>
+                            <td>Adjudica, sigue y finaliza el servicio.</td>
+                        </tr>
+                        <tr>
+                            <td>Coordinación</td>
+                            <td>-Mantenimiento de servicios-</td>
+                            <td>Permite corregir o completar los datos una vez grabado.</td>
+                        </tr>
+                        <tr>
+                            <td>Facturación</td>
+                            <td>Generación de facturas</td>
+                            <td>Factura el servicio según su estado administrativo.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Descripción de la pantalla</h2>
+
+                <p>La pantalla tiene las mismas zonas que -Servicios esporádicos-: datos del paciente y cabecera, origen y destino, condiciones del traslado, movilidad, facturación y asignación, y observaciones. La descripción completa de cada campo está en esa ventana. Aquí se detallan los puntos propios de los siniestros.</p>
+
+                <h3>Cabecera</h3>
+
+                <p>En la cabecera aparecen Fecha recepción e Inicio servicio, precargadas con la fecha y hora actuales, y los campos Hora centro y Tiene vuelta.</p>
+
+                <p>A diferencia de -Servicios esporádicos-, en los siniestros Tiene vuelta aparece siempre a 0: el servicio se graba sin vuelta salvo que la indique expresamente. Si el paciente tiene que volver, ponga 1 e indique la hora de la vuelta. Por defecto aparece 23:59, para cuando todavía no se sabe la hora.</p>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Si indica que el servicio tiene vuelta, también es obligatoria la Empresa genera de la vuelta y, si su empresa tiene la zona como obligatoria, la Zona servicio de la vuelta.</p>
+                </div>
+
+                <h3>Datos del paciente</h3>
+
+                <p>El cursor empieza en los apellidos del paciente. Se busca por apellidos y nombre igual que en -Servicios esporádicos-: si existe, se hace doble clic sobre el registro para traer sus datos. Si no existe, se puede dar de alta desde aquí.</p>
+
+                <h3>Clasificación del siniestro: Extra1 y Extra2</h3>
+
+                <p>En los siniestros, los campos Extra1 y Extra2 sirven para clasificar el servicio. Sus valores los define cada empresa en las ventanas -Extra1- y -Extra2- del módulo Mantenimientos. Por ejemplo, Extra1 puede recoger el tipo de siniestro y Extra2 el síntoma.</p>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>En -Servicios esporádicos- estos mismos campos existen, pero suelen usarse para otros fines. Consulte con el administrador qué significan en su empresa.</p>
+                </div>
+
+                <h3>Conflictividad</h3>
+
+                <p>Junto a Extra2 aparece una casilla de un dígito con la conflictividad del paciente. En -Servicios esporádicos- está oculta. GAM la rellena automáticamente con el valor de Conflictividad de la ficha del paciente (ver -Pacientes-). Si ese valor se cambia en la ficha, también se actualiza en sus servicios. El significado de cada nivel lo define cada empresa.</p>
+
+                <h3>Tipo de vehículo</h3>
+
+                <p>Revise el Tipo vehículo para que corresponda a la unidad que tiene que atender el servicio (UCI/UVI o VIR). Los valores por defecto del usuario pueden proponer otro tipo, por ejemplo COLECTIVA.</p>
+
+                <h3>Tipo servicio</h3>
+
+                <p>El campo Tipo servicio aparece con el valor S (Siniestro/UVI/VIR).</p>
+
+                <h2>Iconografía y acciones</h2>
+
+                <table class="table-manual">
+                    <thead>
+                        <tr>
+                            <th>Icono</th>
+                            <th>Función</th>
+                            <th>Descripción/Atajo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/iconos/icon_nuevo_f2.png" alt="icon_nuevo_f2.png" class="icon-inline"></td>
+                            <td>Registro nuevo</td>
+                            <td>F2. Abre un registro en blanco para coger un nuevo servicio.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_guardar_f5.png" alt="icon_guardar_f5.png" class="icon-inline"></td>
+                            <td>Grabar</td>
+                            <td>F5. Guarda el servicio. A partir de ese momento los cambios se gestionan en -Mantenimiento de servicios-.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_copiar-visita.png" alt="icon_copiar-visita.png" class="icon-inline"></td>
+                            <td>Copiar visita</td>
+                            <td>Duplica el servicio grabado para otros días. Ver -Servicios esporádicos-.</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/iconos/icon_cerrar_f12.png" alt="icon_cerrar_f12.png" class="icon-inline"></td>
+                            <td>Cerrar / instrucciones</td>
+                            <td>F12. Con el botón izquierdo se cierra la ventana; con el derecho se abre la ayuda.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="note-box">
+                    <div class="box-title">Nota</div>
+                    <p>Si sale de la ventana sin haber grabado, GAM pregunta "No ha guardado el servicio. ¿Quiere salir?" para evitar que se pierda la petición.</p>
+                </div>
+
+                <h2>Proceso recomendado: dar de alta un siniestro</h2>
+
+                <div class="steps-box">
+                    <div class="box-title">Pasos</div>
+                    <p>Dar de alta un siniestro</p>
+                </div>
+
+                <ul>
+                    <li>Busque al paciente por apellidos y nombre. Si existe, doble clic para cargar sus datos; si no, dé de alta sus datos aquí.</li>
+                    <li>Complete el origen y, si se conoce, el destino.</li>
+                    <li>Indique el Motivo traslado, que es obligatorio, y el tipo de traslado.</li>
+                    <li>Elija el Tipo vehículo que corresponda (UCI/UVI o VIR).</li>
+                    <li>Clasifique el siniestro en Extra1 y Extra2 según los criterios de su empresa.</li>
+                    <li>Complete la movilidad y las condiciones del paciente.</li>
+                    <li>Indique el Lote/Mutua y revise la Empresa genera y la Empresa factura, que también son obligatorios.</li>
+                    <li>Si el paciente tiene que volver, ponga 1 en Tiene vuelta e indique la hora.</li>
+                    <li>Pulse Grabar (F5).</li>
+                </ul>
+
+                <div class="alert-box">
+                    <div class="box-title">Importante</div>
+                    <p>Para grabar son obligatorios el Motivo traslado, el Lote/Mutua, la Empresa genera y la Empresa factura. Si falta alguno, GAM muestra "Faltan datos por rellenar", sitúa el cursor en el campo que falta y no graba el servicio. Según la configuración de su empresa, también pueden ser obligatorias la Zona servicio y la identificación del paciente.</p>
+                </div>
+
+                <h2>Qué NO se hace en esta ventana</h2>
+
+                <ul>
+                    <li>No se adjudica el vehículo ni se sigue el servicio: eso se hace en -Adjudicación de servicios-.</li>
+                    <li>No se modifican servicios ya grabados: eso se hace en -Mantenimiento de servicios-.</li>
+                    <li>No se dan de alta servicios normales ni urgencias: cada uno tiene su propia ventana (-Servicios esporádicos- y -Urgencias-).</li>
+                    <li>No se definen los valores de Extra1 y Extra2: se crean en sus propias ventanas de Mantenimientos.</li>
+                </ul>
+
+                <h2>Notas importantes</h2>
+
+                <ul>
+                    <li>Una vez grabado, el servicio se corrige o completa desde -Mantenimiento de servicios-.</li>
+                    <li>Si todavía no se conoce la dirección de destino, se puede dejar en blanco: GAM graba el servicio igualmente y el destino se completa después.</li>
+                    <li>El CIP del paciente es necesario para poder facturar el servicio a la Administración Pública.</li>
+                </ul>
+
+                <h2>Permisos necesarios</h2>
+
+                <p>Si los iconos aparecen desactivados, es posible que su usuario no tenga permiso para dar de alta servicios. Consulte con el administrador del sistema de su empresa (Utilidades → -Permiso de Usuarios-).</p>
+
+                <h2>Casos de uso comunes</h2>
+
+                <h3>Traslado interhospitalario en UCI con ida y vuelta</h3>
+
+                <p>Un hospital solicita una UCI para trasladar a un paciente a otro centro para una prueba, con regreso el mismo día. El coordinador busca al paciente, completa el origen (hospital) y el destino, elige el motivo, el tipo de traslado y el tipo de vehículo UCI, clasifica el siniestro en Extra1/Extra2 e indica el lote/mutua. Como el paciente vuelve, pone 1 en Tiene vuelta con la hora prevista y graba con F5. El servicio aparece como pendiente en -Adjudicación de servicios-.</p>
+
+                <h2>Preguntas frecuentes</h2>
+
+                <p>¿En qué se diferencia esta ventana de -Servicios esporádicos-? El formulario es el mismo. Cambia el tipo de servicio (S), que Tiene vuelta aparece siempre a 0, que Extra1 y Extra2 sirven para clasificar el siniestro y que el servicio se destaca con su propio color en la pantalla de coordinación.</p>
+
+                <p>¿Por qué Tiene vuelta aparece a 0? Porque en los siniestros GAM no propone la vuelta por defecto. Si el paciente tiene que volver, ponga 1 e indique la hora.</p>
+
+                <p>¿Qué pongo en Extra1 y Extra2? Los valores que su empresa haya definido para clasificar los siniestros (por ejemplo, tipo de siniestro y síntoma). Si no sabe cuál usar, consulte con el administrador.</p>
+
+                <p>¿Qué es la casilla que aparece junto a Extra2? Es la conflictividad del paciente. GAM la trae de su ficha; consulte -Pacientes-.</p>
+
+                <p>¿Cómo se distingue un siniestro en la pantalla de coordinación? En -Adjudicación de servicios- los siniestros aparecen destacados con un color propio. Consulte la leyenda de colores de esa ventana.</p>
+
+                <p>Me sale "Lote/cliente inactivo" al grabar. El lote/mutua elegido está desactivado. Elija otro o consulte con el administrador.</p>
 
                 <h2>Enlaces recomendados</h2>
 
-                <p>-Servicios esporádicos- · -Urgencias- · -Adjudicación de servicios-</p>
+                <p>-Servicios esporádicos- · -Urgencias- · -Adjudicación de servicios- · -Mantenimiento de servicios- · -Pacientes- · -Extra1- · -Extra2- · -Valores defecto usuario-</p>
             <!-- GAM:FIN:coord-402-siniestros -->
             </section>
 
